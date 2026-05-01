@@ -75,7 +75,7 @@ The +130% boolean regression the paper documents under 2-way labels at
 
 ```bash
 # On a GPU host:
-cd strict-ft-eval
+cd valid-json-wrong-answer
 source venv/bin/activate
 export HF_HOME=/workspace/hf_cache   # or wherever your HF cache lives
 pip install peft

@@ -14,3 +14,8 @@ peft>=0.10
 datasets
 rouge-score
 llguidance
+
+# The per-grammar-role analysis is delegated to valjson; src/decompose.py
+# is a thin CLI wrapper around valjson.decompose.decompose_loss_batch.
+# Pin to the major version published with this paper.
+valjson>=2.0,<3

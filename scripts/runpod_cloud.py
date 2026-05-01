@@ -551,7 +551,7 @@ def cmd_setup(args):
 
     # Step 3: Write CLAUDE.md for the submissions project
     print("\n=== Step 3: Configure project CLAUDE.md ===")
-    claude_md = r"""# CLAUDE.md — strict-ft-eval (RunPod)
+    claude_md = r"""# CLAUDE.md — valid-json-wrong-answer (RunPod)
 
 ## Project
 Per-grammar-role loss decomposition for structured JSON output evaluation.
@@ -559,7 +559,7 @@ Per-grammar-role loss decomposition for structured JSON output evaluation.
 ## Environment (RunPod)
 ```bash
 export HF_HOME=/workspace/hf_cache
-cd /workspace/strict-ft-eval
+cd /workspace/valid-json-wrong-answer
 ```
 
 ## Key Commands
@@ -575,8 +575,8 @@ bash scripts/run_experiment.sh 32b
 bash scripts/run_experiment.sh 7b
 bash scripts/run_experiment.sh 05b
 
-# Summarize results
-python scripts/summarize_results.py
+# Build all paper tables (LaTeX bodies + console preview)
+python scripts/build_tables.py
 ```
 
 ## Conventions
@@ -587,7 +587,7 @@ python scripts/summarize_results.py
 
     # Write via heredoc over SSH
     run_remote(
-        "cat > /workspace/strict-ft-eval/CLAUDE.md << 'CLAUDEMD_EOF'\n"
+        "cat > /workspace/valid-json-wrong-answer/CLAUDE.md << 'CLAUDEMD_EOF'\n"
         + claude_md
         + "CLAUDEMD_EOF"
     )

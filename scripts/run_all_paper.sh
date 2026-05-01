@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Reproduce every experiment referenced in "Valid JSON, Wrong Answer".
-# Designed for a fresh RunPod A100 80GB with /workspace/strict-ft-eval present.
+# Designed for a fresh RunPod A100 80GB with /workspace/valid-json-wrong-answer present.
 # Idempotent: re-running picks up where any earlier phase left off, because
 # every underlying script skips outputs that already exist.
 #

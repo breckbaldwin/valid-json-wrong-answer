@@ -1,4 +1,4 @@
-# strict-ft-eval
+# valid-json-wrong-answer
 
 Per-grammar-role loss decomposition for evaluating structured JSON output.
 
@@ -12,10 +12,10 @@ This repo accompanies the paper *"Valid JSON, Wrong Answer: Fine-Tuning Degrades
 ## Setup
 
 ```bash
-git clone https://github.com/breckbaldwin/strict-ft-eval.git
-cd strict-ft-eval
+git clone https://github.com/breckbaldwin/valid-json-wrong-answer.git
+cd valid-json-wrong-answer
 python -m venv venv #may be `python3 -m venv .venv`
-source .venv/bin/activate
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -136,14 +136,20 @@ checkpoints/
 └── <dataset>_pcl_qwen<scale>/lora_epoch5/                          (Phase 3 PCL-FT adapters)
 ```
 
-### Mac-side analysis after pod runs
+### Local compute-side analysis after pod runs
 
 After Phase 2 / 3 / 4 complete on a pod, rsync the `results/`
 directory back, then regenerate the per-tag `.md` sections locally:
 
+#### Table 1
+
+
+
+
+
 ```bash
 # On Mac
-rsync -avz user@pod:/path/strict-ft-eval/results/ results/
+rsync -avz user@pod:/path/valid-json-wrong-answer/results/ results/
 
 # Generate per-tag analysis files (instant; no GPU needed)
 for tag in $(ls results/margin_gating/*.json | xargs -n1 basename | sed 's/.json$//'); do
@@ -256,7 +262,7 @@ container disk; both need room.
 
 ```bash
 # Launch a pod (from your local machine)
-python scripts/runpod_cloud.py launch --gpu "A100 PCIe" --name strict-ft-eval
+python scripts/runpod_cloud.py launch --gpu "A100 PCIe" --name valid-json-wrong-answer
 
 # SSH into the pod
 python scripts/runpod_cloud.py ssh

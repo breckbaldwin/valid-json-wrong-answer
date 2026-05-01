@@ -46,14 +46,10 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(REPO_ROOT / "scripts"))
 
-# Reuse the confidence-extraction primitives from the baseline script.
-from runpod_baseline import (
-    build_enum_token_map,
-    find_enum_positions,
-    analyze_example,
-)
+# Confidence extraction is delegated to valjson — same primitive that
+# backs `valjson --confidence` on the CLI.
+from valjson.confidence import analyze_confidence
 
 SCALES: Dict[str, str] = {
     "0.5b": "Qwen/Qwen2.5-0.5B-Instruct",
@@ -150,8 +146,8 @@ def eval_scale(dataset_key: str, scale: str, model_name: str, ckpt_path: Path,
     with open(test_path) as f:
         examples = [json.loads(line) for line in f if line.strip()]
 
-    enum_maps = build_enum_token_map(schema, tokenizer)
-    print(f"[eval][{dataset_key}][{scale}] fields: {list(enum_maps.keys())}; records: {len(examples)}")
+    enum_field_names = [k for k, p in schema.get("properties", {}).items() if "enum" in p]
+    print(f"[eval][{dataset_key}][{scale}] fields: {enum_field_names}; records: {len(examples)}")
 
     all_fields = []
     t1 = time.time()
@@ -162,11 +158,20 @@ def eval_scale(dataset_key: str, scale: str, model_name: str, ckpt_path: Path,
         if not prompt or not target:
             continue
         try:
-            fields = analyze_example(
+            fields = analyze_confidence(
                 model, tokenizer, prompt, target, schema,
-                enum_maps, "cuda", example_id,
+                device="cuda", example_id=example_id,
             )
-            all_fields.extend(fields)
+            for fc in fields:
+                all_fields.append({
+                    "example_id": fc.example_id,
+                    "field":      fc.field_name,
+                    "target":     fc.target_value,
+                    "top":        fc.top_value,
+                    "top_prob":   fc.top_prob,
+                    "correct":    fc.correct,
+                    "probs":      fc.probs,
+                })
         except Exception as e:
             print(f"[eval][{dataset_key}][{scale}]  example {example_id} failed: {e}")
             continue

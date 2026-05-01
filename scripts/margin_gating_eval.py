@@ -10,6 +10,11 @@ Pipeline:
     valjson --confidence   →   probs JSON
     probs JSON             →   threshold sweep + RESULTS.md section
 
+Per-record margin and per-threshold commit/abstain decisions are delegated
+to `valjson.gate.gate_record` (the same primitive that backs the
+`valjson --gate` CLI), so this script stays in lockstep with the public
+tool. The threshold sweep is the paper-specific layer on top.
+
 Usage (single run, all enum fields in the schema — default):
     python scripts/margin_gating_eval.py \\
         --schema /path/to/schema.json \\
@@ -45,6 +50,8 @@ import sys
 from collections import Counter
 from pathlib import Path
 from typing import Dict, List, Optional
+
+from valjson.gate import gate_record, COMMIT, ABSTAIN
 
 DEFAULT_RESULTS_DIR = Path(__file__).resolve().parent.parent / "results" / "margin_gating"
 
@@ -99,19 +106,21 @@ def load_field_records(probs_path: Path, field_name: str) -> List[Dict]:
     return records
 
 
-def _ranked_probs(probs: Dict[str, float]):
-    return sorted(probs.items(), key=lambda kv: -kv[1])
+def compute_margins(records: List[Dict], field_name: str) -> List[Dict]:
+    """Attach margin (top − second) and top value to each record.
 
-
-def compute_margins(records: List[Dict]) -> List[Dict]:
-    """Attach margin (top − second) to each record."""
+    Uses `valjson.gate.gate_record` so the margin formula is shared
+    with `valjson --gate` and stays in sync with the published tool.
+    Threshold is set to 0 here because we only need the margin/top;
+    the per-threshold commit/abstain decisions are made downstream in
+    `threshold_sweep` (which also calls `gate_record`).
+    """
     for r in records:
-        ranked = _ranked_probs(r["probs"])
-        top_v, top_p = ranked[0]
-        second_p = ranked[1][1] if len(ranked) > 1 else 0.0
-        r["top"] = top_v
-        r["top_prob"] = top_p
-        r["margin"] = top_p - second_p
+        gates = gate_record({field_name: r["probs"]}, threshold=0.0)
+        fg = gates[0]
+        r["top"] = fg.top_value
+        r["top_prob"] = fg.top_prob
+        r["margin"] = fg.margin
     return records
 
 
@@ -132,7 +141,7 @@ def per_class_margin_stats(records: List[Dict]) -> List[Dict]:
     return rows
 
 
-def threshold_sweep(records: List[Dict], abstain_target: Optional[str]) -> List[Dict]:
+def threshold_sweep(records: List[Dict], field_name: str, abstain_target: Optional[str]) -> List[Dict]:
     """For each threshold: commit/abstain counts, committed accuracy, and
     — if `abstain_target` is set — abstention rate on records whose gold
     equals the abstain target.
@@ -140,6 +149,9 @@ def threshold_sweep(records: List[Dict], abstain_target: Optional[str]) -> List[
     For fields without an abstain target (pure boolean, no natural
     underspecified class), the abstention-rate column is reported as
     `None`; coverage and committed accuracy are always reported.
+
+    Per-record commit/abstain decisions come from `valjson.gate.gate_record`
+    so the threshold semantics are identical to `valjson --gate`.
     """
     discussed = [r for r in records if r["target"] != abstain_target]
     undiscussed = [r for r in records if r["target"] == abstain_target] if abstain_target else []
@@ -148,8 +160,10 @@ def threshold_sweep(records: List[Dict], abstain_target: Optional[str]) -> List[
 
     rows = []
     for thr in THRESHOLDS:
-        commits = [r for r in records if r["margin"] >= thr]
-        abstains = [r for r in records if r["margin"] < thr]
+        commits, abstains = [], []
+        for r in records:
+            decision = gate_record({field_name: r["probs"]}, threshold=thr)[0].decision
+            (commits if decision == COMMIT else abstains).append(r)
 
         disc_commits = [r for r in commits if r["target"] != abstain_target]
         disc_correct = sum(1 for r in disc_commits if r["top"] == r["target"])
@@ -321,7 +335,7 @@ def regenerate_index(results_dir: Path) -> None:
         "Reproduce any run:",
         "",
         "```bash",
-        "source strict-ft-eval/.venv/bin/activate",
+        "source valid-json-wrong-answer/.venv/bin/activate",
         "python scripts/margin_gating_eval.py \\",
         "    --schema <schema.json> --data <test.jsonl> \\",
         "    --model <hf-name> --device mps \\",
@@ -397,12 +411,12 @@ def main():
         enum_values = schema_fields[name]
         role = field_role(enum_values)
         abstain_t = args.abstain_target if args.abstain_target else auto_abstain_target(enum_values)
-        records = compute_margins(load_field_records(probs_path, name))
+        records = compute_margins(load_field_records(probs_path, name), field_name=name)
         if not records:
             print(f"WARN: no records for field '{name}'; skipping", file=sys.stderr)
             continue
         class_stats = per_class_margin_stats(records)
-        sweep = threshold_sweep(records, abstain_t)
+        sweep = threshold_sweep(records, field_name=name, abstain_target=abstain_t)
         field_reports.append({
             "name": name,
             "role": role,

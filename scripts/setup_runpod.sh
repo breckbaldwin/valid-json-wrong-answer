@@ -1,30 +1,30 @@
 #!/bin/bash
-# Set up a RunPod pod for strict-ft-eval experiments.
+# Set up a RunPod pod for valid-json-wrong-answer experiments.
 # Run this after SSH-ing into the pod.
 #
 # Usage:
 #   bash scripts/setup_runpod.sh <GIT_REPO_URL> <HF_TOKEN>
 #
 # Example:
-#   bash scripts/setup_runpod.sh https://github.com/youruser/strict-ft-eval.git hf_abc123...
+#   bash scripts/setup_runpod.sh https://github.com/youruser/valid-json-wrong-answer.git hf_abc123...
 
 set -e
 
 if [ $# -lt 2 ]; then
     echo "Usage: bash scripts/setup_runpod.sh <GIT_REPO_URL> <HF_TOKEN>"
     echo ""
-    echo "  GIT_REPO_URL  — HTTPS or SSH URL to the strict-ft-eval repo"
+    echo "  GIT_REPO_URL  — HTTPS or SSH URL to the valid-json-wrong-answer repo"
     echo "  HF_TOKEN      — HuggingFace token (needed to download Qwen models)"
     echo ""
     echo "Example:"
-    echo "  bash scripts/setup_runpod.sh https://github.com/youruser/strict-ft-eval.git hf_abc123..."
+    echo "  bash scripts/setup_runpod.sh https://github.com/youruser/valid-json-wrong-answer.git hf_abc123..."
     exit 1
 fi
 
 GIT_REPO_URL="$1"
 HF_TOKEN="$2"
 
-echo "=== Setting up strict-ft-eval on RunPod ==="
+echo "=== Setting up valid-json-wrong-answer on RunPod ==="
 echo "Repo: $GIT_REPO_URL"
 
 export HF_HOME=/workspace/hf_cache
@@ -38,15 +38,15 @@ echo "export HF_TOKEN=$HF_TOKEN" >> ~/.bashrc
 cd /workspace
 
 # Clone repo (or pull if exists)
-if [ -d "strict-ft-eval" ]; then
+if [ -d "valid-json-wrong-answer" ]; then
     echo "Repo exists, pulling latest..."
-    cd strict-ft-eval && git pull && cd ..
+    cd valid-json-wrong-answer && git pull && cd ..
 else
     echo "Cloning repo..."
-    git clone "$GIT_REPO_URL" strict-ft-eval
+    git clone "$GIT_REPO_URL" valid-json-wrong-answer
 fi
 
-cd strict-ft-eval
+cd valid-json-wrong-answer
 
 # Install dependencies
 echo "Installing Python dependencies..."
@@ -69,6 +69,6 @@ echo ""
 echo "=== Setup complete ==="
 echo ""
 echo "Next steps:"
-echo "  cd /workspace/strict-ft-eval"
+echo "  cd /workspace/valid-json-wrong-answer"
 echo "  bash scripts/smoketest.sh"
 echo "  bash scripts/run_experiment.sh 32b   # or 7b, 05b, all"

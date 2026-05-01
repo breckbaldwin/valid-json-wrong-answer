@@ -7,9 +7,10 @@ valjson-`--confidence`-compatible JSON files. The outputs are meant to be
 rsync'd back to the evaluation machine, where `scripts/margin_gating_eval.py
 --reuse-probs` consumes them for the threshold sweep + per-field analysis.
 
-Self-contained — does not import `valjson`. Runs on any machine with
-`torch` + `transformers` + the model weights available. This avoids
-coupling the RunPod environment to the valjson dev tree.
+Confidence extraction is delegated to `valjson.confidence.analyze_confidence`
+(the same primitive that backs `valjson --confidence` on the CLI). The pod
+must have `valjson>=2.0` installed — `requirements.txt` pins it, and
+`setup_runpod.sh` installs from PyPI.
 
 Usage (run 32B first as a smoke, then full sweep):
 
@@ -37,16 +38,19 @@ script can be restarted after an interruption without re-running finished
 datasets. Delete the specific output file to force a redo.
 
 Transport back to the Mac (example with rsync):
-    rsync -avz user@pod:/path/strict-ft-eval/results/margin_gating/*.json \
-        /Users/bb/forgejo/strict-ft-eval/results/margin_gating/
+    rsync -avz user@pod:/path/valid-json-wrong-answer/results/margin_gating/*.json \
+        /Users/bb/forgejo/valid-json-wrong-answer/results/margin_gating/
 """
 
 import argparse
 import json
 import sys
 import time
+from dataclasses import asdict
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, Optional, Tuple
+
+from valjson.confidence import analyze_confidence
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -78,117 +82,6 @@ SCALES: Dict[str, str] = {
 SCALE_ORDER = ["32b", "7b", "0.5b"]
 
 
-# --- Confidence extraction (self-contained, mirrors valjson --confidence) -
-
-def build_enum_token_map(schema: dict, tokenizer) -> Dict[str, Dict[str, int]]:
-    """field_name -> {allowed_value: first_token_id}. Only fields whose
-    schema has an `enum` get an entry."""
-    properties = schema.get("properties", {})
-    out = {}
-    for key, prop in properties.items():
-        if "enum" not in prop:
-            continue
-        m = {}
-        for val in prop["enum"]:
-            tids = tokenizer.encode(val, add_special_tokens=False)
-            if tids:
-                m[val] = tids[0]
-        if m:
-            out[key] = m
-    return out
-
-
-def find_enum_positions(json_str: str, schema: dict) -> List[Tuple[str, str, int]]:
-    """For each enum field present in the target JSON, locate the
-    character offset where the field's value string starts. Returns
-    list of (field_name, gold_value, char_offset_of_value_start)."""
-    properties = schema.get("properties", {})
-    try:
-        obj = json.loads(json_str)
-    except json.JSONDecodeError:
-        return []
-    results = []
-    for key, prop in properties.items():
-        if "enum" not in prop:
-            continue
-        if key not in obj:
-            continue
-        val = str(obj[key])
-        search = f'"{key}"'
-        idx = json_str.find(search)
-        if idx < 0:
-            continue
-        colon_idx = json_str.find(":", idx + len(search))
-        if colon_idx < 0:
-            continue
-        # Skip to the opening quote of the value.
-        quote_idx = json_str.find('"', colon_idx)
-        if quote_idx < 0:
-            continue
-        results.append((key, val, quote_idx + 1))
-    return results
-
-
-def analyze_example(
-    model, tokenizer, prompt: str, target_json: str, schema: dict,
-    enum_maps: Dict[str, Dict[str, int]], device: str, example_id: str,
-) -> List[dict]:
-    """Return a list of per-constrained-field confidence records, matching
-    `valjson --confidence` output fields: {example_id, field, target,
-    top, top_prob, correct, probs}."""
-    import torch
-    import torch.nn.functional as F
-
-    prompt_ids = tokenizer.encode(prompt, add_special_tokens=True)
-    target_ids = tokenizer.encode(target_json, add_special_tokens=False)
-
-    input_ids = prompt_ids + target_ids
-    input_tensor = torch.tensor([input_ids], device=device)
-
-    with torch.no_grad():
-        outputs = model(input_ids=input_tensor)
-        logits = outputs.logits
-
-    prompt_len = len(prompt_ids)
-    # Logits at positions that predict each target token:
-    pred_logits = logits[0, prompt_len - 1 : prompt_len - 1 + len(target_ids), :]
-
-    # Char-to-target-token map so we can look up the right position.
-    char_to_token: Dict[int, int] = {}
-    decoded = ""
-    for tok_idx, tid in enumerate(target_ids):
-        tok_text = tokenizer.decode([tid])
-        for ch_off in range(len(tok_text)):
-            char_to_token[len(decoded) + ch_off] = tok_idx
-        decoded += tok_text
-
-    records = []
-    for field_name, gold_value, char_off in find_enum_positions(target_json, schema):
-        if field_name not in enum_maps:
-            continue
-        tok_pos = char_to_token.get(char_off)
-        if tok_pos is None:
-            continue
-        pos_logits = pred_logits[tok_pos]
-        value_to_tid = enum_maps[field_name]
-        enum_tids = list(value_to_tid.values())
-        enum_logits = pos_logits[enum_tids]
-        enum_probs = F.softmax(enum_logits, dim=-1).cpu().tolist()
-        tid_to_value = {tid: val for val, tid in value_to_tid.items()}
-        probs = {tid_to_value[tid]: p for tid, p in zip(enum_tids, enum_probs)}
-        top_val, top_prob = max(probs.items(), key=lambda kv: kv[1])
-        records.append({
-            "example_id": example_id,
-            "field": field_name,
-            "target": gold_value,
-            "top": top_val,
-            "top_prob": top_prob,
-            "correct": top_val == gold_value,
-            "probs": probs,
-        })
-    return records
-
-
 # --- Orchestration --------------------------------------------------------
 
 def process_dataset(
@@ -215,8 +108,8 @@ def process_dataset(
     if max_examples:
         examples = examples[:max_examples]
 
-    enum_maps = build_enum_token_map(schema, tokenizer)
-    print(f"[{scale_label}][{short_name}] schema fields with enum: {list(enum_maps.keys())}")
+    enum_field_names = [k for k, p in schema.get("properties", {}).items() if "enum" in p]
+    print(f"[{scale_label}][{short_name}] schema fields with enum: {enum_field_names}")
     print(f"[{scale_label}][{short_name}] examples: {len(examples)}")
 
     all_fields = []
@@ -229,11 +122,20 @@ def process_dataset(
             print(f"[{scale_label}][{short_name}]  skip example {example_id} (missing prompt/target)")
             continue
         try:
-            fields = analyze_example(
+            fields = analyze_confidence(
                 model, tokenizer, prompt, target, schema,
-                enum_maps, device, example_id,
+                device=device, example_id=example_id,
             )
-            all_fields.extend(fields)
+            for fc in fields:
+                all_fields.append({
+                    "example_id": fc.example_id,
+                    "field":      fc.field_name,
+                    "target":     fc.target_value,
+                    "top":        fc.top_value,
+                    "top_prob":   fc.top_prob,
+                    "correct":    fc.correct,
+                    "probs":      fc.probs,
+                })
         except Exception as e:
             print(f"[{scale_label}][{short_name}]  example {example_id} failed: {e}")
             continue
