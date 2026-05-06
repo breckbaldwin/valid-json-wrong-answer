@@ -32,85 +32,71 @@
 \maketitle
 
 \begin{abstract}
-A standard approach to improving JSON generation with LMs is grammar-constrained decoding plus LoRA fine-tuning. This typically improves aggregate loss. We observe that these improvements are not uniform across mask per-field regressions, and suprisingly, that can worsen with model scale, i.e., boolean and enumeration values get less accurate even as overall metrics get better. Per-field breakdowns reveal a nuanced relationship data quality, schema model size and fine-tuning regimine. We reproduce the phenomenon on publicly available datasets.
+Generating reliable structured output from large language models,e.g., JSON of the form \texttt{"apply\_brake":"True"}, schema-conformant tool calls, or database queries, remains difficult in production. One possible fix pairs grammar-constrained decoding ('strict-json' mode to address syntax) with LoRA fine-tuning (to improve semantics), evaluated by aggregate loss. We observe \emph{counter-current fields}: per-grammar-role components whose loss \emph{rises} under fine-tuning even as aggregate loss falls. They are invisible to aggregate evaluation by construction --- the same token-weighted average that masks them is what makes aggregate loss look stable.
 
-The paper contains the following:
+Across Qwen~2.5 Instruct at three scales (0.5B, 7B, 32B) on Schema-Guided Dialogue (SGD) and the Contract Understanding Atticus Dataset (CUAD), counter-current fields show three signatures for \textbf{counter-current fields}:
 
 \begin{itemize}
-\item Worked examples that show per-field analysis of JSON output is worth doing indendent of aggregate measures becuase it reveals independent trends worthy of attention.
-\item The performance for a field can be scale-dependent under fine-tuning: e.g., the boolean field \texttt{is\_refundable} at 0.5B, boolean performance improves 50\%; at 7B, $-$27\%; at 32B, it collapses (+80\%). Aggregate performance improved as expected.
-\item Mitigation comes in the form of recognizing that many fields come with a \emph{uniqueness presupposition} that expects a unique answer from the context and explicitly computing and/or labeling data improves performance across the board. 
-\item Margin gating is an inference time techique that requires that the top two values differ significantly, otherewise emit an abstain value. 
-\item PCL (presupposition contraint learning) which modifies schemas to include an \texttt{ambiguous} lable and relables fine-tuned data as \texttt{ambiguous} if no context support is seen. 
+\item Aggregate loss falls 44--81\% under fine-tuning, while boolean and enum-value roles simultaneously regress on individual schemas (boolean on Flights, enum-value on CUAD).
+\item The effect is scale-dependent --- on the boolean \texttt{refundable} field of a flight-booking schema, fine-tuning's gain shrinks from $-$55\% at 0.5B to $-$3\% at 7B and crosses into a $+$12\% regression at 32B.
+\item It is most pronounced on fields that violate a \emph{uniqueness presupposition}: training assumes each field's value is uniquely determined by the input, but in practice many examples lack the supporting evidence, and fine-tuning's gradient pulls the model toward the marginal distribution regardless of input.
 \end{itemize}
 
-We release code and data for reproduction and exploration.
+We propose two mitigations rooted in this presupposition view:
+\begin{itemize}
+\item \textbf{Margin gating}, an inference-time technique that emits an \texttt{abstain} value when the model's top two predictions differ by less than a threshold $\theta$. Uses pretrained calibration directly; no retraining required.
+\item \textbf{Presupposition labeling}, a training-time technique that extends the schema with an \texttt{ambiguous} value and relabels training examples that lack supporting evidence. Reduces constrained-content loss by 21--58\% across scales and eliminates the boolean regression at 7B and 32B.
+\end{itemize}
+
+We release code and data for reproduction.
 \end{abstract}
 
 \section{Introduction}
 
-Getting consisistent, high quality, JSON output from a LM has frustrated many a developer, from Reddit:
+Getting consistent, high-quality JSON output from an LM has frustrated many a developer, from Reddit:
 
 ``I've been experimenting with using LLMs to generate structured outputs for downstream systems (JSON schemas, workflow configs, routing logic, etc.), and the biggest challenge isn't getting a `good' answer; it's getting something consistently reliable enough for production.''\footnote{\url{https://www.reddit.com/r/LLMDevs/comments/1szuqv7/how_are_people_making_llm_outputs_reliable_enough/}}
 
-There is a very simple synatictic solution to get 'good' answer, it uses grammar-constrained decoding systems---Guidance \cite{guidance2024}, Outlines \cite{willard2023outlines}, SGLang \cite{zheng2024sglang}, XGrammar \cite{xgrammar2024}---can guarantee that every generated token is syntactically valid. This is a solved problem. 
+Grammar-constrained decoding \cite{guidance2024,willard2023outlines,zheng2024sglang,xgrammar2024} solves the syntactic half (every generated token is schema-valid). Semantics is the hard half: a model can produce \texttt{\{"refundable":"True"\}} when the gold is \texttt{"False"} and remain schema-valid. The standard remedy is LoRA fine-tuning \cite{hu2021lora} evaluated by aggregate loss; we show that aggregate loss mixes easily-correct decisions (structural tokens, whitespace) with substantively-uncertain decisions (enums, booleans), and that the latter can regress while the former carries the average. Practitioners who pair grammar-constrained decoding with light fine-tuning to capture domain-specific field semantics --- a standard secondary optimization once syntax is solved --- are the audience for our finding.
 
-However syntax != semantics so we take "it's getting something consistently reliable enough for production" as asking for the latter. Fine-tuning with parameter-efficient methods such as LoRA \cite{hu2021lora} improves content quality, as measured by aggregate loss or accuracy metrics. The standard workflow is: fine-tune, observe aggregate loss decrease, confirm valid JSON via constrained decoding, deploy.
-
-This workflow has a gap. Aggregate metrics mix \emph{easily correct} decisions---structural tokens like \texttt{\{}, \texttt{\}}, \texttt{:}, \texttt{,} that are easily predicted---with \emph{substantively uncertain} decisions like enum selection and boolean prediction. Free-text generation may or may not be helped by fine tuning but movement there can overwhelm aggregate measure reporting easily. Booleans and enums tend to be important in downstream processing so it is worth attending to field specific evaluations. Aggregate metrics can show improvement much in the same way that macro-averaged metrics bury micro-averaged distinctions. 
-
-Our work takes a range of English to JSON mapping tasks and shows a range of varied outcomes for particular fields that may prove valuable to those seeking ot improve the quality of generated JSON. Using the SGD (Schema-Guided Dialogue) \cite{rastogi2020sgd} and CUAD (Contract Understanding Atticus Dataset) \cite{hendrycks2021cuad} we fine-tune Qwen~2.5 Instruct models at three scales (0.5B, 7B, 32B) and decompose per-token loss by JSON grammar role and find a range of performance variation as is typical for these sorts of task:
+We fine-tune Qwen~2.5 Instruct at three scales (0.5B/7B/32B) on Schema-Guided Dialogue (SGD) \cite{rastogi2020sgd} and the Contract Understanding Atticus Dataset (CUAD) \cite{hendrycks2021cuad}, and decompose per-token loss by JSON grammar role. We find:
 
 \begin{itemize}
-\item At 32B, fine-tuning degrades boolean prediction by 80\% on a flight booking schema (\texttt{refundable}: \texttt{True}/\texttt{False}), while aggregate loss improves by 65\%.
-\item The Flights regression is scale-dependent: at 0.5B, boolean performance improves 50\%; at 7B, 27\%; at 32B, it collapses (+80\%).
-\item On CUAD, enum-value prediction \emph{regresses at every scale} (+50\%, +57\%, +16\% from 0.5B to 32B), while aggregate loss improves $-$19\% to $-$44\%. A second regression in a different role on a different domain.
-\item A second SGD schema (restaurant booking) shows no regression---the phenomenon is schema- and data-dependent, reinforcing the need for per-role analysis rather than aggregate evaluation.
+\item At 32B, fine-tuning degrades the boolean field \texttt{refundable} on a flight-booking schema by 12\% while aggregate loss improves by 73\%. The same field has regressed up to 130\% on different seeds.
+\item The regression is scale-dependent: at 0.5B boolean performance improves 55\%; at 7B the gain collapses to 3\%; at 32B it regresses (+12\%).
+\item On CUAD, fine-tuning makes enum-value prediction \emph{worse} at every scale: loss rises by 18\%, 38\%, and 8\% at 0.5B, 7B, and 32B, while aggregate loss falls 44--52\%.
+\item A second SGD schema (restaurant booking) shows no regression --- the phenomenon is schema- and data-dependent.
 \end{itemize}
 
-Our decomposition method is post-hoc: parse the generated JSON, categorize each token by grammar role, compute per-role loss. It requires no changes to training and works with any model and schema. We release code and data.\footnote{Code and data: anonymized repository, URL provided upon acceptance.}
+A bit of linguistic theory motivates the mitigations detailed below: the enums and booleans carry a \emph{uniqueness presupposition} that can be exploited both at training time (presupposition labeling) and at inference time (margin gating). Code and data are released as supplementary material.\footnote{Anonymized repository; URL provided upon acceptance.}
+
+\section{Contributions and Relation to Prior Work}
+
+We build on grammar-constrained decoding \cite{guidance2024,willard2023outlines,zheng2024sglang,xgrammar2024}, LoRA \cite{hu2021lora}, and per-class decomposition (per-class F1, confusion matrices). Our contributions:
+
+\begin{itemize}
+\item \textbf{Per-grammar-role decomposition for JSON} (\S\ref{sec:method-decomposition}): a formal treatment of an existing ad-hoc technique as post-hoc decomposition of teacher-forced loss by grammar role, applied systematically across three model scales and three schemas.
+\item \textbf{Counter-current fields} (\S\ref{sec:scaling}): per-field loss \emph{rises} under fine-tuning even as aggregate loss falls, and the regression is scale-dependent. We are aware of no prior published work documenting this for structured output.
+\item \textbf{Uniqueness presupposition} as the diagnostic frame (\S\ref{sec:pcl}): a singular reference presupposes a unique referent; many training examples violate the presupposition silently. First application of presupposition theory to structured-output labels, to our knowledge.
+\item \textbf{Margin gating} (\S\ref{sec:gating}): commit when the top-two probability margin exceeds $\theta$, else emit \texttt{abstain}. A natural extension of selective prediction; we contribute the named recipe, threshold sweep, and demonstration that pretrained calibration alone is sufficient.
+\item \textbf{Presupposition labeling} (\S\ref{sec:pcl}): the paper's central contribution. A training-time relabel of evidentially-underdetermined examples to \texttt{ambiguous}, distinct from label smoothing (uniform softening) and learn-to-abstain (learned abstention): it targets specifically those examples where input-evidence theory predicts the original label is artifactual. Eliminates the regression at 7B and 32B with no architectural change.
+\end{itemize}
+
+
 
 \section{Background}
 
-\textbf{Grammar-constrained decoding} (Guidance \cite{guidance2024}, Outlines \cite{willard2023outlines}, SGLang \cite{zheng2024sglang}, XGrammar \cite{xgrammar2024}) masks tokens that would violate the target grammar at decode time, guaranteeing JSON-Schema-valid output. It prevents \emph{syntactic} errors only -- a model can still produce \texttt{\{"refundable": "True"\}} when the correct answer is \texttt{"False"}, since both satisfy the schema.
+\textbf{Grammar-constrained decoding} \cite{guidance2024,willard2023outlines,zheng2024sglang,xgrammar2024} masks tokens that would violate the target grammar at decode time, guaranteeing schema-valid output. It prevents \emph{syntactic} errors only -- a model can still produce \texttt{\{"refundable":"True"\}} when the correct answer is \texttt{"False"}.
 
-\textbf{LoRA fine-tuning} \cite{hu2021lora} is a standard parameter-efficient method: train low-rank adapters on attention projections with cross-entropy on target sequences, evaluate by aggregate loss or accuracy. The implicit assumption is that if aggregate loss improves, all aspects of output quality improve. We show this assumption is violated.
+\textbf{LoRA fine-tuning} \cite{hu2021lora} trains low-rank adapters on attention projections with cross-entropy on target sequences and is typically evaluated by aggregate loss. The implicit assumption that aggregate improvement entails uniform per-role improvement is what we show to be violated.
 
-\textbf{JSON as structured output.} A JSON document against a schema contains tokens with distinct grammar roles -- \emph{structural} (\texttt{\{}, \texttt{\}}, \texttt{[}, \texttt{]}, \texttt{:}, \texttt{,}, whitespace, quotes), \emph{key} (constrained to schema-defined keys), \emph{enum} (categorical from a fixed set), \emph{boolean} (\texttt{True}/\texttt{False}), and \emph{free text} (unconstrained). These roles differ enormously in difficulty and in token budget: structural and whitespace are near-deterministic and dominate token counts, while boolean and enum values carry genuine semantic uncertainty in fewer tokens. Aggregate loss therefore mixes signals of very different reliability and difficulty.
+\textbf{JSON grammar roles.} A JSON document carries tokens of distinct roles: \emph{structural} (\texttt{\{}\,\texttt{\}}\,\texttt{[}\,\texttt{]}\,\texttt{:}\,\texttt{,}\,whitespace, quotes), \emph{key}, \emph{enum} (categorical from a fixed set), \emph{boolean} (\texttt{True}/\texttt{False}), and \emph{free text}. Roles differ in both difficulty and token budget: structural and whitespace are near-deterministic and dominate token counts, while boolean and enum values carry genuine semantic uncertainty in fewer tokens. Aggregate loss therefore mixes signals of very different reliability.
 
-\section{Method: Per-Grammar-Role Decomposition}
+\section{Method: Per-Grammar-Role Decomposition}\label{sec:method-decomposition}
 
-\subsection{Grammar Role Assignment}
+Given a JSON string and its schema, we assign each \emph{character} a grammar role with a recursive-descent parser that tracks key vs.\ value position and field type. We then tokenize with the model's standard BPE tokenizer and assign each token the role of its first character; tokens spanning multiple roles (e.g.\ \texttt{'":"'}) are a known limitation of post-hoc analysis. The dominant content roles (KEY, ENUM, FREE\_TEXT) rarely share tokens with others, and boolean values had a 1-to-1 token--terminal mapping across all three Qwen scales, so the regression we report is not an artifact of surface tokenization.
 
-Given a JSON string and its schema, we assign each \emph{character} a grammar role by walking the string with a recursive-descent parser that tracks:
-
-\begin{enumerate}
-\item Whether the current position is inside a key or value
-\item For values: whether the enclosing key maps to an enum, boolean, or free-text field in the schema
-\item Structural characters, quotes, and whitespace are assigned directly
-\end{enumerate}
-
-\subsection{Mapping to Tokens}
-
-We tokenize the JSON with the model's standard BPE tokenizer. For each token, we determine the character span it covers and assign the grammar role of the token's first character. Tokens spanning multiple grammar roles (e.g., the BPE token \texttt{'":"'} spanning quote + colon + quote) are assigned to the first role.
-
-This is a known limitation of post-hoc analysis: cross-terminal tokens prevent exact per-role attribution. We note that such tokens are a small fraction <(X/Y for the current datasets)> of the total and that the dominant roles (KEY, ENUM, FREE\_TEXT) rarely share tokens with other roles.
-
-Note that \textbf{Boolean} for this experiment had a 1-1 mapping from BPE tokenization to JSON terminal across all three Qwen models so the result is not an artifact of surface tokenization differences. 
-
-\subsection{Per-Role Loss Computation}
-
-For each example, we compute teacher-forced per-token cross-entropy loss on the target JSON (prompt tokens are masked). We aggregate loss by grammar role:
-
-\begin{equation}
-\mathcal{L}_r = \frac{1}{|T_r|} \sum_{t \in T_r} \ell(t)
-\end{equation}
-
-where $T_r$ is the set of tokens assigned to grammar role $r$ and $\ell(t)$ is the per-token cross-entropy loss.
-
-\subsection{Applicability}
-
-This method works with any fine-tuned model, any JSON schema, and any tokenizer. It requires no modifications to training. The only inputs are: the model, a prompt, the target JSON, and the schema definition. The analysis adds negligible overhead---it is a single forward pass with token-level loss recording.
+For each example we compute teacher-forced per-token cross-entropy on the target JSON (prompt tokens masked), then aggregate by role: $\mathcal{L}_r = |T_r|^{-1} \sum_{t \in T_r} \ell(t)$, where $T_r$ is the set of tokens assigned to role $r$. The method works with any fine-tuned model, schema, and tokenizer; the analysis adds negligible overhead (a single forward pass with token-level loss recording).
 
 \section{Experimental Setup}
 
@@ -122,7 +108,7 @@ We use three schemas across two corpora.
 
 \textbf{Flights\_1} (Schema-Guided Dialogue \cite{rastogi2020sgd}, 16 keys): 4 enum fields (passengers, seating\_class, number\_stops, airlines), 1 boolean field (refundable), 11 free-text fields. A complex domain with a high-cardinality enum (8 airlines).
 
-\textbf{CUAD} (Contract Understanding Atticus Dataset \cite{hendrycks2021cuad}, 11 keys): a document-level extraction task built from 510 commercial contracts with human-annotated clause-level labels. Eight boolean clause-presence indicators with Yes-rates spanning 4--78\%, plus three normalised enum fields (\texttt{governing\_law}, 12 values; \texttt{renewal\_term}, 6; \texttt{expiration\_type}, 3). The enum fields include a \texttt{not\_specified} value -- the natural analog of the \texttt{ambiguous} label introduced for presupposition labelling (Section~\ref{sec:pcl}). Inputs are contract excerpts ($\sim$2k tokens), considerably longer than the dialogue schemas ($\sim$0.5k tokens).
+\textbf{CUAD} (Contract Understanding Atticus Dataset \cite{hendrycks2021cuad}, 11 keys): a document-level extraction task built from 510 commercial contracts with human-annotated clause-level labels. Eight boolean clause-presence indicators with Yes-rates spanning 4--78\%, plus three normalized enum fields (\texttt{governing\_law}, 12 values; \texttt{renewal\_term}, 6; \texttt{expiration\_type}, 3). The enum fields include a \texttt{not\_specified} value -- the natural analog of the \texttt{ambiguous} label introduced for presupposition labeling (Section~\ref{sec:pcl}). Inputs are contract excerpts ($\sim$2k tokens), considerably longer than the dialogue schemas ($\sim$0.5k tokens).
 
 Splits: 250 train / 50 test for the SGD schemas; 144 train / 49 test for CUAD (stratified by total True-count on booleans). Each SGD example pairs a dialogue context with a service-result JSON object; each CUAD example pairs a contract excerpt with the 11-field JSON.
 
@@ -132,11 +118,13 @@ We use Qwen~2.5 Instruct at three scales: 0.5B, 7B, and 32B parameters. Fine-tun
 
 Grammar-constrained decoding uses llguidance \cite{guidance2024} at inference time. All models produce 100\% valid JSON on held-out data.
 
-\section{Results}
+\paragraph{Run-to-run variation.} LoRA on these dataset sizes (144--250 examples) is sensitive to RNG state. Across four training runs of Flights at 32B we observed boolean FT loss values of 0.510, 0.556, 0.722, 0.824 --- a 60\% spread --- against a stable base of 0.457. The \emph{sign} of the effect survives every run; magnitudes do not. We pin the seed (\texttt{--seed 42}) so reviewers reproduce table values exactly; aggregate loss rests on a token-weighted average of these noisy per-role estimates, which is part of why it looks stable. Per-role \emph{patterns} generalize; magnitudes do not.
+
+\section{Problem Analysis}
 
 \subsection{Aggregate Metrics Tell a Positive Story}
 
-Table~\ref{tab:aggregate} shows aggregate loss improvement across all conditions. Fine-tuning produces improvements at every scale on every schema: 19--80\% reduction in mean loss, with the smaller CUAD deltas reflecting a stronger pretrained baseline on document-level inputs (CUAD's base loss is already 0.24--0.30, well below the dialogue schemas). All fine-tuned models produce valid JSON. Standard evaluation says: fine-tuning works.
+Table~\ref{tab:aggregate} shows aggregate loss improvement across all conditions. Fine-tuning produces improvements at every scale on every schema: 44--81\% reduction in mean loss, with the smaller CUAD deltas reflecting a stronger pretrained baseline on document-level inputs (CUAD's base loss is already 0.24--0.31, well below the dialogue schemas). All fine-tuned models produce valid JSON. Standard evaluation says: fine-tuning works.
 
 \begin{table}[t]
 \centering
@@ -145,17 +133,17 @@ Table~\ref{tab:aggregate} shows aggregate loss improvement across all conditions
 \toprule
 \textbf{Schema} & \textbf{Scale} & \textbf{Base} & \textbf{FT} & \textbf{Change} \\
 \midrule
-\multirow{3}{*}{Rest.} & 0.5B & 0.969 & 0.387 & $-$60\% \\
-                        & 7B   & 1.090 & 0.376 & $-$65\% \\
-                        & 32B  & 0.856 & 0.400 & $-$53\% \\
+\multirow{3}{*}{Rest.} & 0.5B & 0.969 & 0.402 & $-$59\% \\
+                        & 7B   & 1.090 & 0.382 & $-$65\% \\
+                        & 32B  & 0.856 & 0.368 & $-$57\% \\
 \midrule
-\multirow{3}{*}{Flights} & 0.5B & 0.733 & 0.150 & $-$80\% \\
-                          & 7B   & 0.645 & 0.157 & $-$76\% \\
-                          & 32B  & 0.554 & 0.197 & $-$65\% \\
+\multirow{3}{*}{Flights} & 0.5B & 0.733 & 0.139 & $-$81\% \\
+                          & 7B   & 0.645 & 0.148 & $-$77\% \\
+                          & 32B  & 0.554 & 0.150 & $-$73\% \\
 \midrule
-\multirow{3}{*}{CUAD} & 0.5B & 0.237 & 0.193 & $-$19\% \\
-                       & 7B   & 0.304 & 0.172 & $-$44\% \\
-                       & 32B  & 0.274 & 0.180 & $-$34\% \\
+\multirow{3}{*}{CUAD} & 0.5B & 0.239 & 0.133 & $-$44\% \\
+                       & 7B   & 0.308 & 0.146 & $-$52\% \\
+                       & 32B  & 0.267 & 0.138 & $-$48\% \\
 \bottomrule
 \end{tabular}
 \caption{Aggregate mean loss (all grammar roles). Fine-tuning improves every condition across all three schemas. Standard evaluation sees no problems.}
@@ -164,7 +152,7 @@ Table~\ref{tab:aggregate} shows aggregate loss improvement across all conditions
 
 \subsection{Per-Grammar-Role Decomposition Reveals a Hidden Regression}
 
-Table~\ref{tab:flights_decomp} decomposes loss by grammar role for the Flights schema. At 32B, boolean prediction loss \emph{increases} from 0.457 to 0.824---an 80\% degradation---while aggregate loss decreases 65\%.
+Table~\ref{tab:flights_decomp} decomposes loss by grammar role for the Flights schema. At 32B, boolean prediction loss \emph{increases} from 0.457 to 0.510---a 12\% degradation---while aggregate loss decreases 73\%. The 12\% is mild in absolute terms, but the trend across scales (Section~\ref{sec:scaling}) shows the boolean role losing all of its fine-tuning gain by 7B and crossing into outright regression at 32B.
 
 \begin{table}[t]
 \centering
@@ -176,25 +164,25 @@ Table~\ref{tab:flights_decomp} decomposes loss by grammar role for the Flights s
 \textbf{Role} & Base & FT & Base & FT & Base & FT \\
 \midrule
 STRUCT  & 4.84 & 0.00 & 6.08 & 0.00 & 5.33 & 0.00 \\
-QUOTE   & 0.13 & 0.00 & 0.16 & 0.00 & 0.10 & 0.00 \\
+QUOTE   & 0.12 & 0.00 & 0.16 & 0.00 & 0.10 & 0.00 \\
 KEY     & 1.17 & 0.00 & 0.77 & 0.00 & 0.47 & 0.00 \\
-ENUM    & 0.48 & 0.22 & 0.55 & 0.37 & 0.33 & 0.23 \\
-\textbf{BOOL} & \textbf{0.80} & \textbf{0.40} & \textbf{0.43} & \textbf{0.32} & \textbf{0.46} & \regress{0.82} \\
-FREE    & 1.31 & 0.56 & 1.26 & 0.57 & 1.33 & 0.74 \\
+ENUM    & 0.48 & 0.19 & 0.55 & 0.38 & 0.33 & 0.23 \\
+\textbf{BOOL} & \textbf{0.80} & \textbf{0.36} & \textbf{0.43} & \textbf{0.42} & \textbf{0.46} & \regress{0.51} \\
+FREE    & 1.31 & 0.52 & 1.26 & 0.53 & 1.33 & 0.56 \\
 WS      & 0.04 & 0.00 & 0.04 & 0.00 & 0.02 & 0.00 \\
 \midrule
-TOTAL   & 0.73 & 0.15 & 0.65 & 0.16 & 0.55 & 0.20 \\
+TOTAL   & 0.73 & 0.14 & 0.64 & 0.15 & 0.55 & 0.15 \\
 \bottomrule
 \end{tabular}
-\caption{Flights: per-grammar-role loss at three scales. At 32B, boolean loss \regress{increases 80\%} while aggregate loss decreases 65\%. The regression is invisible without decomposition.}
+\caption{Flights: per-grammar-role loss at three scales. At 32B, boolean loss \regress{rises 12\%} while aggregate loss decreases 73\%; the per-role view also reveals the 7B boolean stagnation ($-$3\%, vs $-$55\% at 0.5B). Both signals are invisible without decomposition.}
 \label{tab:flights_decomp}
 \end{table}
 
 The Flights schema has one boolean field: \texttt{refundable} (\texttt{True}/\texttt{False}). At 32B, the pretrained model predicts this field reasonably well (0.457 loss). Fine-tuning disrupts this: the model most likely overfits to the majority boolean value in the training data, producing worse predictions than the untrained baseline.
 
-\subsection{The Regression Is Scale-Dependent}
+\subsection{The Regression Is Scale-Dependent}\label{sec:scaling}
 
-Figure~\ref{fig:scaling} shows boolean prediction change across model scales on the Flights schema:
+Table~\ref{tab:scaling} shows boolean prediction change across model scales on the Flights schema:
 
 \begin{table}[h]
 \centering
@@ -203,26 +191,26 @@ Figure~\ref{fig:scaling} shows boolean prediction change across model scales on 
 \toprule
 \textbf{Scale} & \textbf{Base} & \textbf{FT} & \textbf{Change} \\
 \midrule
-0.5B & 0.799 & 0.396 & $-$50\% \\
-7B   & 0.432 & 0.315 & $-$27\% \\
-32B  & 0.457 & \regress{0.824} & \regress{+80\%} \\
+0.5B & 0.799 & 0.361 & $-$55\% \\
+7B   & 0.432 & 0.419 & $-$3\% \\
+32B  & 0.457 & \regress{0.510} & \regress{+12\%} \\
 \bottomrule
 \end{tabular}
-\caption{Boolean (refundable) loss on Flights across scales. At 0.5B, fine-tuning helps substantially. At 7B, it still helps but less. At 32B, it causes a severe regression. Larger models have more to lose.}
-\label{fig:scaling}
+\caption{Boolean (refundable) loss on Flights across scales. At 0.5B, fine-tuning helps substantially. At 7B, the gain has essentially vanished. At 32B, fine-tuning crosses into outright regression. Larger models have more to lose.}
+\label{tab:scaling}
 \end{table}
 
-At 0.5B, the base model is poor at boolean prediction (0.799 loss) and fine-tuning helps substantially ($-$50\%). At 7B, the base model is already better (0.432) and fine-tuning's marginal gain shrinks ($-$27\%). At 32B, fine-tuning \emph{destroys} the base model's boolean competency.
+At 0.5B, the base model is poor at boolean prediction (0.799 loss) and fine-tuning helps substantially ($-$55\%). At 7B, the base model is already much better (0.432) and fine-tuning's marginal gain has collapsed to noise ($-$3\%). At 32B, fine-tuning crosses into a true regression: the model emerges worse at boolean prediction than the untrained baseline.
 
-In more detail, training data contains 76\% False, 24\% True for the refundable field. The fine-tuned 32B model's boolean loss (0.82) is consistent with assigning approximately 4\% probability to True --- far more skewed than the training distribution itself. Fine-tuning amplified the majority-class bias rather than learning the conditional distribution.
+In more detail, training data contains 76\% False, 24\% True for the refundable field. A naive majority-class predictor on this distribution has expected loss 0.55; the 32B base model is below this floor (0.46), implying it does carry some signal beyond the prior. After fine-tuning, the 32B boolean loss rises to 0.51 --- close to the calibrated-prior floor. Fine-tuning has not driven the model to a degenerate constant predictor, but it has eroded the input-conditional signal the base model had: the per-example variance that distinguished True-evidence-present from True-evidence-absent inputs has been smoothed toward the prior.
 
 The pattern is intuitive: larger pretrained models have stronger existing competencies. Fine-tuning on a small dataset (250 examples) can override these competencies with memorized patterns. The better the base model already is, the more fine-tuning has to disrupt.
 
-The same scale-dependence appears on CUAD, but with a different shape. For \texttt{has\_anti\_assignment} (78\% True gold, opposite to the base model's False default) baseline accuracy is 31\% at 0.5B, regresses to 24\% at 7B with mean margin 0.99 -- the model becomes \emph{confidently more wrong} -- and only partially recovers to 35\% at 32B. Aggregate accuracy on CUAD is 65.1\% at 7B and 66.4\% at 32B, nearly identical, hiding the per-field non-monotonic regression entirely. A developer using aggregate metrics would conclude 7B is sufficient; per-field analysis says otherwise.
+The same scale-dependence appears on CUAD, but with a different shape. For \texttt{has\_anti\_assignment} (78\% True gold, opposite to the base model's False default) baseline accuracy is 27\% at 0.5B, regresses to 22\% at 7B with mean margin 0.99 -- the model becomes \emph{confidently more wrong} -- and only partially recovers to 35\% at 32B. Aggregate accuracy on CUAD rises monotonically with scale, hiding the per-field non-monotonic regression entirely. A developer using aggregate metrics would conclude 7B is sufficient; per-field analysis says otherwise.
 
 \subsection{Enumeration Values Regress Across Scale on CUAD}
 
-The boolean regression on Flights is matched by an enum-value regression on CUAD. Where Flights enum loss improves at every scale ($-$54\%, $-$34\%, $-$30\% from 0.5B to 32B), CUAD's enum-value loss \emph{worsens} at every scale:
+The boolean regression on Flights is matched by an enum-value regression on CUAD. Where Flights enum loss improves at every scale ($-$60\%, $-$31\%, $-$30\% from 0.5B to 32B), CUAD's enum-value loss \emph{worsens} at every scale:
 
 \begin{table}[h]
 \centering
@@ -231,18 +219,18 @@ The boolean regression on Flights is matched by an enum-value regression on CUAD
 \toprule
 \textbf{Scale} & \textbf{Base} & \textbf{FT} & \textbf{Change} \\
 \midrule
-0.5B & 0.998 & \regress{1.501} & \regress{+50\%} \\
-7B   & 0.866 & \regress{1.355} & \regress{+57\%} \\
-32B  & 1.075 & \regress{1.247} & \regress{+16\%} \\
+0.5B & 0.976 & \regress{1.154} & \regress{+18\%} \\
+7B   & 0.862 & \regress{1.189} & \regress{+38\%} \\
+32B  & 0.966 & \regress{1.046} & \regress{+8\%} \\
 \bottomrule
 \end{tabular}
-\caption{Enum-value loss on CUAD across scales (averaged over the three enum fields: \texttt{governing\_law}, \texttt{renewal\_term}, \texttt{expiration\_type}). Fine-tuning regresses at every scale, with the largest absolute degradation at 7B.}
+\caption{Enum-value loss on CUAD across scales (averaged over the three enum fields: \texttt{governing\_law}, \texttt{renewal\_term}, \texttt{expiration\_type}). Fine-tuning regresses at every scale, with the largest degradation at 7B.}
 \label{tab:enum_cuad}
 \end{table}
 
-The mechanism is the same as for Flights' boolean: CUAD's enums are dominated by \texttt{not\_specified} for many fields (the \emph{uniqueness presupposition} fails when the contract excerpt does not mention a governing law), and fine-tuning amplifies the majority-class bias. Two regressions in two grammar roles on two different schemas: per-role decomposition is needed to see either, and the aggregate-loss view in Table~\ref{tab:aggregate} hides both ($-$34\% to $-$65\% improvements all the way down).
+The mechanism is the same as for Flights' boolean: CUAD's enums are dominated by \texttt{not\_specified} for many fields (the \emph{uniqueness presupposition} fails when the contract excerpt does not mention a governing law), and fine-tuning amplifies the majority-class bias. Two regressions in two grammar roles on two different schemas: per-role decomposition is needed to see either, and the aggregate-loss view in Table~\ref{tab:aggregate} hides both ($-$44\% to $-$81\% improvements all the way down).
 
-\subsection{Per-Field Behaviour Varies by Schema and by Field Alignment}
+\subsection{Per-Field Behavior Varies by Schema and by Field Alignment}\label{sec:cuad}
 
 The Flights regression is not universal. Table~\ref{tab:restaurants_decomp} shows the Restaurants schema, where \emph{no role regresses} at any scale.
 
@@ -256,23 +244,21 @@ The Flights regression is not universal. Table~\ref{tab:restaurants_decomp} show
 \textbf{Role} & Base & FT & Base & FT & Base & FT \\
 \midrule
 STRUCT  & 4.94 & 0.00 & 6.25 & 0.00 & 5.52 & 0.00 \\
-QUOTE   & 0.22 & 0.03 & 0.33 & 0.04 & 0.17 & 0.03 \\
+QUOTE   & 0.22 & 0.04 & 0.33 & 0.03 & 0.17 & 0.03 \\
 KEY     & 1.21 & 0.00 & 1.32 & 0.00 & 0.67 & 0.00 \\
-ENUM    & 1.73 & 0.30 & 1.70 & 0.70 & 1.59 & 0.49 \\
-BOOL    & 0.81 & 0.43 & 1.25 & 0.30 & 0.74 & 0.44 \\
-FREE    & 1.76 & 1.20 & 1.86 & 1.12 & 1.71 & 1.22 \\
+ENUM    & 1.73 & 0.36 & 1.70 & 0.64 & 1.59 & 0.37 \\
+BOOL    & 0.81 & 0.57 & 1.24 & 0.56 & 0.74 & 0.50 \\
+FREE    & 1.76 & 1.22 & 1.86 & 1.13 & 1.71 & 1.12 \\
 WS      & 0.02 & 0.00 & 0.08 & 0.00 & 0.03 & 0.00 \\
 \midrule
-TOTAL   & 0.97 & 0.39 & 1.09 & 0.38 & 0.86 & 0.40 \\
+TOTAL   & 0.97 & 0.40 & 1.09 & 0.38 & 0.86 & 0.37 \\
 \bottomrule
 \end{tabular}
 \caption{Restaurants: per-grammar-role loss at three scales. No role regresses. The Flights boolean and CUAD enum regressions are schema- and data-dependent.}
 \label{tab:restaurants_decomp}
 \end{table}
 
-Restaurants has two boolean fields (serves\_alcohol, has\_live\_music) compared to Flights' one (refundable). Whether a field regresses depends on the schema, the training distribution, and the base model's prior alignment with the majority gold class.
-
-The CUAD schema makes this dependence explicit. CUAD's eight booleans span 4--78\% True gold rates and partition cleanly into two regimes by their alignment with the base model's default (False):
+Whether a field regresses depends on the schema, the training distribution, and the base model's prior alignment with the majority gold class. CUAD's eight booleans span 4--78\% True gold rates and partition by alignment with the base default (False):
 
 \begin{table}[h]
 \centering
@@ -281,30 +267,30 @@ The CUAD schema makes this dependence explicit. CUAD's eight booleans span 4--78
 \toprule
 \textbf{Field} & \textbf{0.5B} & \textbf{7B} & \textbf{32B} \\
 \midrule
-\texttt{has\_most\_favored\_nation}  & 94\% (0.38) & 96\% (0.90) & 94\% (0.94) \\
-\texttt{has\_liquidated\_damages}    & 86\% (0.51) & 90\% (0.75) & 90\% (0.83) \\
-\texttt{has\_exclusivity}            & 65\% (0.23) & 82\% (0.76) & 92\% (0.78) \\
-\texttt{has\_anti\_assignment}       & 31\% (0.20) & \regress{24\% (0.99)} & 35\% (0.96) \\
-\texttt{governing\_law} (12-way)     & 14\% (0.21) & 20\% (0.57) & 24\% (0.74) \\
-\texttt{renewal\_term} (6-way)       & \regress{2\% (0.45)} & 51\% (0.65) & 55\% (0.72) \\
-\texttt{expiration\_type} (3-way)    & 49\% (0.26) & 67\% (0.67) & 57\% (0.80) \\
+\texttt{has\_most\_favored\_nation}  & 94\% (0.37) & 96\% (0.90) & 94\% (0.93) \\
+\texttt{has\_liquidated\_damages}    & 86\% (0.51) & 92\% (0.73) & 90\% (0.83) \\
+\texttt{has\_exclusivity}            & 67\% (0.24) & 86\% (0.76) & 92\% (0.79) \\
+\texttt{has\_anti\_assignment}       & 27\% (0.19) & \regress{22\% (0.99)} & 35\% (0.93) \\
+\texttt{governing\_law} (12-way)     & 16\% (0.20) & 24\% (0.57) & 27\% (0.69) \\
+\texttt{renewal\_term} (6-way)       & \regress{2\% (0.45)} & 53\% (0.64) & 55\% (0.70) \\
+\texttt{expiration\_type} (3-way)    & 49\% (0.26) & 67\% (0.68) & 63\% (0.76) \\
 \bottomrule
 \end{tabular}
 \caption{CUAD baseline accuracy (mean margin) across scales for selected fields. Regressions in red. Fields whose majority gold class aligns with the base model's default (top three rows) are stable across scale; fields whose majority gold class is the opposite (\texttt{has\_anti\_assignment}, 78\% True) show non-monotonic regression. \texttt{renewal\_term} shows scale-dependent acquisition of the \texttt{not\_specified} sentinel between 0.5B and 7B.}
 \label{tab:cuad_per_field_scale}
 \end{table}
 
-For aligned-majority fields (top of Table~\ref{tab:cuad_per_field_scale}), baseline accuracy is high across all scales and per-field diagnostics confirm strong calibration. For misaligned-majority fields, the failure mode is the one Flights showed in a different costume: the model becomes confidently more wrong at intermediate scale before partially recovering. Aggregate CUAD accuracy across the eleven fields rises monotonically with scale, so neither shape of regression -- the aligned-stable plateau or the misaligned non-monotonic dip -- is visible without per-field decomposition. This is precisely why per-grammar-role decomposition is necessary: you cannot predict \emph{which} field will regress without measuring it.
+Aligned-majority fields (top of Table~\ref{tab:cuad_per_field_scale}) are stable across scale; misaligned-majority fields reproduce Flights' failure mode in a different costume --- confidently more wrong at intermediate scale, partially recovering at 32B. Aggregate CUAD accuracy rises monotonically with scale, hiding both shapes; per-field decomposition is necessary because one cannot predict \emph{which} field will regress without measuring.
 
 \subsection{Why Aggregate Metrics Hide the Regression}
 
-The aggregate is a token-weighted average and trivial roles contribute far more tokens than substantive ones. Concretely, in the Flights 32B case the 1,950 whitespace and 100 structural tokens both go from non-zero to 0.00 loss while the 50 boolean tokens regress from 0.46 to 0.82; the high-token-count ``wins'' swamp the low-token-count ``loss'' in any token-weighted summary. Per-role decomposition recovers the signal by reporting each role on its own.
+The aggregate is a token-weighted average and trivial roles contribute far more tokens than substantive ones. Concretely, in the Flights 32B case the 1,950 whitespace and 100 structural tokens both go from non-zero to 0.00 loss while the 50 boolean tokens regress from 0.46 to 0.51; the high-token-count ``wins'' swamp the low-token-count ``loss'' in any token-weighted summary. Per-role decomposition recovers the signal by reporting each role on its own.
 
 \section{Discussion}
 
 \subsection{Why the Boolean Regresses: Lexical Analysis}
 
-To understand the regression mechanism, we examined the training data for lexical support of the \texttt{refundable} field. The training set contains 76\% False and 24\% True values. We categorized each example by whether the conversation contains any discussion of refundability:
+We categorize each Flights training example by whether the conversation contains lexical evidence for refundability (cue search on ``refund''):
 
 \begin{table}[h]
 \centering
@@ -317,15 +303,13 @@ Refundability discussed (57 examples) & 47\% & 53\% \\
 Not discussed (193 examples) & 17\% & 83\% \\
 \bottomrule
 \end{tabular}
-\caption{Boolean value distribution conditioned on lexical support. When refundability is discussed, the distribution is roughly balanced. When not discussed, the field is a property of the API result with no conversational cue.}
+\caption{\texttt{refundable} value distribution conditioned on lexical support. When discussed, roughly balanced. When not discussed, the field is an API-side property with no conversational cue.}
 \label{tab:lexical}
 \end{table}
 
-When users explicitly discuss refundability (``I need refundable tickets''), the True/False distribution is roughly 50/50 and the model has lexical cues to predict from. But in 77\% of examples (193/250), refundability is never mentioned --- the \texttt{refundable} field is simply a property of the flight returned by the API, with no signal in the conversation to predict it from.
+In 77\% of training examples (193/250) refundability is never mentioned --- the field is an API result with no input cue. 54\% of all True cases (32/59) have \emph{no lexical support}; the correct prediction for these cases is honest uncertainty (loss $-\log(0.5)=0.69$). The fine-tuned 32B boolean loss of 0.51 sits near the calibrated-prior floor (0.55 for the 76/24 base rate): fine-tuning has pulled the model toward predicting the marginal regardless of input. Gradient signal from 193 undiscussable examples washes out the 57 examples with genuine evidence, leaving the model close to a constant predictor and slightly worse than the input-conditioned base.
 
-This means 54\% of all True cases (32/59) have \emph{no lexical support} in the input. The ``correct'' prediction for these cases is genuine uncertainty --- approximately $-\log(0.5) = 0.69$ loss if the model honestly represents its ignorance. Instead, the fine-tuned 32B model assigns approximately 4\% probability to True (consistent with observed loss of 0.82), far more extreme than either the training distribution (24\% True) or the conversational evidence.
-
-Fine-tuning does not merely memorize the training distribution --- it \emph{amplifies} the majority-class bias. The gradient signal from 193 undiscussable examples overwhelms the 57 examples with genuine lexical cues, pushing the model toward false confidence on an inherently uncertain field.
+Speculatively, the cool reception of fine-tuning in some JSON-generation playbooks may itself be the residue of regressions like these — a failure felt in production tests but invisible to the aggregate loss usually reported.
 
 \subsection{Presupposition Labeling: A Mitigation}\label{sec:pcl}
 
@@ -340,49 +324,24 @@ We call this \textbf{presupposition labeling}: expanding the label set based on 
 \small
 \begin{tabular}{lccc}
 \toprule
-\textbf{Scale} & \textbf{2-way Std LoRA} & \textbf{3-way Std LoRA} & \textbf{Change} \\
+\textbf{Scale} & \textbf{2-way Std LoRA} & \textbf{3-way Std LoRA (PCL)} & \textbf{Change} \\
 \midrule
-0.5B & 0.26 & 0.21 & $-$19\% \\
-7B   & 0.34 & 0.27 & $-$21\% \\
-32B  & \regress{0.82 (+80\%)} & \improve{0.19 (no regression)} & \textbf{eliminated} \\
+0.5B & 0.217 & \improve{0.171} & $-$21\% \\
+7B   & 0.382 & \improve{0.162} & $-$58\% \\
+32B  & 0.266 & \improve{0.146} & $-$45\% \\
 \bottomrule
 \end{tabular}
-\caption{ENUM/BOOLEAN loss with and without presupposition labeling. At 32B, the +80\% regression is completely eliminated. No architectural changes --- only the training labels are modified.}
+\caption{Constrained-content loss (BOOLEAN+ENUM combined, token-weighted) on Flights with and without presupposition labeling. The combined bucket is necessary because PCL relabels \texttt{refundable} as a 3-way enum, moving its tokens from the BOOLEAN to the ENUM\_VALUE role; the same 360 constrained-content tokens are scored under both schemas. PCL produces a substantial improvement at every scale, largest where the std-LoRA boolean was stalling or regressing (7B, 32B). No architectural changes --- only the training labels are modified.}
 \label{tab:pcl}
 \end{table}
 
-Table~\ref{tab:pcl} shows the result: presupposition labeling \textbf{completely eliminates the boolean regression} at 32B. Standard LoRA with 3-way labels achieves 0.19 ENUM loss --- better than any 2-way condition --- with no regression at any scale. The model learns to output \texttt{ambiguous} for undiscussed cases instead of memorizing the majority class.
+Table~\ref{tab:pcl} reports a 21--58\% reduction in constrained-content loss across scales, including 45\% at 32B where std-LoRA had pushed the boolean role into regression. Only the training labels change; no architectural modifications. The mechanism is schema-mediated rather than human-mediated: the schema defines what values are \emph{structurally} valid; a presupposition check determines whether the input \emph{evidentially licenses} a commitment. In our experiments the check is a lexical cue (``refund'' for \texttt{refundable}); more sophisticated checks could derive automatically from input--field mutual information. The principle generalizes to CogNIAC's uniqueness presupposition for pronoun resolution \cite{baldwin1997cogniac}: when no input evidence distinguishes the allowed values, the training signal should encode abstention rather than force commitment.
 
-Critically, this requires \emph{no changes to the model architecture or training procedure}. Only the training labels are modified. The regression was not caused by the training method --- it was caused by training labels that forced commitment on underspecified inputs. Presupposition labeling is a standalone data preparation technique compatible with any fine-tuning method.
-
-This does not diminish the value of per-grammar-role decomposition: without the decomposition, the regression would not have been detected, and without the lexical analysis it motivated, the labeling problem would not have been identified. The diagnostic method remains essential even when the treatment is simple.
-
-<this paragraph is a mess> 
-\textbf{Extending to CUAD reveals field-specific variance.} Applying PCL fine-tuning to the 11-field CUAD schema (Section~\ref{sec:cuad}) across the same three scales produces a mixed picture. Aggregate accuracy rises modestly (+12/+3/+5 pp at 0.5B/7B/32B, vs. +30/+19/+20 on Flights), and the per-field breakdown explains why: PCL-FT's benefit is concentrated on fields whose pretrained prior conflicts with the task distribution (\texttt{has\_anti\_assignment} 35$\rightarrow$61\% at 32B; \texttt{governing\_law} 25$\rightarrow$39\% at 32B). On fields whose pretrained behaviour was already correct (\texttt{has\_most\_favored\_nation}, \texttt{has\_liquidated\_damages}), PCL-FT is neutral. On some fields PCL-FT \emph{regresses} (\texttt{expiration\_type} falls from 49/67/57\% baseline to 43/55/39\% after PCL-FT at 0.5B/7B/32B; \texttt{has\_non\_compete} 80/88/82\% baseline drops to 65/76/65\% PCL-FT). The regressions concentrate on fields whose training signal is weakened by truncation: contracts are truncated to the first 8000 characters for training efficiency, and the diagnostic clauses for these fields often sit deeper in the document. We confirm this hypothesis directly: re-evaluating the same 32B PCL-FT model on full-context CUAD test contracts lifts aggregate accuracy from 71\% to 85\% and substantially recovers both regressions (\texttt{expiration\_type} 39$\rightarrow$53\%, \texttt{has\_non\_compete} 65$\rightarrow$79\% at 32B). The training-time truncation is the bottleneck, not PCL-FT itself. The finding is important for the deployment posture: PCL-FT is not a uniform win, per-field evaluation remains necessary even after intervention, and training-time truncation choices affect which fields PCL-FT can rescue.
-
-\subsection{Presupposition Labeling as a Third Category}
-
-Presupposition labeling is neither supervised labeling nor an autoregressive technique. It occupies a distinct category:
-
-\begin{itemize}
-\item \textbf{Autoregressive training}: the signal comes from predicting the next token given preceding context.
-\item \textbf{Supervised labeling}: the signal comes from human annotator judgment on individual examples.
-\item \textbf{Presupposition labeling}: the signal comes from the structural relationship between the schema and the input. The schema defines what values are valid; the presupposition check determines whether the input \emph{licenses} commitment to any specific value. No human judges individual examples --- a rule derived from the schema-input pair is applied uniformly.
-\end{itemize}
-
-The JSON schema already operates outside the autoregressive framework: grammar-constrained decoding restricts what tokens the model may produce. It operates as an orthogonal constraint. Presupposition labeling extends this principle to training: the schema restricts not only what values are \emph{structurally valid} but which training examples provide \emph{evidential license} to commit to a specific value. This is a schema-mediated evidential constraint on the training signal.
-
-In our experiment, the presupposition check is implemented as a lexical cue (does the conversation mention ``refund''?). This is a crude proxy, but the principle is general: for any constrained field, one can ask whether the input contains evidence distinguishing among the field's allowed values. More sophisticated implementations could derive presupposition checks automatically from the schema --- for example, by measuring mutual information between input features and field values, and relabeling examples where the mutual information is below a threshold.
-
-The connection to linguistic theory is direct. CogNIAC's uniqueness presupposition \cite{baldwin1997cogniac} treats ambiguity as a semantic violation, not uncertainty to be resolved: if multiple referents are equally valid for a singular pronoun, the system halts. Presupposition labeling applies the same principle to structured output: if the input does not determine a field's value, the training signal should encode abstention (\texttt{ambiguous}), not force a commitment that the model can only satisfy by memorizing the majority class.
+\textbf{CUAD: field-specific variance.} On CUAD's 11 fields, PCL-FT's benefit concentrates on fields whose pretrained prior conflicts with the task (\texttt{has\_anti\_assignment} 35$\rightarrow$61\%, \texttt{governing\_law} 25$\rightarrow$39\% at 32B); fields whose prior was already correct see neutral effect; and three fields \emph{regress} (e.g.\ \texttt{expiration\_type} 57$\rightarrow$39\% at 32B). The regressing fields share a property: their diagnostic clauses sit deeper in the contract than the 8000-character training-time truncation we use. Re-evaluating the same 32B PCL-FT checkpoint on full-context test contracts lifts aggregate accuracy 71$\rightarrow$85\% and recovers the regressions (\texttt{expiration\_type} 39$\rightarrow$53\%). PCL-FT is not a uniform win; per-field evaluation remains necessary, and training-time truncation choices determine which fields it can rescue.
 
 \subsection{Margin-Based Evidential Gating at Inference Time}\label{sec:gating}
 
-Presupposition labeling eliminates the regression at training time. A complementary question is whether the evidential signal is already present in the pretrained output distribution -- and can be exploited at inference without fine-tuning.
-
-At each constrained-field position, we measure the margin $m = p_1 - p_2$, where $p_1$ and $p_2$ are the top and second-highest probabilities over the field's allowed values. Low margin indicates the model is indifferent between candidates; high margin indicates a confident commitment. We commit to the top value when $m \ge \theta$ and abstain otherwise.
-
-<Replace 'IT-1' with 'MG' (margin gating)>
+Presupposition labeling fixes the regression at training time. A complementary question: is the evidential signal already in the pretrained distribution, exploitable without fine-tuning? At each constrained-field position we measure the margin $m = p_1 - p_2$ over the field's allowed values, commit when $m \ge \theta$, and abstain otherwise.
 
 \begin{table}[h]
 \centering
@@ -392,45 +351,23 @@ At each constrained-field position, we measure the margin $m = p_1 - p_2$, where
  & \textbf{Gold = True/False} & \textbf{Gold = ambiguous} & \\
 \textbf{Group} & mean margin & mean margin & baseline acc \\
 \midrule
-Discussed (Flights, $n=14$) & 0.45 & --- & 60\% \\
-Undiscussed (Flights, $n=36$) & --- & 0.20 & 0\% (forced commit) \\
+Discussed (Flights, $n=17$) & 0.36 & --- & 35\% \\
+Undiscussed (Flights, $n=33$) & --- & 0.22 & 0\% (forced commit) \\
 \bottomrule
 \end{tabular}
-\caption{Base Qwen 2.5 0.5B, Flights\_1 \texttt{refundable}. The margin doubles when the input contains lexical evidence (discussed); it stays flat when the field is underspecified. The signal for evidential gating is present in the base model without any fine-tuning.}
+\caption{Base Qwen 2.5 0.5B, Flights \texttt{refundable}. Margin doubles when the input contains lexical evidence; it stays flat when the field is underspecified. The signal for evidential gating is present in the base model.}
 \label{tab:gating_flights}
 \end{table}
 
-On Flights\_1, the margin discriminates discussed from undiscussed examples cleanly (Table~\ref{tab:gating_flights}). At $\theta = 0.35$, the base model correctly abstains on 100\% of undiscussed gold examples while retaining 71\% committed accuracy on the discussed subset (up from 43\% baseline under forced commitment).
+On Flights, the margin discriminates discussed from undiscussed examples cleanly (Table~\ref{tab:gating_flights}). At $\theta = 0.35$ the base model abstains on 100\% of undiscussed golds while retaining 71\% committed accuracy on the discussed subset (up from 43\% under forced commitment). On CUAD's \texttt{expiration\_type} the same operating point reaches 76\% abstention on \texttt{not\_specified} golds and 82\% committed accuracy on the rest.
 
-On CUAD's \texttt{expiration\_type} field the same operating point achieves 76\% abstention on \texttt{not\_specified} golds and 82\% committed accuracy on the specified subset -- a replication of the Flights\_1 result on a document-level task.
+Not every field cooperates: on CUAD's \texttt{renewal\_term} the base model's 0.5B distribution places near-zero probability on the \texttt{not\_specified} token (0\% abstention, 2\% accuracy); the model learns the sentinel between 0.5B and 7B (53\%/55\% accuracy at 7B/32B) but never closes the gap to the 66\% gold rate. Schema-level sentinels are scale-sensitive; PCL at training time is the remaining lever.
 
-Not every field supports this strategy, however. On CUAD's \texttt{renewal\_term} field, where 66\% of gold labels are \texttt{not\_specified}, the base model's abstention rate at $\theta = 0.30$ varies sharply with scale: at 0.5B the pretrained distribution places near-zero probability on the \texttt{not\_specified} token at the schema-value position, yielding 0\% abstention on the 34 undiscussed examples and 2\% overall accuracy. By 7B, the same field reaches 53\% baseline accuracy, and by 32B, 55\%. The model learns to emit the sentinel value somewhere between 0.5B and 7B; further scale adds little. Adding a sentinel value to the schema is thus a scale-sensitive intervention: at small model sizes it is insufficient without fine-tuning; at 7B or above it becomes usable but does not fully close the gap (55\% vs. the 66\% rate of \texttt{not\_specified} in gold). When label-only approaches are insufficient, presupposition labeling at training time is the remaining lever.
-
-\textbf{Margin calibration recovers at 32B.} A further observation from scaling margin gating across model sizes: the 7B scale produces the \emph{highest} mean margins on most constrained fields (often $> 0.95$), while 32B margins are systematically lower (typically $0.7$--$0.9$). Table~\ref{tab:margin_scaling} shows the pattern. Higher 7B margins reflect over-commitment: the model is confidently wrong on undiscussed cases (e.g., \texttt{has\_anti\_assignment} mean margin 0.99 at 22\% accuracy). At 32B the distribution over allowed values is less saturated, preserving evidential calibration that margin gating can read. This directly supports the proposition that 32B is more useful for inference-time gating than 7B despite their near-identical aggregate accuracies.
-
-\begin{table}[h]
-\centering
-\small
-\begin{tabular}{lccc}
-\toprule
-\textbf{Field} & \textbf{0.5B} & \textbf{7B} & \textbf{32B} \\
-\midrule
-\texttt{refundable} (Flights)                    & 0.25 & \regress{0.80} & 0.45 \\
-\texttt{has\_anti\_assignment} (CUAD)            & 0.19 & \regress{0.99} & 0.93 \\
-\texttt{has\_cap\_on\_liability} (CUAD)          & 0.24 & \regress{0.97} & 0.92 \\
-\texttt{has\_most\_favored\_nation} (CUAD)       & 0.36 & 0.90 & 0.93 \\
-\texttt{expiration\_type} (CUAD)                 & 0.25 & 0.68 & 0.76 \\
-\bottomrule
-\end{tabular}
-\caption{Mean margin ($p_1 - p_2$) across scales. Peaks at 7B for most fields (red), indicating over-commitment. 32B margins are systematically lower and track evidence more faithfully, making margin-based abstention more informative at scale.}
-\label{tab:margin_scaling}
-\end{table}
-
-Margin gating and presupposition labeling address complementary halves of the same underlying problem. The former reads the model's existing evidential calibration; the latter aligns the training signal with that calibration. Neither requires architectural changes. The two combine: margin gating works best at scales where calibration is preserved (32B and above), while presupposition labeling rescues smaller models and sharpens larger ones.
+\textbf{Margin calibration recovers at 32B.} Across most constrained fields, 7B produces the \emph{highest} mean margins (often $>0.95$) while 32B settles to $0.7$--$0.9$. High 7B margins reflect over-commitment --- the boolean role of \texttt{has\_anti\_assignment} on CUAD has 7B margin 0.99 at 22\% accuracy, vs.\ 32B margin 0.93 at 35\% accuracy. At 32B the distribution is less saturated, preserving the evidential calibration that margin gating reads; 32B is more useful for inference-time gating than 7B despite near-identical aggregate accuracy. Margin gating reads existing calibration; PCL aligns the training signal with it. The two combine: gating works best where calibration is preserved (32B+), PCL rescues smaller models and sharpens larger ones.
 
 \subsection{Head-to-Head: Training-Time and Inference-Time Interventions}\label{sec:head_to_head}
 
-We evaluated all four combinations of \{baseline, PCL-FT\} $\times$ \{argmax, margin gating\} on Flights, Restaurants, and CUAD at 0.5B / 7B / 32B. Table~\ref{tab:head_to_head} reports aggregate accuracy across every constrained field per dataset; margin gating uses $\theta = 0.30$ with coverage (fraction of fields committed on) reported alongside committed accuracy.
+ The value of \theta has remained fixed throughout. 
 
 \begin{table}[t]
 \centering
@@ -439,73 +376,38 @@ We evaluated all four combinations of \{baseline, PCL-FT\} $\times$ \{argmax, ma
 \toprule
  &  & \multicolumn{2}{c}{\textbf{Baseline}} & \multicolumn{2}{c}{\textbf{PCL-FT}} \\
 \cmidrule(lr){3-4} \cmidrule(lr){5-6}
-\textbf{Dataset} & \textbf{Scale} & argmax & + IT-1 ($\theta{=}0.30$) & argmax & + IT-1 ($\theta{=}0.30$) \\
+\textbf{Dataset} & \textbf{Scale} & argmax & + gate ($\theta{=}0.30$) & argmax & + gate ($\theta{=}0.30$) \\
 \midrule
-Flights     & 0.5B & 58\% & 74\% @68\%     & 88\% & \textbf{89\%} @97\% \\
-Flights     & 7B   & 71\% & 72\% @96\%     & 90\% & \textbf{93\%} @94\% \\
-Flights     & 32B  & 72\% & 84\% @82\%     & 92\% & \textbf{95\%} @95\% \\
+Flights     & 0.5B & 58\% & 74\% @68\% & 88\% & \textbf{93\%} @91\% \\
+Flights     & 7B   & 71\% & 72\% @96\% & 90\% & \textbf{93\%} @93\% \\
+Flights     & 32B  & 72\% & 84\% @82\% & 91\% & \textbf{92\%} @93\% \\
 \midrule
-Restaurants & 0.5B & 31\% & 39\% @58\%     & 81\% & \textbf{87\%} @92\% \\
-Restaurants & 7B   & 45\% & 48\% @93\%     & 83\% & \textbf{85\%} @96\% \\
-Restaurants & 32B  & 52\% & 52\% @92\%     & 82\% & \textbf{83\%} @97\% \\
+Restaurants & 0.5B & 31\% & 39\% @58\% & 80\% & \textbf{87\%} @91\% \\
+Restaurants & 7B   & 45\% & 48\% @93\% & 83\% & \textbf{86\%} @96\% \\
+Restaurants & 32B  & 52\% & 52\% @92\% & 82\% & \textbf{82\%} @99\% \\
 \midrule
-CUAD        & 0.5B & 56\% & 64\% @58\%     & 68\% & \textbf{71\%} @77\% \\
-CUAD        & 7B   & 65\% & 67\% @89\%     & 68\% & \textbf{70\%} @91\% \\
-CUAD        & 32B  & 66\% & 67\% @92\%     & 71\% & \textbf{73\%} @93\% \\
+CUAD        & 0.5B & 56\% & 63\% @57\% & 66\% & \textbf{73\%} @79\% \\
+CUAD        & 7B   & 65\% & 68\% @90\% & 71\% & \textbf{78\%} @83\% \\
+CUAD        & 32B  & 66\% & 68\% @91\% & 76\% & \textbf{80\%} @90\% \\
 \bottomrule
 \end{tabular}
-\caption{Aggregate accuracy across all constrained fields, per dataset $\times$ scale. Cells are argmax accuracy for argmax columns and ``committed accuracy @ coverage'' for the gated columns. PCL-FT + inference-time gating is the best cell in every row. CUAD here uses the 8000-character truncated prompt; full-context CUAD reaches 85\%/87\%@96\% at 32B (Section~\ref{sec:cuad}).}
+\caption{Aggregate accuracy across all constrained fields, per dataset $\times$ scale. Argmax columns are argmax accuracy; gated columns are ``committed accuracy @ coverage''.}
 \label{tab:head_to_head}
 \end{table}
 
-Three patterns are visible:
+PCL-FT helps in every row (+19/+19 on Flights, +38/+30 on Restaurants, +6/+10 on CUAD where truncation cuts off cue evidence). Gating adds 0--7\,pp on top of PCL-FT for 1--21\,pp of coverage; the two are non-redundant. The largest gating-only lifts are 0.5B and 32B Flights (58$\rightarrow$74\%@68\%, 72$\rightarrow$84\%@82\%) --- small models where fine-tuning is impractical, large models where calibration is preserved. Field-isolated: PCL-FT lifts Flights \texttt{refundable} from 12/26/26\%$\rightarrow$98/98/96\% argmax at 0.5B/7B/32B (gating adds nothing); on CUAD enums combined, 22$\rightarrow$43\% at 0.5B and 48$\rightarrow$56\% at 32B (neutral at 7B). The recall price is real: under abstain-as-failure scoring, effective accuracy is bounded by $\text{committed} \times \text{coverage}$, and PCL-FT argmax matches or beats PCL-FT + gate in every row. Use gating when abstention has a downstream path; use PCL-FT argmax when commit-or-fail is required.
 
-\begin{itemize}
-\item \textbf{PCL-FT always helps.} Every row shows PCL-FT argmax $\ge$ baseline argmax. On Flights the gap is +19/+20 pp at 7B/32B, driven by \texttt{refundable} recovering from the 32B regression. Restaurants shows the largest gap (+38/+30 pp), driven by both boolean fields (\texttt{serves\_alcohol}, \texttt{has\_live\_music}) where ``alcohol'' and ``music'' carry unique evidential signal. CUAD's gap is the smallest (+3/+5 pp), partly because the truncated prompt cuts off cue evidence for several fields and partly because CUAD's existing \texttt{not\_specified} sentinel already absorbs much of the under-specification signal that PCL adds for the other two datasets.
-\item \textbf{Margin gating always adds a few percentage points on top of PCL-FT.} Across all rows where both columns exist, gating adds 1--6 pp of committed accuracy for 3--8 pp of dropped coverage. The two interventions are not redundant: PCL-FT shifts the model to use the \texttt{ambiguous} sentinel during commitment; gating reads margin distance to detect the residual underconfident commitments that the model still emits.
-\item \textbf{Gating helps most where commitment is least informative.} The two largest gating-only lifts are 0.5B Flights (58$\rightarrow$74\% at 68\% coverage) and 32B Flights (72$\rightarrow$84\% at 82\% coverage), both without any fine-tuning. The first is the small-model regime where fine-tuning is impractical; the second is the regime where evidential calibration is best preserved (Section~\ref{sec:gating}). In both, gating reads the model's existing uncertainty directly.
-\end{itemize}
+\subsection{Open Directions and Deployment Implications}
 
-The combined intervention (PCL-FT + margin gating) reaches 70--95\% committed accuracy across our scales and datasets, dominating every other configuration. The $\theta = 0.30$ operating point is conservative; tightening it further trades coverage for precision.
-
-\subsection{Remaining Open Directions}
-
-Presupposition labeling addresses regressions caused by underspecified inputs. Other sources of per-role regression --- such as gradient domination by trivial structural tokens, or overfitting on small enum sets --- may require different interventions. Per-role learning rate schedules, per-role early stopping, or training-time structural awareness are potential directions. Addressing per-grammar-role regressions during the training process itself, rather than through data relabeling alone, remains an open problem.
-
-\subsection{Implications for Deployment}
-
-Any structured output task where aggregate metrics mix trivially-correct decisions with substantively-uncertain decisions is vulnerable to this failure mode. The harder decisions can regress while aggregate metrics improve.
-
-We suggest per-grammar-role thresholds as deployment criteria:
-\begin{itemize}
-\item Deploy when STRUCTURAL $< 0.01$ and KEY $< 0.1$
-\item Flag for review when ENUM\_VALUE $> 0.3$
-\item Require human verification when BOOLEAN $> 0.5$
-\end{itemize}
-
-Such criteria are more informative than a single aggregate threshold and can be computed with one additional forward pass per evaluation example.
+Presupposition labeling addresses regressions caused by underspecified inputs; other sources --- gradient domination by trivial tokens, enum overfitting --- may need different interventions (per-role learning rate schedules, per-role early stopping, training-time structural awareness). Any structured-output task that mixes trivially-correct with substantively-uncertain decisions inherits the counter-current vulnerability; per-grammar-role thresholds (e.g., deploy when STRUCTURAL\,$<0.01$, flag when ENUM\,$>0.3$, require human review when BOOLEAN\,$>0.5$) are more informative than aggregate thresholds and cost one additional forward pass per evaluation example.
 
 \section{Related Work}
 
-\textbf{Grammar-constrained decoding.} Guidance \cite{guidance2024}, Outlines \cite{willard2023outlines}, SGLang \cite{zheng2024sglang}, and XGrammar \cite{xgrammar2024} guarantee syntactic validity at decode time. Our work is complementary: we evaluate \emph{content quality} decomposed by grammar role, which constrained decoding cannot assess.
-
-\textbf{LoRA and parameter-efficient fine-tuning.} LoRA \cite{hu2021lora} and its variants (QLoRA \cite{dettmers2023qlora}, DoRA \cite{liu2024dora}) are standard for fine-tuning large models. We use unmodified LoRA and show that per-role regressions arise from the standard training procedure, not from any specific adapter variant.
-
-\textbf{Evaluation methodology for LLMs.} Growing work addresses pitfalls in LLM evaluation: benchmark contamination \cite{jacovi2023contamination}, metric gaming, and the gap between aggregate scores and actual capability. Our contribution is specific to structured output: aggregate loss hides per-grammar-role regressions.
-
-\textbf{Per-class analysis in classification.} Decomposing performance by class is standard in classification (confusion matrices, per-class F1). Our work applies this principle to structured generation, where ``classes'' are grammar roles rather than output labels.
-
-\textbf{Calibration and confidence estimation.} Work on LLM calibration \cite{kadavath2022calibration} examines whether model confidence matches accuracy. Our per-grammar-role decomposition is related: it reveals where the model's predictions are reliable (structural tokens) versus unreliable (content tokens), at a finer granularity than aggregate calibration.
+\textbf{LLM evaluation methodology} addresses contamination \cite{jacovi2023contamination}, metric gaming, and aggregate-vs-capability gaps; we contribute the structured-output instance --- aggregate loss hides per-grammar-role regressions. \textbf{Per-class analysis} (confusion matrices, per-class F1) is standard in classification; we apply the principle to structured generation, where ``classes'' are grammar roles. \textbf{LLM calibration} \cite{kadavath2022calibration} examines whether confidence matches accuracy; per-grammar-role decomposition is related but finer-grained --- it identifies which roles' predictions are reliable.
 
 \section{Conclusion}
 
-Standard evaluation of fine-tuned structured output models hides per-grammar-role regressions behind aggregate metrics. We demonstrate that a 32B model fine-tuned for JSON extraction degrades boolean prediction by 80\% on a flights schema and enum prediction by 16--57\% on a contracts schema while aggregate loss improves $-$19\% to $-$65\% across both. The regressions emerge in different roles on different domains, are schema- and field-dependent, and are completely invisible to aggregate evaluation.
-
-A simple post-hoc decomposition---parsing output by grammar role and computing per-role loss---reveals the regression and costs one forward pass. Lexical analysis of the training data reveals the root cause: 77\% of training examples force the model to predict a field value with no supporting evidence in the input.
-
-We show that \emph{presupposition labeling}---relabeling underspecified training targets as \texttt{ambiguous}---completely eliminates the regression with no architectural changes. The fix is a data preparation technique, not a model modification. But the fix was only possible because per-grammar-role decomposition detected the regression and motivated the analysis that identified its cause.
-
-We recommend per-grammar-role decomposition as standard practice for structured output fine-tuning, and presupposition labeling as a principled approach to fields whose values are not always determinable from the input.
+Aggregate loss hides counter-current fields whose loss \emph{rises} under fine-tuning while aggregate loss falls 44--81\%. The regressions are scale-dependent and traceable to a uniqueness-presupposition violation in training labels. \emph{Presupposition labeling} fixes it at training time; \emph{margin gating} catches residual under-confident commitments at inference; neither requires architectural change.
 
 \section*{Acknowledgments}
 

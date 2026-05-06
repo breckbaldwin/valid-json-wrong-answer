@@ -19,6 +19,10 @@ Sources by table (label in main.tex → input):
   tab:cuad_per_field_scale results/margin_gating/cuad_qwen<scale>.json (--confidence)
   tab:lexical              data/Flights_1_train.jsonl + has_lexical_cue("refund")
   tab:pcl                  results/<scale>_pcl_finetuned_flights.json (per_role.BOOLEAN)
+  tab:gating_flights       results/margin_gating/flights_qwen0.5b.json
+                           + data/Flights_1_test_pcl.jsonl (cue lookup)
+  tab:head_to_head         results/margin_gating/<dataset>_qwen<scale>{,_pcl}.json
+                           (per-field probs aggregated to {argmax, gate}@θ)
 
 If an input file is missing, the function reports MISSING and continues.
 """
@@ -198,7 +202,7 @@ def _single_role_trend(results_dir: Path, tag: str, role: str, label: str, regre
 
 
 def build_boolean_trend(results_dir: Path) -> None:
-    _section("Table 3 (fig:scaling) — Flights BOOLEAN trend across scales")
+    _section("Table 3 (tab:scaling) — Flights BOOLEAN trend across scales")
     _single_role_trend(results_dir, tag="flights", role="BOOLEAN",
                        label="fig:scaling", regress_at="32b")
 
@@ -349,41 +353,205 @@ def build_lexical(_results_dir: Path) -> None:
 # Table 8: PCL with vs without (ENUM/BOOLEAN loss)
 # =============================================================================
 def build_pcl(results_dir: Path) -> None:
-    _section("Table 8 (tab:pcl) — Flights BOOLEAN loss with vs without PCL")
+    _section("Table 8 (tab:pcl) — Flights constrained-content loss with vs without PCL")
     print("Reads:")
-    print("  baseline (2-way std LoRA): results/<scale>_finetuned_flights.json (BOOLEAN)")
-    print("  PCL (3-way std LoRA):      results/<scale>_pcl_finetuned_flights.json (BOOLEAN)")
+    print("  2-way std LoRA: results/<scale>_finetuned_flights.json (BOOLEAN+ENUM_VALUE)")
+    print("  3-way PCL:      results/<scale>_pcl_finetuned_flights.json (BOOLEAN+ENUM_VALUE)")
+    print("Note: under PCL the refundable field is relabelled with 3 values,")
+    print("      so it lands in ENUM_VALUE rather than BOOLEAN. Combining the")
+    print("      two buckets gives an apples-to-apples constrained-content")
+    print("      comparison across the two schemas.")
     print()
+
+    def _combined(per_role: dict) -> tuple[float, int]:
+        """Token-weighted mean loss over BOOLEAN + ENUM_VALUE."""
+        total_loss, total_tokens = 0.0, 0
+        for r in ("BOOLEAN", "ENUM_VALUE"):
+            stats = per_role.get(r)
+            if not stats:
+                continue
+            n = stats["count"]
+            total_loss += stats["mean_loss"] * n
+            total_tokens += n
+        if total_tokens == 0:
+            return float("nan"), 0
+        return total_loss / total_tokens, total_tokens
 
     rows = []
     for disp_scale, scale in SCALES:
         f2 = _load(results_dir / f"{scale}_finetuned_flights.json")
         f3 = _load(results_dir / f"{scale}_pcl_finetuned_flights.json")
-        v2 = f2 and f2["per_role"]["BOOLEAN"]["mean_loss"]
-        v3 = f3 and f3["per_role"]["BOOLEAN"]["mean_loss"]
-        rows.append((disp_scale, v2, v3))
+        if not (f2 and f3):
+            rows.append((disp_scale, None, None, None, None))
+            continue
+        v2, n2 = _combined(f2["per_role"])
+        v3, n3 = _combined(f3["per_role"])
+        rows.append((disp_scale, v2, n2, v3, n3))
 
-    print(f"\n{'Scale':<6} {'2-way':>10} {'3-way (PCL)':>14} {'Change':>9}")
-    for ds, v2, v3 in rows:
+    print(f"\n{'Scale':<6} {'2-way':>15} {'3-way (PCL)':>15} {'Change':>9}")
+    for ds, v2, n2, v3, n3 in rows:
         if v2 is None or v3 is None:
-            print(f"{ds:<6} {v2 if v2 is None else f'{v2:>10.3f}'} "
-                  f"{v3 if v3 is None else f'{v3:>14.3f}'}     n/a")
-        else:
-            ch = (v3 - v2) / v2 * 100
-            print(f"{ds:<6} {v2:>10.3f} {v3:>14.3f} {ch:>+8.0f}%")
+            print(f"{ds:<6}  MISSING")
+            continue
+        ch = (v3 - v2) / v2 * 100 if v2 else float("nan")
+        print(f"{ds:<6} {v2:>9.3f} (n={n2:>3}) {v3:>9.3f} (n={n3:>3}) {ch:>+8.0f}%")
 
     print("\n% --- LaTeX body for tab:pcl ---")
     print("\\toprule")
-    print("\\textbf{Scale} & \\textbf{2-way Std LoRA} & \\textbf{3-way Std LoRA} & \\textbf{Change} \\\\")
+    print("\\textbf{Scale} & \\textbf{2-way Std LoRA} & \\textbf{3-way Std LoRA (PCL)} & \\textbf{Change} \\\\")
     print("\\midrule")
-    for ds, v2, v3 in rows:
+    for ds, v2, n2, v3, n3 in rows:
         if v2 is None or v3 is None:
             print(f"{ds} & --- & --- & --- \\\\")
             continue
-        ch = (v3 - v2) / v2 * 100
-        v2_cell = f"\\regress{{{v2:.2f} ({_signed(ch)} from base)}}" if ch < -50 else f"{v2:.2f}"
-        # The published table uses a different framing; keep the structure simple.
-        print(f"{ds} & {v2:.2f} & {v3:.2f} & {_signed(ch)} \\\\")
+        ch = (v3 - v2) / v2 * 100 if v2 else float("nan")
+        cell3 = f"\\improve{{{v3:.3f}}}" if ch < 0 else f"{v3:.3f}"
+        print(f"{ds} & {v2:.3f} & {cell3} & {_signed(ch)} \\\\")
+    print("\\bottomrule")
+
+
+# =============================================================================
+# Table 9: Flights refundable — margin discrimination by lexical cue
+# =============================================================================
+def build_gating_flights(results_dir: Path) -> None:
+    _section("Table 9 (tab:gating_flights) — Flights refundable margin by lexical cue (base 0.5B)")
+    from src.presupposition_label import has_lexical_cue
+
+    # Confidence file (base 0.5B) — per-record top/second probs over allowed values.
+    conf_path = results_dir / "margin_gating" / "flights_qwen0.5b.json"
+    test_path = REPO / "data" / "Flights_1_test_pcl.jsonl"
+    if not conf_path.is_file() or not test_path.is_file():
+        print(f"  WARN MISSING: {conf_path.relative_to(REPO)} or {test_path.relative_to(REPO)}", file=sys.stderr)
+        return
+
+    # Build example_id -> prompt index from the test data so we can look up cues.
+    prompts: dict[str, str] = {}
+    with open(test_path) as f:
+        for i, line in enumerate(f):
+            rec = json.loads(line)
+            ex_id = str(rec.get("dialogue_id") or rec.get("id") or f"ex_{i}")
+            prompts[ex_id] = rec.get("prompt", "")
+
+    conf = json.load(open(conf_path))
+    discussed_margins: list[float] = []
+    undiscussed_margins: list[float] = []
+    discussed_correct = 0
+    undiscussed_correct = 0
+    for fc in conf["fields"]:
+        if fc["field"] != "refundable":
+            continue
+        prompt = prompts.get(str(fc["example_id"]), "")
+        ranked = sorted(fc["probs"].values(), reverse=True)
+        margin = ranked[0] - ranked[1] if len(ranked) >= 2 else ranked[0]
+        if has_lexical_cue(prompt, "refund"):
+            discussed_margins.append(margin)
+            discussed_correct += int(fc["correct"])
+        else:
+            undiscussed_margins.append(margin)
+            undiscussed_correct += int(fc["correct"])
+
+    n_d, n_u = len(discussed_margins), len(undiscussed_margins)
+    mm_d = sum(discussed_margins) / n_d if n_d else 0.0
+    mm_u = sum(undiscussed_margins) / n_u if n_u else 0.0
+    acc_d = discussed_correct / n_d if n_d else 0.0
+    acc_u = undiscussed_correct / n_u if n_u else 0.0
+
+    print(f"\n{'Group':<32} {'mean margin':>12} {'baseline acc':>14}")
+    print(f"{'Discussed (n=' + str(n_d) + ')':<32} {mm_d:>12.2f} {acc_d*100:>13.0f}%")
+    print(f"{'Undiscussed (n=' + str(n_u) + ')':<32} {mm_u:>12.2f} {acc_u*100:>13.0f}%")
+
+    print("\n% --- LaTeX body for tab:gating_flights ---")
+    print("\\toprule")
+    print(" & \\textbf{Gold = True/False} & \\textbf{Gold = ambiguous} & \\\\")
+    print("\\textbf{Group} & mean margin & mean margin & baseline acc \\\\")
+    print("\\midrule")
+    print(f"Discussed (Flights, $n={n_d}$) & {mm_d:.2f} & --- & {acc_d*100:.0f}\\% \\\\")
+    print(f"Undiscussed (Flights, $n={n_u}$) & --- & {mm_u:.2f} & {acc_u*100:.0f}\\% (forced commit) \\\\")
+    print("\\bottomrule")
+
+
+# =============================================================================
+# Table 10: Head-to-head — {baseline, PCL-FT} × {argmax, gate(theta)}
+# =============================================================================
+HEAD_TO_HEAD_THETA = 0.30
+
+def _h2h_metrics(records, theta: float):
+    """Return (argmax_acc, committed_acc, coverage) over per-field records."""
+    n = len(records)
+    if n == 0:
+        return 0.0, 0.0, 0.0
+    correct = sum(1 for r in records if r["correct"])
+    committed = 0
+    committed_correct = 0
+    for r in records:
+        ranked = sorted(r["probs"].values(), reverse=True)
+        margin = ranked[0] - ranked[1] if len(ranked) >= 2 else ranked[0]
+        if margin >= theta:
+            committed += 1
+            if r["correct"]:
+                committed_correct += 1
+    return (
+        correct / n,
+        committed_correct / committed if committed else 0.0,
+        committed / n,
+    )
+
+
+def build_head_to_head(results_dir: Path) -> None:
+    _section(f"Table 10 (tab:head_to_head) — head-to-head accuracy at θ={HEAD_TO_HEAD_THETA}")
+    margin_dir = results_dir / "margin_gating"
+    datasets = [("Flights", "flights"), ("Restaurants", "restaurants"), ("CUAD", "cuad")]
+
+    rows = []
+    for disp_ds, tag in datasets:
+        for disp_scale, scale in SCALES:
+            row = {"dataset": disp_ds, "scale": disp_scale, "cells": {}}
+            for cond, suffix in [("baseline", ""), ("pcl", "_pcl")]:
+                p = margin_dir / f"{tag}_qwen{scale.replace('05b', '0.5b')}{suffix}.json"
+                if not p.is_file():
+                    print(f"  WARN MISSING: {p.relative_to(REPO)}", file=sys.stderr)
+                    row["cells"][cond] = None
+                    continue
+                d = json.load(open(p))
+                row["cells"][cond] = _h2h_metrics(d["fields"], HEAD_TO_HEAD_THETA)
+            rows.append(row)
+
+    # Console
+    print(f"\n{'Dataset':<12}{'Scale':<6}{'B argmax':>10}{'B gate':>14}{'P argmax':>10}{'P gate':>14}")
+    for r in rows:
+        b = r["cells"].get("baseline")
+        p = r["cells"].get("pcl")
+        if not (b and p):
+            print(f"{r['dataset']:<12}{r['scale']:<6}  MISSING")
+            continue
+        b_a, b_c, b_v = b
+        p_a, p_c, p_v = p
+        print(f"{r['dataset']:<12}{r['scale']:<6}"
+              f"{b_a*100:>9.0f}%{b_c*100:>9.0f}% @{b_v*100:>3.0f}%"
+              f"{p_a*100:>9.0f}%{p_c*100:>9.0f}% @{p_v*100:>3.0f}%")
+
+    # LaTeX
+    print("\n% --- LaTeX body for tab:head_to_head ---")
+    print("\\toprule")
+    print(" &  & \\multicolumn{2}{c}{\\textbf{Baseline}} & \\multicolumn{2}{c}{\\textbf{PCL-FT}} \\\\")
+    print("\\cmidrule(lr){3-4} \\cmidrule(lr){5-6}")
+    print(f"\\textbf{{Dataset}} & \\textbf{{Scale}} & argmax & + gate ($\\theta{{=}}{HEAD_TO_HEAD_THETA:.2f}$) "
+          f"& argmax & + gate ($\\theta{{=}}{HEAD_TO_HEAD_THETA:.2f}$) \\\\")
+    print("\\midrule")
+    last_ds = None
+    for r in rows:
+        if r["dataset"] != last_ds and last_ds is not None:
+            print("\\midrule")
+        last_ds = r["dataset"]
+        b, p = r["cells"].get("baseline"), r["cells"].get("pcl")
+        if not (b and p):
+            print(f"{r['dataset']} & {r['scale']} & --- & --- & --- & --- \\\\")
+            continue
+        b_a, b_c, b_v = b
+        p_a, p_c, p_v = p
+        print(f"{r['dataset']:<12} & {r['scale']:<5}"
+              f" & {b_a*100:.0f}\\% & {b_c*100:.0f}\\% @{b_v*100:.0f}\\%"
+              f" & {p_a*100:.0f}\\% & \\textbf{{{p_c*100:.0f}\\%}} @{p_v*100:.0f}\\% \\\\")
     print("\\bottomrule")
 
 
@@ -399,6 +567,8 @@ TABLES = {
     "cuad_per_field":       build_cuad_per_field,
     "lexical":              build_lexical,
     "pcl":                  build_pcl,
+    "gating_flights":       build_gating_flights,
+    "head_to_head":         build_head_to_head,
 }
 
 

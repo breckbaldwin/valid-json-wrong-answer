@@ -7,29 +7,29 @@
       "mean_loss": 4.843076171875,
       "count": 100
     },
-    "QUOTE": {
-      "mean_loss": 0.1249180073921497,
-      "count": 1300
+    "WHITESPACE": {
+      "mean_loss": 0.042932653732788865,
+      "count": 1950
     },
     "KEY": {
       "mean_loss": 1.173481190613338,
       "count": 1750
     },
+    "QUOTE": {
+      "mean_loss": 0.1249180073921497,
+      "count": 1300
+    },
     "ENUM_VALUE": {
       "mean_loss": 0.4769333439488565,
       "count": 310
-    },
-    "BOOLEAN": {
-      "mean_loss": 0.79939453125,
-      "count": 50
     },
     "FREE_TEXT": {
       "mean_loss": 1.3136001242426845,
       "count": 1769
     },
-    "WHITESPACE": {
-      "mean_loss": 0.042932653732788865,
-      "count": 1950
+    "BOOLEAN": {
+      "mean_loss": 0.79939453125,
+      "count": 50
     }
   },
   "total_mean_loss": 0.73254799669685,

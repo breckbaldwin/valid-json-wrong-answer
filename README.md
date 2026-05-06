@@ -14,8 +14,6 @@ This repo accompanies the paper *"Valid JSON, Wrong Answer: Fine-Tuning Degrades
 ```bash
 git clone https://github.com/breckbaldwin/valid-json-wrong-answer.git
 cd valid-json-wrong-answer
-python -m venv venv #may be `python3 -m venv .venv`
-source venv/bin/activate
 pip install -r requirements.txt
 ```
 

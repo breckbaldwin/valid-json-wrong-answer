@@ -16,14 +16,64 @@ Usage:
 import argparse
 import json
 import os
+import random
 import time
 from pathlib import Path
 
 import torch
 import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer, set_seed
 from peft import LoraConfig, get_peft_model, TaskType
+
+
+def seed_everything(seed: int) -> None:
+    """Seed every RNG that affects training output.
+
+    Pinning this is essential for the paper: without it, retraining at the
+    same scale on the same data produces a numerically different LoRA
+    each run (PyTorch CUDA kernel order, dropout, dataloader shuffling).
+    The qualitative per-role story holds across runs but specific decimals
+    do not — pinning the seed makes the published numbers reproducible.
+
+    Sources covered:
+      - Python `random` (used by some HF utilities).
+      - `torch` CPU + CUDA RNGs (LoRA init, dropout, shuffling).
+      - `transformers.set_seed` (dropout, label smoothing init, etc.).
+      - cuDNN: deterministic algorithms, no autotune.
+      - cuBLAS: deterministic workspace via env var.
+      - `torch.use_deterministic_algorithms(warn_only=True)`: opt into
+        deterministic kernels where available; warn rather than crash on
+        the (small) set of ops that lack a deterministic impl.
+      - `PYTHONHASHSEED`: dict iteration / set ordering.
+      - `numpy.random` (defensive — not currently used directly).
+    """
+    random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    set_seed(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+    torch.use_deterministic_algorithms(True, warn_only=True)
+    os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":4096:8"
+    os.environ["PYTHONHASHSEED"] = str(seed)
+    try:
+        import numpy as np
+        np.random.seed(seed)
+    except ImportError:
+        pass
+
+
+def _seeded_worker_init_fn(worker_id: int) -> None:
+    """DataLoader worker initializer: re-seed each worker deterministically.
+    Only matters if num_workers>0; harmless otherwise."""
+    base = torch.initial_seed() & 0xFFFFFFFF
+    random.seed(base + worker_id)
+    try:
+        import numpy as np
+        np.random.seed((base + worker_id) & 0xFFFFFFFF)
+    except ImportError:
+        pass
 
 
 class JsonExtractionDataset(Dataset):
@@ -47,23 +97,33 @@ class JsonExtractionDataset(Dataset):
         prompt = ex["prompt"]
         target = ex["target_json"]
 
-        # Tokenize prompt and target
+        # Tokenize prompt and target.
         prompt_ids = self.tokenizer.encode(prompt, add_special_tokens=True)
         target_ids = self.tokenizer.encode(target, add_special_tokens=False)
         eos_id = self.tokenizer.eos_token_id
         if eos_id is not None:
             target_ids = target_ids + [eos_id]
 
+        # Reserve the full target budget; truncate the prompt from the
+        # front if needed so the JSON target is always present in the
+        # labels. The previous implementation right-truncated the
+        # concatenation, which silently dropped every target token on
+        # CUAD-length prompts and produced NaN loss (labels = all -100).
+        prompt_budget = self.max_seq_len - len(target_ids)
+        if prompt_budget < 1:
+            raise ValueError(
+                f"example {idx}: target alone is {len(target_ids)} tokens, "
+                f"exceeds max_seq_len={self.max_seq_len}; raise --max-seq-len"
+            )
+        if len(prompt_ids) > prompt_budget:
+            # Keep the tail of the prompt — it contains the most recent /
+            # most query-adjacent context, which is what the target was
+            # written in response to.
+            prompt_ids = prompt_ids[-prompt_budget:]
+
         input_ids = prompt_ids + target_ids
-
-        # Truncate if needed
-        if len(input_ids) > self.max_seq_len:
-            input_ids = input_ids[:self.max_seq_len]
-
-        # Labels: -100 for prompt tokens (don't compute loss), actual ids for target
         labels = [-100] * len(prompt_ids) + target_ids
-        if len(labels) > self.max_seq_len:
-            labels = labels[:self.max_seq_len]
+        # By construction len(input_ids) == len(labels) <= max_seq_len.
 
         return {
             "input_ids": torch.tensor(input_ids, dtype=torch.long),
@@ -146,7 +206,12 @@ def main():
                         help="Enable gradient checkpointing (saves VRAM, slower)")
     parser.add_argument("--checkpoint-dir", default="checkpoints")
     parser.add_argument("--checkpoint-prefix", default="lora")
+    parser.add_argument("--seed", type=int, default=42,
+                        help="Seed every RNG (torch, cuda, python, transformers). "
+                             "Pinned by default so retraining reproduces exactly.")
     args = parser.parse_args()
+
+    seed_everything(args.seed)
 
     print(f"Model: {args.model}")
     print(f"Data: {args.data}")
@@ -154,6 +219,7 @@ def main():
     print(f"LoRA rank: {args.lora_rank}, alpha: {args.lora_alpha}")
     print(f"LoRA targets: {args.lora_targets}")
     print(f"Device: {args.device}")
+    print(f"Seed: {args.seed}")
 
     # Load tokenizer and model
     tokenizer = AutoTokenizer.from_pretrained(args.model, trust_remote_code=True)
@@ -183,10 +249,18 @@ def main():
         model.enable_input_require_grads()
         print("Gradient checkpointing: enabled")
 
-    # Load data
+    # Load data. The shuffle generator is explicitly seeded so example
+    # order at every epoch is reproducible from the same --seed.
     dataset = JsonExtractionDataset(args.data, tokenizer, args.max_seq_len)
+    shuffle_gen = torch.Generator()
+    shuffle_gen.manual_seed(args.seed)
     dataloader = DataLoader(
-        dataset, batch_size=args.batch_size, shuffle=True, collate_fn=collate_fn
+        dataset,
+        batch_size=args.batch_size,
+        shuffle=True,
+        collate_fn=collate_fn,
+        generator=shuffle_gen,
+        worker_init_fn=_seeded_worker_init_fn,
     )
     print(f"Training examples: {len(dataset)}")
 

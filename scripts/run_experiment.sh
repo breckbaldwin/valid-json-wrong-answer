@@ -41,6 +41,12 @@ mkdir -p results checkpoints
 
 run_baseline_decompose() {
     local model=$1 scale=$2 dataset=$3 schema=$4 label=$5
+    local output="results/${scale}_baseline_${label}.json"
+    if [ -f "$output" ]; then
+        echo ""
+        echo ">>> [$scale] Baseline decomposition: $label  SKIP — $output exists"
+        return
+    fi
     echo ""
     echo ">>> [$scale] Baseline decomposition: $label"
     python src/decompose.py \
@@ -48,18 +54,26 @@ run_baseline_decompose() {
         --data "$dataset" \
         --schema "$schema" \
         --device $DEVICE \
-        --output "results/${scale}_baseline_${label}.json"
+        --output "$output"
 }
 
 run_train() {
     local model=$1 scale=$2 data=$3 label=$4
+    local final_ckpt="checkpoints/${scale}_${label}_lora_epoch${EPOCHS}"
+    if [ -d "$final_ckpt" ]; then
+        echo ""
+        echo ">>> [$scale] LoRA training: $label  SKIP — $final_ckpt exists"
+        return
+    fi
     echo ""
     echo ">>> [$scale] LoRA training: $label ($EPOCHS epochs)"
 
-    # 32B needs gradient checkpointing and shorter sequences to fit in 80GB
+    # 32B needs gradient checkpointing to fit in 80GB. max_seq_len uses
+    # the default from src/train.py (2048) so CUAD's long prompts have
+    # room for prompt context plus the JSON target.
     local extra_args=""
     if [ "$scale" = "32b" ]; then
-        extra_args="--gradient-checkpointing --max-seq-len 1024"
+        extra_args="--gradient-checkpointing"
     fi
 
     python src/train.py \
@@ -75,6 +89,12 @@ run_train() {
 run_finetuned_decompose() {
     local model=$1 scale=$2 dataset=$3 schema=$4 label=$5 epoch=$6
     local ckpt="checkpoints/${scale}_${label}_lora_epoch${epoch}"
+    local output="results/${scale}_finetuned_${label}.json"
+    if [ -f "$output" ]; then
+        echo ""
+        echo ">>> [$scale] Fine-tuned decomposition: $label (epoch $epoch)  SKIP — $output exists"
+        return
+    fi
     echo ""
     echo ">>> [$scale] Fine-tuned decomposition: $label (epoch $epoch)"
     python src/decompose.py \
@@ -83,7 +103,7 @@ run_finetuned_decompose() {
         --schema "$schema" \
         --device $DEVICE \
         --checkpoint "$ckpt" \
-        --output "results/${scale}_finetuned_${label}.json"
+        --output "$output"
 }
 
 run_scale() {
