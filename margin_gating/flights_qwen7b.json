@@ -1,0 +1,3508 @@
+{
+  "scale": "7b",
+  "dataset": "flights",
+  "total": 250,
+  "correct": 177,
+  "fields": [
+    {
+      "example_id": "15_00076",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.0,
+        "2": 9.424984455108643e-07,
+        "3": 6.48200511932373e-07,
+        "4": 5.699694156646729e-07
+      }
+    },
+    {
+      "example_id": "15_00076",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.98828125,
+      "correct": true,
+      "probs": {
+        "Economy": 0.98828125,
+        "Premium Economy": 0.012451171875,
+        "Business": 2.2530555725097656e-05,
+        "First Class": 2.7179718017578125e-05
+      }
+    },
+    {
+      "example_id": "15_00076",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "0": 0.99609375,
+        "1": 0.00360107421875
+      }
+    },
+    {
+      "example_id": "15_00076",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.89453125,
+      "correct": false,
+      "probs": {
+        "True": 0.10693359375,
+        "False": 0.89453125,
+        "ambiguous": 9.240466170012951e-10
+      }
+    },
+    {
+      "example_id": "15_00076",
+      "field": "airlines",
+      "target": "American Airlines",
+      "top": "American Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 1.996755599975586e-06,
+        "American Airlines": 1.0,
+        "Delta Airlines": 2.2351741790771484e-07,
+        "Southwest Airlines": 2.2118911147117615e-08,
+        "Alaska Airlines": 3.1868694350123405e-09,
+        "British Airways": 4.6798959374427795e-08,
+        "Air France": 1.8533319234848022e-07
+      }
+    },
+    {
+      "example_id": "15_00080",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.0,
+        "2": 0.000553131103515625,
+        "3": 6.580352783203125e-05,
+        "4": 2.905726432800293e-06
+      }
+    },
+    {
+      "example_id": "15_00080",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "Economy": 0.99609375,
+        "Premium Economy": 0.0028076171875,
+        "Business": 5.125999450683594e-05,
+        "First Class": 6.198883056640625e-05
+      }
+    },
+    {
+      "example_id": "15_00080",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "0": 0.99609375,
+        "1": 0.0028076171875
+      }
+    },
+    {
+      "example_id": "15_00080",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.8359375,
+      "correct": false,
+      "probs": {
+        "True": 0.1640625,
+        "False": 0.8359375,
+        "ambiguous": 3.001332515850663e-10
+      }
+    },
+    {
+      "example_id": "15_00080",
+      "field": "airlines",
+      "target": "Air Canada",
+      "top": "United Airlines",
+      "top_prob": 0.796875,
+      "correct": false,
+      "probs": {
+        "United Airlines": 0.796875,
+        "American Airlines": 0.07421875,
+        "Delta Airlines": 0.1220703125,
+        "Southwest Airlines": 0.003692626953125,
+        "Alaska Airlines": 3.838539123535156e-05,
+        "British Airways": 0.001739501953125,
+        "Air France": 0.00119781494140625
+      }
+    },
+    {
+      "example_id": "17_00020",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.0,
+        "2": 1.0132789611816406e-05,
+        "3": 9.424984455108643e-07,
+        "4": 2.2649765014648438e-06
+      }
+    },
+    {
+      "example_id": "17_00020",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 1.0,
+        "Premium Economy": 3.293156623840332e-06,
+        "Business": 1.9744038581848145e-07,
+        "First Class": 8.242204785346985e-08
+      }
+    },
+    {
+      "example_id": "17_00020",
+      "field": "number_stops",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "0": 0.00048828125,
+        "1": 1.0
+      }
+    },
+    {
+      "example_id": "17_00020",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.90625,
+      "correct": false,
+      "probs": {
+        "True": 0.09521484375,
+        "False": 0.90625,
+        "ambiguous": 8.258211892098188e-10
+      }
+    },
+    {
+      "example_id": "17_00020",
+      "field": "airlines",
+      "target": "American Airlines",
+      "top": "American Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 1.150369644165039e-05,
+        "American Airlines": 1.0,
+        "Delta Airlines": 3.0547380447387695e-07,
+        "Southwest Airlines": 4.1443854570388794e-08,
+        "Alaska Airlines": 2.4883775040507317e-09,
+        "British Airways": 4.98257577419281e-08,
+        "Air France": 6.845220923423767e-08
+      }
+    },
+    {
+      "example_id": "17_00057",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 0.9140625,
+      "correct": true,
+      "probs": {
+        "1": 0.9140625,
+        "2": 0.051513671875,
+        "3": 0.00616455078125,
+        "4": 0.027587890625
+      }
+    },
+    {
+      "example_id": "17_00057",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.984375,
+      "correct": true,
+      "probs": {
+        "Economy": 0.984375,
+        "Premium Economy": 0.015869140625,
+        "Business": 0.00010728836059570312,
+        "First Class": 3.4809112548828125e-05
+      }
+    },
+    {
+      "example_id": "17_00057",
+      "field": "number_stops",
+      "target": "0",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": false,
+      "probs": {
+        "0": 0.00020313262939453125,
+        "1": 1.0
+      }
+    },
+    {
+      "example_id": "17_00057",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.8515625,
+      "correct": false,
+      "probs": {
+        "True": 0.1484375,
+        "False": 0.8515625,
+        "ambiguous": 7.8580342233181e-09
+      }
+    },
+    {
+      "example_id": "17_00057",
+      "field": "airlines",
+      "target": "American Airlines",
+      "top": "Delta Airlines",
+      "top_prob": 0.8359375,
+      "correct": false,
+      "probs": {
+        "United Airlines": 0.000591278076171875,
+        "American Airlines": 0.1640625,
+        "Delta Airlines": 0.8359375,
+        "Southwest Airlines": 4.863739013671875e-05,
+        "Alaska Airlines": 1.2218952178955078e-06,
+        "British Airways": 3.337860107421875e-05,
+        "Air France": 2.300739288330078e-05
+      }
+    },
+    {
+      "example_id": "17_00006",
+      "field": "passengers",
+      "target": "2",
+      "top": "2",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "1": 0.00170135498046875,
+        "2": 0.99609375,
+        "3": 0.0006256103515625,
+        "4": 0.0006256103515625
+      }
+    },
+    {
+      "example_id": "17_00006",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 1.0,
+        "Premium Economy": 1.895427703857422e-05,
+        "Business": 1.0058283805847168e-06,
+        "First Class": 5.3085386753082275e-08
+      }
+    },
+    {
+      "example_id": "17_00006",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "0": 1.0,
+        "1": 9.632110595703125e-05
+      }
+    },
+    {
+      "example_id": "17_00006",
+      "field": "refundable",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00170135498046875,
+        "False": 1.0,
+        "ambiguous": 1.9736035028472543e-10
+      }
+    },
+    {
+      "example_id": "17_00006",
+      "field": "airlines",
+      "target": "Southwest Airlines",
+      "top": "Southwest Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 4.798173904418945e-06,
+        "American Airlines": 2.2649765014648438e-06,
+        "Delta Airlines": 8.487701416015625e-05,
+        "Southwest Airlines": 1.0,
+        "Alaska Airlines": 9.255018085241318e-09,
+        "British Airways": 4.94765117764473e-09,
+        "Air France": 2.7008354663848877e-07
+      }
+    },
+    {
+      "example_id": "17_00023",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 0.98828125,
+      "correct": true,
+      "probs": {
+        "1": 0.98828125,
+        "2": 0.012451171875,
+        "3": 0.0003757476806640625,
+        "4": 8.392333984375e-05
+      }
+    },
+    {
+      "example_id": "17_00023",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.984375,
+      "correct": true,
+      "probs": {
+        "Economy": 0.984375,
+        "Premium Economy": 0.015869140625,
+        "Business": 0.00011396408081054688,
+        "First Class": 7.82012939453125e-05
+      }
+    },
+    {
+      "example_id": "17_00023",
+      "field": "number_stops",
+      "target": "1",
+      "top": "0",
+      "top_prob": 0.99609375,
+      "correct": false,
+      "probs": {
+        "0": 0.99609375,
+        "1": 0.003173828125
+      }
+    },
+    {
+      "example_id": "17_00023",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.8515625,
+      "correct": false,
+      "probs": {
+        "True": 0.1484375,
+        "False": 0.8515625,
+        "ambiguous": 4.31100488640368e-10
+      }
+    },
+    {
+      "example_id": "17_00023",
+      "field": "airlines",
+      "target": "American Airlines",
+      "top": "United Airlines",
+      "top_prob": 0.58984375,
+      "correct": false,
+      "probs": {
+        "United Airlines": 0.58984375,
+        "American Airlines": 0.1494140625,
+        "Delta Airlines": 0.2177734375,
+        "Southwest Airlines": 0.037841796875,
+        "Alaska Airlines": 0.0003070831298828125,
+        "British Airways": 0.00078582763671875,
+        "Air France": 0.00107574462890625
+      }
+    },
+    {
+      "example_id": "17_00007",
+      "field": "passengers",
+      "target": "2",
+      "top": "2",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 3.123283386230469e-05,
+        "2": 1.0,
+        "3": 4.798173904418945e-06,
+        "4": 3.293156623840332e-06
+      }
+    },
+    {
+      "example_id": "17_00007",
+      "field": "seating_class",
+      "target": "Premium Economy",
+      "top": "Premium Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 5.424022674560547e-06,
+        "Premium Economy": 1.0,
+        "Business": 6.48200511932373e-07,
+        "First Class": 1.0570511221885681e-07
+      }
+    },
+    {
+      "example_id": "17_00007",
+      "field": "number_stops",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "0": 1.4722347259521484e-05,
+        "1": 1.0
+      }
+    },
+    {
+      "example_id": "17_00007",
+      "field": "refundable",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.73046875,
+      "correct": false,
+      "probs": {
+        "True": 0.26953125,
+        "False": 0.73046875,
+        "ambiguous": 6.475602276623249e-10
+      }
+    },
+    {
+      "example_id": "17_00007",
+      "field": "airlines",
+      "target": "Delta Airlines",
+      "top": "Delta Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 6.845220923423767e-08,
+        "American Airlines": 2.905726432800293e-06,
+        "Delta Airlines": 1.0,
+        "Southwest Airlines": 1.955777406692505e-08,
+        "Alaska Airlines": 1.6079866327345371e-09,
+        "British Airways": 5.617039278149605e-09,
+        "Air France": 9.918585419654846e-08
+      }
+    },
+    {
+      "example_id": "15_00097",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 0.890625,
+      "correct": true,
+      "probs": {
+        "1": 0.890625,
+        "2": 0.1064453125,
+        "3": 0.00104522705078125,
+        "4": 0.00012493133544921875
+      }
+    },
+    {
+      "example_id": "15_00097",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.96875,
+      "correct": true,
+      "probs": {
+        "Economy": 0.96875,
+        "Premium Economy": 0.029296875,
+        "Business": 7.724761962890625e-05,
+        "First Class": 0.00011968612670898438
+      }
+    },
+    {
+      "example_id": "15_00097",
+      "field": "number_stops",
+      "target": "1",
+      "top": "0",
+      "top_prob": 0.9453125,
+      "correct": false,
+      "probs": {
+        "0": 0.9453125,
+        "1": 0.053466796875
+      }
+    },
+    {
+      "example_id": "15_00097",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.8359375,
+      "correct": false,
+      "probs": {
+        "True": 0.1640625,
+        "False": 0.8359375,
+        "ambiguous": 1.2096279533579946e-10
+      }
+    },
+    {
+      "example_id": "15_00097",
+      "field": "airlines",
+      "target": "American Airlines",
+      "top": "American Airlines",
+      "top_prob": 0.48046875,
+      "correct": true,
+      "probs": {
+        "United Airlines": 0.423828125,
+        "American Airlines": 0.48046875,
+        "Delta Airlines": 0.050537109375,
+        "Southwest Airlines": 0.02392578125,
+        "Alaska Airlines": 0.00081634521484375,
+        "British Airways": 0.005340576171875,
+        "Air France": 0.00775146484375
+      }
+    },
+    {
+      "example_id": "17_00026",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 0.984375,
+      "correct": true,
+      "probs": {
+        "1": 0.984375,
+        "2": 0.0140380859375,
+        "3": 0.0003299713134765625,
+        "4": 0.000896453857421875
+      }
+    },
+    {
+      "example_id": "17_00026",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.96484375,
+      "correct": true,
+      "probs": {
+        "Economy": 0.96484375,
+        "Premium Economy": 0.029052734375,
+        "Business": 0.006500244140625,
+        "First Class": 0.0014495849609375
+      }
+    },
+    {
+      "example_id": "17_00026",
+      "field": "number_stops",
+      "target": "1",
+      "top": "0",
+      "top_prob": 1.0,
+      "correct": false,
+      "probs": {
+        "0": 1.0,
+        "1": 0.00020313262939453125
+      }
+    },
+    {
+      "example_id": "17_00026",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.9140625,
+      "correct": false,
+      "probs": {
+        "True": 0.0849609375,
+        "False": 0.9140625,
+        "ambiguous": 3.2014213502407074e-09
+      }
+    },
+    {
+      "example_id": "17_00026",
+      "field": "airlines",
+      "target": "Alaska Airlines",
+      "top": "Alaska Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 3.293156623840332e-06,
+        "American Airlines": 3.528594970703125e-05,
+        "Delta Airlines": 1.7583370208740234e-06,
+        "Southwest Airlines": 4.98257577419281e-08,
+        "Alaska Airlines": 1.0,
+        "British Airways": 7.867813110351562e-06,
+        "Air France": 6.628036499023438e-05
+      }
+    },
+    {
+      "example_id": "15_00116",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 0.95703125,
+      "correct": true,
+      "probs": {
+        "1": 0.95703125,
+        "2": 0.0419921875,
+        "3": 0.00067901611328125,
+        "4": 0.000118255615234375
+      }
+    },
+    {
+      "example_id": "15_00116",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.9765625,
+      "correct": true,
+      "probs": {
+        "Economy": 0.9765625,
+        "Premium Economy": 0.02294921875,
+        "Business": 5.030632019042969e-05,
+        "First Class": 6.866455078125e-05
+      }
+    },
+    {
+      "example_id": "15_00116",
+      "field": "number_stops",
+      "target": "1",
+      "top": "0",
+      "top_prob": 0.9921875,
+      "correct": false,
+      "probs": {
+        "0": 0.9921875,
+        "1": 0.00970458984375
+      }
+    },
+    {
+      "example_id": "15_00116",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.87890625,
+      "correct": false,
+      "probs": {
+        "True": 0.119140625,
+        "False": 0.87890625,
+        "ambiguous": 6.693881005048752e-10
+      }
+    },
+    {
+      "example_id": "15_00116",
+      "field": "airlines",
+      "target": "American Airlines",
+      "top": "American Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 4.231929779052734e-06,
+        "American Airlines": 1.0,
+        "Delta Airlines": 6.426125764846802e-08,
+        "Southwest Airlines": 1.0477378964424133e-08,
+        "Alaska Airlines": 2.4883775040507317e-09,
+        "British Airways": 1.83936208486557e-08,
+        "Air France": 6.426125764846802e-08
+      }
+    },
+    {
+      "example_id": "17_00044",
+      "field": "passengers",
+      "target": "3",
+      "top": "3",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.150369644165039e-05,
+        "2": 2.753734588623047e-05,
+        "3": 1.0,
+        "4": 2.4318695068359375e-05
+      }
+    },
+    {
+      "example_id": "17_00044",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 1.0,
+        "Premium Economy": 4.798173904418945e-06,
+        "Business": 3.0547380447387695e-07,
+        "First Class": 3.1868694350123405e-09
+      }
+    },
+    {
+      "example_id": "17_00044",
+      "field": "number_stops",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "0": 7.486343383789062e-05,
+        "1": 1.0
+      }
+    },
+    {
+      "example_id": "17_00044",
+      "field": "refundable",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.95703125,
+      "correct": true,
+      "probs": {
+        "True": 0.0419921875,
+        "False": 0.95703125,
+        "ambiguous": 9.313225746154785e-10
+      }
+    },
+    {
+      "example_id": "17_00044",
+      "field": "airlines",
+      "target": "American Airlines",
+      "top": "American Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 1.4722347259521484e-05,
+        "American Airlines": 1.0,
+        "Delta Airlines": 8.307397365570068e-07,
+        "Southwest Airlines": 1.2759119272232056e-07,
+        "Alaska Airlines": 6.48200511932373e-07,
+        "British Airways": 1.126900315284729e-07,
+        "Air France": 1.0654330253601074e-06
+      }
+    },
+    {
+      "example_id": "15_00083",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 0.96484375,
+      "correct": true,
+      "probs": {
+        "1": 0.96484375,
+        "2": 0.029052734375,
+        "3": 0.0004711151123046875,
+        "4": 0.006500244140625
+      }
+    },
+    {
+      "example_id": "15_00083",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.890625,
+      "correct": true,
+      "probs": {
+        "Economy": 0.890625,
+        "Premium Economy": 0.1064453125,
+        "Business": 0.000247955322265625,
+        "First Class": 0.00098419189453125
+      }
+    },
+    {
+      "example_id": "15_00083",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "0": 1.0,
+        "1": 0.00116729736328125
+      }
+    },
+    {
+      "example_id": "15_00083",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.89453125,
+      "correct": false,
+      "probs": {
+        "True": 0.10693359375,
+        "False": 0.89453125,
+        "ambiguous": 1.1132215149700642e-09
+      }
+    },
+    {
+      "example_id": "15_00083",
+      "field": "airlines",
+      "target": "Delta Airlines",
+      "top": "American Airlines",
+      "top_prob": 0.9765625,
+      "correct": false,
+      "probs": {
+        "United Airlines": 0.00019931793212890625,
+        "American Airlines": 0.9765625,
+        "Delta Airlines": 0.0108642578125,
+        "Southwest Airlines": 6.794929504394531e-06,
+        "Alaska Airlines": 0.0108642578125,
+        "British Airways": 6.020069122314453e-06,
+        "Air France": 2.09808349609375e-05
+      }
+    },
+    {
+      "example_id": "17_00001",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.0,
+        "2": 2.753734588623047e-05,
+        "3": 1.7583370208740234e-06,
+        "4": 2.562999725341797e-06
+      }
+    },
+    {
+      "example_id": "17_00001",
+      "field": "seating_class",
+      "target": "Premium Economy",
+      "top": "Premium Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 3.123283386230469e-05,
+        "Premium Economy": 1.0,
+        "Business": 7.338821887969971e-07,
+        "First Class": 6.891787052154541e-07
+      }
+    },
+    {
+      "example_id": "17_00001",
+      "field": "number_stops",
+      "target": "1",
+      "top": "0",
+      "top_prob": 0.99609375,
+      "correct": false,
+      "probs": {
+        "0": 0.99609375,
+        "1": 0.005218505859375
+      }
+    },
+    {
+      "example_id": "17_00001",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.90625,
+      "correct": false,
+      "probs": {
+        "True": 0.09521484375,
+        "False": 0.90625,
+        "ambiguous": 5.857145879417658e-10
+      }
+    },
+    {
+      "example_id": "17_00001",
+      "field": "airlines",
+      "target": "American Airlines",
+      "top": "United Airlines",
+      "top_prob": 0.48828125,
+      "correct": false,
+      "probs": {
+        "United Airlines": 0.48828125,
+        "American Airlines": 0.3359375,
+        "Delta Airlines": 0.12353515625,
+        "Southwest Airlines": 0.0274658203125,
+        "Alaska Airlines": 0.00022411346435546875,
+        "British Airways": 0.002899169921875,
+        "Air France": 0.011474609375
+      }
+    },
+    {
+      "example_id": "17_00019",
+      "field": "passengers",
+      "target": "2",
+      "top": "2",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 0.0003795623779296875,
+        "2": 1.0,
+        "3": 0.00020313262939453125,
+        "4": 5.14984130859375e-05
+      }
+    },
+    {
+      "example_id": "17_00019",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.8515625,
+      "correct": true,
+      "probs": {
+        "Economy": 0.8515625,
+        "Premium Economy": 0.001129150390625,
+        "Business": 0.1474609375,
+        "First Class": 4.38690185546875e-05
+      }
+    },
+    {
+      "example_id": "17_00019",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 0.9921875,
+      "correct": true,
+      "probs": {
+        "0": 0.9921875,
+        "1": 0.00970458984375
+      }
+    },
+    {
+      "example_id": "17_00019",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.87890625,
+      "correct": false,
+      "probs": {
+        "True": 0.119140625,
+        "False": 0.87890625,
+        "ambiguous": 4.4565240386873484e-10
+      }
+    },
+    {
+      "example_id": "17_00019",
+      "field": "airlines",
+      "target": "American Airlines",
+      "top": "United Airlines",
+      "top_prob": 0.66015625,
+      "correct": false,
+      "probs": {
+        "United Airlines": 0.66015625,
+        "American Airlines": 0.10107421875,
+        "Delta Airlines": 0.0888671875,
+        "Southwest Airlines": 0.0225830078125,
+        "Alaska Airlines": 0.00390625,
+        "British Airways": 0.010009765625,
+        "Air France": 0.0576171875
+      }
+    },
+    {
+      "example_id": "17_00022",
+      "field": "passengers",
+      "target": "4",
+      "top": "1",
+      "top_prob": 0.98828125,
+      "correct": false,
+      "probs": {
+        "1": 0.98828125,
+        "2": 0.0010223388671875,
+        "3": 0.002777099609375,
+        "4": 0.0096435546875
+      }
+    },
+    {
+      "example_id": "17_00022",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "Economy": 0.99609375,
+        "Premium Economy": 0.005218505859375,
+        "Business": 0.0002593994140625,
+        "First Class": 0.0003337860107421875
+      }
+    },
+    {
+      "example_id": "17_00022",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "0": 1.0,
+        "1": 0.00193023681640625
+      }
+    },
+    {
+      "example_id": "17_00022",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.8515625,
+      "correct": false,
+      "probs": {
+        "True": 0.1484375,
+        "False": 0.8515625,
+        "ambiguous": 1.4115357771515846e-09
+      }
+    },
+    {
+      "example_id": "17_00022",
+      "field": "airlines",
+      "target": "United Airlines",
+      "top": "United Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 1.0,
+        "American Airlines": 1.2069940567016602e-06,
+        "Delta Airlines": 5.699694156646729e-07,
+        "Southwest Airlines": 7.683411240577698e-09,
+        "Alaska Airlines": 5.966285243630409e-09,
+        "British Airways": 1.2631062418222427e-08,
+        "Air France": 5.617039278149605e-09
+      }
+    },
+    {
+      "example_id": "15_00105",
+      "field": "passengers",
+      "target": "2",
+      "top": "2",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 9.632110595703125e-05,
+        "2": 1.0,
+        "3": 3.123283386230469e-05,
+        "4": 0.00014019012451171875
+      }
+    },
+    {
+      "example_id": "15_00105",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.96484375,
+      "correct": true,
+      "probs": {
+        "Economy": 0.96484375,
+        "Premium Economy": 0.032958984375,
+        "Business": 9.298324584960938e-05,
+        "First Class": 0.00011205673217773438
+      }
+    },
+    {
+      "example_id": "15_00105",
+      "field": "number_stops",
+      "target": "1",
+      "top": "0",
+      "top_prob": 0.99609375,
+      "correct": false,
+      "probs": {
+        "0": 0.99609375,
+        "1": 0.0021820068359375
+      }
+    },
+    {
+      "example_id": "15_00105",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.89453125,
+      "correct": false,
+      "probs": {
+        "True": 0.10693359375,
+        "False": 0.89453125,
+        "ambiguous": 3.510649548843503e-10
+      }
+    },
+    {
+      "example_id": "15_00105",
+      "field": "airlines",
+      "target": "American Airlines",
+      "top": "American Airlines",
+      "top_prob": 0.3515625,
+      "correct": true,
+      "probs": {
+        "United Airlines": 0.310546875,
+        "American Airlines": 0.3515625,
+        "Delta Airlines": 0.212890625,
+        "Southwest Airlines": 0.0888671875,
+        "Alaska Airlines": 0.00112152099609375,
+        "British Airways": 0.006439208984375,
+        "Air France": 0.0145263671875
+      }
+    },
+    {
+      "example_id": "17_00026",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.0,
+        "2": 6.139278411865234e-06,
+        "3": 1.3709068298339844e-06,
+        "4": 1.7583370208740234e-06
+      }
+    },
+    {
+      "example_id": "17_00026",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 1.0,
+        "Premium Economy": 4.798173904418945e-06,
+        "Business": 3.9301812648773193e-07,
+        "First Class": 5.966285243630409e-09
+      }
+    },
+    {
+      "example_id": "17_00026",
+      "field": "number_stops",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "0": 9.632110595703125e-05,
+        "1": 1.0
+      }
+    },
+    {
+      "example_id": "17_00026",
+      "field": "refundable",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.96875,
+      "correct": true,
+      "probs": {
+        "True": 0.029296875,
+        "False": 0.96875,
+        "ambiguous": 6.344635039567947e-09
+      }
+    },
+    {
+      "example_id": "17_00026",
+      "field": "airlines",
+      "target": "Delta Airlines",
+      "top": "Delta Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 1.0570511221885681e-07,
+        "American Airlines": 8.307397365570068e-07,
+        "Delta Airlines": 1.0,
+        "Southwest Airlines": 1.525040715932846e-08,
+        "Alaska Airlines": 1.618172973394394e-08,
+        "British Airways": 1.1874362826347351e-08,
+        "Air France": 1.3597309589385986e-07
+      }
+    },
+    {
+      "example_id": "17_00067",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.0,
+        "2": 0.000335693359375,
+        "3": 0.00014019012451171875,
+        "4": 0.00020313262939453125
+      }
+    },
+    {
+      "example_id": "17_00067",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 1.0,
+        "Premium Economy": 0.0002956390380859375,
+        "Business": 6.139278411865234e-06,
+        "First Class": 4.731118679046631e-07
+      }
+    },
+    {
+      "example_id": "17_00067",
+      "field": "number_stops",
+      "target": "1",
+      "top": "0",
+      "top_prob": 1.0,
+      "correct": false,
+      "probs": {
+        "0": 1.0,
+        "1": 0.000179290771484375
+      }
+    },
+    {
+      "example_id": "17_00067",
+      "field": "refundable",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0002613067626953125,
+        "False": 1.0,
+        "ambiguous": 5.9685589803848416e-12
+      }
+    },
+    {
+      "example_id": "17_00067",
+      "field": "airlines",
+      "target": "Southwest Airlines",
+      "top": "Southwest Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 3.293156623840332e-06,
+        "American Airlines": 1.0654330253601074e-06,
+        "Delta Airlines": 7.338821887969971e-07,
+        "Southwest Airlines": 1.0,
+        "Alaska Airlines": 6.344635039567947e-09,
+        "British Airways": 1.331500243395567e-09,
+        "Air France": 9.918585419654846e-08
+      }
+    },
+    {
+      "example_id": "17_00070",
+      "field": "passengers",
+      "target": "4",
+      "top": "4",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 0.00048828125,
+        "2": 8.487701416015625e-05,
+        "3": 0.000553131103515625,
+        "4": 1.0
+      }
+    },
+    {
+      "example_id": "17_00070",
+      "field": "seating_class",
+      "target": "Premium Economy",
+      "top": "Premium Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 0.0001087188720703125,
+        "Premium Economy": 1.0,
+        "Business": 6.973743438720703e-06,
+        "First Class": 3.0547380447387695e-07
+      }
+    },
+    {
+      "example_id": "17_00070",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "0": 0.99609375,
+        "1": 0.004058837890625
+      }
+    },
+    {
+      "example_id": "17_00070",
+      "field": "refundable",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.90625,
+      "correct": true,
+      "probs": {
+        "True": 0.90625,
+        "False": 0.09521484375,
+        "ambiguous": 8.803908713161945e-10
+      }
+    },
+    {
+      "example_id": "17_00070",
+      "field": "airlines",
+      "target": "American Airlines",
+      "top": "United Airlines",
+      "top_prob": 0.5546875,
+      "correct": false,
+      "probs": {
+        "United Airlines": 0.5546875,
+        "American Airlines": 0.3359375,
+        "Delta Airlines": 0.051513671875,
+        "Southwest Airlines": 0.051513671875,
+        "Alaska Airlines": 0.000164031982421875,
+        "British Airways": 0.000888824462890625,
+        "Air France": 0.002410888671875
+      }
+    },
+    {
+      "example_id": "17_00017",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 0.9921875,
+      "correct": true,
+      "probs": {
+        "1": 0.9921875,
+        "2": 0.007568359375,
+        "3": 0.000484466552734375,
+        "4": 8.392333984375e-05
+      }
+    },
+    {
+      "example_id": "17_00017",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.96484375,
+      "correct": true,
+      "probs": {
+        "Economy": 0.96484375,
+        "Premium Economy": 0.0003681182861328125,
+        "Business": 0.032958984375,
+        "First Class": 2.3484230041503906e-05
+      }
+    },
+    {
+      "example_id": "17_00017",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "0": 0.99609375,
+        "1": 0.0021820068359375
+      }
+    },
+    {
+      "example_id": "17_00017",
+      "field": "refundable",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.00102996826171875,
+        "ambiguous": 6.565414878423326e-12
+      }
+    },
+    {
+      "example_id": "17_00017",
+      "field": "airlines",
+      "target": "United Airlines",
+      "top": "United Airlines",
+      "top_prob": 0.55859375,
+      "correct": true,
+      "probs": {
+        "United Airlines": 0.55859375,
+        "American Airlines": 0.337890625,
+        "Delta Airlines": 0.0751953125,
+        "Southwest Airlines": 0.0277099609375,
+        "Alaska Airlines": 0.00016498565673828125,
+        "British Airways": 0.000614166259765625,
+        "Air France": 0.00074005126953125
+      }
+    },
+    {
+      "example_id": "16_00102",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.0,
+        "2": 5.14984130859375e-05,
+        "3": 1.0132789611816406e-05,
+        "4": 8.940696716308594e-06
+      }
+    },
+    {
+      "example_id": "16_00102",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 1.0,
+        "Premium Economy": 8.940696716308594e-06,
+        "Business": 5.029141902923584e-07,
+        "First Class": 4.1443854570388794e-08
+      }
+    },
+    {
+      "example_id": "16_00102",
+      "field": "number_stops",
+      "target": "1",
+      "top": "0",
+      "top_prob": 1.0,
+      "correct": false,
+      "probs": {
+        "0": 1.0,
+        "1": 0.0002307891845703125
+      }
+    },
+    {
+      "example_id": "16_00102",
+      "field": "refundable",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.953125,
+      "correct": true,
+      "probs": {
+        "True": 0.953125,
+        "False": 0.04736328125,
+        "ambiguous": 6.984919309616089e-10
+      }
+    },
+    {
+      "example_id": "16_00102",
+      "field": "airlines",
+      "target": "American Airlines",
+      "top": "American Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 7.338821887969971e-07,
+        "American Airlines": 1.0,
+        "Delta Airlines": 3.293156623840332e-06,
+        "Southwest Airlines": 1.525040715932846e-08,
+        "Alaska Airlines": 1.8189894035458565e-09,
+        "British Airways": 1.8533319234848022e-07,
+        "Air France": 5.699694156646729e-07
+      }
+    },
+    {
+      "example_id": "16_00067",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.0,
+        "2": 6.48200511932373e-07,
+        "3": 3.0547380447387695e-07,
+        "4": 1.8533319234848022e-07
+      }
+    },
+    {
+      "example_id": "16_00067",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 1.0,
+        "Premium Economy": 4.00543212890625e-05,
+        "Business": 7.486343383789062e-05,
+        "First Class": 7.420778274536133e-06
+      }
+    },
+    {
+      "example_id": "16_00067",
+      "field": "number_stops",
+      "target": "1",
+      "top": "0",
+      "top_prob": 0.8359375,
+      "correct": false,
+      "probs": {
+        "0": 0.8359375,
+        "1": 0.1640625
+      }
+    },
+    {
+      "example_id": "16_00067",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.9140625,
+      "correct": false,
+      "probs": {
+        "True": 0.0849609375,
+        "False": 0.9140625,
+        "ambiguous": 7.60337570682168e-10
+      }
+    },
+    {
+      "example_id": "16_00067",
+      "field": "airlines",
+      "target": "United Airlines",
+      "top": "United Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 1.0,
+        "American Airlines": 1.7583370208740234e-06,
+        "Delta Airlines": 7.338821887969971e-07,
+        "Southwest Airlines": 8.149072527885437e-09,
+        "Alaska Airlines": 8.672941476106644e-09,
+        "British Airways": 1.1117663234472275e-08,
+        "Air France": 8.149072527885437e-09
+      }
+    },
+    {
+      "example_id": "17_00062",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.0,
+        "2": 2.753734588623047e-05,
+        "3": 1.895427703857422e-05,
+        "4": 1.2993812561035156e-05
+      }
+    },
+    {
+      "example_id": "17_00062",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 1.0,
+        "Premium Economy": 1.2993812561035156e-05,
+        "Business": 2.7008354663848877e-07,
+        "First Class": 7.683411240577698e-09
+      }
+    },
+    {
+      "example_id": "17_00062",
+      "field": "number_stops",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "0": 0.000335693359375,
+        "1": 1.0
+      }
+    },
+    {
+      "example_id": "17_00062",
+      "field": "refundable",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.4722347259521484e-05,
+        "False": 1.0,
+        "ambiguous": 5.861977570020827e-14
+      }
+    },
+    {
+      "example_id": "17_00062",
+      "field": "airlines",
+      "target": "United Airlines",
+      "top": "United Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 1.0,
+        "American Airlines": 1.2069940567016602e-06,
+        "Delta Airlines": 5.029141902923584e-07,
+        "Southwest Airlines": 8.149072527885437e-09,
+        "Alaska Airlines": 4.3655745685100555e-09,
+        "British Airways": 1.618172973394394e-08,
+        "Air France": 1.1874362826347351e-08
+      }
+    },
+    {
+      "example_id": "17_00018",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.0,
+        "2": 0.00170135498046875,
+        "3": 0.0001392364501953125,
+        "4": 1.1444091796875e-05
+      }
+    },
+    {
+      "example_id": "17_00018",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.98828125,
+      "correct": true,
+      "probs": {
+        "Economy": 0.98828125,
+        "Premium Economy": 0.012451171875,
+        "Business": 0.00010728836059570312,
+        "First Class": 0.000331878662109375
+      }
+    },
+    {
+      "example_id": "17_00018",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "0": 0.99609375,
+        "1": 0.00360107421875
+      }
+    },
+    {
+      "example_id": "17_00018",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.8515625,
+      "correct": false,
+      "probs": {
+        "True": 0.1484375,
+        "False": 0.8515625,
+        "ambiguous": 3.1468516681343317e-10
+      }
+    },
+    {
+      "example_id": "17_00018",
+      "field": "airlines",
+      "target": "Alaska Airlines",
+      "top": "United Airlines",
+      "top_prob": 0.48828125,
+      "correct": false,
+      "probs": {
+        "United Airlines": 0.48828125,
+        "American Airlines": 0.37890625,
+        "Delta Airlines": 0.07470703125,
+        "Southwest Airlines": 0.051513671875,
+        "Alaska Airlines": 0.000209808349609375,
+        "British Airways": 0.000732421875,
+        "Air France": 0.0027313232421875
+      }
+    },
+    {
+      "example_id": "17_00069",
+      "field": "passengers",
+      "target": "3",
+      "top": "3",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 7.486343383789062e-05,
+        "2": 4.5299530029296875e-05,
+        "3": 1.0,
+        "4": 0.0001087188720703125
+      }
+    },
+    {
+      "example_id": "17_00069",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.9609375,
+      "correct": true,
+      "probs": {
+        "Economy": 0.9609375,
+        "Premium Economy": 0.037353515625,
+        "Business": 0.0001430511474609375,
+        "First Class": 8.153915405273438e-05
+      }
+    },
+    {
+      "example_id": "17_00069",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 0.98828125,
+      "correct": true,
+      "probs": {
+        "0": 0.98828125,
+        "1": 0.012451171875
+      }
+    },
+    {
+      "example_id": "17_00069",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.89453125,
+      "correct": false,
+      "probs": {
+        "True": 0.10693359375,
+        "False": 0.89453125,
+        "ambiguous": 1.5552359400317073e-10
+      }
+    },
+    {
+      "example_id": "17_00069",
+      "field": "airlines",
+      "target": "American Airlines",
+      "top": "United Airlines",
+      "top_prob": 0.64453125,
+      "correct": false,
+      "probs": {
+        "United Airlines": 0.64453125,
+        "American Airlines": 0.26953125,
+        "Delta Airlines": 0.0771484375,
+        "Southwest Airlines": 0.006744384765625,
+        "Alaska Airlines": 7.963180541992188e-05,
+        "British Airways": 0.00048828125,
+        "Air France": 0.0006256103515625
+      }
+    },
+    {
+      "example_id": "16_00070",
+      "field": "passengers",
+      "target": "4",
+      "top": "4",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 8.940696716308594e-06,
+        "2": 5.424022674560547e-06,
+        "3": 1.150369644165039e-05,
+        "4": 1.0
+      }
+    },
+    {
+      "example_id": "16_00070",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 1.0,
+        "Premium Economy": 8.940696716308594e-06,
+        "Business": 2.3990869522094727e-06,
+        "First Class": 3.0547380447387695e-07
+      }
+    },
+    {
+      "example_id": "16_00070",
+      "field": "number_stops",
+      "target": "1",
+      "top": "0",
+      "top_prob": 0.9921875,
+      "correct": false,
+      "probs": {
+        "0": 0.9921875,
+        "1": 0.006683349609375
+      }
+    },
+    {
+      "example_id": "16_00070",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.90625,
+      "correct": false,
+      "probs": {
+        "True": 0.09521484375,
+        "False": 0.90625,
+        "ambiguous": 1.280568540096283e-09
+      }
+    },
+    {
+      "example_id": "16_00070",
+      "field": "airlines",
+      "target": "Delta Airlines",
+      "top": "Delta Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 6.48200511932373e-07,
+        "American Airlines": 3.9301812648773193e-07,
+        "Delta Airlines": 1.0,
+        "Southwest Airlines": 9.837094694375992e-09,
+        "Alaska Airlines": 8.585629984736443e-10,
+        "British Airways": 3.841705620288849e-09,
+        "Air France": 3.4226104617118835e-08
+      }
+    },
+    {
+      "example_id": "15_00070",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "1": 0.99609375,
+        "2": 0.004058837890625,
+        "3": 3.981590270996094e-05,
+        "4": 6.109476089477539e-06
+      }
+    },
+    {
+      "example_id": "15_00070",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.9921875,
+      "correct": true,
+      "probs": {
+        "Economy": 0.9921875,
+        "Premium Economy": 0.006683349609375,
+        "Business": 3.743171691894531e-05,
+        "First Class": 0.00012302398681640625
+      }
+    },
+    {
+      "example_id": "15_00070",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "0": 0.99609375,
+        "1": 0.0028076171875
+      }
+    },
+    {
+      "example_id": "15_00070",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.89453125,
+      "correct": false,
+      "probs": {
+        "True": 0.10693359375,
+        "False": 0.89453125,
+        "ambiguous": 7.821654435247183e-11
+      }
+    },
+    {
+      "example_id": "15_00070",
+      "field": "airlines",
+      "target": "American Airlines",
+      "top": "United Airlines",
+      "top_prob": 0.66796875,
+      "correct": false,
+      "probs": {
+        "United Airlines": 0.66796875,
+        "American Airlines": 0.19140625,
+        "Delta Airlines": 0.1025390625,
+        "Southwest Airlines": 0.0294189453125,
+        "Alaska Airlines": 0.000446319580078125,
+        "British Airways": 0.0016632080078125,
+        "Air France": 0.0022735595703125
+      }
+    },
+    {
+      "example_id": "17_00004",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.0,
+        "2": 2.1457672119140625e-05,
+        "3": 8.307397365570068e-07,
+        "4": 3.725290298461914e-06
+      }
+    },
+    {
+      "example_id": "17_00004",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 1.0,
+        "Premium Economy": 3.9301812648773193e-07,
+        "Business": 1.4435499906539917e-07,
+        "First Class": 2.384185791015625e-07
+      }
+    },
+    {
+      "example_id": "17_00004",
+      "field": "number_stops",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "0": 8.487701416015625e-05,
+        "1": 1.0
+      }
+    },
+    {
+      "example_id": "17_00004",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.9140625,
+      "correct": false,
+      "probs": {
+        "True": 0.0849609375,
+        "False": 0.9140625,
+        "ambiguous": 8.913048077374697e-10
+      }
+    },
+    {
+      "example_id": "17_00004",
+      "field": "airlines",
+      "target": "Southwest Airlines",
+      "top": "Southwest Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 3.293156623840332e-06,
+        "American Airlines": 5.424022674560547e-06,
+        "Delta Airlines": 7.867813110351562e-06,
+        "Southwest Airlines": 1.0,
+        "Alaska Airlines": 4.400499165058136e-08,
+        "British Airways": 2.0838342607021332e-08,
+        "Air France": 5.699694156646729e-07
+      }
+    },
+    {
+      "example_id": "17_00042",
+      "field": "passengers",
+      "target": "3",
+      "top": "3",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 0.00020313262939453125,
+        "2": 0.0001087188720703125,
+        "3": 1.0,
+        "4": 0.0001583099365234375
+      }
+    },
+    {
+      "example_id": "17_00042",
+      "field": "seating_class",
+      "target": "Premium Economy",
+      "top": "Premium Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 4.00543212890625e-05,
+        "Premium Economy": 1.0,
+        "Business": 6.139278411865234e-06,
+        "First Class": 9.424984455108643e-07
+      }
+    },
+    {
+      "example_id": "17_00042",
+      "field": "number_stops",
+      "target": "1",
+      "top": "0",
+      "top_prob": 0.9921875,
+      "correct": false,
+      "probs": {
+        "0": 0.9921875,
+        "1": 0.007568359375
+      }
+    },
+    {
+      "example_id": "17_00042",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.87890625,
+      "correct": false,
+      "probs": {
+        "True": 0.119140625,
+        "False": 0.87890625,
+        "ambiguous": 1.4006218407303095e-10
+      }
+    },
+    {
+      "example_id": "17_00042",
+      "field": "airlines",
+      "target": "Delta Airlines",
+      "top": "United Airlines",
+      "top_prob": 0.373046875,
+      "correct": false,
+      "probs": {
+        "United Airlines": 0.373046875,
+        "American Airlines": 0.328125,
+        "Delta Airlines": 0.1552734375,
+        "Southwest Airlines": 0.13671875,
+        "Alaska Airlines": 0.00104522705078125,
+        "British Airways": 0.001190185546875,
+        "Air France": 0.00162506103515625
+      }
+    },
+    {
+      "example_id": "16_00104",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.0,
+        "2": 2.905726432800293e-06,
+        "3": 2.905726432800293e-06,
+        "4": 1.2069940567016602e-06
+      }
+    },
+    {
+      "example_id": "16_00104",
+      "field": "seating_class",
+      "target": "Premium Economy",
+      "top": "Premium Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 2.753734588623047e-05,
+        "Premium Economy": 1.0,
+        "Business": 5.424022674560547e-06,
+        "First Class": 3.293156623840332e-06
+      }
+    },
+    {
+      "example_id": "16_00104",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "0": 1.0,
+        "1": 0.00193023681640625
+      }
+    },
+    {
+      "example_id": "16_00104",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.89453125,
+      "correct": false,
+      "probs": {
+        "True": 0.10693359375,
+        "False": 0.89453125,
+        "ambiguous": 3.8562575355172157e-10
+      }
+    },
+    {
+      "example_id": "16_00104",
+      "field": "airlines",
+      "target": "Delta Airlines",
+      "top": "Delta Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 2.7008354663848877e-07,
+        "American Airlines": 3.293156623840332e-06,
+        "Delta Airlines": 1.0,
+        "Southwest Airlines": 3.0547380447387695e-07,
+        "Alaska Airlines": 2.2118911147117615e-08,
+        "British Airways": 1.83936208486557e-08,
+        "Air France": 3.46451997756958e-07
+      }
+    },
+    {
+      "example_id": "17_00035",
+      "field": "passengers",
+      "target": "2",
+      "top": "2",
+      "top_prob": 0.98046875,
+      "correct": true,
+      "probs": {
+        "1": 0.0203857421875,
+        "2": 0.98046875,
+        "3": 1.1265277862548828e-05,
+        "4": 1.8596649169921875e-05
+      }
+    },
+    {
+      "example_id": "17_00035",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.9921875,
+      "correct": true,
+      "probs": {
+        "Economy": 0.9921875,
+        "Premium Economy": 0.00860595703125,
+        "Business": 5.435943603515625e-05,
+        "First Class": 6.961822509765625e-05
+      }
+    },
+    {
+      "example_id": "17_00035",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "0": 0.99609375,
+        "1": 0.0021820068359375
+      }
+    },
+    {
+      "example_id": "17_00035",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.89453125,
+      "correct": false,
+      "probs": {
+        "True": 0.10693359375,
+        "False": 0.89453125,
+        "ambiguous": 4.511093720793724e-10
+      }
+    },
+    {
+      "example_id": "17_00035",
+      "field": "airlines",
+      "target": "American Airlines",
+      "top": "United Airlines",
+      "top_prob": 0.72265625,
+      "correct": false,
+      "probs": {
+        "United Airlines": 0.72265625,
+        "American Airlines": 0.234375,
+        "Delta Airlines": 0.021728515625,
+        "Southwest Airlines": 0.021728515625,
+        "Alaska Airlines": 0.00011444091796875,
+        "British Airways": 0.000579833984375,
+        "Air France": 0.00048065185546875
+      }
+    },
+    {
+      "example_id": "17_00069",
+      "field": "passengers",
+      "target": "3",
+      "top": "3",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 2.753734588623047e-05,
+        "2": 5.14984130859375e-05,
+        "3": 1.0,
+        "4": 9.632110595703125e-05
+      }
+    },
+    {
+      "example_id": "17_00069",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 1.0,
+        "Premium Economy": 1.55717134475708e-06,
+        "Business": 9.918585419654846e-08,
+        "First Class": 1.331500243395567e-09
+      }
+    },
+    {
+      "example_id": "17_00069",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "0": 1.0,
+        "1": 2.4318695068359375e-05
+      }
+    },
+    {
+      "example_id": "17_00069",
+      "field": "refundable",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.5,
+      "correct": true,
+      "probs": {
+        "True": 0.5,
+        "False": 0.5,
+        "ambiguous": 3.0377123039215803e-10
+      }
+    },
+    {
+      "example_id": "17_00069",
+      "field": "airlines",
+      "target": "Southwest Airlines",
+      "top": "Southwest Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 6.48200511932373e-07,
+        "American Airlines": 8.307397365570068e-07,
+        "Delta Airlines": 2.2649765014648438e-06,
+        "Southwest Airlines": 1.0,
+        "Alaska Airlines": 1.3445969671010971e-08,
+        "British Airways": 4.3655745685100555e-09,
+        "Air France": 1.6391277313232422e-07
+      }
+    },
+    {
+      "example_id": "16_00092",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.0,
+        "2": 5.699694156646729e-07,
+        "3": 1.3709068298339844e-06,
+        "4": 7.338821887969971e-07
+      }
+    },
+    {
+      "example_id": "16_00092",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 1.0,
+        "Premium Economy": 1.0132789611816406e-05,
+        "Business": 2.7008354663848877e-07,
+        "First Class": 7.683411240577698e-09
+      }
+    },
+    {
+      "example_id": "16_00092",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "0": 1.0,
+        "1": 0.00012302398681640625
+      }
+    },
+    {
+      "example_id": "16_00092",
+      "field": "refundable",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.96875,
+      "correct": true,
+      "probs": {
+        "True": 0.029296875,
+        "False": 0.96875,
+        "ambiguous": 3.3651303965598345e-10
+      }
+    },
+    {
+      "example_id": "16_00092",
+      "field": "airlines",
+      "target": "United Airlines",
+      "top": "United Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 1.0,
+        "American Airlines": 1.6391277313232422e-07,
+        "Delta Airlines": 1.8533319234848022e-07,
+        "Southwest Airlines": 9.74978320300579e-10,
+        "Alaska Airlines": 9.74978320300579e-10,
+        "British Airways": 1.331500243395567e-09,
+        "Air France": 3.1868694350123405e-09
+      }
+    },
+    {
+      "example_id": "15_00077",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "1": 0.99609375,
+        "2": 0.003173828125,
+        "3": 1.4662742614746094e-05,
+        "4": 3.0994415283203125e-05
+      }
+    },
+    {
+      "example_id": "15_00077",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 1.0,
+        "Premium Economy": 0.0006256103515625,
+        "Business": 1.2993812561035156e-05,
+        "First Class": 7.867813110351562e-06
+      }
+    },
+    {
+      "example_id": "15_00077",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "0": 1.0,
+        "1": 4.5299530029296875e-05
+      }
+    },
+    {
+      "example_id": "15_00077",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.90625,
+      "correct": false,
+      "probs": {
+        "True": 0.09521484375,
+        "False": 0.90625,
+        "ambiguous": 9.094947017729282e-10
+      }
+    },
+    {
+      "example_id": "15_00077",
+      "field": "airlines",
+      "target": "Alaska Airlines",
+      "top": "Alaska Airlines",
+      "top_prob": 0.984375,
+      "correct": true,
+      "probs": {
+        "United Airlines": 0.0002269744873046875,
+        "American Airlines": 0.005859375,
+        "Delta Airlines": 0.0002918243408203125,
+        "Southwest Airlines": 0.0003757476806640625,
+        "Alaska Airlines": 0.984375,
+        "British Airways": 3.075599670410156e-05,
+        "Air France": 0.0035552978515625
+      }
+    },
+    {
+      "example_id": "17_00054",
+      "field": "passengers",
+      "target": "2",
+      "top": "2",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 4.5299530029296875e-05,
+        "2": 1.0,
+        "3": 8.940696716308594e-06,
+        "4": 4.00543212890625e-05
+      }
+    },
+    {
+      "example_id": "17_00054",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 1.0,
+        "Premium Economy": 8.940696716308594e-06,
+        "Business": 4.172325134277344e-07,
+        "First Class": 1.83936208486557e-08
+      }
+    },
+    {
+      "example_id": "17_00054",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "0": 1.0,
+        "1": 2.1457672119140625e-05
+      }
+    },
+    {
+      "example_id": "17_00054",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.98828125,
+      "correct": false,
+      "probs": {
+        "True": 0.012451171875,
+        "False": 0.98828125,
+        "ambiguous": 3.765308065339923e-10
+      }
+    },
+    {
+      "example_id": "17_00054",
+      "field": "airlines",
+      "target": "American Airlines",
+      "top": "American Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 4.00543212890625e-05,
+        "American Airlines": 1.0,
+        "Delta Airlines": 7.338821887969971e-07,
+        "Southwest Airlines": 5.3085386753082275e-08,
+        "Alaska Airlines": 4.94765117764473e-09,
+        "British Airways": 7.729977369308472e-08,
+        "Air France": 3.0547380447387695e-07
+      }
+    },
+    {
+      "example_id": "16_00114",
+      "field": "passengers",
+      "target": "4",
+      "top": "4",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 0.0002307891845703125,
+        "2": 0.00020313262939453125,
+        "3": 7.486343383789062e-05,
+        "4": 1.0
+      }
+    },
+    {
+      "example_id": "16_00114",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 1.0,
+        "Premium Economy": 9.632110595703125e-05,
+        "Business": 1.6540288925170898e-06,
+        "First Class": 2.2351741790771484e-07
+      }
+    },
+    {
+      "example_id": "16_00114",
+      "field": "number_stops",
+      "target": "1",
+      "top": "0",
+      "top_prob": 0.98046875,
+      "correct": false,
+      "probs": {
+        "0": 0.98046875,
+        "1": 0.0203857421875
+      }
+    },
+    {
+      "example_id": "16_00114",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.90625,
+      "correct": false,
+      "probs": {
+        "True": 0.09521484375,
+        "False": 0.90625,
+        "ambiguous": 1.3242242857813835e-09
+      }
+    },
+    {
+      "example_id": "16_00114",
+      "field": "airlines",
+      "target": "Delta Airlines",
+      "top": "Delta Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 2.384185791015625e-07,
+        "American Airlines": 5.699694156646729e-07,
+        "Delta Airlines": 1.0,
+        "Southwest Airlines": 1.83936208486557e-08,
+        "Alaska Airlines": 1.6079866327345371e-09,
+        "British Airways": 9.255018085241318e-09,
+        "Air France": 6.007030606269836e-08
+      }
+    },
+    {
+      "example_id": "16_00103",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.0,
+        "2": 0.00014019012451171875,
+        "3": 5.817413330078125e-05,
+        "4": 0.0002307891845703125
+      }
+    },
+    {
+      "example_id": "16_00103",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 1.0,
+        "Premium Economy": 3.123283386230469e-05,
+        "Business": 1.3709068298339844e-06,
+        "First Class": 2.2351741790771484e-07
+      }
+    },
+    {
+      "example_id": "16_00103",
+      "field": "number_stops",
+      "target": "1",
+      "top": "0",
+      "top_prob": 0.99609375,
+      "correct": false,
+      "probs": {
+        "0": 0.99609375,
+        "1": 0.00360107421875
+      }
+    },
+    {
+      "example_id": "16_00103",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.9140625,
+      "correct": false,
+      "probs": {
+        "True": 0.0849609375,
+        "False": 0.9140625,
+        "ambiguous": 4.0745362639427185e-10
+      }
+    },
+    {
+      "example_id": "16_00103",
+      "field": "airlines",
+      "target": "Alaska Airlines",
+      "top": "Alaska Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 1.6391277313232422e-07,
+        "American Airlines": 7.867813110351562e-06,
+        "Delta Airlines": 2.384185791015625e-07,
+        "Southwest Airlines": 7.729977369308472e-08,
+        "Alaska Airlines": 1.0,
+        "British Airways": 1.3445969671010971e-08,
+        "Air France": 7.867813110351562e-06
+      }
+    },
+    {
+      "example_id": "15_00103",
+      "field": "passengers",
+      "target": "4",
+      "top": "4",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "1": 0.0003795623779296875,
+        "2": 0.00012302398681640625,
+        "3": 0.001922607421875,
+        "4": 0.99609375
+      }
+    },
+    {
+      "example_id": "15_00103",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.984375,
+      "correct": true,
+      "probs": {
+        "Economy": 0.984375,
+        "Premium Economy": 0.015869140625,
+        "Business": 2.110004425048828e-05,
+        "First Class": 3.266334533691406e-05
+      }
+    },
+    {
+      "example_id": "15_00103",
+      "field": "number_stops",
+      "target": "1",
+      "top": "0",
+      "top_prob": 0.98046875,
+      "correct": false,
+      "probs": {
+        "0": 0.98046875,
+        "1": 0.0179443359375
+      }
+    },
+    {
+      "example_id": "15_00103",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.8671875,
+      "correct": false,
+      "probs": {
+        "True": 0.1328125,
+        "False": 0.8671875,
+        "ambiguous": 3.1104718800634146e-10
+      }
+    },
+    {
+      "example_id": "15_00103",
+      "field": "airlines",
+      "target": "American Airlines",
+      "top": "United Airlines",
+      "top_prob": 0.45703125,
+      "correct": false,
+      "probs": {
+        "United Airlines": 0.45703125,
+        "American Airlines": 0.2451171875,
+        "Delta Airlines": 0.2158203125,
+        "Southwest Airlines": 0.07958984375,
+        "Alaska Airlines": 0.0003910064697265625,
+        "British Airways": 0.00030517578125,
+        "Air France": 0.00099945068359375
+      }
+    },
+    {
+      "example_id": "15_00078",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.0,
+        "2": 0.00102996826171875,
+        "3": 3.123283386230469e-05,
+        "4": 1.996755599975586e-06
+      }
+    },
+    {
+      "example_id": "15_00078",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "Economy": 0.99609375,
+        "Premium Economy": 0.003173828125,
+        "Business": 5.817413330078125e-05,
+        "First Class": 6.198883056640625e-05
+      }
+    },
+    {
+      "example_id": "15_00078",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "0": 1.0,
+        "1": 0.00193023681640625
+      }
+    },
+    {
+      "example_id": "15_00078",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.89453125,
+      "correct": false,
+      "probs": {
+        "True": 0.10693359375,
+        "False": 0.89453125,
+        "ambiguous": 3.092281986027956e-10
+      }
+    },
+    {
+      "example_id": "15_00078",
+      "field": "airlines",
+      "target": "American Airlines",
+      "top": "United Airlines",
+      "top_prob": 0.52734375,
+      "correct": false,
+      "probs": {
+        "United Airlines": 0.52734375,
+        "American Airlines": 0.1708984375,
+        "Delta Airlines": 0.283203125,
+        "Southwest Airlines": 0.01806640625,
+        "Alaska Airlines": 1.6450881958007812e-05,
+        "British Airways": 6.914138793945312e-05,
+        "Air France": 0.00010728836059570312
+      }
+    },
+    {
+      "example_id": "15_00079",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 0.97265625,
+      "correct": true,
+      "probs": {
+        "1": 0.97265625,
+        "2": 0.02587890625,
+        "3": 0.00165557861328125,
+        "4": 8.249282836914062e-05
+      }
+    },
+    {
+      "example_id": "15_00079",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "Economy": 0.99609375,
+        "Premium Economy": 0.002044677734375,
+        "Business": 0.00020313262939453125,
+        "First Class": 0.00019073486328125
+      }
+    },
+    {
+      "example_id": "15_00079",
+      "field": "number_stops",
+      "target": "1",
+      "top": "0",
+      "top_prob": 1.0,
+      "correct": false,
+      "probs": {
+        "0": 1.0,
+        "1": 0.0003795623779296875
+      }
+    },
+    {
+      "example_id": "15_00079",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.8515625,
+      "correct": false,
+      "probs": {
+        "True": 0.1484375,
+        "False": 0.8515625,
+        "ambiguous": 2.051820047199726e-09
+      }
+    },
+    {
+      "example_id": "15_00079",
+      "field": "airlines",
+      "target": "Air Canada",
+      "top": "Air France",
+      "top_prob": 0.5,
+      "correct": false,
+      "probs": {
+        "United Airlines": 2.02817318495363e-10,
+        "American Airlines": 1.1059455573558807e-08,
+        "Delta Airlines": 1.7025740817189217e-09,
+        "Southwest Airlines": 3.319655661471188e-11,
+        "Alaska Airlines": 8.549250196665525e-10,
+        "British Airways": 6.184563972055912e-11,
+        "Air France": 0.5
+      }
+    },
+    {
+      "example_id": "17_00035",
+      "field": "passengers",
+      "target": "2",
+      "top": "2",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "1": 0.002471923828125,
+        "2": 0.99609375,
+        "3": 2.1338462829589844e-05,
+        "4": 2.7418136596679688e-05
+      }
+    },
+    {
+      "example_id": "17_00035",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 1.0,
+        "Premium Economy": 0.0003795623779296875,
+        "Business": 1.2889504432678223e-06,
+        "First Class": 2.1047890186309814e-07
+      }
+    },
+    {
+      "example_id": "17_00035",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "0": 1.0,
+        "1": 0.000179290771484375
+      }
+    },
+    {
+      "example_id": "17_00035",
+      "field": "refundable",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.4318695068359375e-05,
+        "False": 1.0,
+        "ambiguous": 2.6290081223123707e-13
+      }
+    },
+    {
+      "example_id": "17_00035",
+      "field": "airlines",
+      "target": "American Airlines",
+      "top": "American Airlines",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "United Airlines": 0.0035858154296875,
+        "American Airlines": 0.99609375,
+        "Delta Airlines": 0.001922607421875,
+        "Southwest Airlines": 8.440017700195312e-05,
+        "Alaska Airlines": 8.270144462585449e-07,
+        "British Airways": 1.6570091247558594e-05,
+        "Air France": 4.76837158203125e-06
+      }
+    },
+    {
+      "example_id": "15_00100",
+      "field": "passengers",
+      "target": "4",
+      "top": "4",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "1": 0.0004291534423828125,
+        "2": 0.00090789794921875,
+        "3": 0.0021820068359375,
+        "4": 0.99609375
+      }
+    },
+    {
+      "example_id": "15_00100",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.984375,
+      "correct": true,
+      "probs": {
+        "Economy": 0.984375,
+        "Premium Economy": 0.0140380859375,
+        "Business": 0.001678466796875,
+        "First Class": 0.0006561279296875
+      }
+    },
+    {
+      "example_id": "15_00100",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "0": 0.99609375,
+        "1": 0.00360107421875
+      }
+    },
+    {
+      "example_id": "15_00100",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.90625,
+      "correct": false,
+      "probs": {
+        "True": 0.09521484375,
+        "False": 0.90625,
+        "ambiguous": 1.6952981241047382e-09
+      }
+    },
+    {
+      "example_id": "15_00100",
+      "field": "airlines",
+      "target": "Delta Airlines",
+      "top": "Delta Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 2.3632310330867767e-08,
+        "American Airlines": 8.754432201385498e-08,
+        "Delta Airlines": 1.0,
+        "Southwest Airlines": 9.255018085241318e-09,
+        "Alaska Airlines": 1.418811734765768e-09,
+        "British Airways": 3.623426891863346e-09,
+        "Air France": 2.7008354663848877e-07
+      }
+    },
+    {
+      "example_id": "17_00063",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.0,
+        "2": 1.150369644165039e-05,
+        "3": 5.817413330078125e-05,
+        "4": 9.424984455108643e-07
+      }
+    },
+    {
+      "example_id": "17_00063",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 1.0,
+        "Premium Economy": 1.2993812561035156e-05,
+        "Business": 6.48200511932373e-07,
+        "First Class": 1.4319084584712982e-08
+      }
+    },
+    {
+      "example_id": "17_00063",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "0": 1.0,
+        "1": 5.817413330078125e-05
+      }
+    },
+    {
+      "example_id": "17_00063",
+      "field": "refundable",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000804901123046875,
+        "False": 1.0,
+        "ambiguous": 1.9326762412674725e-12
+      }
+    },
+    {
+      "example_id": "17_00063",
+      "field": "airlines",
+      "target": "United Airlines",
+      "top": "United Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 1.0,
+        "American Airlines": 2.562999725341797e-06,
+        "Delta Airlines": 4.4517219066619873e-07,
+        "Southwest Airlines": 2.0838342607021332e-08,
+        "Alaska Airlines": 1.7229467630386353e-08,
+        "British Airways": 3.213062882423401e-08,
+        "Air France": 2.3632310330867767e-08
+      }
+    },
+    {
+      "example_id": "15_00107",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 0.9140625,
+      "correct": true,
+      "probs": {
+        "1": 0.9140625,
+        "2": 0.0849609375,
+        "3": 0.00121307373046875,
+        "4": 0.001373291015625
+      }
+    },
+    {
+      "example_id": "15_00107",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.94921875,
+      "correct": true,
+      "probs": {
+        "Economy": 0.94921875,
+        "Premium Economy": 0.047119140625,
+        "Business": 0.002349853515625,
+        "First Class": 0.002838134765625
+      }
+    },
+    {
+      "example_id": "15_00107",
+      "field": "number_stops",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "0": 0.00150299072265625,
+        "1": 1.0
+      }
+    },
+    {
+      "example_id": "15_00107",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.90625,
+      "correct": false,
+      "probs": {
+        "True": 0.09521484375,
+        "False": 0.90625,
+        "ambiguous": 3.0704541131854057e-09
+      }
+    },
+    {
+      "example_id": "15_00107",
+      "field": "airlines",
+      "target": "Delta Airlines",
+      "top": "Delta Airlines",
+      "top_prob": 0.9765625,
+      "correct": true,
+      "probs": {
+        "United Airlines": 1.1205673217773438e-05,
+        "American Airlines": 0.02294921875,
+        "Delta Airlines": 0.9765625,
+        "Southwest Airlines": 2.644956111907959e-07,
+        "Alaska Airlines": 2.1653249859809875e-08,
+        "British Airways": 3.8370490074157715e-07,
+        "Air France": 1.341104507446289e-06
+      }
+    },
+    {
+      "example_id": "16_00058",
+      "field": "passengers",
+      "target": "3",
+      "top": "3",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.7583370208740234e-06,
+        "2": 3.293156623840332e-06,
+        "3": 1.0,
+        "4": 1.2069940567016602e-06
+      }
+    },
+    {
+      "example_id": "16_00058",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 1.0,
+        "Premium Economy": 2.905726432800293e-06,
+        "Business": 7.82310962677002e-07,
+        "First Class": 1.8533319234848022e-07
+      }
+    },
+    {
+      "example_id": "16_00058",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "0": 1.0,
+        "1": 0.00150299072265625
+      }
+    },
+    {
+      "example_id": "16_00058",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.89453125,
+      "correct": false,
+      "probs": {
+        "True": 0.10693359375,
+        "False": 0.89453125,
+        "ambiguous": 2.444721758365631e-09
+      }
+    },
+    {
+      "example_id": "16_00058",
+      "field": "airlines",
+      "target": "American Airlines",
+      "top": "American Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 1.895427703857422e-05,
+        "American Airlines": 1.0,
+        "Delta Airlines": 6.48200511932373e-07,
+        "Southwest Airlines": 5.3085386753082275e-08,
+        "Alaska Airlines": 5.617039278149605e-09,
+        "British Airways": 9.313225746154785e-08,
+        "Air France": 2.384185791015625e-07
+      }
+    },
+    {
+      "example_id": "16_00108",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.0,
+        "2": 0.00012302398681640625,
+        "3": 1.0132789611816406e-05,
+        "4": 1.2069940567016602e-06
+      }
+    },
+    {
+      "example_id": "16_00108",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 1.0,
+        "Premium Economy": 0.0001087188720703125,
+        "Business": 3.293156623840332e-06,
+        "First Class": 3.259629011154175e-07
+      }
+    },
+    {
+      "example_id": "16_00108",
+      "field": "number_stops",
+      "target": "1",
+      "top": "0",
+      "top_prob": 0.97265625,
+      "correct": false,
+      "probs": {
+        "0": 0.97265625,
+        "1": 0.0260009765625
+      }
+    },
+    {
+      "example_id": "16_00108",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.81640625,
+      "correct": false,
+      "probs": {
+        "True": 0.1826171875,
+        "False": 0.81640625,
+        "ambiguous": 7.021299097687006e-10
+      }
+    },
+    {
+      "example_id": "16_00108",
+      "field": "airlines",
+      "target": "Southwest Airlines",
+      "top": "Southwest Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 6.628036499023438e-05,
+        "American Airlines": 2.4318695068359375e-05,
+        "Delta Airlines": 7.867813110351562e-06,
+        "Southwest Airlines": 1.0,
+        "Alaska Airlines": 5.657784640789032e-08,
+        "British Airways": 7.729977369308472e-08,
+        "Air France": 7.338821887969971e-07
+      }
+    },
+    {
+      "example_id": "16_00121",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.0,
+        "2": 5.424022674560547e-06,
+        "3": 5.029141902923584e-07,
+        "4": 3.46451997756958e-07
+      }
+    },
+    {
+      "example_id": "16_00121",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 1.0,
+        "Premium Economy": 3.123283386230469e-05,
+        "Business": 6.07222318649292e-07,
+        "First Class": 1.0570511221885681e-07
+      }
+    },
+    {
+      "example_id": "16_00121",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "0": 1.0,
+        "1": 0.0003795623779296875
+      }
+    },
+    {
+      "example_id": "16_00121",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.89453125,
+      "correct": false,
+      "probs": {
+        "True": 0.10693359375,
+        "False": 0.89453125,
+        "ambiguous": 8.185452315956354e-10
+      }
+    },
+    {
+      "example_id": "16_00121",
+      "field": "airlines",
+      "target": "Delta Airlines",
+      "top": "Delta Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 1.1117663234472275e-08,
+        "American Airlines": 2.384185791015625e-07,
+        "Delta Airlines": 1.0,
+        "Southwest Airlines": 4.103640094399452e-09,
+        "Alaska Airlines": 3.3651303965598345e-10,
+        "British Airways": 2.066371962428093e-09,
+        "Air France": 2.7008354663848877e-07
+      }
+    },
+    {
+      "example_id": "17_00003",
+      "field": "passengers",
+      "target": "1",
+      "top": "2",
+      "top_prob": 0.703125,
+      "correct": false,
+      "probs": {
+        "1": 0.29296875,
+        "2": 0.703125,
+        "3": 0.00174713134765625,
+        "4": 0.000640869140625
+      }
+    },
+    {
+      "example_id": "17_00003",
+      "field": "seating_class",
+      "target": "Premium Economy",
+      "top": "Premium Economy",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Economy": 0.0002613067626953125,
+        "Premium Economy": 1.0,
+        "Business": 1.2993812561035156e-05,
+        "First Class": 1.150369644165039e-05
+      }
+    },
+    {
+      "example_id": "17_00003",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "0": 1.0,
+        "1": 0.0002307891845703125
+      }
+    },
+    {
+      "example_id": "17_00003",
+      "field": "refundable",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000804901123046875,
+        "False": 1.0,
+        "ambiguous": 1.800799509510398e-10
+      }
+    },
+    {
+      "example_id": "17_00003",
+      "field": "airlines",
+      "target": "American Airlines",
+      "top": "American Airlines",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "United Airlines": 0.0001087188720703125,
+        "American Airlines": 1.0,
+        "Delta Airlines": 2.2649765014648438e-06,
+        "Southwest Airlines": 4.4517219066619873e-07,
+        "Alaska Airlines": 9.837094694375992e-09,
+        "British Airways": 1.7415732145309448e-07,
+        "Air France": 3.0547380447387695e-07
+      }
+    },
+    {
+      "example_id": "15_00077",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "1": 0.99609375,
+        "2": 0.004608154296875,
+        "3": 8.440017700195312e-05,
+        "4": 6.943941116333008e-06
+      }
+    },
+    {
+      "example_id": "15_00077",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.98046875,
+      "correct": true,
+      "probs": {
+        "Economy": 0.98046875,
+        "Premium Economy": 0.0203857421875,
+        "Business": 0.00010013580322265625,
+        "First Class": 9.393692016601562e-05
+      }
+    },
+    {
+      "example_id": "15_00077",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 0.9921875,
+      "correct": true,
+      "probs": {
+        "0": 0.9921875,
+        "1": 0.006683349609375
+      }
+    },
+    {
+      "example_id": "15_00077",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.8515625,
+      "correct": false,
+      "probs": {
+        "True": 0.1484375,
+        "False": 0.8515625,
+        "ambiguous": 1.9099388737231493e-10
+      }
+    },
+    {
+      "example_id": "15_00077",
+      "field": "airlines",
+      "target": "Alaska Airlines",
+      "top": "United Airlines",
+      "top_prob": 0.60546875,
+      "correct": false,
+      "probs": {
+        "United Airlines": 0.60546875,
+        "American Airlines": 0.251953125,
+        "Delta Airlines": 0.08154296875,
+        "Southwest Airlines": 0.049560546875,
+        "Alaska Airlines": 0.000518798828125,
+        "British Airways": 0.002044677734375,
+        "Air France": 0.00555419921875
+      }
+    },
+    {
+      "example_id": "15_00111",
+      "field": "passengers",
+      "target": "1",
+      "top": "1",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "1": 0.99609375,
+        "2": 0.004608154296875,
+        "3": 5.793571472167969e-05,
+        "4": 1.0073184967041016e-05
+      }
+    },
+    {
+      "example_id": "15_00111",
+      "field": "seating_class",
+      "target": "Economy",
+      "top": "Economy",
+      "top_prob": 0.9921875,
+      "correct": true,
+      "probs": {
+        "Economy": 0.9921875,
+        "Premium Economy": 0.00592041015625,
+        "Business": 1.2934207916259766e-05,
+        "First Class": 6.580352783203125e-05
+      }
+    },
+    {
+      "example_id": "15_00111",
+      "field": "number_stops",
+      "target": "0",
+      "top": "0",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "0": 1.0,
+        "1": 0.00102996826171875
+      }
+    },
+    {
+      "example_id": "15_00111",
+      "field": "refundable",
+      "target": "ambiguous",
+      "top": "False",
+      "top_prob": 0.8671875,
+      "correct": false,
+      "probs": {
+        "True": 0.1328125,
+        "False": 0.8671875,
+        "ambiguous": 1.509761204943061e-10
+      }
+    },
+    {
+      "example_id": "15_00111",
+      "field": "airlines",
+      "target": "American Airlines",
+      "top": "United Airlines",
+      "top_prob": 0.57421875,
+      "correct": false,
+      "probs": {
+        "United Airlines": 0.57421875,
+        "American Airlines": 0.306640625,
+        "Delta Airlines": 0.099609375,
+        "Southwest Airlines": 0.017333984375,
+        "Alaska Airlines": 8.0108642578125e-05,
+        "British Airways": 0.000759124755859375,
+        "Air France": 0.00133514404296875
+      }
+    }
+  ]
+}

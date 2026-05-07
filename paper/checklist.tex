@@ -18,6 +18,10 @@
     \item[] Question: Does the paper discuss the limitations of the work performed by the authors?
     \item[] Answer: \answerYes{}
     \item[] Justification: Limitations are noted inline: Section~4.2 documents run-to-run variation in per-role estimates (with the seed pinned for reproduction), Section~5.5 reports schema-dependence (Restaurants is unaffected), and the empirical scope is restricted to a single model family (Qwen~2.5) and small training sets (144--250 examples).
+
+    \textbf{Three datasets.} Our findings rest on Flights, Restaurants, and CUAD --- the first three publicly available structured-output datasets we considered as proxies for the proprietary work that motivated this paper. We did not select for confirming behavior. The phenomenon is plausibly schema-idiosyncratic, but the fact that two of the three exhibit counter-current regression is suggestive of generality rather than evidence of it.
+
+    \textbf{One model family, modest scales.} We evaluate Qwen~2.5 at 0.5B, 7B, and 32B. The 7B and 32B variants are production-typical for fine-tuned structured extraction; we have observed qualitatively similar patterns in earlier proprietary work with Llama and Gemma, not reported here. Scaling to substantially larger foundation models was outside our compute budget.
     \item[] Guidelines:
     \begin{itemize}
         \item The answer \answerNA{} means that the paper has no limitation while the answer \answerNo{} means that the paper has limitations, but those are not discussed in the paper. 
@@ -136,7 +140,7 @@
 \item {\bf Broader impacts}
     \item[] Question: Does the paper discuss both potential positive societal impacts and negative societal impacts of the work performed?
     \item[] Answer: \answerYes{}
-    \item[] Justification: Positive: more reliable structured-output extraction benefits applications such as form-filling, tool-call generation, and clinical/legal document extraction by surfacing failures (counter-current fields) that aggregate metrics hide. Negative: no impacts specific to this work --- the released artefacts are LoRA adapters of an existing open-weights model and analysis code, neither of which raises misuse risks beyond those of the underlying base models.
+    \item[] Justification: Structured-output extraction is increasingly deployed in pipelines where individual field predictions carry real consequences (booking, contracting, eligibility). Aggregate metrics readily mask per-field regressions in such systems. The diagnostic offered here makes that failure mode visible at evaluation time; presupposition labeling and margin gating are training- and inference-time mitigations that trade some recall for calibration --- a desirable trade when the cost of a confident-wrong commitment is high. We see no specific dual-use risk; the methods make existing pipelines more reliable rather than enabling new capabilities.
     \item[] Guidelines:
     \begin{itemize}
         \item The answer \answerNA{} means that there is no societal impact of the work performed.
@@ -178,7 +182,7 @@
 \item {\bf New assets}
     \item[] Question: Are new assets introduced in the paper well documented and is the documentation provided alongside the assets?
     \item[] Answer: \answerYes{}
-    \item[] Justification: All released artefacts are documented in the supplementary README: code (\texttt{src/}, \texttt{scripts/}), generated data splits (\texttt{data/}), LoRA adapter checkpoints (released on acceptance), and result JSONs. Each is annotated with provenance and the script that produced it.
+    \item[] Justification: All released artefacts are documented in the supplementary README: code (\texttt{src/}, \texttt{scripts/}), generated data splits (\texttt{data/}), and result JSONs. Each is annotated with provenance and the script that produced it.
     \item[] Guidelines:
     \begin{itemize}
         \item The answer \answerNA{} means that the paper does not release new assets.

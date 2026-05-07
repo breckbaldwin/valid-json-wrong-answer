@@ -40,6 +40,7 @@ INCLUDE_FILES = [
     "data/Restaurants_1_train_pcl.jsonl",
     "data/Flights_1_train.jsonl",
     "data/Flights_1_train_pcl.jsonl",
+    "data/Flights_1_train_random_ambig.jsonl",
     "data/cuad_train.jsonl",
     "data/cuad_train_full.jsonl",
     # Test splits (vanilla + PCL-relabeled; full-context CUAD)
@@ -192,6 +193,35 @@ python scripts/build_tables.py
 `run_all_paper.sh` is idempotent: training and evaluation skip work
 whose output already exists, so an interrupted pod can be resumed by
 simply re-running the same command.
+
+### Random-ambiguous control (ablation)
+
+The paper compares cue-driven PCL against a random-ambiguous control
+baseline that relabels the same fraction (193/250 = 77.2%) of training
+examples to `ambiguous` uniformly at random instead of by the
+`refund` cue. This isolates whether PCL's gain comes from the cue
+specifically, vs any introduction of an abstain class at the same rate.
+
+The relabeled training data is bundled
+(`data/Flights_1_train_random_ambig.jsonl`); reviewers can regenerate
+it deterministically with:
+
+```bash
+python src/random_relabel.py \
+    --input  data/Flights_1_train.jsonl \
+    --output data/Flights_1_train_random_ambig.jsonl \
+    --field  refundable --rate 0.772 --seed 42
+```
+
+To run the full ablation (LoRA train + per-role decompose at
+0.5B/7B/32B for Flights only, ~1h 40m on A100 80GB):
+
+```bash
+bash scripts/run_random_ambig_baseline.sh
+```
+
+Outputs land in `results/<scale>_random_ambig_finetuned_flights.json`,
+parallel to the PCL outputs.
 
 ## Third-party datasets (not redistributed)
 

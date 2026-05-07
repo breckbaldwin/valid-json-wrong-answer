@@ -353,14 +353,17 @@ def build_lexical(_results_dir: Path) -> None:
 # Table 8: PCL with vs without (ENUM/BOOLEAN loss)
 # =============================================================================
 def build_pcl(results_dir: Path) -> None:
-    _section("Table 8 (tab:pcl) — Flights constrained-content loss with vs without PCL")
+    _section("Table 8 (tab:pcl) — Flights constrained-content loss: 2-way / random-ambig / PCL")
     print("Reads:")
-    print("  2-way std LoRA: results/<scale>_finetuned_flights.json (BOOLEAN+ENUM_VALUE)")
-    print("  3-way PCL:      results/<scale>_pcl_finetuned_flights.json (BOOLEAN+ENUM_VALUE)")
-    print("Note: under PCL the refundable field is relabelled with 3 values,")
-    print("      so it lands in ENUM_VALUE rather than BOOLEAN. Combining the")
-    print("      two buckets gives an apples-to-apples constrained-content")
-    print("      comparison across the two schemas.")
+    print("  2-way std LoRA:  results/<scale>_finetuned_flights.json (BOOLEAN+ENUM_VALUE)")
+    print("  3-way random:    results/<scale>_random_ambig_finetuned_flights.json (BOOLEAN+ENUM_VALUE)")
+    print("  3-way PCL:       results/<scale>_pcl_finetuned_flights.json (BOOLEAN+ENUM_VALUE)")
+    print("Note: under both 3-way conditions the refundable field is relabelled to")
+    print("      a 3-value enum, so it lands in ENUM_VALUE rather than BOOLEAN.")
+    print("      Combining the two buckets gives an apples-to-apples comparison.")
+    print("      The random-ambig column relabels 193/250 = 77.2% of training")
+    print("      examples to 'ambiguous' uniformly at random (matching PCL's rate)")
+    print("      and isolates whether PCL's gain comes from the cue specifically.")
     print()
 
     def _combined(per_role: dict) -> tuple[float, int]:
@@ -380,33 +383,36 @@ def build_pcl(results_dir: Path) -> None:
     rows = []
     for disp_scale, scale in SCALES:
         f2 = _load(results_dir / f"{scale}_finetuned_flights.json")
-        f3 = _load(results_dir / f"{scale}_pcl_finetuned_flights.json")
-        if not (f2 and f3):
-            rows.append((disp_scale, None, None, None, None))
-            continue
-        v2, n2 = _combined(f2["per_role"])
-        v3, n3 = _combined(f3["per_role"])
-        rows.append((disp_scale, v2, n2, v3, n3))
+        fr = _load(results_dir / f"{scale}_random_ambig_finetuned_flights.json")
+        fp = _load(results_dir / f"{scale}_pcl_finetuned_flights.json")
+        v2, n2 = _combined(f2["per_role"]) if f2 else (None, None)
+        vr, nr = _combined(fr["per_role"]) if fr else (None, None)
+        vp, np_ = _combined(fp["per_role"]) if fp else (None, None)
+        rows.append((disp_scale, v2, n2, vr, nr, vp, np_))
 
-    print(f"\n{'Scale':<6} {'2-way':>15} {'3-way (PCL)':>15} {'Change':>9}")
-    for ds, v2, n2, v3, n3 in rows:
-        if v2 is None or v3 is None:
+    print(f"\n{'Scale':<6} {'2-way':>15} {'random-ambig':>17} {'PCL':>15} {'Δ PCL/2-way':>13}")
+    for ds, v2, n2, vr, nr, vp, np_ in rows:
+        if v2 is None or vp is None:
             print(f"{ds:<6}  MISSING")
             continue
-        ch = (v3 - v2) / v2 * 100 if v2 else float("nan")
-        print(f"{ds:<6} {v2:>9.3f} (n={n2:>3}) {v3:>9.3f} (n={n3:>3}) {ch:>+8.0f}%")
+        ch = (vp - v2) / v2 * 100 if v2 else float("nan")
+        rcell = f"{vr:>9.3f} (n={nr:>3})" if vr is not None else "      ---      "
+        print(f"{ds:<6} {v2:>9.3f} (n={n2:>3}) {rcell:>17} {vp:>9.3f} (n={np_:>3}) {ch:>+12.0f}%")
 
     print("\n% --- LaTeX body for tab:pcl ---")
     print("\\toprule")
-    print("\\textbf{Scale} & \\textbf{2-way Std LoRA} & \\textbf{3-way Std LoRA (PCL)} & \\textbf{Change} \\\\")
+    print("\\textbf{Scale} & \\textbf{2-way Std LoRA} & \\textbf{Random-ambig} & "
+          "\\textbf{PCL} & \\textbf{Change} \\\\")
+    print(" & & \\textbf{(3-way, random)} & \\textbf{(3-way, cue-driven)} & \\textbf{PCL vs 2-way} \\\\")
     print("\\midrule")
-    for ds, v2, n2, v3, n3 in rows:
-        if v2 is None or v3 is None:
-            print(f"{ds} & --- & --- & --- \\\\")
+    for ds, v2, n2, vr, nr, vp, np_ in rows:
+        if v2 is None or vp is None:
+            print(f"{ds} & --- & --- & --- & --- \\\\")
             continue
-        ch = (v3 - v2) / v2 * 100 if v2 else float("nan")
-        cell3 = f"\\improve{{{v3:.3f}}}" if ch < 0 else f"{v3:.3f}"
-        print(f"{ds} & {v2:.3f} & {cell3} & {_signed(ch)} \\\\")
+        ch = (vp - v2) / v2 * 100 if v2 else float("nan")
+        cellp = f"\\improve{{{vp:.3f}}}" if ch < 0 else f"{vp:.3f}"
+        cellr = f"{vr:.3f}" if vr is not None else "---"
+        print(f"{ds} & {v2:.3f} & {cellr} & {cellp} & {_signed(ch)} \\\\")
     print("\\bottomrule")
 
 

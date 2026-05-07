@@ -1,0 +1,6286 @@
+{
+  "scale": "32b",
+  "dataset": "cuad",
+  "total": 473,
+  "correct": 380,
+  "fields": [
+    {
+      "example_id": "AzulSa_20170303_F-1A_EX-10.3_9943903_EX-10.3_Maintenance Agreement2",
+      "field": "has_anti_assignment",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.895427703857422e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "AzulSa_20170303_F-1A_EX-10.3_9943903_EX-10.3_Maintenance Agreement2",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 6.973743438720703e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "AzulSa_20170303_F-1A_EX-10.3_9943903_EX-10.3_Maintenance Agreement2",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0001583099365234375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "AzulSa_20170303_F-1A_EX-10.3_9943903_EX-10.3_Maintenance Agreement2",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 6.139278411865234e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "AzulSa_20170303_F-1A_EX-10.3_9943903_EX-10.3_Maintenance Agreement2",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.905726432800293e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "AzulSa_20170303_F-1A_EX-10.3_9943903_EX-10.3_Maintenance Agreement2",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 7.867813110351562e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "AzulSa_20170303_F-1A_EX-10.3_9943903_EX-10.3_Maintenance Agreement2",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.996755599975586e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "AzulSa_20170303_F-1A_EX-10.3_9943903_EX-10.3_Maintenance Agreement2",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.9301812648773193e-07,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "AzulSa_20170303_F-1A_EX-10.3_9943903_EX-10.3_Maintenance Agreement2",
+      "field": "governing_law",
+      "target": "New York",
+      "top": "New York",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 1.0,
+        "California": 3.46451997756958e-07,
+        "Delaware": 1.55717134475708e-06,
+        "Texas": 2.7008354663848877e-07,
+        "Florida": 8.149072527885437e-09,
+        "Pennsylvania": 7.729977369308472e-08,
+        "People's Republic of China": 1.0477378964424133e-08,
+        "Nevada": 2.8405338525772095e-08,
+        "Ontario, Canada": 1.6079866327345371e-09,
+        "Illinois": 1.4435499906539917e-07,
+        "other": 1.55717134475708e-06,
+        "not_specified": 6.973743438720703e-06
+      }
+    },
+    {
+      "example_id": "AzulSa_20170303_F-1A_EX-10.3_9943903_EX-10.3_Maintenance Agreement2",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 0.000553131103515625,
+        "fixed_term": 0.00116729736328125,
+        "perpetual": 0.0001583099365234375,
+        "other": 0.00070953369140625,
+        "not_specified": 0.99609375
+      }
+    },
+    {
+      "example_id": "AzulSa_20170303_F-1A_EX-10.3_9943903_EX-10.3_Maintenance Agreement2",
+      "field": "expiration_type",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "perpetual": 0.00012302398681640625,
+        "specific_date": 4.00543212890625e-05,
+        "not_specified": 1.0
+      }
+    },
+    {
+      "example_id": "TcPipelinesLp_20160226_10-K_EX-99.12_9454048_EX-99.12_Transportation Agreement",
+      "field": "has_anti_assignment",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000553131103515625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "TcPipelinesLp_20160226_10-K_EX-99.12_9454048_EX-99.12_Transportation Agreement",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "True",
+      "top_prob": 0.94140625,
+      "correct": false,
+      "probs": {
+        "True": 0.94140625,
+        "False": 0.06005859375
+      }
+    },
+    {
+      "example_id": "TcPipelinesLp_20160226_10-K_EX-99.12_9454048_EX-99.12_Transportation Agreement",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00048828125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "TcPipelinesLp_20160226_10-K_EX-99.12_9454048_EX-99.12_Transportation Agreement",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0001087188720703125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "TcPipelinesLp_20160226_10-K_EX-99.12_9454048_EX-99.12_Transportation Agreement",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000335693359375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "TcPipelinesLp_20160226_10-K_EX-99.12_9454048_EX-99.12_Transportation Agreement",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000431060791015625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "TcPipelinesLp_20160226_10-K_EX-99.12_9454048_EX-99.12_Transportation Agreement",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000553131103515625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "TcPipelinesLp_20160226_10-K_EX-99.12_9454048_EX-99.12_Transportation Agreement",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.55717134475708e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "TcPipelinesLp_20160226_10-K_EX-99.12_9454048_EX-99.12_Transportation Agreement",
+      "field": "governing_law",
+      "target": "other",
+      "top": "not_specified",
+      "top_prob": 0.92578125,
+      "correct": false,
+      "probs": {
+        "New York": 0.00139617919921875,
+        "California": 0.0001010894775390625,
+        "Delaware": 0.024658203125,
+        "Texas": 0.0001659393310546875,
+        "Florida": 5.3882598876953125e-05,
+        "Pennsylvania": 8.916854858398438e-05,
+        "People's Republic of China": 1.2040138244628906e-05,
+        "Nevada": 4.76837158203125e-05,
+        "Ontario, Canada": 5.036592483520508e-06,
+        "Illinois": 0.0010833740234375,
+        "other": 0.046142578125,
+        "not_specified": 0.92578125
+      }
+    },
+    {
+      "example_id": "TcPipelinesLp_20160226_10-K_EX-99.12_9454048_EX-99.12_Transportation Agreement",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.91796875,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 0.000186920166015625,
+        "fixed_term": 0.0751953125,
+        "perpetual": 0.00014591217041015625,
+        "other": 0.005462646484375,
+        "not_specified": 0.91796875
+      }
+    },
+    {
+      "example_id": "TcPipelinesLp_20160226_10-K_EX-99.12_9454048_EX-99.12_Transportation Agreement",
+      "field": "expiration_type",
+      "target": "specific_date",
+      "top": "specific_date",
+      "top_prob": 0.98046875,
+      "correct": true,
+      "probs": {
+        "perpetual": 0.0003719329833984375,
+        "specific_date": 0.98046875,
+        "not_specified": 0.0203857421875
+      }
+    },
+    {
+      "example_id": "KUBIENT,INC_07_02_2020-EX-10.14-MASTER SERVICES AGREEMENT_Part2",
+      "field": "has_anti_assignment",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.002471923828125,
+        "False": 0.99609375
+      }
+    },
+    {
+      "example_id": "KUBIENT,INC_07_02_2020-EX-10.14-MASTER SERVICES AGREEMENT_Part2",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "True",
+      "top_prob": 0.5,
+      "correct": false,
+      "probs": {
+        "True": 0.5,
+        "False": 0.5
+      }
+    },
+    {
+      "example_id": "KUBIENT,INC_07_02_2020-EX-10.14-MASTER SERVICES AGREEMENT_Part2",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00170135498046875,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "KUBIENT,INC_07_02_2020-EX-10.14-MASTER SERVICES AGREEMENT_Part2",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.9921875,
+      "correct": true,
+      "probs": {
+        "True": 0.00592041015625,
+        "False": 0.9921875
+      }
+    },
+    {
+      "example_id": "KUBIENT,INC_07_02_2020-EX-10.14-MASTER SERVICES AGREEMENT_Part2",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.6689300537109375e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "KUBIENT,INC_07_02_2020-EX-10.14-MASTER SERVICES AGREEMENT_Part2",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "True",
+      "top_prob": 0.98046875,
+      "correct": false,
+      "probs": {
+        "True": 0.98046875,
+        "False": 0.0179443359375
+      }
+    },
+    {
+      "example_id": "KUBIENT,INC_07_02_2020-EX-10.14-MASTER SERVICES AGREEMENT_Part2",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.0021820068359375,
+        "False": 0.99609375
+      }
+    },
+    {
+      "example_id": "KUBIENT,INC_07_02_2020-EX-10.14-MASTER SERVICES AGREEMENT_Part2",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.753734588623047e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "KUBIENT,INC_07_02_2020-EX-10.14-MASTER SERVICES AGREEMENT_Part2",
+      "field": "governing_law",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 2.1047890186309814e-07,
+        "California": 2.1047890186309814e-07,
+        "Delaware": 3.213062882423401e-08,
+        "Texas": 2.8405338525772095e-08,
+        "Florida": 3.655441105365753e-08,
+        "Pennsylvania": 1.4435499906539917e-07,
+        "People's Republic of China": 7.566995918750763e-10,
+        "Nevada": 4.94765117764473e-09,
+        "Ontario, Canada": 2.455635694786906e-10,
+        "Illinois": 8.754432201385498e-08,
+        "other": 0.000553131103515625,
+        "not_specified": 1.0
+      }
+    },
+    {
+      "example_id": "KUBIENT,INC_07_02_2020-EX-10.14-MASTER SERVICES AGREEMENT_Part2",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 1.895427703857422e-05,
+        "fixed_term": 4.798173904418945e-06,
+        "perpetual": 2.1457672119140625e-05,
+        "other": 9.632110595703125e-05,
+        "not_specified": 1.0
+      }
+    },
+    {
+      "example_id": "KUBIENT,INC_07_02_2020-EX-10.14-MASTER SERVICES AGREEMENT_Part2",
+      "field": "expiration_type",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "perpetual": 2.4318695068359375e-05,
+        "specific_date": 8.940696716308594e-06,
+        "not_specified": 1.0
+      }
+    },
+    {
+      "example_id": "ImperialGardenResortInc_20161028_DRS (on F-1)_EX-10.13_9963189_EX-10.13_Outsourcing Agreement",
+      "field": "has_anti_assignment",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000179290771484375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ImperialGardenResortInc_20161028_DRS (on F-1)_EX-10.13_9963189_EX-10.13_Outsourcing Agreement",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.005218505859375,
+        "False": 0.99609375
+      }
+    },
+    {
+      "example_id": "ImperialGardenResortInc_20161028_DRS (on F-1)_EX-10.13_9963189_EX-10.13_Outsourcing Agreement",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.753734588623047e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ImperialGardenResortInc_20161028_DRS (on F-1)_EX-10.13_9963189_EX-10.13_Outsourcing Agreement",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.123283386230469e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ImperialGardenResortInc_20161028_DRS (on F-1)_EX-10.13_9963189_EX-10.13_Outsourcing Agreement",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 7.867813110351562e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ImperialGardenResortInc_20161028_DRS (on F-1)_EX-10.13_9963189_EX-10.13_Outsourcing Agreement",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0132789611816406e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ImperialGardenResortInc_20161028_DRS (on F-1)_EX-10.13_9963189_EX-10.13_Outsourcing Agreement",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000431060791015625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ImperialGardenResortInc_20161028_DRS (on F-1)_EX-10.13_9963189_EX-10.13_Outsourcing Agreement",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.3709068298339844e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ImperialGardenResortInc_20161028_DRS (on F-1)_EX-10.13_9963189_EX-10.13_Outsourcing Agreement",
+      "field": "governing_law",
+      "target": "other",
+      "top": "not_specified",
+      "top_prob": 0.87109375,
+      "correct": false,
+      "probs": {
+        "New York": 0.00012159347534179688,
+        "California": 3.248453140258789e-06,
+        "Delaware": 1.6450881958007812e-05,
+        "Texas": 2.518296241760254e-06,
+        "Florida": 4.377216100692749e-07,
+        "Pennsylvania": 3.9577484130859375e-05,
+        "People's Republic of China": 0.091796875,
+        "Nevada": 0.0002002716064453125,
+        "Ontario, Canada": 2.518296241760254e-06,
+        "Illinois": 3.075599670410156e-05,
+        "other": 0.038330078125,
+        "not_specified": 0.87109375
+      }
+    },
+    {
+      "example_id": "ImperialGardenResortInc_20161028_DRS (on F-1)_EX-10.13_9963189_EX-10.13_Outsourcing Agreement",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 1.0132789611816406e-05,
+        "fixed_term": 3.123283386230469e-05,
+        "perpetual": 0.00012302398681640625,
+        "other": 0.00020313262939453125,
+        "not_specified": 1.0
+      }
+    },
+    {
+      "example_id": "ImperialGardenResortInc_20161028_DRS (on F-1)_EX-10.13_9963189_EX-10.13_Outsourcing Agreement",
+      "field": "expiration_type",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "perpetual": 0.00020313262939453125,
+        "specific_date": 0.000335693359375,
+        "not_specified": 1.0
+      }
+    },
+    {
+      "example_id": "GridironBionutrientsInc_20171206_8-K_EX-10.2_10972556_EX-10.2_Endorsement Agreement",
+      "field": "has_anti_assignment",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 6.628036499023438e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "GridironBionutrientsInc_20171206_8-K_EX-10.2_10972556_EX-10.2_Endorsement Agreement",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.725290298461914e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "GridironBionutrientsInc_20171206_8-K_EX-10.2_10972556_EX-10.2_Endorsement Agreement",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "True",
+      "top_prob": 0.81640625,
+      "correct": false,
+      "probs": {
+        "True": 0.81640625,
+        "False": 0.1826171875
+      }
+    },
+    {
+      "example_id": "GridironBionutrientsInc_20171206_8-K_EX-10.2_10972556_EX-10.2_Endorsement Agreement",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000335693359375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "GridironBionutrientsInc_20171206_8-K_EX-10.2_10972556_EX-10.2_Endorsement Agreement",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 9.424984455108643e-07,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "GridironBionutrientsInc_20171206_8-K_EX-10.2_10972556_EX-10.2_Endorsement Agreement",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 4.798173904418945e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "GridironBionutrientsInc_20171206_8-K_EX-10.2_10972556_EX-10.2_Endorsement Agreement",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.7583370208740234e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "GridironBionutrientsInc_20171206_8-K_EX-10.2_10972556_EX-10.2_Endorsement Agreement",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.562999725341797e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "GridironBionutrientsInc_20171206_8-K_EX-10.2_10972556_EX-10.2_Endorsement Agreement",
+      "field": "governing_law",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.98828125,
+      "correct": true,
+      "probs": {
+        "New York": 1.9669532775878906e-06,
+        "California": 0.010986328125,
+        "Delaware": 5.529727786779404e-09,
+        "Texas": 1.1129304766654968e-07,
+        "Florida": 5.078315734863281e-05,
+        "Pennsylvania": 6.752088665962219e-08,
+        "People's Republic of China": 1.5861587598919868e-09,
+        "Nevada": 2.805609256029129e-08,
+        "Ontario, Canada": 2.3137545213103294e-09,
+        "Illinois": 9.825453162193298e-08,
+        "other": 0.001312255859375,
+        "not_specified": 0.98828125
+      }
+    },
+    {
+      "example_id": "GridironBionutrientsInc_20171206_8-K_EX-10.2_10972556_EX-10.2_Endorsement Agreement",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 1.0132789611816406e-05,
+        "fixed_term": 3.528594970703125e-05,
+        "perpetual": 2.1457672119140625e-05,
+        "other": 6.628036499023438e-05,
+        "not_specified": 1.0
+      }
+    },
+    {
+      "example_id": "GridironBionutrientsInc_20171206_8-K_EX-10.2_10972556_EX-10.2_Endorsement Agreement",
+      "field": "expiration_type",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "perpetual": 1.0132789611816406e-05,
+        "specific_date": 3.46451997756958e-07,
+        "not_specified": 1.0
+      }
+    },
+    {
+      "example_id": "SalesforcecomInc_20171122_10-Q_EX-10.1_10961535_EX-10.1_Reseller Agreement",
+      "field": "has_anti_assignment",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00070953369140625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "SalesforcecomInc_20171122_10-Q_EX-10.1_10961535_EX-10.1_Reseller Agreement",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 4.231929779052734e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "SalesforcecomInc_20171122_10-Q_EX-10.1_10961535_EX-10.1_Reseller Agreement",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 7.867813110351562e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "SalesforcecomInc_20171122_10-Q_EX-10.1_10961535_EX-10.1_Reseller Agreement",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 5.424022674560547e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "SalesforcecomInc_20171122_10-Q_EX-10.1_10961535_EX-10.1_Reseller Agreement",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.2069940567016602e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "SalesforcecomInc_20171122_10-Q_EX-10.1_10961535_EX-10.1_Reseller Agreement",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.725290298461914e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "SalesforcecomInc_20171122_10-Q_EX-10.1_10961535_EX-10.1_Reseller Agreement",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.2118911147117615e-08,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "SalesforcecomInc_20171122_10-Q_EX-10.1_10961535_EX-10.1_Reseller Agreement",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.9301812648773193e-07,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "SalesforcecomInc_20171122_10-Q_EX-10.1_10961535_EX-10.1_Reseller Agreement",
+      "field": "governing_law",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.96875,
+      "correct": true,
+      "probs": {
+        "New York": 4.082918167114258e-06,
+        "California": 0.029296875,
+        "Delaware": 3.1888484954833984e-06,
+        "Texas": 1.4062970876693726e-07,
+        "Florida": 4.880130290985107e-07,
+        "Pennsylvania": 9.639188647270203e-08,
+        "People's Republic of China": 3.255991032347083e-10,
+        "Nevada": 7.916241884231567e-09,
+        "Ontario, Canada": 1.3751559890806675e-09,
+        "Illinois": 6.612390279769897e-08,
+        "other": 0.000690460205078125,
+        "not_specified": 0.96875
+      }
+    },
+    {
+      "example_id": "SalesforcecomInc_20171122_10-Q_EX-10.1_10961535_EX-10.1_Reseller Agreement",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 3.293156623840332e-06,
+        "fixed_term": 1.0132789611816406e-05,
+        "perpetual": 1.2993812561035156e-05,
+        "other": 5.424022674560547e-06,
+        "not_specified": 1.0
+      }
+    },
+    {
+      "example_id": "SalesforcecomInc_20171122_10-Q_EX-10.1_10961535_EX-10.1_Reseller Agreement",
+      "field": "expiration_type",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "perpetual": 2.1457672119140625e-05,
+        "specific_date": 3.293156623840332e-06,
+        "not_specified": 1.0
+      }
+    },
+    {
+      "example_id": "BANGIINC_05_25_2005-EX-10-Premium Managed Hosting Agreement",
+      "field": "has_anti_assignment",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 6.628036499023438e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "BANGIINC_05_25_2005-EX-10-Premium Managed Hosting Agreement",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0002307891845703125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "BANGIINC_05_25_2005-EX-10-Premium Managed Hosting Agreement",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 4.231929779052734e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "BANGIINC_05_25_2005-EX-10-Premium Managed Hosting Agreement",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 6.973743438720703e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "BANGIINC_05_25_2005-EX-10-Premium Managed Hosting Agreement",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.384185791015625e-07,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "BANGIINC_05_25_2005-EX-10-Premium Managed Hosting Agreement",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 5.029141902923584e-07,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "BANGIINC_05_25_2005-EX-10-Premium Managed Hosting Agreement",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.528594970703125e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "BANGIINC_05_25_2005-EX-10-Premium Managed Hosting Agreement",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 7.729977369308472e-08,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "BANGIINC_05_25_2005-EX-10-Premium Managed Hosting Agreement",
+      "field": "governing_law",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 1.955777406692505e-08,
+        "California": 1.1222437024116516e-07,
+        "Delaware": 5.587935447692871e-09,
+        "Texas": 4.05634636990726e-10,
+        "Florida": 7.566995918750763e-10,
+        "Pennsylvania": 1.1874362826347351e-08,
+        "People's Republic of China": 3.841705620288849e-09,
+        "Nevada": 7.729977369308472e-08,
+        "Ontario, Canada": 4.00543212890625e-05,
+        "Illinois": 7.729977369308472e-08,
+        "other": 0.00070953369140625,
+        "not_specified": 1.0
+      }
+    },
+    {
+      "example_id": "BANGIINC_05_25_2005-EX-10-Premium Managed Hosting Agreement",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.7734375,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 0.00116729736328125,
+        "fixed_term": 0.2216796875,
+        "perpetual": 7.43865966796875e-05,
+        "other": 0.0001392364501953125,
+        "not_specified": 0.7734375
+      }
+    },
+    {
+      "example_id": "BANGIINC_05_25_2005-EX-10-Premium Managed Hosting Agreement",
+      "field": "expiration_type",
+      "target": "specific_date",
+      "top": "specific_date",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "perpetual": 1.1444091796875e-05,
+        "specific_date": 0.99609375,
+        "not_specified": 0.004058837890625
+      }
+    },
+    {
+      "example_id": "ELFBEAUTY,INC_07_02_2020-EX-10.1-COOPERATION AGREEMENT",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.92578125,
+      "correct": true,
+      "probs": {
+        "True": 0.92578125,
+        "False": 0.07568359375
+      }
+    },
+    {
+      "example_id": "ELFBEAUTY,INC_07_02_2020-EX-10.1-COOPERATION AGREEMENT",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000911712646484375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ELFBEAUTY,INC_07_02_2020-EX-10.1-COOPERATION AGREEMENT",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000335693359375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ELFBEAUTY,INC_07_02_2020-EX-10.1-COOPERATION AGREEMENT",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "True",
+      "top_prob": 0.73046875,
+      "correct": false,
+      "probs": {
+        "True": 0.73046875,
+        "False": 0.26953125
+      }
+    },
+    {
+      "example_id": "ELFBEAUTY,INC_07_02_2020-EX-10.1-COOPERATION AGREEMENT",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00116729736328125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ELFBEAUTY,INC_07_02_2020-EX-10.1-COOPERATION AGREEMENT",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.5625,
+      "correct": true,
+      "probs": {
+        "True": 0.4375,
+        "False": 0.5625
+      }
+    },
+    {
+      "example_id": "ELFBEAUTY,INC_07_02_2020-EX-10.1-COOPERATION AGREEMENT",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0002613067626953125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ELFBEAUTY,INC_07_02_2020-EX-10.1-COOPERATION AGREEMENT",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.905726432800293e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ELFBEAUTY,INC_07_02_2020-EX-10.1-COOPERATION AGREEMENT",
+      "field": "governing_law",
+      "target": "Delaware",
+      "top": "Delaware",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 4.231929779052734e-06,
+        "California": 1.2069940567016602e-06,
+        "Delaware": 1.0,
+        "Texas": 1.7229467630386353e-08,
+        "Florida": 1.3445969671010971e-08,
+        "Pennsylvania": 7.729977369308472e-08,
+        "People's Republic of China": 2.9976945370435715e-09,
+        "Nevada": 8.149072527885437e-09,
+        "Ontario, Canada": 1.318767317570746e-10,
+        "Illinois": 3.213062882423401e-08,
+        "other": 9.424984455108643e-07,
+        "not_specified": 1.3709068298339844e-06
+      }
+    },
+    {
+      "example_id": "ELFBEAUTY,INC_07_02_2020-EX-10.1-COOPERATION AGREEMENT",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.703125,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 0.0947265625,
+        "fixed_term": 0.0654296875,
+        "perpetual": 0.0128173828125,
+        "other": 0.03076171875,
+        "not_specified": 0.703125
+      }
+    },
+    {
+      "example_id": "ELFBEAUTY,INC_07_02_2020-EX-10.1-COOPERATION AGREEMENT",
+      "field": "expiration_type",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.84765625,
+      "correct": true,
+      "probs": {
+        "perpetual": 0.00732421875,
+        "specific_date": 0.146484375,
+        "not_specified": 0.84765625
+      }
+    },
+    {
+      "example_id": "DRAGONSYSTEMSINC_01_08_1999-EX-10.17-OUTSOURCING AGREEMENT",
+      "field": "has_anti_assignment",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00150299072265625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "DRAGONSYSTEMSINC_01_08_1999-EX-10.17-OUTSOURCING AGREEMENT",
+      "field": "has_cap_on_liability",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.8671875,
+      "correct": true,
+      "probs": {
+        "True": 0.8671875,
+        "False": 0.1328125
+      }
+    },
+    {
+      "example_id": "DRAGONSYSTEMSINC_01_08_1999-EX-10.17-OUTSOURCING AGREEMENT",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 5.817413330078125e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "DRAGONSYSTEMSINC_01_08_1999-EX-10.17-OUTSOURCING AGREEMENT",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000179290771484375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "DRAGONSYSTEMSINC_01_08_1999-EX-10.17-OUTSOURCING AGREEMENT",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "True",
+      "top_prob": 0.9921875,
+      "correct": false,
+      "probs": {
+        "True": 0.9921875,
+        "False": 0.007568359375
+      }
+    },
+    {
+      "example_id": "DRAGONSYSTEMSINC_01_08_1999-EX-10.17-OUTSOURCING AGREEMENT",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0002307891845703125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "DRAGONSYSTEMSINC_01_08_1999-EX-10.17-OUTSOURCING AGREEMENT",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000431060791015625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "DRAGONSYSTEMSINC_01_08_1999-EX-10.17-OUTSOURCING AGREEMENT",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 4.231929779052734e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "DRAGONSYSTEMSINC_01_08_1999-EX-10.17-OUTSOURCING AGREEMENT",
+      "field": "governing_law",
+      "target": "other",
+      "top": "not_specified",
+      "top_prob": 0.96484375,
+      "correct": false,
+      "probs": {
+        "New York": 0.0006866455078125,
+        "California": 7.2479248046875e-05,
+        "Delaware": 1.4975666999816895e-06,
+        "Texas": 9.08970832824707e-07,
+        "Florida": 6.258487701416016e-07,
+        "Pennsylvania": 3.409385681152344e-05,
+        "People's Republic of China": 3.7997961044311523e-07,
+        "Nevada": 2.3484230041503906e-05,
+        "Ontario, Canada": 2.473592758178711e-06,
+        "Illinois": 4.38690185546875e-05,
+        "other": 0.032958984375,
+        "not_specified": 0.96484375
+      }
+    },
+    {
+      "example_id": "DRAGONSYSTEMSINC_01_08_1999-EX-10.17-OUTSOURCING AGREEMENT",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.96484375,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 0.001861572265625,
+        "fixed_term": 0.0014495849609375,
+        "perpetual": 0.022705078125,
+        "other": 0.006500244140625,
+        "not_specified": 0.96484375
+      }
+    },
+    {
+      "example_id": "DRAGONSYSTEMSINC_01_08_1999-EX-10.17-OUTSOURCING AGREEMENT",
+      "field": "expiration_type",
+      "target": "perpetual",
+      "top": "not_specified",
+      "top_prob": 0.99609375,
+      "correct": false,
+      "probs": {
+        "perpetual": 0.003173828125,
+        "specific_date": 0.000179290771484375,
+        "not_specified": 0.99609375
+      }
+    },
+    {
+      "example_id": "PACIFICSYSTEMSCONTROLTECHNOLOGYINC_08_24_2000-EX-10.53-SPONSORSHIP AGREEMENT",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.00116729736328125
+      }
+    },
+    {
+      "example_id": "PACIFICSYSTEMSCONTROLTECHNOLOGYINC_08_24_2000-EX-10.53-SPONSORSHIP AGREEMENT",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 5.699694156646729e-07,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PACIFICSYSTEMSCONTROLTECHNOLOGYINC_08_24_2000-EX-10.53-SPONSORSHIP AGREEMENT",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.2649765014648438e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PACIFICSYSTEMSCONTROLTECHNOLOGYINC_08_24_2000-EX-10.53-SPONSORSHIP AGREEMENT",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.123283386230469e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PACIFICSYSTEMSCONTROLTECHNOLOGYINC_08_24_2000-EX-10.53-SPONSORSHIP AGREEMENT",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.9301812648773193e-07,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PACIFICSYSTEMSCONTROLTECHNOLOGYINC_08_24_2000-EX-10.53-SPONSORSHIP AGREEMENT",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.528594970703125e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PACIFICSYSTEMSCONTROLTECHNOLOGYINC_08_24_2000-EX-10.53-SPONSORSHIP AGREEMENT",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.7008354663848877e-07,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PACIFICSYSTEMSCONTROLTECHNOLOGYINC_08_24_2000-EX-10.53-SPONSORSHIP AGREEMENT",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 7.729977369308472e-08,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PACIFICSYSTEMSCONTROLTECHNOLOGYINC_08_24_2000-EX-10.53-SPONSORSHIP AGREEMENT",
+      "field": "governing_law",
+      "target": "other",
+      "top": "California",
+      "top_prob": 0.796875,
+      "correct": false,
+      "probs": {
+        "New York": 1.71661376953125e-05,
+        "California": 0.796875,
+        "Delaware": 3.557652235031128e-07,
+        "Texas": 3.129243850708008e-07,
+        "Florida": 5.178153514862061e-07,
+        "Pennsylvania": 1.0151416063308716e-07,
+        "People's Republic of China": 8.987262845039368e-08,
+        "Nevada": 6.631016731262207e-07,
+        "Ontario, Canada": 9.685754776000977e-07,
+        "Illinois": 4.887580871582031e-06,
+        "other": 0.177734375,
+        "not_specified": 0.0240478515625
+      }
+    },
+    {
+      "example_id": "PACIFICSYSTEMSCONTROLTECHNOLOGYINC_08_24_2000-EX-10.53-SPONSORSHIP AGREEMENT",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 2.905726432800293e-06,
+        "fixed_term": 9.632110595703125e-05,
+        "perpetual": 7.486343383789062e-05,
+        "other": 2.4318695068359375e-05,
+        "not_specified": 1.0
+      }
+    },
+    {
+      "example_id": "PACIFICSYSTEMSCONTROLTECHNOLOGYINC_08_24_2000-EX-10.53-SPONSORSHIP AGREEMENT",
+      "field": "expiration_type",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.984375,
+      "correct": true,
+      "probs": {
+        "perpetual": 0.00061798095703125,
+        "specific_date": 0.0140380859375,
+        "not_specified": 0.984375
+      }
+    },
+    {
+      "example_id": "JINGWEIINTERNATIONALLTD_10_04_2007-EX-10.7-INTELLECTUAL PROPERTY AGREEMENT",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 7.486343383789062e-05
+      }
+    },
+    {
+      "example_id": "JINGWEIINTERNATIONALLTD_10_04_2007-EX-10.7-INTELLECTUAL PROPERTY AGREEMENT",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 4.231929779052734e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "JINGWEIINTERNATIONALLTD_10_04_2007-EX-10.7-INTELLECTUAL PROPERTY AGREEMENT",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000553131103515625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "JINGWEIINTERNATIONALLTD_10_04_2007-EX-10.7-INTELLECTUAL PROPERTY AGREEMENT",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00070953369140625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "JINGWEIINTERNATIONALLTD_10_04_2007-EX-10.7-INTELLECTUAL PROPERTY AGREEMENT",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.0547380447387695e-07,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "JINGWEIINTERNATIONALLTD_10_04_2007-EX-10.7-INTELLECTUAL PROPERTY AGREEMENT",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00102996826171875,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "JINGWEIINTERNATIONALLTD_10_04_2007-EX-10.7-INTELLECTUAL PROPERTY AGREEMENT",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 6.139278411865234e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "JINGWEIINTERNATIONALLTD_10_04_2007-EX-10.7-INTELLECTUAL PROPERTY AGREEMENT",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.46451997756958e-07,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "JINGWEIINTERNATIONALLTD_10_04_2007-EX-10.7-INTELLECTUAL PROPERTY AGREEMENT",
+      "field": "governing_law",
+      "target": "People's Republic of China",
+      "top": "People's Republic of China",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 1.6391277313232422e-07,
+        "California": 6.344635039567947e-09,
+        "Delaware": 5.029141902923584e-07,
+        "Texas": 2.1736923372372985e-10,
+        "Florida": 1.800799509510398e-10,
+        "Pennsylvania": 6.007030606269836e-08,
+        "People's Republic of China": 1.0,
+        "Nevada": 4.4517219066619873e-07,
+        "Ontario, Canada": 1.318767317570746e-10,
+        "Illinois": 9.255018085241318e-09,
+        "other": 1.2069940567016602e-06,
+        "not_specified": 1.7583370208740234e-06
+      }
+    },
+    {
+      "example_id": "JINGWEIINTERNATIONALLTD_10_04_2007-EX-10.7-INTELLECTUAL PROPERTY AGREEMENT",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "successive_multi_year",
+      "top_prob": 0.40625,
+      "correct": false,
+      "probs": {
+        "successive_multi_year": 0.40625,
+        "fixed_term": 0.0157470703125,
+        "perpetual": 0.00128936767578125,
+        "other": 0.080078125,
+        "not_specified": 0.0908203125
+      }
+    },
+    {
+      "example_id": "JINGWEIINTERNATIONALLTD_10_04_2007-EX-10.7-INTELLECTUAL PROPERTY AGREEMENT",
+      "field": "expiration_type",
+      "target": "specific_date",
+      "top": "not_specified",
+      "top_prob": 0.9375,
+      "correct": false,
+      "probs": {
+        "perpetual": 0.000667572021484375,
+        "specific_date": 0.06005859375,
+        "not_specified": 0.9375
+      }
+    },
+    {
+      "example_id": "PacificapEntertainmentHoldingsInc_20051115_8-KA_EX-1.01_4300894_EX-1.01_Content License Agreement",
+      "field": "has_anti_assignment",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00116729736328125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PacificapEntertainmentHoldingsInc_20051115_8-KA_EX-1.01_4300894_EX-1.01_Content License Agreement",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000553131103515625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PacificapEntertainmentHoldingsInc_20051115_8-KA_EX-1.01_4300894_EX-1.01_Content License Agreement",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.73046875,
+      "correct": true,
+      "probs": {
+        "True": 0.26953125,
+        "False": 0.73046875
+      }
+    },
+    {
+      "example_id": "PacificapEntertainmentHoldingsInc_20051115_8-KA_EX-1.01_4300894_EX-1.01_Content License Agreement",
+      "field": "has_exclusivity",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.0001087188720703125
+      }
+    },
+    {
+      "example_id": "PacificapEntertainmentHoldingsInc_20051115_8-KA_EX-1.01_4300894_EX-1.01_Content License Agreement",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.004608154296875,
+        "False": 0.99609375
+      }
+    },
+    {
+      "example_id": "PacificapEntertainmentHoldingsInc_20051115_8-KA_EX-1.01_4300894_EX-1.01_Content License Agreement",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0006256103515625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PacificapEntertainmentHoldingsInc_20051115_8-KA_EX-1.01_4300894_EX-1.01_Content License Agreement",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0002613067626953125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PacificapEntertainmentHoldingsInc_20051115_8-KA_EX-1.01_4300894_EX-1.01_Content License Agreement",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 4.231929779052734e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PacificapEntertainmentHoldingsInc_20051115_8-KA_EX-1.01_4300894_EX-1.01_Content License Agreement",
+      "field": "governing_law",
+      "target": "California",
+      "top": "California",
+      "top_prob": 0.81640625,
+      "correct": true,
+      "probs": {
+        "New York": 5.662441253662109e-06,
+        "California": 0.81640625,
+        "Delaware": 7.674098014831543e-07,
+        "Texas": 2.8312206268310547e-07,
+        "Florida": 5.997717380523682e-07,
+        "Pennsylvania": 4.912726581096649e-08,
+        "People's Republic of China": 5.564652383327484e-08,
+        "Nevada": 2.4959444999694824e-07,
+        "Ontario, Canada": 2.9802322387695312e-08,
+        "Illinois": 1.4379620552062988e-06,
+        "other": 0.003326416015625,
+        "not_specified": 0.181640625
+      }
+    },
+    {
+      "example_id": "PacificapEntertainmentHoldingsInc_20051115_8-KA_EX-1.01_4300894_EX-1.01_Content License Agreement",
+      "field": "renewal_term",
+      "target": "successive_multi_year",
+      "top": "successive_multi_year",
+      "top_prob": 0.5,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 0.5,
+        "fixed_term": 1.2814998626708984e-06,
+        "perpetual": 4.7124922275543213e-07,
+        "other": 1.257285475730896e-08,
+        "not_specified": 1.8277205526828766e-08
+      }
+    },
+    {
+      "example_id": "PacificapEntertainmentHoldingsInc_20051115_8-KA_EX-1.01_4300894_EX-1.01_Content License Agreement",
+      "field": "expiration_type",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.9921875,
+      "correct": true,
+      "probs": {
+        "perpetual": 0.0003337860107421875,
+        "specific_date": 0.006683349609375,
+        "not_specified": 0.9921875
+      }
+    },
+    {
+      "example_id": "CHIPMOSTECHNOLOGIESBERMUDALTD_04_18_2016-EX-4.72-Strategic Alliance Agreement",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.000431060791015625
+      }
+    },
+    {
+      "example_id": "CHIPMOSTECHNOLOGIESBERMUDALTD_04_18_2016-EX-4.72-Strategic Alliance Agreement",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.293156623840332e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "CHIPMOSTECHNOLOGIESBERMUDALTD_04_18_2016-EX-4.72-Strategic Alliance Agreement",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000179290771484375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "CHIPMOSTECHNOLOGIESBERMUDALTD_04_18_2016-EX-4.72-Strategic Alliance Agreement",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000804901123046875,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "CHIPMOSTECHNOLOGIESBERMUDALTD_04_18_2016-EX-4.72-Strategic Alliance Agreement",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 4.00543212890625e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "CHIPMOSTECHNOLOGIESBERMUDALTD_04_18_2016-EX-4.72-Strategic Alliance Agreement",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00020313262939453125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "CHIPMOSTECHNOLOGIESBERMUDALTD_04_18_2016-EX-4.72-Strategic Alliance Agreement",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0013275146484375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "CHIPMOSTECHNOLOGIESBERMUDALTD_04_18_2016-EX-4.72-Strategic Alliance Agreement",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.9301812648773193e-07,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "CHIPMOSTECHNOLOGIESBERMUDALTD_04_18_2016-EX-4.72-Strategic Alliance Agreement",
+      "field": "governing_law",
+      "target": "other",
+      "top": "not_specified",
+      "top_prob": 0.82421875,
+      "correct": false,
+      "probs": {
+        "New York": 0.0133056640625,
+        "California": 3.2901763916015625e-05,
+        "Delaware": 0.0002765655517578125,
+        "Texas": 4.2438507080078125e-05,
+        "Florida": 6.034970283508301e-07,
+        "Pennsylvania": 9.417533874511719e-06,
+        "People's Republic of China": 0.00140380859375,
+        "Nevada": 3.2901763916015625e-05,
+        "Ontario, Canada": 4.470348358154297e-06,
+        "Illinois": 6.151199340820312e-05,
+        "other": 0.162109375,
+        "not_specified": 0.82421875
+      }
+    },
+    {
+      "example_id": "CHIPMOSTECHNOLOGIESBERMUDALTD_04_18_2016-EX-4.72-Strategic Alliance Agreement",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "successive_multi_year",
+      "top_prob": 0.490234375,
+      "correct": false,
+      "probs": {
+        "successive_multi_year": 0.490234375,
+        "fixed_term": 0.01153564453125,
+        "perpetual": 6.866455078125e-05,
+        "other": 0.000446319580078125,
+        "not_specified": 0.006988525390625
+      }
+    },
+    {
+      "example_id": "CHIPMOSTECHNOLOGIESBERMUDALTD_04_18_2016-EX-4.72-Strategic Alliance Agreement",
+      "field": "expiration_type",
+      "target": "specific_date",
+      "top": "not_specified",
+      "top_prob": 0.5625,
+      "correct": false,
+      "probs": {
+        "perpetual": 0.0020294189453125,
+        "specific_date": 0.4375,
+        "not_specified": 0.5625
+      }
+    },
+    {
+      "example_id": "FerroglobePlc_20150624_F-4A_EX-10.20_9154746_EX-10.20_Outsourcing Agreement",
+      "field": "has_anti_assignment",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000804901123046875,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "FerroglobePlc_20150624_F-4A_EX-10.20_9154746_EX-10.20_Outsourcing Agreement",
+      "field": "has_cap_on_liability",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 1.6689300537109375e-05
+      }
+    },
+    {
+      "example_id": "FerroglobePlc_20150624_F-4A_EX-10.20_9154746_EX-10.20_Outsourcing Agreement",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00150299072265625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "FerroglobePlc_20150624_F-4A_EX-10.20_9154746_EX-10.20_Outsourcing Agreement",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0003795623779296875,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "FerroglobePlc_20150624_F-4A_EX-10.20_9154746_EX-10.20_Outsourcing Agreement",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.98046875,
+      "correct": true,
+      "probs": {
+        "True": 0.0179443359375,
+        "False": 0.98046875
+      }
+    },
+    {
+      "example_id": "FerroglobePlc_20150624_F-4A_EX-10.20_9154746_EX-10.20_Outsourcing Agreement",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0001583099365234375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "FerroglobePlc_20150624_F-4A_EX-10.20_9154746_EX-10.20_Outsourcing Agreement",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.8515625,
+      "correct": true,
+      "probs": {
+        "True": 0.1484375,
+        "False": 0.8515625
+      }
+    },
+    {
+      "example_id": "FerroglobePlc_20150624_F-4A_EX-10.20_9154746_EX-10.20_Outsourcing Agreement",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 4.5299530029296875e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "FerroglobePlc_20150624_F-4A_EX-10.20_9154746_EX-10.20_Outsourcing Agreement",
+      "field": "governing_law",
+      "target": "other",
+      "top": "other",
+      "top_prob": 0.6328125,
+      "correct": true,
+      "probs": {
+        "New York": 0.00701904296875,
+        "California": 0.01483154296875,
+        "Delaware": 0.0966796875,
+        "Texas": 0.00011348724365234375,
+        "Florida": 6.866455078125e-05,
+        "Pennsylvania": 5.340576171875e-05,
+        "People's Republic of China": 0.000507354736328125,
+        "Nevada": 0.016845703125,
+        "Ontario, Canada": 0.0002117156982421875,
+        "Illinois": 0.000576019287109375,
+        "other": 0.6328125,
+        "not_specified": 0.232421875
+      }
+    },
+    {
+      "example_id": "FerroglobePlc_20150624_F-4A_EX-10.20_9154746_EX-10.20_Outsourcing Agreement",
+      "field": "renewal_term",
+      "target": "successive_1_year",
+      "top": "successive_multi_year",
+      "top_prob": 0.49609375,
+      "correct": false,
+      "probs": {
+        "successive_multi_year": 0.49609375,
+        "fixed_term": 0.002288818359375,
+        "perpetual": 0.0042724609375,
+        "other": 0.0003986358642578125,
+        "not_specified": 0.0020294189453125
+      }
+    },
+    {
+      "example_id": "FerroglobePlc_20150624_F-4A_EX-10.20_9154746_EX-10.20_Outsourcing Agreement",
+      "field": "expiration_type",
+      "target": "not_specified",
+      "top": "specific_date",
+      "top_prob": 0.5546875,
+      "correct": false,
+      "probs": {
+        "perpetual": 0.01019287109375,
+        "specific_date": 0.5546875,
+        "not_specified": 0.43359375
+      }
+    },
+    {
+      "example_id": "STWRESOURCESHOLDINGCORP_08_06_2014-EX-10.1-COOPERATION AGREEMENT",
+      "field": "has_anti_assignment",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00193023681640625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "STWRESOURCESHOLDINGCORP_08_06_2014-EX-10.1-COOPERATION AGREEMENT",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0002613067626953125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "STWRESOURCESHOLDINGCORP_08_06_2014-EX-10.1-COOPERATION AGREEMENT",
+      "field": "has_audit_rights",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.92578125,
+      "correct": false,
+      "probs": {
+        "True": 0.07568359375,
+        "False": 0.92578125
+      }
+    },
+    {
+      "example_id": "STWRESOURCESHOLDINGCORP_08_06_2014-EX-10.1-COOPERATION AGREEMENT",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.9765625,
+      "correct": true,
+      "probs": {
+        "True": 0.02294921875,
+        "False": 0.9765625
+      }
+    },
+    {
+      "example_id": "STWRESOURCESHOLDINGCORP_08_06_2014-EX-10.1-COOPERATION AGREEMENT",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00012302398681640625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "STWRESOURCESHOLDINGCORP_08_06_2014-EX-10.1-COOPERATION AGREEMENT",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000804901123046875,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "STWRESOURCESHOLDINGCORP_08_06_2014-EX-10.1-COOPERATION AGREEMENT",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.97265625,
+      "correct": true,
+      "probs": {
+        "True": 0.0260009765625,
+        "False": 0.97265625
+      }
+    },
+    {
+      "example_id": "STWRESOURCESHOLDINGCORP_08_06_2014-EX-10.1-COOPERATION AGREEMENT",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.528594970703125e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "STWRESOURCESHOLDINGCORP_08_06_2014-EX-10.1-COOPERATION AGREEMENT",
+      "field": "governing_law",
+      "target": "Texas",
+      "top": "Texas",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 2.1457672119140625e-05,
+        "California": 1.6391277313232422e-07,
+        "Delaware": 7.867813110351562e-06,
+        "Texas": 1.0,
+        "Florida": 4.1443854570388794e-08,
+        "Pennsylvania": 2.2118911147117615e-08,
+        "People's Republic of China": 3.655441105365753e-08,
+        "Nevada": 2.384185791015625e-07,
+        "Ontario, Canada": 1.418811734765768e-09,
+        "Illinois": 9.424984455108643e-07,
+        "other": 2.4318695068359375e-05,
+        "not_specified": 2.1457672119140625e-05
+      }
+    },
+    {
+      "example_id": "STWRESOURCESHOLDINGCORP_08_06_2014-EX-10.1-COOPERATION AGREEMENT",
+      "field": "renewal_term",
+      "target": "successive_1_year",
+      "top": "successive_multi_year",
+      "top_prob": 0.498046875,
+      "correct": false,
+      "probs": {
+        "successive_multi_year": 0.498046875,
+        "fixed_term": 0.002044677734375,
+        "perpetual": 0.000453948974609375,
+        "other": 1.7642974853515625e-05,
+        "not_specified": 1.7642974853515625e-05
+      }
+    },
+    {
+      "example_id": "STWRESOURCESHOLDINGCORP_08_06_2014-EX-10.1-COOPERATION AGREEMENT",
+      "field": "expiration_type",
+      "target": "specific_date",
+      "top": "specific_date",
+      "top_prob": 0.49609375,
+      "correct": true,
+      "probs": {
+        "perpetual": 0.00799560546875,
+        "specific_date": 0.49609375,
+        "not_specified": 0.49609375
+      }
+    },
+    {
+      "example_id": "PelicanDeliversInc_20200211_S-1_EX-10.3_11975895_EX-10.3_Development Agreement2",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.95703125,
+      "correct": true,
+      "probs": {
+        "True": 0.95703125,
+        "False": 0.0419921875
+      }
+    },
+    {
+      "example_id": "PelicanDeliversInc_20200211_S-1_EX-10.3_11975895_EX-10.3_Development Agreement2",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.4722347259521484e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PelicanDeliversInc_20200211_S-1_EX-10.3_11975895_EX-10.3_Development Agreement2",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0001583099365234375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PelicanDeliversInc_20200211_S-1_EX-10.3_11975895_EX-10.3_Development Agreement2",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0002307891845703125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PelicanDeliversInc_20200211_S-1_EX-10.3_11975895_EX-10.3_Development Agreement2",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 6.973743438720703e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PelicanDeliversInc_20200211_S-1_EX-10.3_11975895_EX-10.3_Development Agreement2",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.95703125,
+      "correct": true,
+      "probs": {
+        "True": 0.0419921875,
+        "False": 0.95703125
+      }
+    },
+    {
+      "example_id": "PelicanDeliversInc_20200211_S-1_EX-10.3_11975895_EX-10.3_Development Agreement2",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0002956390380859375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PelicanDeliversInc_20200211_S-1_EX-10.3_11975895_EX-10.3_Development Agreement2",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 8.307397365570068e-07,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PelicanDeliversInc_20200211_S-1_EX-10.3_11975895_EX-10.3_Development Agreement2",
+      "field": "governing_law",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.4140625,
+      "correct": true,
+      "probs": {
+        "New York": 0.15234375,
+        "California": 0.01416015625,
+        "Delaware": 0.220703125,
+        "Texas": 0.000797271728515625,
+        "Florida": 0.00054931640625,
+        "Pennsylvania": 0.001312255859375,
+        "People's Republic of China": 0.000621795654296875,
+        "Nevada": 0.000701904296875,
+        "Ontario, Canada": 7.808208465576172e-06,
+        "Illinois": 0.00054931640625,
+        "other": 0.1953125,
+        "not_specified": 0.4140625
+      }
+    },
+    {
+      "example_id": "PelicanDeliversInc_20200211_S-1_EX-10.3_11975895_EX-10.3_Development Agreement2",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.984375,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 0.0040283203125,
+        "fixed_term": 0.0021514892578125,
+        "perpetual": 0.00244140625,
+        "other": 0.0010223388671875,
+        "not_specified": 0.984375
+      }
+    },
+    {
+      "example_id": "PelicanDeliversInc_20200211_S-1_EX-10.3_11975895_EX-10.3_Development Agreement2",
+      "field": "expiration_type",
+      "target": "perpetual",
+      "top": "not_specified",
+      "top_prob": 0.98046875,
+      "correct": false,
+      "probs": {
+        "perpetual": 0.0035247802734375,
+        "specific_date": 0.0179443359375,
+        "not_specified": 0.98046875
+      }
+    },
+    {
+      "example_id": "HealthcareIntegratedTechnologiesInc_20190812_8-K_EX-10.1_11776966_EX-10.1_Reseller Agreement",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.62109375,
+      "correct": false,
+      "probs": {
+        "True": 0.376953125,
+        "False": 0.62109375
+      }
+    },
+    {
+      "example_id": "HealthcareIntegratedTechnologiesInc_20190812_8-K_EX-10.1_11776966_EX-10.1_Reseller Agreement",
+      "field": "has_cap_on_liability",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.00193023681640625
+      }
+    },
+    {
+      "example_id": "HealthcareIntegratedTechnologiesInc_20190812_8-K_EX-10.1_11776966_EX-10.1_Reseller Agreement",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0003795623779296875,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "HealthcareIntegratedTechnologiesInc_20190812_8-K_EX-10.1_11776966_EX-10.1_Reseller Agreement",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00014019012451171875,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "HealthcareIntegratedTechnologiesInc_20190812_8-K_EX-10.1_11776966_EX-10.1_Reseller Agreement",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "True",
+      "top_prob": 0.5625,
+      "correct": false,
+      "probs": {
+        "True": 0.5625,
+        "False": 0.4375
+      }
+    },
+    {
+      "example_id": "HealthcareIntegratedTechnologiesInc_20190812_8-K_EX-10.1_11776966_EX-10.1_Reseller Agreement",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000804901123046875,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "HealthcareIntegratedTechnologiesInc_20190812_8-K_EX-10.1_11776966_EX-10.1_Reseller Agreement",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.003173828125,
+        "False": 0.99609375
+      }
+    },
+    {
+      "example_id": "HealthcareIntegratedTechnologiesInc_20190812_8-K_EX-10.1_11776966_EX-10.1_Reseller Agreement",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.1457672119140625e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "HealthcareIntegratedTechnologiesInc_20190812_8-K_EX-10.1_11776966_EX-10.1_Reseller Agreement",
+      "field": "governing_law",
+      "target": "New York",
+      "top": "New York",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 1.0,
+        "California": 1.126900315284729e-07,
+        "Delaware": 1.6391277313232422e-07,
+        "Texas": 1.955777406692505e-08,
+        "Florida": 2.066371962428093e-09,
+        "Pennsylvania": 3.213062882423401e-08,
+        "People's Republic of China": 2.342858351767063e-09,
+        "Nevada": 4.1443854570388794e-08,
+        "Ontario, Canada": 8.003553375601768e-11,
+        "Illinois": 1.3445969671010971e-08,
+        "other": 4.4517219066619873e-07,
+        "not_specified": 1.7583370208740234e-06
+      }
+    },
+    {
+      "example_id": "HealthcareIntegratedTechnologiesInc_20190812_8-K_EX-10.1_11776966_EX-10.1_Reseller Agreement",
+      "field": "renewal_term",
+      "target": "successive_1_year",
+      "top": "successive_multi_year",
+      "top_prob": 0.5,
+      "correct": false,
+      "probs": {
+        "successive_multi_year": 0.5,
+        "fixed_term": 2.2258609533309937e-07,
+        "perpetual": 1.862645149230957e-06,
+        "other": 1.257285475730896e-08,
+        "not_specified": 1.6065314412117004e-08
+      }
+    },
+    {
+      "example_id": "HealthcareIntegratedTechnologiesInc_20190812_8-K_EX-10.1_11776966_EX-10.1_Reseller Agreement",
+      "field": "expiration_type",
+      "target": "specific_date",
+      "top": "not_specified",
+      "top_prob": 0.9765625,
+      "correct": false,
+      "probs": {
+        "perpetual": 0.000888824462890625,
+        "specific_date": 0.02294921875,
+        "not_specified": 0.9765625
+      }
+    },
+    {
+      "example_id": "HERTZGLOBALHOLDINGS,INC_07_07_2016-EX-10.4-INTELLECTUAL PROPERTY AGREEMENT",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.00070953369140625
+      }
+    },
+    {
+      "example_id": "HERTZGLOBALHOLDINGS,INC_07_07_2016-EX-10.4-INTELLECTUAL PROPERTY AGREEMENT",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 6.973743438720703e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "HERTZGLOBALHOLDINGS,INC_07_07_2016-EX-10.4-INTELLECTUAL PROPERTY AGREEMENT",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.753734588623047e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "HERTZGLOBALHOLDINGS,INC_07_07_2016-EX-10.4-INTELLECTUAL PROPERTY AGREEMENT",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.004058837890625,
+        "False": 0.99609375
+      }
+    },
+    {
+      "example_id": "HERTZGLOBALHOLDINGS,INC_07_07_2016-EX-10.4-INTELLECTUAL PROPERTY AGREEMENT",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0002956390380859375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "HERTZGLOBALHOLDINGS,INC_07_07_2016-EX-10.4-INTELLECTUAL PROPERTY AGREEMENT",
+      "field": "has_non_compete",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 3.528594970703125e-05
+      }
+    },
+    {
+      "example_id": "HERTZGLOBALHOLDINGS,INC_07_07_2016-EX-10.4-INTELLECTUAL PROPERTY AGREEMENT",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0132789611816406e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "HERTZGLOBALHOLDINGS,INC_07_07_2016-EX-10.4-INTELLECTUAL PROPERTY AGREEMENT",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.0547380447387695e-07,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "HERTZGLOBALHOLDINGS,INC_07_07_2016-EX-10.4-INTELLECTUAL PROPERTY AGREEMENT",
+      "field": "governing_law",
+      "target": "New York",
+      "top": "New York",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 1.0,
+        "California": 4.94765117764473e-09,
+        "Delaware": 2.7008354663848877e-07,
+        "Texas": 2.342858351767063e-09,
+        "Florida": 3.841705620288849e-09,
+        "Pennsylvania": 7.188646122813225e-09,
+        "People's Republic of China": 7.566995918750763e-10,
+        "Nevada": 9.255018085241318e-09,
+        "Ontario, Canada": 1.7848833522293717e-11,
+        "Illinois": 2.648448571562767e-09,
+        "other": 1.525040715932846e-08,
+        "not_specified": 6.007030606269836e-08
+      }
+    },
+    {
+      "example_id": "HERTZGLOBALHOLDINGS,INC_07_07_2016-EX-10.4-INTELLECTUAL PROPERTY AGREEMENT",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.92578125,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 0.0218505859375,
+        "fixed_term": 0.0048828125,
+        "perpetual": 0.0020294189453125,
+        "other": 0.0218505859375,
+        "not_specified": 0.92578125
+      }
+    },
+    {
+      "example_id": "HERTZGLOBALHOLDINGS,INC_07_07_2016-EX-10.4-INTELLECTUAL PROPERTY AGREEMENT",
+      "field": "expiration_type",
+      "target": "not_specified",
+      "top": "specific_date",
+      "top_prob": 0.83984375,
+      "correct": false,
+      "probs": {
+        "perpetual": 0.01361083984375,
+        "specific_date": 0.83984375,
+        "not_specified": 0.146484375
+      }
+    },
+    {
+      "example_id": "ACCURAYINC_09_01_2010-EX-10.31-DISTRIBUTOR AGREEMENT",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.53125,
+      "correct": false,
+      "probs": {
+        "True": 0.46875,
+        "False": 0.53125
+      }
+    },
+    {
+      "example_id": "ACCURAYINC_09_01_2010-EX-10.31-DISTRIBUTOR AGREEMENT",
+      "field": "has_cap_on_liability",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.00116729736328125
+      }
+    },
+    {
+      "example_id": "ACCURAYINC_09_01_2010-EX-10.31-DISTRIBUTOR AGREEMENT",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000179290771484375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ACCURAYINC_09_01_2010-EX-10.31-DISTRIBUTOR AGREEMENT",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00150299072265625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ACCURAYINC_09_01_2010-EX-10.31-DISTRIBUTOR AGREEMENT",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "True",
+      "top_prob": 0.99609375,
+      "correct": false,
+      "probs": {
+        "True": 0.99609375,
+        "False": 0.005218505859375
+      }
+    },
+    {
+      "example_id": "ACCURAYINC_09_01_2010-EX-10.31-DISTRIBUTOR AGREEMENT",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.005218505859375,
+        "False": 0.99609375
+      }
+    },
+    {
+      "example_id": "ACCURAYINC_09_01_2010-EX-10.31-DISTRIBUTOR AGREEMENT",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00116729736328125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ACCURAYINC_09_01_2010-EX-10.31-DISTRIBUTOR AGREEMENT",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 7.486343383789062e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ACCURAYINC_09_01_2010-EX-10.31-DISTRIBUTOR AGREEMENT",
+      "field": "governing_law",
+      "target": "other",
+      "top": "other",
+      "top_prob": 0.49609375,
+      "correct": true,
+      "probs": {
+        "New York": 0.0026092529296875,
+        "California": 0.000659942626953125,
+        "Delaware": 0.0218505859375,
+        "Texas": 7.867813110351562e-05,
+        "Florida": 4.76837158203125e-05,
+        "Pennsylvania": 0.00179290771484375,
+        "People's Republic of China": 0.0037994384765625,
+        "Nevada": 0.03173828125,
+        "Ontario, Canada": 0.00122833251953125,
+        "Illinois": 0.000583648681640625,
+        "other": 0.49609375,
+        "not_specified": 0.439453125
+      }
+    },
+    {
+      "example_id": "ACCURAYINC_09_01_2010-EX-10.31-DISTRIBUTOR AGREEMENT",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.89453125,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 0.0238037109375,
+        "fixed_term": 0.0185546875,
+        "perpetual": 0.004150390625,
+        "other": 0.03466796875,
+        "not_specified": 0.89453125
+      }
+    },
+    {
+      "example_id": "ACCURAYINC_09_01_2010-EX-10.31-DISTRIBUTOR AGREEMENT",
+      "field": "expiration_type",
+      "target": "perpetual",
+      "top": "not_specified",
+      "top_prob": 0.859375,
+      "correct": false,
+      "probs": {
+        "perpetual": 0.02294921875,
+        "specific_date": 0.11669921875,
+        "not_specified": 0.859375
+      }
+    },
+    {
+      "example_id": "OAKTREECAPITALGROUP,LLC_03_02_2020-EX-10.8-Services Agreement",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.9921875,
+      "correct": true,
+      "probs": {
+        "True": 0.9921875,
+        "False": 0.00860595703125
+      }
+    },
+    {
+      "example_id": "OAKTREECAPITALGROUP,LLC_03_02_2020-EX-10.8-Services Agreement",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.1457672119140625e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "OAKTREECAPITALGROUP,LLC_03_02_2020-EX-10.8-Services Agreement",
+      "field": "has_audit_rights",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.98046875,
+      "correct": false,
+      "probs": {
+        "True": 0.0203857421875,
+        "False": 0.98046875
+      }
+    },
+    {
+      "example_id": "OAKTREECAPITALGROUP,LLC_03_02_2020-EX-10.8-Services Agreement",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00170135498046875,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "OAKTREECAPITALGROUP,LLC_03_02_2020-EX-10.8-Services Agreement",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000179290771484375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "OAKTREECAPITALGROUP,LLC_03_02_2020-EX-10.8-Services Agreement",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0002613067626953125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "OAKTREECAPITALGROUP,LLC_03_02_2020-EX-10.8-Services Agreement",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00116729736328125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "OAKTREECAPITALGROUP,LLC_03_02_2020-EX-10.8-Services Agreement",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 4.798173904418945e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "OAKTREECAPITALGROUP,LLC_03_02_2020-EX-10.8-Services Agreement",
+      "field": "governing_law",
+      "target": "other",
+      "top": "not_specified",
+      "top_prob": 0.78515625,
+      "correct": false,
+      "probs": {
+        "New York": 0.000263214111328125,
+        "California": 9.679794311523438e-05,
+        "Delaware": 0.0003833770751953125,
+        "Texas": 4.26173210144043e-06,
+        "Florida": 2.2798776626586914e-06,
+        "Pennsylvania": 0.0001239776611328125,
+        "People's Republic of China": 0.000919342041015625,
+        "Nevada": 0.006805419921875,
+        "Ontario, Canada": 0.0076904296875,
+        "Illinois": 0.000232696533203125,
+        "other": 0.1982421875,
+        "not_specified": 0.78515625
+      }
+    },
+    {
+      "example_id": "OAKTREECAPITALGROUP,LLC_03_02_2020-EX-10.8-Services Agreement",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.96875,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 0.005096435546875,
+        "fixed_term": 0.00653076171875,
+        "perpetual": 0.0021209716796875,
+        "other": 0.01080322265625,
+        "not_specified": 0.96875
+      }
+    },
+    {
+      "example_id": "OAKTREECAPITALGROUP,LLC_03_02_2020-EX-10.8-Services Agreement",
+      "field": "expiration_type",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.77734375,
+      "correct": true,
+      "probs": {
+        "perpetual": 0.0021820068359375,
+        "specific_date": 0.22265625,
+        "not_specified": 0.77734375
+      }
+    },
+    {
+      "example_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.0006256103515625
+      }
+    },
+    {
+      "example_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000911712646484375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0013275146484375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT",
+      "field": "has_exclusivity",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.00014019012451171875
+      }
+    },
+    {
+      "example_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.753734588623047e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "True",
+      "top_prob": 0.9765625,
+      "correct": false,
+      "probs": {
+        "True": 0.9765625,
+        "False": 0.02294921875
+      }
+    },
+    {
+      "example_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.9921875,
+      "correct": true,
+      "probs": {
+        "True": 0.007568359375,
+        "False": 0.9921875
+      }
+    },
+    {
+      "example_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.6689300537109375e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT",
+      "field": "governing_law",
+      "target": "Illinois",
+      "top": "Illinois",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 3.9301812648773193e-07,
+        "California": 5.699694156646729e-07,
+        "Delaware": 1.0132789611816406e-05,
+        "Texas": 1.525040715932846e-08,
+        "Florida": 2.514570951461792e-08,
+        "Pennsylvania": 4.1443854570388794e-08,
+        "People's Republic of China": 9.74978320300579e-10,
+        "Nevada": 3.4051481634378433e-09,
+        "Ontario, Canada": 3.841705620288849e-09,
+        "Illinois": 1.0,
+        "other": 1.2069940567016602e-06,
+        "not_specified": 2.2649765014648438e-06
+      }
+    },
+    {
+      "example_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT",
+      "field": "renewal_term",
+      "target": "fixed_term",
+      "top": "successive_multi_year",
+      "top_prob": 0.5,
+      "correct": false,
+      "probs": {
+        "successive_multi_year": 0.5,
+        "fixed_term": 0.000354766845703125,
+        "perpetual": 2.115964889526367e-06,
+        "other": 1.9650906324386597e-07,
+        "not_specified": 3.864988684654236e-08
+      }
+    },
+    {
+      "example_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT",
+      "field": "expiration_type",
+      "target": "not_specified",
+      "top": "specific_date",
+      "top_prob": 0.5546875,
+      "correct": false,
+      "probs": {
+        "perpetual": 0.01153564453125,
+        "specific_date": 0.5546875,
+        "not_specified": 0.43359375
+      }
+    },
+    {
+      "example_id": "PrecheckHealthServicesInc_20200320_8-K_EX-99.2_12070169_EX-99.2_Distributor Agreement",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.00020313262939453125
+      }
+    },
+    {
+      "example_id": "PrecheckHealthServicesInc_20200320_8-K_EX-99.2_12070169_EX-99.2_Distributor Agreement",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.2069940567016602e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PrecheckHealthServicesInc_20200320_8-K_EX-99.2_12070169_EX-99.2_Distributor Agreement",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 6.139278411865234e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PrecheckHealthServicesInc_20200320_8-K_EX-99.2_12070169_EX-99.2_Distributor Agreement",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00020313262939453125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PrecheckHealthServicesInc_20200320_8-K_EX-99.2_12070169_EX-99.2_Distributor Agreement",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 5.029141902923584e-07,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PrecheckHealthServicesInc_20200320_8-K_EX-99.2_12070169_EX-99.2_Distributor Agreement",
+      "field": "has_non_compete",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.98828125,
+      "correct": true,
+      "probs": {
+        "True": 0.98828125,
+        "False": 0.012451171875
+      }
+    },
+    {
+      "example_id": "PrecheckHealthServicesInc_20200320_8-K_EX-99.2_12070169_EX-99.2_Distributor Agreement",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 9.918585419654846e-08,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PrecheckHealthServicesInc_20200320_8-K_EX-99.2_12070169_EX-99.2_Distributor Agreement",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.9301812648773193e-07,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PrecheckHealthServicesInc_20200320_8-K_EX-99.2_12070169_EX-99.2_Distributor Agreement",
+      "field": "governing_law",
+      "target": "Texas",
+      "top": "Texas",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 5.3085386753082275e-08,
+        "California": 1.3445969671010971e-08,
+        "Delaware": 5.699694156646729e-07,
+        "Texas": 1.0,
+        "Florida": 6.344635039567947e-09,
+        "Pennsylvania": 3.1650415621697903e-10,
+        "People's Republic of China": 3.1650415621697903e-10,
+        "Nevada": 5.617039278149605e-09,
+        "Ontario, Canada": 7.44648787076585e-12,
+        "Illinois": 7.188646122813225e-09,
+        "other": 1.0654330253601074e-06,
+        "not_specified": 2.1047890186309814e-07
+      }
+    },
+    {
+      "example_id": "PrecheckHealthServicesInc_20200320_8-K_EX-99.2_12070169_EX-99.2_Distributor Agreement",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.98828125,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 0.00518798828125,
+        "fixed_term": 0.0014801025390625,
+        "perpetual": 0.00048065185546875,
+        "other": 0.0010223388671875,
+        "not_specified": 0.98828125
+      }
+    },
+    {
+      "example_id": "PrecheckHealthServicesInc_20200320_8-K_EX-99.2_12070169_EX-99.2_Distributor Agreement",
+      "field": "expiration_type",
+      "target": "specific_date",
+      "top": "specific_date",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "perpetual": 6.580352783203125e-05,
+        "specific_date": 1.0,
+        "not_specified": 0.000335693359375
+      }
+    },
+    {
+      "example_id": "VERTICALNETINC_04_01_2002-EX-10.19-MAINTENANCE AND SUPPORT AGREEMENT",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.90625,
+      "correct": true,
+      "probs": {
+        "True": 0.90625,
+        "False": 0.09521484375
+      }
+    },
+    {
+      "example_id": "VERTICALNETINC_04_01_2002-EX-10.19-MAINTENANCE AND SUPPORT AGREEMENT",
+      "field": "has_cap_on_liability",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.00012302398681640625
+      }
+    },
+    {
+      "example_id": "VERTICALNETINC_04_01_2002-EX-10.19-MAINTENANCE AND SUPPORT AGREEMENT",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 5.14984130859375e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "VERTICALNETINC_04_01_2002-EX-10.19-MAINTENANCE AND SUPPORT AGREEMENT",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00193023681640625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "VERTICALNETINC_04_01_2002-EX-10.19-MAINTENANCE AND SUPPORT AGREEMENT",
+      "field": "has_change_of_control",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.984375,
+      "correct": false,
+      "probs": {
+        "True": 0.015869140625,
+        "False": 0.984375
+      }
+    },
+    {
+      "example_id": "VERTICALNETINC_04_01_2002-EX-10.19-MAINTENANCE AND SUPPORT AGREEMENT",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "True",
+      "top_prob": 0.62109375,
+      "correct": false,
+      "probs": {
+        "True": 0.62109375,
+        "False": 0.376953125
+      }
+    },
+    {
+      "example_id": "VERTICALNETINC_04_01_2002-EX-10.19-MAINTENANCE AND SUPPORT AGREEMENT",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.0021820068359375,
+        "False": 0.99609375
+      }
+    },
+    {
+      "example_id": "VERTICALNETINC_04_01_2002-EX-10.19-MAINTENANCE AND SUPPORT AGREEMENT",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.123283386230469e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "VERTICALNETINC_04_01_2002-EX-10.19-MAINTENANCE AND SUPPORT AGREEMENT",
+      "field": "governing_law",
+      "target": "Pennsylvania",
+      "top": "Pennsylvania",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 7.867813110351562e-06,
+        "California": 1.0654330253601074e-06,
+        "Delaware": 0.0006256103515625,
+        "Texas": 5.3085386753082275e-08,
+        "Florida": 4.4517219066619873e-07,
+        "Pennsylvania": 1.0,
+        "People's Republic of China": 1.0654330253601074e-06,
+        "Nevada": 1.1222437024116516e-07,
+        "Ontario, Canada": 4.1443854570388794e-08,
+        "Illinois": 3.293156623840332e-06,
+        "other": 3.123283386230469e-05,
+        "not_specified": 7.486343383789062e-05
+      }
+    },
+    {
+      "example_id": "VERTICALNETINC_04_01_2002-EX-10.19-MAINTENANCE AND SUPPORT AGREEMENT",
+      "field": "renewal_term",
+      "target": "successive_1_year",
+      "top": "successive_multi_year",
+      "top_prob": 0.5,
+      "correct": false,
+      "probs": {
+        "successive_multi_year": 0.5,
+        "fixed_term": 0.00031280517578125,
+        "perpetual": 1.3768672943115234e-05,
+        "other": 1.4528632164001465e-06,
+        "not_specified": 7.009506225585938e-05
+      }
+    },
+    {
+      "example_id": "VERTICALNETINC_04_01_2002-EX-10.19-MAINTENANCE AND SUPPORT AGREEMENT",
+      "field": "expiration_type",
+      "target": "specific_date",
+      "top": "not_specified",
+      "top_prob": 0.55859375,
+      "correct": false,
+      "probs": {
+        "perpetual": 0.009033203125,
+        "specific_date": 0.43359375,
+        "not_specified": 0.55859375
+      }
+    },
+    {
+      "example_id": "VERTEXENERGYINC_08_14_2014-EX-10.24-OPERATION AND MAINTENANCE AGREEMENT",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.9921875,
+      "correct": true,
+      "probs": {
+        "True": 0.9921875,
+        "False": 0.00970458984375
+      }
+    },
+    {
+      "example_id": "VERTEXENERGYINC_08_14_2014-EX-10.24-OPERATION AND MAINTENANCE AGREEMENT",
+      "field": "has_cap_on_liability",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.9921875,
+      "correct": true,
+      "probs": {
+        "True": 0.9921875,
+        "False": 0.00592041015625
+      }
+    },
+    {
+      "example_id": "VERTEXENERGYINC_08_14_2014-EX-10.24-OPERATION AND MAINTENANCE AGREEMENT",
+      "field": "has_audit_rights",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 1.6689300537109375e-05
+      }
+    },
+    {
+      "example_id": "VERTEXENERGYINC_08_14_2014-EX-10.24-OPERATION AND MAINTENANCE AGREEMENT",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 6.139278411865234e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "VERTEXENERGYINC_08_14_2014-EX-10.24-OPERATION AND MAINTENANCE AGREEMENT",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 5.424022674560547e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "VERTEXENERGYINC_08_14_2014-EX-10.24-OPERATION AND MAINTENANCE AGREEMENT",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.150369644165039e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "VERTEXENERGYINC_08_14_2014-EX-10.24-OPERATION AND MAINTENANCE AGREEMENT",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0001583099365234375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "VERTEXENERGYINC_08_14_2014-EX-10.24-OPERATION AND MAINTENANCE AGREEMENT",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 9.424984455108643e-07,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "VERTEXENERGYINC_08_14_2014-EX-10.24-OPERATION AND MAINTENANCE AGREEMENT",
+      "field": "governing_law",
+      "target": "Delaware",
+      "top": "Delaware",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 5.699694156646729e-07,
+        "California": 5.3085386753082275e-08,
+        "Delaware": 1.0,
+        "Texas": 1.0477378964424133e-08,
+        "Florida": 1.3445969671010971e-08,
+        "Pennsylvania": 3.213062882423401e-08,
+        "People's Republic of China": 4.602043190971017e-10,
+        "Nevada": 2.342858351767063e-09,
+        "Ontario, Canada": 8.003553375601768e-11,
+        "Illinois": 8.149072527885437e-09,
+        "other": 4.4517219066619873e-07,
+        "not_specified": 5.699694156646729e-07
+      }
+    },
+    {
+      "example_id": "VERTEXENERGYINC_08_14_2014-EX-10.24-OPERATION AND MAINTENANCE AGREEMENT",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.84375,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 0.047607421875,
+        "fixed_term": 0.047607421875,
+        "perpetual": 0.007293701171875,
+        "other": 0.007293701171875,
+        "not_specified": 0.84375
+      }
+    },
+    {
+      "example_id": "VERTEXENERGYINC_08_14_2014-EX-10.24-OPERATION AND MAINTENANCE AGREEMENT",
+      "field": "expiration_type",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.98046875,
+      "correct": true,
+      "probs": {
+        "perpetual": 0.005828857421875,
+        "specific_date": 0.01397705078125,
+        "not_specified": 0.98046875
+      }
+    },
+    {
+      "example_id": "NUVEEN - REMARKETING AGREEMENT",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.5625,
+      "correct": false,
+      "probs": {
+        "True": 0.4375,
+        "False": 0.5625
+      }
+    },
+    {
+      "example_id": "NUVEEN - REMARKETING AGREEMENT",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00193023681640625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "NUVEEN - REMARKETING AGREEMENT",
+      "field": "has_audit_rights",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.96875,
+      "correct": false,
+      "probs": {
+        "True": 0.029296875,
+        "False": 0.96875
+      }
+    },
+    {
+      "example_id": "NUVEEN - REMARKETING AGREEMENT",
+      "field": "has_exclusivity",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.73046875,
+      "correct": true,
+      "probs": {
+        "True": 0.73046875,
+        "False": 0.26953125
+      }
+    },
+    {
+      "example_id": "NUVEEN - REMARKETING AGREEMENT",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0013275146484375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "NUVEEN - REMARKETING AGREEMENT",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.70703125,
+      "correct": true,
+      "probs": {
+        "True": 0.294921875,
+        "False": 0.70703125
+      }
+    },
+    {
+      "example_id": "NUVEEN - REMARKETING AGREEMENT",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.0028076171875,
+        "False": 0.99609375
+      }
+    },
+    {
+      "example_id": "NUVEEN - REMARKETING AGREEMENT",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0001087188720703125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "NUVEEN - REMARKETING AGREEMENT",
+      "field": "governing_law",
+      "target": "other",
+      "top": "New York",
+      "top_prob": 1.0,
+      "correct": false,
+      "probs": {
+        "New York": 1.0,
+        "California": 4.798173904418945e-06,
+        "Delaware": 0.0001583099365234375,
+        "Texas": 1.3709068298339844e-06,
+        "Florida": 3.0547380447387695e-07,
+        "Pennsylvania": 2.1457672119140625e-05,
+        "People's Republic of China": 6.139278411865234e-06,
+        "Nevada": 1.996755599975586e-06,
+        "Ontario, Canada": 3.46451997756958e-07,
+        "Illinois": 2.4318695068359375e-05,
+        "other": 8.940696716308594e-06,
+        "not_specified": 1.6689300537109375e-05
+      }
+    },
+    {
+      "example_id": "NUVEEN - REMARKETING AGREEMENT",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.95703125,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 0.005035400390625,
+        "fixed_term": 0.0030517578125,
+        "perpetual": 0.003448486328125,
+        "other": 0.0255126953125,
+        "not_specified": 0.95703125
+      }
+    },
+    {
+      "example_id": "NUVEEN - REMARKETING AGREEMENT",
+      "field": "expiration_type",
+      "target": "perpetual",
+      "top": "not_specified",
+      "top_prob": 0.98828125,
+      "correct": false,
+      "probs": {
+        "perpetual": 0.00457763671875,
+        "specific_date": 0.00665283203125,
+        "not_specified": 0.98828125
+      }
+    },
+    {
+      "example_id": "Sonos, Inc. - Manufacturing Agreement ",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.81640625,
+      "correct": false,
+      "probs": {
+        "True": 0.1826171875,
+        "False": 0.81640625
+      }
+    },
+    {
+      "example_id": "Sonos, Inc. - Manufacturing Agreement ",
+      "field": "has_cap_on_liability",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.0013275146484375
+      }
+    },
+    {
+      "example_id": "Sonos, Inc. - Manufacturing Agreement ",
+      "field": "has_audit_rights",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.0002613067626953125
+      }
+    },
+    {
+      "example_id": "Sonos, Inc. - Manufacturing Agreement ",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00020313262939453125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "Sonos, Inc. - Manufacturing Agreement ",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0006256103515625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "Sonos, Inc. - Manufacturing Agreement ",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.002471923828125,
+        "False": 0.99609375
+      }
+    },
+    {
+      "example_id": "Sonos, Inc. - Manufacturing Agreement ",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000553131103515625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "Sonos, Inc. - Manufacturing Agreement ",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.6689300537109375e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "Sonos, Inc. - Manufacturing Agreement ",
+      "field": "governing_law",
+      "target": "California",
+      "top": "California",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 1.6689300537109375e-05,
+        "California": 1.0,
+        "Delaware": 0.00012302398681640625,
+        "Texas": 5.3085386753082275e-08,
+        "Florida": 6.845220923423767e-08,
+        "Pennsylvania": 3.655441105365753e-08,
+        "People's Republic of China": 2.8405338525772095e-08,
+        "Nevada": 2.1047890186309814e-07,
+        "Ontario, Canada": 2.2118911147117615e-08,
+        "Illinois": 3.46451997756958e-07,
+        "other": 7.867813110351562e-06,
+        "not_specified": 1.2993812561035156e-05
+      }
+    },
+    {
+      "example_id": "Sonos, Inc. - Manufacturing Agreement ",
+      "field": "renewal_term",
+      "target": "successive_1_year",
+      "top": "successive_multi_year",
+      "top_prob": 0.5,
+      "correct": false,
+      "probs": {
+        "successive_multi_year": 0.5,
+        "fixed_term": 4.153698682785034e-07,
+        "perpetual": 6.379559636116028e-08,
+        "other": 3.003515303134918e-08,
+        "not_specified": 9.266659617424011e-08
+      }
+    },
+    {
+      "example_id": "Sonos, Inc. - Manufacturing Agreement ",
+      "field": "expiration_type",
+      "target": "specific_date",
+      "top": "not_specified",
+      "top_prob": 0.89453125,
+      "correct": false,
+      "probs": {
+        "perpetual": 0.00994873046875,
+        "specific_date": 0.09423828125,
+        "not_specified": 0.89453125
+      }
+    },
+    {
+      "example_id": "ADAMSGOLFINC_03_21_2005-EX-10.17-ENDORSEMENT AGREEMENT",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.9921875,
+      "correct": true,
+      "probs": {
+        "True": 0.9921875,
+        "False": 0.007568359375
+      }
+    },
+    {
+      "example_id": "ADAMSGOLFINC_03_21_2005-EX-10.17-ENDORSEMENT AGREEMENT",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "True",
+      "top_prob": 0.9609375,
+      "correct": false,
+      "probs": {
+        "True": 0.9609375,
+        "False": 0.037353515625
+      }
+    },
+    {
+      "example_id": "ADAMSGOLFINC_03_21_2005-EX-10.17-ENDORSEMENT AGREEMENT",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0006256103515625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ADAMSGOLFINC_03_21_2005-EX-10.17-ENDORSEMENT AGREEMENT",
+      "field": "has_exclusivity",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.00116729736328125
+      }
+    },
+    {
+      "example_id": "ADAMSGOLFINC_03_21_2005-EX-10.17-ENDORSEMENT AGREEMENT",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.796875,
+      "correct": true,
+      "probs": {
+        "True": 0.2021484375,
+        "False": 0.796875
+      }
+    },
+    {
+      "example_id": "ADAMSGOLFINC_03_21_2005-EX-10.17-ENDORSEMENT AGREEMENT",
+      "field": "has_non_compete",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.8671875,
+      "correct": false,
+      "probs": {
+        "True": 0.1328125,
+        "False": 0.8671875
+      }
+    },
+    {
+      "example_id": "ADAMSGOLFINC_03_21_2005-EX-10.17-ENDORSEMENT AGREEMENT",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.75390625,
+      "correct": true,
+      "probs": {
+        "True": 0.2451171875,
+        "False": 0.75390625
+      }
+    },
+    {
+      "example_id": "ADAMSGOLFINC_03_21_2005-EX-10.17-ENDORSEMENT AGREEMENT",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.895427703857422e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ADAMSGOLFINC_03_21_2005-EX-10.17-ENDORSEMENT AGREEMENT",
+      "field": "governing_law",
+      "target": "other",
+      "top": "not_specified",
+      "top_prob": 0.8203125,
+      "correct": false,
+      "probs": {
+        "New York": 0.01171875,
+        "California": 0.0007476806640625,
+        "Delaware": 0.00021457672119140625,
+        "Texas": 0.000850677490234375,
+        "Florida": 0.00011491775512695312,
+        "Pennsylvania": 0.0012359619140625,
+        "People's Republic of China": 8.96453857421875e-05,
+        "Nevada": 6.961822509765625e-05,
+        "Ontario, Canada": 9.417533874511719e-06,
+        "Illinois": 0.0012359619140625,
+        "other": 0.162109375,
+        "not_specified": 0.8203125
+      }
+    },
+    {
+      "example_id": "ADAMSGOLFINC_03_21_2005-EX-10.17-ENDORSEMENT AGREEMENT",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.8125,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 0.000396728515625,
+        "fixed_term": 0.181640625,
+        "perpetual": 0.000396728515625,
+        "other": 0.0037689208984375,
+        "not_specified": 0.8125
+      }
+    },
+    {
+      "example_id": "ADAMSGOLFINC_03_21_2005-EX-10.17-ENDORSEMENT AGREEMENT",
+      "field": "expiration_type",
+      "target": "specific_date",
+      "top": "specific_date",
+      "top_prob": 0.984375,
+      "correct": true,
+      "probs": {
+        "perpetual": 0.000698089599609375,
+        "specific_date": 0.984375,
+        "not_specified": 0.0140380859375
+      }
+    },
+    {
+      "example_id": "FuseMedicalInc_20190321_10-K_EX-10.43_11575454_EX-10.43_Distributor Agreement",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.98046875,
+      "correct": true,
+      "probs": {
+        "True": 0.98046875,
+        "False": 0.0179443359375
+      }
+    },
+    {
+      "example_id": "FuseMedicalInc_20190321_10-K_EX-10.43_11575454_EX-10.43_Distributor Agreement",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0001583099365234375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "FuseMedicalInc_20190321_10-K_EX-10.43_11575454_EX-10.43_Distributor Agreement",
+      "field": "has_audit_rights",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.98046875,
+      "correct": true,
+      "probs": {
+        "True": 0.98046875,
+        "False": 0.0203857421875
+      }
+    },
+    {
+      "example_id": "FuseMedicalInc_20190321_10-K_EX-10.43_11575454_EX-10.43_Distributor Agreement",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 9.632110595703125e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "FuseMedicalInc_20190321_10-K_EX-10.43_11575454_EX-10.43_Distributor Agreement",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 8.487701416015625e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "FuseMedicalInc_20190321_10-K_EX-10.43_11575454_EX-10.43_Distributor Agreement",
+      "field": "has_non_compete",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.9140625,
+      "correct": false,
+      "probs": {
+        "True": 0.0849609375,
+        "False": 0.9140625
+      }
+    },
+    {
+      "example_id": "FuseMedicalInc_20190321_10-K_EX-10.43_11575454_EX-10.43_Distributor Agreement",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.528594970703125e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "FuseMedicalInc_20190321_10-K_EX-10.43_11575454_EX-10.43_Distributor Agreement",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0654330253601074e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "FuseMedicalInc_20190321_10-K_EX-10.43_11575454_EX-10.43_Distributor Agreement",
+      "field": "governing_law",
+      "target": "other",
+      "top": "other",
+      "top_prob": 0.74609375,
+      "correct": true,
+      "probs": {
+        "New York": 0.053955078125,
+        "California": 0.000873565673828125,
+        "Delaware": 0.10107421875,
+        "Texas": 0.0016326904296875,
+        "Florida": 0.000171661376953125,
+        "Pennsylvania": 0.0016326904296875,
+        "People's Republic of China": 0.00015163421630859375,
+        "Nevada": 0.0016326904296875,
+        "Ontario, Canada": 0.000133514404296875,
+        "Illinois": 0.004425048828125,
+        "other": 0.74609375,
+        "not_specified": 0.0888671875
+      }
+    },
+    {
+      "example_id": "FuseMedicalInc_20190321_10-K_EX-10.43_11575454_EX-10.43_Distributor Agreement",
+      "field": "renewal_term",
+      "target": "perpetual",
+      "top": "successive_multi_year",
+      "top_prob": 0.439453125,
+      "correct": false,
+      "probs": {
+        "successive_multi_year": 0.439453125,
+        "fixed_term": 0.0218505859375,
+        "perpetual": 0.04638671875,
+        "other": 0.0007476806640625,
+        "not_specified": 0.052490234375
+      }
+    },
+    {
+      "example_id": "FuseMedicalInc_20190321_10-K_EX-10.43_11575454_EX-10.43_Distributor Agreement",
+      "field": "expiration_type",
+      "target": "specific_date",
+      "top": "not_specified",
+      "top_prob": 0.88671875,
+      "correct": false,
+      "probs": {
+        "perpetual": 0.0184326171875,
+        "specific_date": 0.09375,
+        "not_specified": 0.88671875
+      }
+    },
+    {
+      "example_id": "ArconicRolledProductsCorp_20191217_10-12B_EX-2.7_11923804_EX-2.7_Trademark License Agreement",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.96875,
+      "correct": true,
+      "probs": {
+        "True": 0.96875,
+        "False": 0.029296875
+      }
+    },
+    {
+      "example_id": "ArconicRolledProductsCorp_20191217_10-12B_EX-2.7_11923804_EX-2.7_Trademark License Agreement",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0002613067626953125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ArconicRolledProductsCorp_20191217_10-12B_EX-2.7_11923804_EX-2.7_Trademark License Agreement",
+      "field": "has_audit_rights",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.000553131103515625
+      }
+    },
+    {
+      "example_id": "ArconicRolledProductsCorp_20191217_10-12B_EX-2.7_11923804_EX-2.7_Trademark License Agreement",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00020313262939453125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ArconicRolledProductsCorp_20191217_10-12B_EX-2.7_11923804_EX-2.7_Trademark License Agreement",
+      "field": "has_change_of_control",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.9765625,
+      "correct": true,
+      "probs": {
+        "True": 0.9765625,
+        "False": 0.02294921875
+      }
+    },
+    {
+      "example_id": "ArconicRolledProductsCorp_20191217_10-12B_EX-2.7_11923804_EX-2.7_Trademark License Agreement",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.528594970703125e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ArconicRolledProductsCorp_20191217_10-12B_EX-2.7_11923804_EX-2.7_Trademark License Agreement",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 4.231929779052734e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ArconicRolledProductsCorp_20191217_10-12B_EX-2.7_11923804_EX-2.7_Trademark License Agreement",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 7.338821887969971e-07,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ArconicRolledProductsCorp_20191217_10-12B_EX-2.7_11923804_EX-2.7_Trademark License Agreement",
+      "field": "governing_law",
+      "target": "Delaware",
+      "top": "Delaware",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 9.424984455108643e-07,
+        "California": 1.4435499906539917e-07,
+        "Delaware": 1.0,
+        "Texas": 9.255018085241318e-09,
+        "Florida": 1.525040715932846e-08,
+        "Pennsylvania": 7.729977369308472e-08,
+        "People's Republic of China": 1.6079866327345371e-09,
+        "Nevada": 4.3655745685100555e-09,
+        "Ontario, Canada": 1.9190338207408786e-10,
+        "Illinois": 3.213062882423401e-08,
+        "other": 1.7583370208740234e-06,
+        "not_specified": 2.562999725341797e-06
+      }
+    },
+    {
+      "example_id": "ArconicRolledProductsCorp_20191217_10-12B_EX-2.7_11923804_EX-2.7_Trademark License Agreement",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.9140625,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 0.021484375,
+        "fixed_term": 0.0167236328125,
+        "perpetual": 0.0004444122314453125,
+        "other": 0.027587890625,
+        "not_specified": 0.9140625
+      }
+    },
+    {
+      "example_id": "ArconicRolledProductsCorp_20191217_10-12B_EX-2.7_11923804_EX-2.7_Trademark License Agreement",
+      "field": "expiration_type",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "perpetual": 0.0002613067626953125,
+        "specific_date": 0.000911712646484375,
+        "not_specified": 1.0
+      }
+    },
+    {
+      "example_id": "PapaJohnsInternationalInc_20190617_8-K_EX-10.1_11707365_EX-10.1_Endorsement Agreement",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.53125,
+      "correct": true,
+      "probs": {
+        "True": 0.53125,
+        "False": 0.46875
+      }
+    },
+    {
+      "example_id": "PapaJohnsInternationalInc_20190617_8-K_EX-10.1_11707365_EX-10.1_Endorsement Agreement",
+      "field": "has_cap_on_liability",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.00150299072265625
+      }
+    },
+    {
+      "example_id": "PapaJohnsInternationalInc_20190617_8-K_EX-10.1_11707365_EX-10.1_Endorsement Agreement",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00020313262939453125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PapaJohnsInternationalInc_20190617_8-K_EX-10.1_11707365_EX-10.1_Endorsement Agreement",
+      "field": "has_exclusivity",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.59375,
+      "correct": true,
+      "probs": {
+        "True": 0.59375,
+        "False": 0.408203125
+      }
+    },
+    {
+      "example_id": "PapaJohnsInternationalInc_20190617_8-K_EX-10.1_11707365_EX-10.1_Endorsement Agreement",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000804901123046875,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PapaJohnsInternationalInc_20190617_8-K_EX-10.1_11707365_EX-10.1_Endorsement Agreement",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "True",
+      "top_prob": 0.6796875,
+      "correct": false,
+      "probs": {
+        "True": 0.6796875,
+        "False": 0.3203125
+      }
+    },
+    {
+      "example_id": "PapaJohnsInternationalInc_20190617_8-K_EX-10.1_11707365_EX-10.1_Endorsement Agreement",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.9921875,
+      "correct": true,
+      "probs": {
+        "True": 0.007568359375,
+        "False": 0.9921875
+      }
+    },
+    {
+      "example_id": "PapaJohnsInternationalInc_20190617_8-K_EX-10.1_11707365_EX-10.1_Endorsement Agreement",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.4722347259521484e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PapaJohnsInternationalInc_20190617_8-K_EX-10.1_11707365_EX-10.1_Endorsement Agreement",
+      "field": "governing_law",
+      "target": "Delaware",
+      "top": "Delaware",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 1.0132789611816406e-05,
+        "California": 2.2649765014648438e-06,
+        "Delaware": 1.0,
+        "Texas": 6.845220923423767e-08,
+        "Florida": 1.8533319234848022e-07,
+        "Pennsylvania": 2.384185791015625e-07,
+        "People's Republic of China": 5.617039278149605e-09,
+        "Nevada": 1.7229467630386353e-08,
+        "Ontario, Canada": 2.455635694786906e-10,
+        "Illinois": 1.6391277313232422e-07,
+        "other": 3.9301812648773193e-07,
+        "not_specified": 1.55717134475708e-06
+      }
+    },
+    {
+      "example_id": "PapaJohnsInternationalInc_20190617_8-K_EX-10.1_11707365_EX-10.1_Endorsement Agreement",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "successive_multi_year",
+      "top_prob": 0.474609375,
+      "correct": false,
+      "probs": {
+        "successive_multi_year": 0.474609375,
+        "fixed_term": 0.007659912109375,
+        "perpetual": 0.000713348388671875,
+        "other": 0.0036163330078125,
+        "not_specified": 0.0390625
+      }
+    },
+    {
+      "example_id": "PapaJohnsInternationalInc_20190617_8-K_EX-10.1_11707365_EX-10.1_Endorsement Agreement",
+      "field": "expiration_type",
+      "target": "specific_date",
+      "top": "specific_date",
+      "top_prob": 0.984375,
+      "correct": true,
+      "probs": {
+        "perpetual": 0.0014801025390625,
+        "specific_date": 0.984375,
+        "not_specified": 0.0140380859375
+      }
+    },
+    {
+      "example_id": "ReedsInc_20191113_10-Q_EX-10.4_11888303_EX-10.4_Development Agreement",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.99609375,
+        "False": 0.004608154296875
+      }
+    },
+    {
+      "example_id": "ReedsInc_20191113_10-Q_EX-10.4_11888303_EX-10.4_Development Agreement",
+      "field": "has_cap_on_liability",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.9140625,
+      "correct": true,
+      "probs": {
+        "True": 0.9140625,
+        "False": 0.0849609375
+      }
+    },
+    {
+      "example_id": "ReedsInc_20191113_10-Q_EX-10.4_11888303_EX-10.4_Development Agreement",
+      "field": "has_audit_rights",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00170135498046875,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ReedsInc_20191113_10-Q_EX-10.4_11888303_EX-10.4_Development Agreement",
+      "field": "has_exclusivity",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.62109375,
+      "correct": false,
+      "probs": {
+        "True": 0.376953125,
+        "False": 0.62109375
+      }
+    },
+    {
+      "example_id": "ReedsInc_20191113_10-Q_EX-10.4_11888303_EX-10.4_Development Agreement",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 6.139278411865234e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ReedsInc_20191113_10-Q_EX-10.4_11888303_EX-10.4_Development Agreement",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000911712646484375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ReedsInc_20191113_10-Q_EX-10.4_11888303_EX-10.4_Development Agreement",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00012302398681640625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ReedsInc_20191113_10-Q_EX-10.4_11888303_EX-10.4_Development Agreement",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.3709068298339844e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ReedsInc_20191113_10-Q_EX-10.4_11888303_EX-10.4_Development Agreement",
+      "field": "governing_law",
+      "target": "New York",
+      "top": "New York",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 1.0,
+        "California": 2.514570951461792e-08,
+        "Delaware": 3.725290298461914e-06,
+        "Texas": 2.9976945370435715e-09,
+        "Florida": 5.893525667488575e-10,
+        "Pennsylvania": 3.213062882423401e-08,
+        "People's Republic of China": 7.188646122813225e-09,
+        "Nevada": 4.1443854570388794e-08,
+        "Ontario, Canada": 5.502442945726216e-11,
+        "Illinois": 1.1874362826347351e-08,
+        "other": 7.729977369308472e-08,
+        "not_specified": 8.754432201385498e-08
+      }
+    },
+    {
+      "example_id": "ReedsInc_20191113_10-Q_EX-10.4_11888303_EX-10.4_Development Agreement",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "successive_multi_year",
+      "top_prob": 0.46875,
+      "correct": false,
+      "probs": {
+        "successive_multi_year": 0.46875,
+        "fixed_term": 0.00970458984375,
+        "perpetual": 0.0010223388671875,
+        "other": 0.003570556640625,
+        "not_specified": 0.04931640625
+      }
+    },
+    {
+      "example_id": "ReedsInc_20191113_10-Q_EX-10.4_11888303_EX-10.4_Development Agreement",
+      "field": "expiration_type",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.9375,
+      "correct": true,
+      "probs": {
+        "perpetual": 0.0029754638671875,
+        "specific_date": 0.059814453125,
+        "not_specified": 0.9375
+      }
+    },
+    {
+      "example_id": "ReynoldsConsumerProductsInc_20200121_S-1A_EX-10.22_11948918_EX-10.22_Service Agreement",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.984375,
+      "correct": false,
+      "probs": {
+        "True": 0.015869140625,
+        "False": 0.984375
+      }
+    },
+    {
+      "example_id": "ReynoldsConsumerProductsInc_20200121_S-1A_EX-10.22_11948918_EX-10.22_Service Agreement",
+      "field": "has_cap_on_liability",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.94140625,
+      "correct": true,
+      "probs": {
+        "True": 0.94140625,
+        "False": 0.06005859375
+      }
+    },
+    {
+      "example_id": "ReynoldsConsumerProductsInc_20200121_S-1A_EX-10.22_11948918_EX-10.22_Service Agreement",
+      "field": "has_audit_rights",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.99609375,
+        "False": 0.004058837890625
+      }
+    },
+    {
+      "example_id": "ReynoldsConsumerProductsInc_20200121_S-1A_EX-10.22_11948918_EX-10.22_Service Agreement",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000431060791015625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ReynoldsConsumerProductsInc_20200121_S-1A_EX-10.22_11948918_EX-10.22_Service Agreement",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.9453125,
+      "correct": true,
+      "probs": {
+        "True": 0.053466796875,
+        "False": 0.9453125
+      }
+    },
+    {
+      "example_id": "ReynoldsConsumerProductsInc_20200121_S-1A_EX-10.22_11948918_EX-10.22_Service Agreement",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000804901123046875,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ReynoldsConsumerProductsInc_20200121_S-1A_EX-10.22_11948918_EX-10.22_Service Agreement",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.004608154296875,
+        "False": 0.99609375
+      }
+    },
+    {
+      "example_id": "ReynoldsConsumerProductsInc_20200121_S-1A_EX-10.22_11948918_EX-10.22_Service Agreement",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 4.5299530029296875e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "ReynoldsConsumerProductsInc_20200121_S-1A_EX-10.22_11948918_EX-10.22_Service Agreement",
+      "field": "governing_law",
+      "target": "Illinois",
+      "top": "Illinois",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 8.487701416015625e-05,
+        "California": 7.867813110351562e-06,
+        "Delaware": 0.0006256103515625,
+        "Texas": 4.231929779052734e-06,
+        "Florida": 1.996755599975586e-06,
+        "Pennsylvania": 1.2069940567016602e-06,
+        "People's Republic of China": 7.729977369308472e-08,
+        "Nevada": 8.307397365570068e-07,
+        "Ontario, Canada": 2.905726432800293e-06,
+        "Illinois": 1.0,
+        "other": 0.0002956390380859375,
+        "not_specified": 0.0002613067626953125
+      }
+    },
+    {
+      "example_id": "ReynoldsConsumerProductsInc_20200121_S-1A_EX-10.22_11948918_EX-10.22_Service Agreement",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.5859375,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 0.16796875,
+        "fixed_term": 0.061767578125,
+        "perpetual": 0.004486083984375,
+        "other": 0.0107421875,
+        "not_specified": 0.5859375
+      }
+    },
+    {
+      "example_id": "ReynoldsConsumerProductsInc_20200121_S-1A_EX-10.22_11948918_EX-10.22_Service Agreement",
+      "field": "expiration_type",
+      "target": "specific_date",
+      "top": "specific_date",
+      "top_prob": 0.86328125,
+      "correct": true,
+      "probs": {
+        "perpetual": 0.0179443359375,
+        "specific_date": 0.86328125,
+        "not_specified": 0.1171875
+      }
+    },
+    {
+      "example_id": "NICELTD_06_26_2003-EX-4.5-OUTSOURCING AGREEMENT",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.9921875,
+      "correct": false,
+      "probs": {
+        "True": 0.00592041015625,
+        "False": 0.9921875
+      }
+    },
+    {
+      "example_id": "NICELTD_06_26_2003-EX-4.5-OUTSOURCING AGREEMENT",
+      "field": "has_cap_on_liability",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.87890625,
+      "correct": false,
+      "probs": {
+        "True": 0.119140625,
+        "False": 0.87890625
+      }
+    },
+    {
+      "example_id": "NICELTD_06_26_2003-EX-4.5-OUTSOURCING AGREEMENT",
+      "field": "has_audit_rights",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.000431060791015625
+      }
+    },
+    {
+      "example_id": "NICELTD_06_26_2003-EX-4.5-OUTSOURCING AGREEMENT",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00150299072265625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "NICELTD_06_26_2003-EX-4.5-OUTSOURCING AGREEMENT",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0001087188720703125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "NICELTD_06_26_2003-EX-4.5-OUTSOURCING AGREEMENT",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000431060791015625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "NICELTD_06_26_2003-EX-4.5-OUTSOURCING AGREEMENT",
+      "field": "has_liquidated_damages",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.000553131103515625
+      }
+    },
+    {
+      "example_id": "NICELTD_06_26_2003-EX-4.5-OUTSOURCING AGREEMENT",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 4.5299530029296875e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "NICELTD_06_26_2003-EX-4.5-OUTSOURCING AGREEMENT",
+      "field": "governing_law",
+      "target": "other",
+      "top": "not_specified",
+      "top_prob": 0.98828125,
+      "correct": false,
+      "probs": {
+        "New York": 7.390975952148438e-05,
+        "California": 4.172325134277344e-06,
+        "Delaware": 8.821487426757812e-06,
+        "Texas": 3.427267074584961e-07,
+        "Florida": 9.313225746154785e-07,
+        "Pennsylvania": 1.4543533325195312e-05,
+        "People's Republic of China": 7.808208465576172e-06,
+        "Nevada": 4.991888999938965e-07,
+        "Ontario, Canada": 4.3958425521850586e-07,
+        "Illinois": 1.0013580322265625e-05,
+        "other": 0.012451171875,
+        "not_specified": 0.98828125
+      }
+    },
+    {
+      "example_id": "NICELTD_06_26_2003-EX-4.5-OUTSOURCING AGREEMENT",
+      "field": "renewal_term",
+      "target": "fixed_term",
+      "top": "not_specified",
+      "top_prob": 0.984375,
+      "correct": false,
+      "probs": {
+        "successive_multi_year": 0.0009002685546875,
+        "fixed_term": 0.00130462646484375,
+        "perpetual": 0.000545501708984375,
+        "other": 0.01092529296875,
+        "not_specified": 0.984375
+      }
+    },
+    {
+      "example_id": "NICELTD_06_26_2003-EX-4.5-OUTSOURCING AGREEMENT",
+      "field": "expiration_type",
+      "target": "specific_date",
+      "top": "not_specified",
+      "top_prob": 0.70703125,
+      "correct": false,
+      "probs": {
+        "perpetual": 0.0311279296875,
+        "specific_date": 0.259765625,
+        "not_specified": 0.70703125
+      }
+    },
+    {
+      "example_id": "ImpresseCorp_20000322_S-1A_EX-10.11_5199234_EX-10.11_Co-Branding Agreement",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.000911712646484375
+      }
+    },
+    {
+      "example_id": "ImpresseCorp_20000322_S-1A_EX-10.11_5199234_EX-10.11_Co-Branding Agreement",
+      "field": "has_cap_on_liability",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.00116729736328125
+      }
+    },
+    {
+      "example_id": "ImpresseCorp_20000322_S-1A_EX-10.11_5199234_EX-10.11_Co-Branding Agreement",
+      "field": "has_audit_rights",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 7.486343383789062e-05
+      }
+    },
+    {
+      "example_id": "ImpresseCorp_20000322_S-1A_EX-10.11_5199234_EX-10.11_Co-Branding Agreement",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.953125,
+      "correct": true,
+      "probs": {
+        "True": 0.04736328125,
+        "False": 0.953125
+      }
+    },
+    {
+      "example_id": "ImpresseCorp_20000322_S-1A_EX-10.11_5199234_EX-10.11_Co-Branding Agreement",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.97265625,
+      "correct": true,
+      "probs": {
+        "True": 0.0260009765625,
+        "False": 0.97265625
+      }
+    },
+    {
+      "example_id": "ImpresseCorp_20000322_S-1A_EX-10.11_5199234_EX-10.11_Co-Branding Agreement",
+      "field": "has_non_compete",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": false,
+      "probs": {
+        "True": 0.002471923828125,
+        "False": 0.99609375
+      }
+    },
+    {
+      "example_id": "ImpresseCorp_20000322_S-1A_EX-10.11_5199234_EX-10.11_Co-Branding Agreement",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.004608154296875,
+        "False": 0.99609375
+      }
+    },
+    {
+      "example_id": "ImpresseCorp_20000322_S-1A_EX-10.11_5199234_EX-10.11_Co-Branding Agreement",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.0021820068359375,
+        "False": 0.99609375
+      }
+    },
+    {
+      "example_id": "ImpresseCorp_20000322_S-1A_EX-10.11_5199234_EX-10.11_Co-Branding Agreement",
+      "field": "governing_law",
+      "target": "Delaware",
+      "top": "Delaware",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 4.4517219066619873e-07,
+        "California": 5.699694156646729e-07,
+        "Delaware": 1.0,
+        "Texas": 1.525040715932846e-08,
+        "Florida": 4.6798959374427795e-08,
+        "Pennsylvania": 1.3709068298339844e-06,
+        "People's Republic of China": 8.585629984736443e-10,
+        "Nevada": 1.525040715932846e-08,
+        "Ontario, Canada": 1.9190338207408786e-10,
+        "Illinois": 3.655441105365753e-08,
+        "other": 6.48200511932373e-07,
+        "not_specified": 3.46451997756958e-07
+      }
+    },
+    {
+      "example_id": "ImpresseCorp_20000322_S-1A_EX-10.11_5199234_EX-10.11_Co-Branding Agreement",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.6875,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 0.056396484375,
+        "fixed_term": 0.1962890625,
+        "perpetual": 0.001922607421875,
+        "other": 0.003173828125,
+        "not_specified": 0.6875
+      }
+    },
+    {
+      "example_id": "ImpresseCorp_20000322_S-1A_EX-10.11_5199234_EX-10.11_Co-Branding Agreement",
+      "field": "expiration_type",
+      "target": "specific_date",
+      "top": "specific_date",
+      "top_prob": 0.9921875,
+      "correct": true,
+      "probs": {
+        "perpetual": 0.002166748046875,
+        "specific_date": 0.9921875,
+        "not_specified": 0.004608154296875
+      }
+    },
+    {
+      "example_id": "BONTONSTORESINC_04_20_2018-EX-99.3-AGENCY AGREEMENT",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": false,
+      "probs": {
+        "True": 0.00116729736328125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "BONTONSTORESINC_04_20_2018-EX-99.3-AGENCY AGREEMENT",
+      "field": "has_cap_on_liability",
+      "target": "False",
+      "top": "True",
+      "top_prob": 0.5625,
+      "correct": false,
+      "probs": {
+        "True": 0.5625,
+        "False": 0.4375
+      }
+    },
+    {
+      "example_id": "BONTONSTORESINC_04_20_2018-EX-99.3-AGENCY AGREEMENT",
+      "field": "has_audit_rights",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.70703125,
+      "correct": true,
+      "probs": {
+        "True": 0.70703125,
+        "False": 0.294921875
+      }
+    },
+    {
+      "example_id": "BONTONSTORESINC_04_20_2018-EX-99.3-AGENCY AGREEMENT",
+      "field": "has_exclusivity",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.9140625,
+      "correct": true,
+      "probs": {
+        "True": 0.9140625,
+        "False": 0.0849609375
+      }
+    },
+    {
+      "example_id": "BONTONSTORESINC_04_20_2018-EX-99.3-AGENCY AGREEMENT",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0006256103515625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "BONTONSTORESINC_04_20_2018-EX-99.3-AGENCY AGREEMENT",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.9609375,
+      "correct": true,
+      "probs": {
+        "True": 0.037353515625,
+        "False": 0.9609375
+      }
+    },
+    {
+      "example_id": "BONTONSTORESINC_04_20_2018-EX-99.3-AGENCY AGREEMENT",
+      "field": "has_liquidated_damages",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.984375,
+      "correct": false,
+      "probs": {
+        "True": 0.0140380859375,
+        "False": 0.984375
+      }
+    },
+    {
+      "example_id": "BONTONSTORESINC_04_20_2018-EX-99.3-AGENCY AGREEMENT",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0013275146484375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "BONTONSTORESINC_04_20_2018-EX-99.3-AGENCY AGREEMENT",
+      "field": "governing_law",
+      "target": "Delaware",
+      "top": "Delaware",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 0.000179290771484375,
+        "California": 8.940696716308594e-06,
+        "Delaware": 1.0,
+        "Texas": 1.0654330253601074e-06,
+        "Florida": 7.338821887969971e-07,
+        "Pennsylvania": 1.6689300537109375e-05,
+        "People's Republic of China": 1.996755599975586e-06,
+        "Nevada": 1.3709068298339844e-06,
+        "Ontario, Canada": 7.338821887969971e-07,
+        "Illinois": 7.867813110351562e-06,
+        "other": 0.00022983551025390625,
+        "not_specified": 0.00070953369140625
+      }
+    },
+    {
+      "example_id": "BONTONSTORESINC_04_20_2018-EX-99.3-AGENCY AGREEMENT",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.6640625,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 0.0791015625,
+        "fixed_term": 0.115234375,
+        "perpetual": 0.0257568359375,
+        "other": 0.037353515625,
+        "not_specified": 0.6640625
+      }
+    },
+    {
+      "example_id": "BONTONSTORESINC_04_20_2018-EX-99.3-AGENCY AGREEMENT",
+      "field": "expiration_type",
+      "target": "not_specified",
+      "top": "specific_date",
+      "top_prob": 0.5546875,
+      "correct": false,
+      "probs": {
+        "perpetual": 0.0167236328125,
+        "specific_date": 0.5546875,
+        "not_specified": 0.4296875
+      }
+    },
+    {
+      "example_id": "CYBERIANOUTPOSTINC_07_09_1998-EX-10.13-PROMOTION AGREEMENT",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.99609375,
+        "False": 0.002471923828125
+      }
+    },
+    {
+      "example_id": "CYBERIANOUTPOSTINC_07_09_1998-EX-10.13-PROMOTION AGREEMENT",
+      "field": "has_cap_on_liability",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.99609375,
+        "False": 0.002471923828125
+      }
+    },
+    {
+      "example_id": "CYBERIANOUTPOSTINC_07_09_1998-EX-10.13-PROMOTION AGREEMENT",
+      "field": "has_audit_rights",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 3.293156623840332e-06
+      }
+    },
+    {
+      "example_id": "CYBERIANOUTPOSTINC_07_09_1998-EX-10.13-PROMOTION AGREEMENT",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "True",
+      "top_prob": 0.98828125,
+      "correct": false,
+      "probs": {
+        "True": 0.98828125,
+        "False": 0.010986328125
+      }
+    },
+    {
+      "example_id": "CYBERIANOUTPOSTINC_07_09_1998-EX-10.13-PROMOTION AGREEMENT",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.9921875,
+      "correct": true,
+      "probs": {
+        "True": 0.007568359375,
+        "False": 0.9921875
+      }
+    },
+    {
+      "example_id": "CYBERIANOUTPOSTINC_07_09_1998-EX-10.13-PROMOTION AGREEMENT",
+      "field": "has_non_compete",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.98828125,
+      "correct": false,
+      "probs": {
+        "True": 0.012451171875,
+        "False": 0.98828125
+      }
+    },
+    {
+      "example_id": "CYBERIANOUTPOSTINC_07_09_1998-EX-10.13-PROMOTION AGREEMENT",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00150299072265625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "CYBERIANOUTPOSTINC_07_09_1998-EX-10.13-PROMOTION AGREEMENT",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.002471923828125,
+        "False": 0.99609375
+      }
+    },
+    {
+      "example_id": "CYBERIANOUTPOSTINC_07_09_1998-EX-10.13-PROMOTION AGREEMENT",
+      "field": "governing_law",
+      "target": "California",
+      "top": "California",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 2.1047890186309814e-07,
+        "California": 1.0,
+        "Delaware": 1.2759119272232056e-07,
+        "Texas": 4.3655745685100555e-09,
+        "Florida": 2.2118911147117615e-08,
+        "Pennsylvania": 8.149072527885437e-09,
+        "People's Republic of China": 2.9976945370435715e-09,
+        "Nevada": 3.213062882423401e-08,
+        "Ontario, Canada": 3.1650415621697903e-10,
+        "Illinois": 2.8405338525772095e-08,
+        "other": 3.725290298461914e-06,
+        "not_specified": 8.940696716308594e-06
+      }
+    },
+    {
+      "example_id": "CYBERIANOUTPOSTINC_07_09_1998-EX-10.13-PROMOTION AGREEMENT",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.75390625,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 0.0791015625,
+        "fixed_term": 0.0791015625,
+        "perpetual": 0.00347900390625,
+        "other": 0.0057373046875,
+        "not_specified": 0.75390625
+      }
+    },
+    {
+      "example_id": "CYBERIANOUTPOSTINC_07_09_1998-EX-10.13-PROMOTION AGREEMENT",
+      "field": "expiration_type",
+      "target": "specific_date",
+      "top": "specific_date",
+      "top_prob": 0.9765625,
+      "correct": true,
+      "probs": {
+        "perpetual": 0.003997802734375,
+        "specific_date": 0.9765625,
+        "not_specified": 0.0179443359375
+      }
+    },
+    {
+      "example_id": "WHITESMOKE,INC_11_08_2011-EX-10.26-PROMOTION AND DISTRIBUTION AGREEMENT",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.62109375,
+      "correct": false,
+      "probs": {
+        "True": 0.376953125,
+        "False": 0.62109375
+      }
+    },
+    {
+      "example_id": "WHITESMOKE,INC_11_08_2011-EX-10.26-PROMOTION AND DISTRIBUTION AGREEMENT",
+      "field": "has_cap_on_liability",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.0013275146484375
+      }
+    },
+    {
+      "example_id": "WHITESMOKE,INC_11_08_2011-EX-10.26-PROMOTION AND DISTRIBUTION AGREEMENT",
+      "field": "has_audit_rights",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.000431060791015625
+      }
+    },
+    {
+      "example_id": "WHITESMOKE,INC_11_08_2011-EX-10.26-PROMOTION AND DISTRIBUTION AGREEMENT",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "True",
+      "top_prob": 0.90625,
+      "correct": false,
+      "probs": {
+        "True": 0.90625,
+        "False": 0.09521484375
+      }
+    },
+    {
+      "example_id": "WHITESMOKE,INC_11_08_2011-EX-10.26-PROMOTION AND DISTRIBUTION AGREEMENT",
+      "field": "has_change_of_control",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.99609375,
+        "False": 0.0028076171875
+      }
+    },
+    {
+      "example_id": "WHITESMOKE,INC_11_08_2011-EX-10.26-PROMOTION AND DISTRIBUTION AGREEMENT",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000335693359375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "WHITESMOKE,INC_11_08_2011-EX-10.26-PROMOTION AND DISTRIBUTION AGREEMENT",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00170135498046875,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "WHITESMOKE,INC_11_08_2011-EX-10.26-PROMOTION AND DISTRIBUTION AGREEMENT",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 8.940696716308594e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "WHITESMOKE,INC_11_08_2011-EX-10.26-PROMOTION AND DISTRIBUTION AGREEMENT",
+      "field": "governing_law",
+      "target": "other",
+      "top": "not_specified",
+      "top_prob": 0.7421875,
+      "correct": false,
+      "probs": {
+        "New York": 0.0419921875,
+        "California": 5.555152893066406e-05,
+        "Delaware": 0.0012664794921875,
+        "Texas": 2.0503997802734375e-05,
+        "Florida": 2.771615982055664e-06,
+        "Pennsylvania": 5.555152893066406e-05,
+        "People's Republic of China": 0.00019359588623046875,
+        "Nevada": 0.000171661376953125,
+        "Ontario, Canada": 0.0004100799560546875,
+        "Illinois": 0.00052642822265625,
+        "other": 0.212890625,
+        "not_specified": 0.7421875
+      }
+    },
+    {
+      "example_id": "WHITESMOKE,INC_11_08_2011-EX-10.26-PROMOTION AND DISTRIBUTION AGREEMENT",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.84375,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 0.0003204345703125,
+        "fixed_term": 0.146484375,
+        "perpetual": 0.000873565673828125,
+        "other": 0.006439208984375,
+        "not_specified": 0.84375
+      }
+    },
+    {
+      "example_id": "WHITESMOKE,INC_11_08_2011-EX-10.26-PROMOTION AND DISTRIBUTION AGREEMENT",
+      "field": "expiration_type",
+      "target": "specific_date",
+      "top": "specific_date",
+      "top_prob": 0.97265625,
+      "correct": true,
+      "probs": {
+        "perpetual": 0.0027313232421875,
+        "specific_date": 0.97265625,
+        "not_specified": 0.02294921875
+      }
+    },
+    {
+      "example_id": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.00014019012451171875
+      }
+    },
+    {
+      "example_id": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+      "field": "has_cap_on_liability",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.0002956390380859375
+      }
+    },
+    {
+      "example_id": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+      "field": "has_audit_rights",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.96875,
+      "correct": true,
+      "probs": {
+        "True": 0.96875,
+        "False": 0.033203125
+      }
+    },
+    {
+      "example_id": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+      "field": "has_exclusivity",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.90625,
+      "correct": true,
+      "probs": {
+        "True": 0.90625,
+        "False": 0.09521484375
+      }
+    },
+    {
+      "example_id": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 5.817413330078125e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000431060791015625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00070953369140625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0654330253601074e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+      "field": "governing_law",
+      "target": "California",
+      "top": "California",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 1.3709068298339844e-06,
+        "California": 1.0,
+        "Delaware": 1.2069940567016602e-06,
+        "Texas": 3.841705620288849e-09,
+        "Florida": 1.0477378964424133e-08,
+        "Pennsylvania": 8.585629984736443e-10,
+        "People's Republic of China": 2.1736923372372985e-10,
+        "Nevada": 4.3655745685100555e-09,
+        "Ontario, Canada": 8.003553375601768e-11,
+        "Illinois": 7.188646122813225e-09,
+        "other": 1.6391277313232422e-07,
+        "not_specified": 1.55717134475708e-06
+      }
+    },
+    {
+      "example_id": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+      "field": "renewal_term",
+      "target": "successive_1_year",
+      "top": "successive_multi_year",
+      "top_prob": 0.5,
+      "correct": false,
+      "probs": {
+        "successive_multi_year": 0.5,
+        "fixed_term": 3.6694109439849854e-07,
+        "perpetual": 1.862645149230957e-06,
+        "other": 4.377216100692749e-08,
+        "not_specified": 1.5273690223693848e-07
+      }
+    },
+    {
+      "example_id": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+      "field": "expiration_type",
+      "target": "specific_date",
+      "top": "not_specified",
+      "top_prob": 0.9921875,
+      "correct": false,
+      "probs": {
+        "perpetual": 0.00115966796875,
+        "specific_date": 0.006683349609375,
+        "not_specified": 0.9921875
+      }
+    },
+    {
+      "example_id": "INTRICONCORP_03_10_2009-EX-10.22-Strategic Alliance Agreement",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.000804901123046875
+      }
+    },
+    {
+      "example_id": "INTRICONCORP_03_10_2009-EX-10.22-Strategic Alliance Agreement",
+      "field": "has_cap_on_liability",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.0003795623779296875
+      }
+    },
+    {
+      "example_id": "INTRICONCORP_03_10_2009-EX-10.22-Strategic Alliance Agreement",
+      "field": "has_audit_rights",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 6.973743438720703e-06
+      }
+    },
+    {
+      "example_id": "INTRICONCORP_03_10_2009-EX-10.22-Strategic Alliance Agreement",
+      "field": "has_exclusivity",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.0002307891845703125
+      }
+    },
+    {
+      "example_id": "INTRICONCORP_03_10_2009-EX-10.22-Strategic Alliance Agreement",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000179290771484375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "INTRICONCORP_03_10_2009-EX-10.22-Strategic Alliance Agreement",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0002613067626953125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "INTRICONCORP_03_10_2009-EX-10.22-Strategic Alliance Agreement",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000431060791015625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "INTRICONCORP_03_10_2009-EX-10.22-Strategic Alliance Agreement",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.46451997756958e-07,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "INTRICONCORP_03_10_2009-EX-10.22-Strategic Alliance Agreement",
+      "field": "governing_law",
+      "target": "other",
+      "top": "not_specified",
+      "top_prob": 0.474609375,
+      "correct": false,
+      "probs": {
+        "New York": 0.0024871826171875,
+        "California": 0.00055694580078125,
+        "Delaware": 0.002197265625,
+        "Texas": 4.029273986816406e-05,
+        "Florida": 7.534027099609375e-05,
+        "Pennsylvania": 0.0003814697265625,
+        "People's Republic of China": 0.00194549560546875,
+        "Nevada": 0.0076904296875,
+        "Ontario, Canada": 0.1357421875,
+        "Illinois": 0.003204345703125,
+        "other": 0.369140625,
+        "not_specified": 0.474609375
+      }
+    },
+    {
+      "example_id": "INTRICONCORP_03_10_2009-EX-10.22-Strategic Alliance Agreement",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "fixed_term",
+      "top_prob": 0.4296875,
+      "correct": false,
+      "probs": {
+        "successive_multi_year": 0.1796875,
+        "fixed_term": 0.4296875,
+        "perpetual": 0.001068115234375,
+        "other": 0.0069580078125,
+        "not_specified": 0.203125
+      }
+    },
+    {
+      "example_id": "INTRICONCORP_03_10_2009-EX-10.22-Strategic Alliance Agreement",
+      "field": "expiration_type",
+      "target": "specific_date",
+      "top": "not_specified",
+      "top_prob": 0.81640625,
+      "correct": false,
+      "probs": {
+        "perpetual": 0.0037689208984375,
+        "specific_date": 0.181640625,
+        "not_specified": 0.81640625
+      }
+    },
+    {
+      "example_id": "SUMMAFOURINC_06_19_1998-EX-10.3-SOFTWARE LICENSE AND MAINTENANCE AGREEMENT",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.70703125,
+      "correct": true,
+      "probs": {
+        "True": 0.70703125,
+        "False": 0.294921875
+      }
+    },
+    {
+      "example_id": "SUMMAFOURINC_06_19_1998-EX-10.3-SOFTWARE LICENSE AND MAINTENANCE AGREEMENT",
+      "field": "has_cap_on_liability",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.0002956390380859375
+      }
+    },
+    {
+      "example_id": "SUMMAFOURINC_06_19_1998-EX-10.3-SOFTWARE LICENSE AND MAINTENANCE AGREEMENT",
+      "field": "has_audit_rights",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.000804901123046875
+      }
+    },
+    {
+      "example_id": "SUMMAFOURINC_06_19_1998-EX-10.3-SOFTWARE LICENSE AND MAINTENANCE AGREEMENT",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.528594970703125e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "SUMMAFOURINC_06_19_1998-EX-10.3-SOFTWARE LICENSE AND MAINTENANCE AGREEMENT",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00048828125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "SUMMAFOURINC_06_19_1998-EX-10.3-SOFTWARE LICENSE AND MAINTENANCE AGREEMENT",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00020313262939453125,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "SUMMAFOURINC_06_19_1998-EX-10.3-SOFTWARE LICENSE AND MAINTENANCE AGREEMENT",
+      "field": "has_liquidated_damages",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": false,
+      "probs": {
+        "True": 0.002471923828125,
+        "False": 0.99609375
+      }
+    },
+    {
+      "example_id": "SUMMAFOURINC_06_19_1998-EX-10.3-SOFTWARE LICENSE AND MAINTENANCE AGREEMENT",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.65234375,
+      "correct": true,
+      "probs": {
+        "True": 0.349609375,
+        "False": 0.65234375
+      }
+    },
+    {
+      "example_id": "SUMMAFOURINC_06_19_1998-EX-10.3-SOFTWARE LICENSE AND MAINTENANCE AGREEMENT",
+      "field": "governing_law",
+      "target": "New York",
+      "top": "New York",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 1.0,
+        "California": 0.0002307891845703125,
+        "Delaware": 0.0002307891845703125,
+        "Texas": 3.293156623840332e-06,
+        "Florida": 5.699694156646729e-07,
+        "Pennsylvania": 2.753734588623047e-05,
+        "People's Republic of China": 4.76837158203125e-06,
+        "Nevada": 1.5497207641601562e-06,
+        "Ontario, Canada": 6.798654794692993e-08,
+        "Illinois": 3.293156623840332e-06,
+        "other": 2.753734588623047e-05,
+        "not_specified": 2.753734588623047e-05
+      }
+    },
+    {
+      "example_id": "SUMMAFOURINC_06_19_1998-EX-10.3-SOFTWARE LICENSE AND MAINTENANCE AGREEMENT",
+      "field": "renewal_term",
+      "target": "not_specified",
+      "top": "not_specified",
+      "top_prob": 0.91015625,
+      "correct": true,
+      "probs": {
+        "successive_multi_year": 0.01470947265625,
+        "fixed_term": 0.0069580078125,
+        "perpetual": 0.04541015625,
+        "other": 0.00787353515625,
+        "not_specified": 0.91015625
+      }
+    },
+    {
+      "example_id": "SUMMAFOURINC_06_19_1998-EX-10.3-SOFTWARE LICENSE AND MAINTENANCE AGREEMENT",
+      "field": "expiration_type",
+      "target": "perpetual",
+      "top": "not_specified",
+      "top_prob": 0.80859375,
+      "correct": false,
+      "probs": {
+        "perpetual": 0.1796875,
+        "specific_date": 0.0130615234375,
+        "not_specified": 0.80859375
+      }
+    },
+    {
+      "example_id": "GopageCorp_20140221_10-K_EX-10.1_8432966_EX-10.1_Content License Agreement",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.0013275146484375
+      }
+    },
+    {
+      "example_id": "GopageCorp_20140221_10-K_EX-10.1_8432966_EX-10.1_Content License Agreement",
+      "field": "has_cap_on_liability",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 6.973743438720703e-06
+      }
+    },
+    {
+      "example_id": "GopageCorp_20140221_10-K_EX-10.1_8432966_EX-10.1_Content License Agreement",
+      "field": "has_audit_rights",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 7.867813110351562e-06
+      }
+    },
+    {
+      "example_id": "GopageCorp_20140221_10-K_EX-10.1_8432966_EX-10.1_Content License Agreement",
+      "field": "has_exclusivity",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.59375,
+      "correct": false,
+      "probs": {
+        "True": 0.408203125,
+        "False": 0.59375
+      }
+    },
+    {
+      "example_id": "GopageCorp_20140221_10-K_EX-10.1_8432966_EX-10.1_Content License Agreement",
+      "field": "has_change_of_control",
+      "target": "True",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": false,
+      "probs": {
+        "True": 1.6689300537109375e-05,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "GopageCorp_20140221_10-K_EX-10.1_8432966_EX-10.1_Content License Agreement",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.89453125,
+      "correct": true,
+      "probs": {
+        "True": 0.10693359375,
+        "False": 0.89453125
+      }
+    },
+    {
+      "example_id": "GopageCorp_20140221_10-K_EX-10.1_8432966_EX-10.1_Content License Agreement",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.98828125,
+      "correct": true,
+      "probs": {
+        "True": 0.012451171875,
+        "False": 0.98828125
+      }
+    },
+    {
+      "example_id": "GopageCorp_20140221_10-K_EX-10.1_8432966_EX-10.1_Content License Agreement",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0001583099365234375,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "GopageCorp_20140221_10-K_EX-10.1_8432966_EX-10.1_Content License Agreement",
+      "field": "governing_law",
+      "target": "Nevada",
+      "top": "Nevada",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "New York": 3.123283386230469e-05,
+        "California": 3.725290298461914e-06,
+        "Delaware": 5.817413330078125e-05,
+        "Texas": 3.0547380447387695e-07,
+        "Florida": 1.8533319234848022e-07,
+        "Pennsylvania": 1.2069940567016602e-06,
+        "People's Republic of China": 1.0132789611816406e-05,
+        "Nevada": 1.0,
+        "Ontario, Canada": 3.0547380447387695e-07,
+        "Illinois": 1.2993812561035156e-05,
+        "other": 2.753734588623047e-05,
+        "not_specified": 1.895427703857422e-05
+      }
+    },
+    {
+      "example_id": "GopageCorp_20140221_10-K_EX-10.1_8432966_EX-10.1_Content License Agreement",
+      "field": "renewal_term",
+      "target": "fixed_term",
+      "top": "successive_multi_year",
+      "top_prob": 0.5,
+      "correct": false,
+      "probs": {
+        "successive_multi_year": 0.5,
+        "fixed_term": 0.00010156631469726562,
+        "perpetual": 3.933906555175781e-06,
+        "other": 1.9650906324386597e-07,
+        "not_specified": 2.3399479687213898e-08
+      }
+    },
+    {
+      "example_id": "GopageCorp_20140221_10-K_EX-10.1_8432966_EX-10.1_Content License Agreement",
+      "field": "expiration_type",
+      "target": "specific_date",
+      "top": "not_specified",
+      "top_prob": 0.7265625,
+      "correct": false,
+      "probs": {
+        "perpetual": 0.00628662109375,
+        "specific_date": 0.267578125,
+        "not_specified": 0.7265625
+      }
+    },
+    {
+      "example_id": "NANOPHASETECHNOLOGIESCORP_11_01_2005-EX-99.1-DISTRIBUTOR AGREEMENT",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.59375,
+      "correct": false,
+      "probs": {
+        "True": 0.408203125,
+        "False": 0.59375
+      }
+    },
+    {
+      "example_id": "NANOPHASETECHNOLOGIESCORP_11_01_2005-EX-99.1-DISTRIBUTOR AGREEMENT",
+      "field": "has_cap_on_liability",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.92578125,
+      "correct": true,
+      "probs": {
+        "True": 0.92578125,
+        "False": 0.07568359375
+      }
+    },
+    {
+      "example_id": "NANOPHASETECHNOLOGIESCORP_11_01_2005-EX-99.1-DISTRIBUTOR AGREEMENT",
+      "field": "has_audit_rights",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.00116729736328125
+      }
+    },
+    {
+      "example_id": "NANOPHASETECHNOLOGIESCORP_11_01_2005-EX-99.1-DISTRIBUTOR AGREEMENT",
+      "field": "has_exclusivity",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.00170135498046875
+      }
+    },
+    {
+      "example_id": "NANOPHASETECHNOLOGIESCORP_11_01_2005-EX-99.1-DISTRIBUTOR AGREEMENT",
+      "field": "has_change_of_control",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 6.973743438720703e-06,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "NANOPHASETECHNOLOGIESCORP_11_01_2005-EX-99.1-DISTRIBUTOR AGREEMENT",
+      "field": "has_non_compete",
+      "target": "False",
+      "top": "True",
+      "top_prob": 0.53125,
+      "correct": false,
+      "probs": {
+        "True": 0.53125,
+        "False": 0.46875
+      }
+    },
+    {
+      "example_id": "NANOPHASETECHNOLOGIESCORP_11_01_2005-EX-99.1-DISTRIBUTOR AGREEMENT",
+      "field": "has_liquidated_damages",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.003173828125,
+        "False": 0.99609375
+      }
+    },
+    {
+      "example_id": "NANOPHASETECHNOLOGIESCORP_11_01_2005-EX-99.1-DISTRIBUTOR AGREEMENT",
+      "field": "has_most_favored_nation",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.65234375,
+      "correct": false,
+      "probs": {
+        "True": 0.349609375,
+        "False": 0.65234375
+      }
+    },
+    {
+      "example_id": "NANOPHASETECHNOLOGIESCORP_11_01_2005-EX-99.1-DISTRIBUTOR AGREEMENT",
+      "field": "governing_law",
+      "target": "other",
+      "top": "Delaware",
+      "top_prob": 1.0,
+      "correct": false,
+      "probs": {
+        "New York": 7.867813110351562e-06,
+        "California": 1.0654330253601074e-06,
+        "Delaware": 1.0,
+        "Texas": 1.6391277313232422e-07,
+        "Florida": 1.4435499906539917e-07,
+        "Pennsylvania": 9.424984455108643e-07,
+        "People's Republic of China": 9.255018085241318e-09,
+        "Nevada": 7.729977369308472e-08,
+        "Ontario, Canada": 5.587935447692871e-09,
+        "Illinois": 6.628036499023438e-05,
+        "other": 2.1047890186309814e-07,
+        "not_specified": 1.6391277313232422e-07
+      }
+    },
+    {
+      "example_id": "NANOPHASETECHNOLOGIESCORP_11_01_2005-EX-99.1-DISTRIBUTOR AGREEMENT",
+      "field": "renewal_term",
+      "target": "fixed_term",
+      "top": "successive_multi_year",
+      "top_prob": 0.5,
+      "correct": false,
+      "probs": {
+        "successive_multi_year": 0.5,
+        "fixed_term": 0.00031280517578125,
+        "perpetual": 2.2649765014648438e-05,
+        "other": 9.47713851928711e-06,
+        "not_specified": 1.2814998626708984e-06
+      }
+    },
+    {
+      "example_id": "NANOPHASETECHNOLOGIESCORP_11_01_2005-EX-99.1-DISTRIBUTOR AGREEMENT",
+      "field": "expiration_type",
+      "target": "specific_date",
+      "top": "not_specified",
+      "top_prob": 0.66796875,
+      "correct": false,
+      "probs": {
+        "perpetual": 0.0157470703125,
+        "specific_date": 0.31640625,
+        "not_specified": 0.66796875
+      }
+    },
+    {
+      "example_id": "PfHospitalityGroupInc_20150923_10-12G_EX-10.1_9266710_EX-10.1_Franchise Agreement1",
+      "field": "has_anti_assignment",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.5625,
+      "correct": true,
+      "probs": {
+        "True": 0.5625,
+        "False": 0.4375
+      }
+    },
+    {
+      "example_id": "PfHospitalityGroupInc_20150923_10-12G_EX-10.1_9266710_EX-10.1_Franchise Agreement1",
+      "field": "has_cap_on_liability",
+      "target": "True",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": false,
+      "probs": {
+        "True": 0.0006256103515625,
+        "False": 1.0
+      }
+    },
+    {
+      "example_id": "PfHospitalityGroupInc_20150923_10-12G_EX-10.1_9266710_EX-10.1_Franchise Agreement1",
+      "field": "has_audit_rights",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.99609375,
+        "False": 0.00360107421875
+      }
+    },
+    {
+      "example_id": "PfHospitalityGroupInc_20150923_10-12G_EX-10.1_9266710_EX-10.1_Franchise Agreement1",
+      "field": "has_exclusivity",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.00360107421875,
+        "False": 0.99609375
+      }
+    },
+    {
+      "example_id": "PfHospitalityGroupInc_20150923_10-12G_EX-10.1_9266710_EX-10.1_Franchise Agreement1",
+      "field": "has_change_of_control",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.98828125,
+      "correct": false,
+      "probs": {
+        "True": 0.010986328125,
+        "False": 0.98828125
+      }
+    },
+    {
+      "example_id": "PfHospitalityGroupInc_20150923_10-12G_EX-10.1_9266710_EX-10.1_Franchise Agreement1",
+      "field": "has_non_compete",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.73046875,
+      "correct": true,
+      "probs": {
+        "True": 0.73046875,
+        "False": 0.26953125
+      }
+    },
+    {
+      "example_id": "PfHospitalityGroupInc_20150923_10-12G_EX-10.1_9266710_EX-10.1_Franchise Agreement1",
+      "field": "has_liquidated_damages",
+      "target": "True",
+      "top": "False",
+      "top_prob": 0.65234375,
+      "correct": false,
+      "probs": {
+        "True": 0.349609375,
+        "False": 0.65234375
+      }
+    },
+    {
+      "example_id": "PfHospitalityGroupInc_20150923_10-12G_EX-10.1_9266710_EX-10.1_Franchise Agreement1",
+      "field": "has_most_favored_nation",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.005218505859375,
+        "False": 0.99609375
+      }
+    },
+    {
+      "example_id": "PfHospitalityGroupInc_20150923_10-12G_EX-10.1_9266710_EX-10.1_Franchise Agreement1",
+      "field": "governing_law",
+      "target": "Florida",
+      "top": "Florida",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "New York": 0.0002613067626953125,
+        "California": 0.0001392364501953125,
+        "Delaware": 0.00090789794921875,
+        "Texas": 1.4722347259521484e-05,
+        "Florida": 0.99609375,
+        "Pennsylvania": 3.0994415283203125e-05,
+        "People's Republic of China": 3.2782554626464844e-06,
+        "Nevada": 3.7103891372680664e-06,
+        "Ontario, Canada": 5.699694156646729e-07,
+        "Illinois": 4.76837158203125e-06,
+        "other": 0.0003795623779296875,
+        "not_specified": 0.00131988525390625
+      }
+    },
+    {
+      "example_id": "PfHospitalityGroupInc_20150923_10-12G_EX-10.1_9266710_EX-10.1_Franchise Agreement1",
+      "field": "renewal_term",
+      "target": "fixed_term",
+      "top": "successive_multi_year",
+      "top_prob": 0.498046875,
+      "correct": false,
+      "probs": {
+        "successive_multi_year": 0.498046875,
+        "fixed_term": 0.0026092529296875,
+        "perpetual": 6.151199340820312e-05,
+        "other": 1.3709068298339844e-05,
+        "not_specified": 2.562999725341797e-05
+      }
+    },
+    {
+      "example_id": "PfHospitalityGroupInc_20150923_10-12G_EX-10.1_9266710_EX-10.1_Franchise Agreement1",
+      "field": "expiration_type",
+      "target": "not_specified",
+      "top": "specific_date",
+      "top_prob": 0.97265625,
+      "correct": false,
+      "probs": {
+        "perpetual": 0.01220703125,
+        "specific_date": 0.97265625,
+        "not_specified": 0.0157470703125
+      }
+    }
+  ]
+}

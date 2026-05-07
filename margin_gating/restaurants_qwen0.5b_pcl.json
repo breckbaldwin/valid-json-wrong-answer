@@ -1,0 +1,3159 @@
+{
+  "scale": "0.5b",
+  "dataset": "restaurants_pcl_ft",
+  "checkpoint": "/workspace/supplementary/checkpoints/restaurants_pcl_qwen0.5b/lora_epoch5",
+  "total": 225,
+  "correct": 181,
+  "fields": [
+    {
+      "example_id": "1_00004",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.1047890186309814e-07,
+        "False": 6.973743438720703e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00004",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 7.338821887969971e-07,
+        "False": 7.420778274536133e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00004",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.80859375,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.09619140625,
+        "moderate": 0.80859375,
+        "expensive": 0.09619140625,
+        "very expensive": 4.696846008300781e-05
+      }
+    },
+    {
+      "example_id": "1_00004",
+      "field": "cuisine",
+      "target": "Seafood",
+      "top": "American",
+      "top_prob": 0.7734375,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.001922607421875,
+        "Chinese": 0.11865234375,
+        "Indian": 0.031982421875,
+        "American": 0.7734375,
+        "Italian": 0.072265625
+      }
+    },
+    {
+      "example_id": "1_00007",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 5.699694156646729e-07,
+        "False": 1.7762184143066406e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00007",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.2351741790771484e-07,
+        "False": 1.4603137969970703e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00007",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.7421875,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.12890625,
+        "moderate": 0.7421875,
+        "expensive": 0.12890625,
+        "very expensive": 0.0001506805419921875
+      }
+    },
+    {
+      "example_id": "1_00007",
+      "field": "cuisine",
+      "target": "Italian",
+      "top": "Italian",
+      "top_prob": 0.703125,
+      "correct": true,
+      "probs": {
+        "Mexican": 0.29296875,
+        "Chinese": 0.000568389892578125,
+        "Indian": 0.00038909912109375,
+        "American": 0.000640869140625,
+        "Italian": 0.703125
+      }
+    },
+    {
+      "example_id": "1_00076",
+      "field": "serves_alcohol",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.000911712646484375,
+        "ambiguous": 5.893525667488575e-10
+      }
+    },
+    {
+      "example_id": "1_00076",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 5.699694156646729e-07,
+        "False": 5.0961971282958984e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00076",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.98828125,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.00518798828125,
+        "moderate": 0.98828125,
+        "expensive": 0.007537841796875,
+        "very expensive": 6.079673767089844e-06
+      }
+    },
+    {
+      "example_id": "1_00076",
+      "field": "cuisine",
+      "target": "American",
+      "top": "American",
+      "top_prob": 0.9921875,
+      "correct": true,
+      "probs": {
+        "Mexican": 0.0004558563232421875,
+        "Chinese": 8.440017700195312e-05,
+        "Indian": 0.00262451171875,
+        "American": 0.9921875,
+        "Italian": 0.0031585693359375
+      }
+    },
+    {
+      "example_id": "1_00109",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 8.940696716308594e-06,
+        "False": 0.000553131103515625,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00109",
+      "field": "has_live_music",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.9609375,
+      "correct": true,
+      "probs": {
+        "True": 0.9609375,
+        "False": 0.037353515625,
+        "ambiguous": 3.781169652938843e-07
+      }
+    },
+    {
+      "example_id": "1_00109",
+      "field": "party_size",
+      "target": "2",
+      "top": "2",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 3.0547380447387695e-07,
+        "2": 1.0,
+        "3": 6.139278411865234e-06,
+        "4": 1.2069940567016602e-06,
+        "5": 1.525040715932846e-08,
+        "6": 1.4435499906539917e-07
+      }
+    },
+    {
+      "example_id": "1_00109",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.96484375,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.032958984375,
+        "moderate": 0.96484375,
+        "expensive": 0.0001354217529296875,
+        "very expensive": 1.5139579772949219e-05
+      }
+    },
+    {
+      "example_id": "1_00109",
+      "field": "cuisine",
+      "target": "Take-out",
+      "top": "Indian",
+      "top_prob": 0.52734375,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.06689453125,
+        "Chinese": 0.0224609375,
+        "Indian": 0.52734375,
+        "American": 0.265625,
+        "Italian": 0.11767578125
+      }
+    },
+    {
+      "example_id": "1_00063",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 7.338821887969971e-07,
+        "False": 3.123283386230469e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00063",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 4.172325134277344e-07,
+        "False": 2.905726432800293e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00063",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.8671875,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.0712890625,
+        "moderate": 0.8671875,
+        "expensive": 0.0625,
+        "very expensive": 8.869171142578125e-05
+      }
+    },
+    {
+      "example_id": "1_00063",
+      "field": "cuisine",
+      "target": "Italian",
+      "top": "Italian",
+      "top_prob": 0.984375,
+      "correct": true,
+      "probs": {
+        "Mexican": 0.00061798095703125,
+        "Chinese": 0.000701904296875,
+        "Indian": 0.00037384033203125,
+        "American": 0.01239013671875,
+        "Italian": 0.984375
+      }
+    },
+    {
+      "example_id": "1_00078",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.126900315284729e-07,
+        "False": 6.139278411865234e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00078",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 9.5367431640625e-06,
+        "False": 0.00014019012451171875,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00078",
+      "field": "party_size",
+      "target": "2",
+      "top": "2",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.3709068298339844e-06,
+        "2": 1.0,
+        "3": 3.725290298461914e-06,
+        "4": 1.0570511221885681e-07,
+        "5": 5.2677933126688e-09,
+        "6": 1.0477378964424133e-08
+      }
+    },
+    {
+      "example_id": "1_00078",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "inexpensive",
+      "top_prob": 0.67578125,
+      "correct": false,
+      "probs": {
+        "inexpensive": 0.67578125,
+        "moderate": 0.318359375,
+        "expensive": 0.005828857421875,
+        "very expensive": 5.662441253662109e-06
+      }
+    },
+    {
+      "example_id": "1_00078",
+      "field": "cuisine",
+      "target": "Breakfast",
+      "top": "American",
+      "top_prob": 0.88671875,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.0034027099609375,
+        "Chinese": 0.044189453125,
+        "Indian": 0.0162353515625,
+        "American": 0.88671875,
+        "Italian": 0.050048828125
+      }
+    },
+    {
+      "example_id": "1_00064",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.7762184143066406e-05,
+        "False": 0.0006256103515625,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00064",
+      "field": "has_live_music",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.0021820068359375,
+        "False": 0.99609375,
+        "ambiguous": 0.00022983551025390625
+      }
+    },
+    {
+      "example_id": "1_00064",
+      "field": "party_size",
+      "target": "2",
+      "top": "2",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 4.6798959374427795e-08,
+        "2": 1.0,
+        "3": 4.231929779052734e-06,
+        "4": 9.918585419654846e-08,
+        "5": 2.8230715543031693e-09,
+        "6": 3.1868694350123405e-09
+      }
+    },
+    {
+      "example_id": "1_00064",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.93359375,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.0673828125,
+        "moderate": 0.93359375,
+        "expensive": 0.00031280517578125,
+        "very expensive": 3.03611159324646e-07
+      }
+    },
+    {
+      "example_id": "1_00064",
+      "field": "cuisine",
+      "target": "Brunch",
+      "top": "American",
+      "top_prob": 0.96875,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.00128173828125,
+        "Chinese": 0.005401611328125,
+        "Indian": 0.00225830078125,
+        "American": 0.96875,
+        "Italian": 0.024169921875
+      }
+    },
+    {
+      "example_id": "1_00018",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 6.48200511932373e-07,
+        "False": 1.895427703857422e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00018",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.6391277313232422e-07,
+        "False": 1.7583370208740234e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00018",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.9140625,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.04541015625,
+        "moderate": 0.9140625,
+        "expensive": 0.040283203125,
+        "very expensive": 5.6743621826171875e-05
+      }
+    },
+    {
+      "example_id": "1_00018",
+      "field": "cuisine",
+      "target": "Sushi",
+      "top": "Chinese",
+      "top_prob": 0.83984375,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.0087890625,
+        "Chinese": 0.83984375,
+        "Indian": 0.016357421875,
+        "American": 0.06884765625,
+        "Italian": 0.06494140625
+      }
+    },
+    {
+      "example_id": "1_00081",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.996755599975586e-06,
+        "False": 4.5299530029296875e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00081",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 6.139278411865234e-06,
+        "False": 0.000335693359375,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00081",
+      "field": "party_size",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.0,
+        "2": 6.48200511932373e-07,
+        "3": 8.754432201385498e-08,
+        "4": 6.007030606269836e-08,
+        "5": 5.617039278149605e-09,
+        "6": 1.7229467630386353e-08
+      }
+    },
+    {
+      "example_id": "1_00081",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "inexpensive",
+      "top_prob": 0.5625,
+      "correct": false,
+      "probs": {
+        "inexpensive": 0.5625,
+        "moderate": 0.4375,
+        "expensive": 0.00122833251953125,
+        "very expensive": 2.086162567138672e-06
+      }
+    },
+    {
+      "example_id": "1_00081",
+      "field": "cuisine",
+      "target": "Breakfast",
+      "top": "American",
+      "top_prob": 0.96484375,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.0013580322265625,
+        "Chinese": 0.01214599609375,
+        "Indian": 0.00946044921875,
+        "American": 0.96484375,
+        "Italian": 0.012939453125
+      }
+    },
+    {
+      "example_id": "1_00027",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.4603137969970703e-06,
+        "False": 3.314018249511719e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00027",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.9301812648773193e-07,
+        "False": 3.725290298461914e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00027",
+      "field": "price_range",
+      "target": "inexpensive",
+      "top": "moderate",
+      "top_prob": 0.69140625,
+      "correct": false,
+      "probs": {
+        "inexpensive": 0.25390625,
+        "moderate": 0.69140625,
+        "expensive": 0.056640625,
+        "very expensive": 3.7670135498046875e-05
+      }
+    },
+    {
+      "example_id": "1_00027",
+      "field": "cuisine",
+      "target": "Chinese",
+      "top": "Chinese",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Mexican": 8.487701416015625e-05,
+        "Chinese": 1.0,
+        "Indian": 2.753734588623047e-05,
+        "American": 0.000431060791015625,
+        "Italian": 0.0001087188720703125
+      }
+    },
+    {
+      "example_id": "1_00098",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 7.420778274536133e-06,
+        "False": 0.00014019012451171875,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00098",
+      "field": "has_live_music",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.002471923828125,
+        "False": 0.99609375,
+        "ambiguous": 0.00116729736328125
+      }
+    },
+    {
+      "example_id": "1_00098",
+      "field": "party_size",
+      "target": "2",
+      "top": "2",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 7.867813110351562e-06,
+        "2": 1.0,
+        "3": 1.6689300537109375e-05,
+        "4": 2.562999725341797e-06,
+        "5": 7.264316082000732e-08,
+        "6": 8.754432201385498e-08
+      }
+    },
+    {
+      "example_id": "1_00098",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.9453125,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.053466796875,
+        "moderate": 0.9453125,
+        "expensive": 0.00086212158203125,
+        "very expensive": 6.198883056640625e-06
+      }
+    },
+    {
+      "example_id": "1_00098",
+      "field": "cuisine",
+      "target": "Japanese",
+      "top": "Chinese",
+      "top_prob": 0.98046875,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.0021514892578125,
+        "Chinese": 0.98046875,
+        "Indian": 0.00101470947265625,
+        "American": 0.0035400390625,
+        "Italian": 0.0115966796875
+      }
+    },
+    {
+      "example_id": "1_00009",
+      "field": "serves_alcohol",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.00193023681640625,
+        "ambiguous": 5.029141902923584e-07
+      }
+    },
+    {
+      "example_id": "1_00009",
+      "field": "has_live_music",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00102996826171875,
+        "False": 1.0,
+        "ambiguous": 5.14984130859375e-05
+      }
+    },
+    {
+      "example_id": "1_00009",
+      "field": "party_size",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.0,
+        "2": 2.384185791015625e-07,
+        "3": 1.955777406692505e-08,
+        "4": 5.617039278149605e-09,
+        "5": 7.566995918750763e-10,
+        "6": 2.066371962428093e-09
+      }
+    },
+    {
+      "example_id": "1_00009",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "inexpensive",
+      "top_prob": 0.494140625,
+      "correct": false,
+      "probs": {
+        "inexpensive": 0.494140625,
+        "moderate": 0.494140625,
+        "expensive": 0.01025390625,
+        "very expensive": 9.778887033462524e-08
+      }
+    },
+    {
+      "example_id": "1_00009",
+      "field": "cuisine",
+      "target": "Breakfast",
+      "top": "American",
+      "top_prob": 0.9609375,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.00445556640625,
+        "Chinese": 0.01556396484375,
+        "Indian": 0.003936767578125,
+        "American": 0.9609375,
+        "Italian": 0.01373291015625
+      }
+    },
+    {
+      "example_id": "1_00057",
+      "field": "serves_alcohol",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.9609375,
+      "correct": true,
+      "probs": {
+        "True": 0.032958984375,
+        "False": 0.9609375,
+        "ambiguous": 0.005035400390625
+      }
+    },
+    {
+      "example_id": "1_00057",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.3709068298339844e-06,
+        "False": 2.014636993408203e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00057",
+      "field": "party_size",
+      "target": "2",
+      "top": "2",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 7.338821887969971e-07,
+        "2": 1.0,
+        "3": 3.725290298461914e-06,
+        "4": 1.3597309589385986e-07,
+        "5": 9.255018085241318e-09,
+        "6": 2.3632310330867767e-08
+      }
+    },
+    {
+      "example_id": "1_00057",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "inexpensive": 2.1047890186309814e-07,
+        "moderate": 1.0,
+        "expensive": 1.709850039333105e-09,
+        "very expensive": 4.602043190971017e-10
+      }
+    },
+    {
+      "example_id": "1_00057",
+      "field": "cuisine",
+      "target": "American",
+      "top": "American",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Mexican": 0.0002307891845703125,
+        "Chinese": 7.420778274536133e-06,
+        "Indian": 2.4318695068359375e-05,
+        "American": 1.0,
+        "Italian": 8.487701416015625e-05
+      }
+    },
+    {
+      "example_id": "1_00074",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 5.699694156646729e-07,
+        "False": 1.895427703857422e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00074",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 7.338821887969971e-07,
+        "False": 3.293156623840332e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00074",
+      "field": "price_range",
+      "target": "expensive",
+      "top": "expensive",
+      "top_prob": 0.6953125,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.01446533203125,
+        "moderate": 0.2890625,
+        "expensive": 0.6953125,
+        "very expensive": 1.1622905731201172e-05
+      }
+    },
+    {
+      "example_id": "1_00074",
+      "field": "cuisine",
+      "target": "Korean",
+      "top": "Chinese",
+      "top_prob": 0.84765625,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.0113525390625,
+        "Chinese": 0.84765625,
+        "Indian": 0.07421875,
+        "American": 0.044921875,
+        "Italian": 0.02001953125
+      }
+    },
+    {
+      "example_id": "1_00077",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0058283805847168e-06,
+        "False": 1.4722347259521484e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00077",
+      "field": "has_live_music",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.005218505859375,
+        "False": 0.99609375,
+        "ambiguous": 1.0073184967041016e-05
+      }
+    },
+    {
+      "example_id": "1_00077",
+      "field": "party_size",
+      "target": "2",
+      "top": "2",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.2759119272232056e-07,
+        "2": 1.0,
+        "3": 1.7415732145309448e-07,
+        "4": 8.672941476106644e-09,
+        "5": 2.1100277081131935e-10,
+        "6": 5.529727786779404e-10
+      }
+    },
+    {
+      "example_id": "1_00077",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "inexpensive",
+      "top_prob": 0.55859375,
+      "correct": false,
+      "probs": {
+        "inexpensive": 0.55859375,
+        "moderate": 0.435546875,
+        "expensive": 0.00701904296875,
+        "very expensive": 6.020069122314453e-06
+      }
+    },
+    {
+      "example_id": "1_00077",
+      "field": "cuisine",
+      "target": "Mexican",
+      "top": "Mexican",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Mexican": 1.0,
+        "Chinese": 2.562999725341797e-06,
+        "Indian": 2.562999725341797e-06,
+        "American": 5.424022674560547e-06,
+        "Italian": 4.798173904418945e-06
+      }
+    },
+    {
+      "example_id": "1_00021",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.9637088775634766e-06,
+        "False": 8.487701416015625e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00021",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.996755599975586e-06,
+        "False": 3.7670135498046875e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00021",
+      "field": "party_size",
+      "target": "4",
+      "top": "4",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.55717134475708e-06,
+        "2": 1.2069940567016602e-06,
+        "3": 1.2993812561035156e-05,
+        "4": 1.0,
+        "5": 7.338821887969971e-07,
+        "6": 2.1047890186309814e-07
+      }
+    },
+    {
+      "example_id": "1_00021",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.9765625,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.020263671875,
+        "moderate": 0.9765625,
+        "expensive": 0.0035247802734375,
+        "very expensive": 1.8477439880371094e-05
+      }
+    },
+    {
+      "example_id": "1_00021",
+      "field": "cuisine",
+      "target": "Spanish",
+      "top": "Mexican",
+      "top_prob": 0.99609375,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.99609375,
+        "Chinese": 0.0027923583984375,
+        "Indian": 0.000377655029296875,
+        "American": 0.000751495361328125,
+        "Italian": 0.00131988525390625
+      }
+    },
+    {
+      "example_id": "1_00082",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 7.82310962677002e-07,
+        "False": 1.0788440704345703e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00082",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.2351741790771484e-07,
+        "False": 1.4603137969970703e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00082",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.9140625,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.0849609375,
+        "moderate": 0.9140625,
+        "expensive": 0.0025634765625,
+        "very expensive": 7.68899917602539e-06
+      }
+    },
+    {
+      "example_id": "1_00082",
+      "field": "cuisine",
+      "target": "Japanese",
+      "top": "Chinese",
+      "top_prob": 0.447265625,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.005645751953125,
+        "Chinese": 0.447265625,
+        "Indian": 0.041748046875,
+        "American": 0.056884765625,
+        "Italian": 0.447265625
+      }
+    },
+    {
+      "example_id": "1_00119",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 5.029141902923584e-07,
+        "False": 1.4722347259521484e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00119",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 5.029141902923584e-07,
+        "False": 2.905726432800293e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00119",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.0028076171875,
+        "moderate": 0.99609375,
+        "expensive": 0.0001583099365234375,
+        "very expensive": 8.307397365570068e-07
+      }
+    },
+    {
+      "example_id": "1_00119",
+      "field": "cuisine",
+      "target": "Japanese",
+      "top": "Chinese",
+      "top_prob": 0.4375,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.005157470703125,
+        "Chinese": 0.4375,
+        "Indian": 0.0205078125,
+        "American": 0.1513671875,
+        "Italian": 0.38671875
+      }
+    },
+    {
+      "example_id": "1_00121",
+      "field": "serves_alcohol",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.0006256103515625,
+        "ambiguous": 7.338821887969971e-07
+      }
+    },
+    {
+      "example_id": "1_00121",
+      "field": "has_live_music",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.0013275146484375,
+        "False": 1.0,
+        "ambiguous": 3.123283386230469e-05
+      }
+    },
+    {
+      "example_id": "1_00121",
+      "field": "party_size",
+      "target": "4",
+      "top": "4",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 2.1047890186309814e-07,
+        "2": 1.8533319234848022e-07,
+        "3": 8.940696716308594e-06,
+        "4": 1.0,
+        "5": 4.4517219066619873e-07,
+        "6": 3.9301812648773193e-07
+      }
+    },
+    {
+      "example_id": "1_00121",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.9296875,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.0673828125,
+        "moderate": 0.9296875,
+        "expensive": 0.0009613037109375,
+        "very expensive": 3.0994415283203125e-05
+      }
+    },
+    {
+      "example_id": "1_00121",
+      "field": "cuisine",
+      "target": "Take-out",
+      "top": "Italian",
+      "top_prob": 0.5078125,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.003875732421875,
+        "Chinese": 0.0135498046875,
+        "Indian": 0.02685546875,
+        "American": 0.447265625,
+        "Italian": 0.5078125
+      }
+    },
+    {
+      "example_id": "1_00072",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.1399388313293457e-06,
+        "False": 1.7762184143066406e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00072",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 4.4517219066619873e-07,
+        "False": 6.5267086029052734e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00072",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.890625,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.1064453125,
+        "moderate": 0.890625,
+        "expensive": 0.002838134765625,
+        "very expensive": 1.233816146850586e-05
+      }
+    },
+    {
+      "example_id": "1_00072",
+      "field": "cuisine",
+      "target": "Take-out",
+      "top": "American",
+      "top_prob": 0.67578125,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.01495361328125,
+        "Chinese": 0.0458984375,
+        "Indian": 0.08056640625,
+        "American": 0.67578125,
+        "Italian": 0.181640625
+      }
+    },
+    {
+      "example_id": "1_00047",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.6391277313232422e-07,
+        "False": 7.420778274536133e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00047",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.126900315284729e-07,
+        "False": 6.48200511932373e-07,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00047",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.000911712646484375,
+        "moderate": 1.0,
+        "expensive": 1.1444091796875e-05,
+        "very expensive": 6.752088665962219e-09
+      }
+    },
+    {
+      "example_id": "1_00047",
+      "field": "cuisine",
+      "target": "Japanese",
+      "top": "Chinese",
+      "top_prob": 0.84765625,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.0064697265625,
+        "Chinese": 0.84765625,
+        "Indian": 0.004730224609375,
+        "American": 0.10107421875,
+        "Italian": 0.0419921875
+      }
+    },
+    {
+      "example_id": "1_00034",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.384185791015625e-07,
+        "False": 5.424022674560547e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00034",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.8533319234848022e-07,
+        "False": 1.996755599975586e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00034",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.69140625,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.2890625,
+        "moderate": 0.69140625,
+        "expensive": 0.0184326171875,
+        "very expensive": 9.000301361083984e-06
+      }
+    },
+    {
+      "example_id": "1_00034",
+      "field": "cuisine",
+      "target": "Chinese",
+      "top": "Chinese",
+      "top_prob": 0.90234375,
+      "correct": true,
+      "probs": {
+        "Mexican": 0.0002841949462890625,
+        "Chinese": 0.90234375,
+        "Indian": 0.00164031982421875,
+        "American": 0.00038909912109375,
+        "Italian": 0.09521484375
+      }
+    },
+    {
+      "example_id": "1_00114",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.2218952178955078e-05,
+        "False": 0.000179290771484375,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00114",
+      "field": "has_live_music",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.000553131103515625,
+        "False": 1.0,
+        "ambiguous": 0.00020313262939453125
+      }
+    },
+    {
+      "example_id": "1_00114",
+      "field": "party_size",
+      "target": "2",
+      "top": "2",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 3.725290298461914e-06,
+        "2": 1.0,
+        "3": 2.2649765014648438e-06,
+        "4": 1.4435499906539917e-07,
+        "5": 6.344635039567947e-09,
+        "6": 1.525040715932846e-08
+      }
+    },
+    {
+      "example_id": "1_00114",
+      "field": "price_range",
+      "target": "inexpensive",
+      "top": "inexpensive",
+      "top_prob": 0.953125,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.953125,
+        "moderate": 0.04736328125,
+        "expensive": 2.1696090698242188e-05,
+        "very expensive": 3.520399332046509e-07
+      }
+    },
+    {
+      "example_id": "1_00114",
+      "field": "cuisine",
+      "target": "Chinese",
+      "top": "Chinese",
+      "top_prob": 0.98828125,
+      "correct": true,
+      "probs": {
+        "Mexican": 0.00021457672119140625,
+        "Chinese": 0.98828125,
+        "Indian": 0.0019073486328125,
+        "American": 0.002166748046875,
+        "Italian": 0.00665283203125
+      }
+    },
+    {
+      "example_id": "1_00073",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.5616416931152344e-05,
+        "False": 0.000911712646484375,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00073",
+      "field": "has_live_music",
+      "target": "True",
+      "top": "True",
+      "top_prob": 0.796875,
+      "correct": true,
+      "probs": {
+        "True": 0.796875,
+        "False": 0.2021484375,
+        "ambiguous": 4.5634806156158447e-07
+      }
+    },
+    {
+      "example_id": "1_00073",
+      "field": "price_range",
+      "target": "inexpensive",
+      "top": "inexpensive",
+      "top_prob": 0.796875,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.796875,
+        "moderate": 0.2021484375,
+        "expensive": 0.000640869140625,
+        "very expensive": 5.21540641784668e-06
+      }
+    },
+    {
+      "example_id": "1_00073",
+      "field": "cuisine",
+      "target": "Salad",
+      "top": "Italian",
+      "top_prob": 0.34375,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.0194091796875,
+        "Chinese": 0.1953125,
+        "Indian": 0.11865234375,
+        "American": 0.322265625,
+        "Italian": 0.34375
+      }
+    },
+    {
+      "example_id": "1_00120",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.4722347259521484e-05,
+        "False": 0.00048828125,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00120",
+      "field": "has_live_music",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.9921875,
+      "correct": true,
+      "probs": {
+        "True": 0.00592041015625,
+        "False": 0.9921875,
+        "ambiguous": 6.580352783203125e-05
+      }
+    },
+    {
+      "example_id": "1_00120",
+      "field": "party_size",
+      "target": "3",
+      "top": "3",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.4435499906539917e-07,
+        "2": 3.0547380447387695e-07,
+        "3": 1.0,
+        "4": 1.3709068298339844e-06,
+        "5": 3.213062882423401e-08,
+        "6": 2.514570951461792e-08
+      }
+    },
+    {
+      "example_id": "1_00120",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.64453125,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.34375,
+        "moderate": 0.64453125,
+        "expensive": 0.01336669921875,
+        "very expensive": 1.7642974853515625e-05
+      }
+    },
+    {
+      "example_id": "1_00120",
+      "field": "cuisine",
+      "target": "Pakistani",
+      "top": "Indian",
+      "top_prob": 0.83203125,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.0771484375,
+        "Chinese": 0.06396484375,
+        "Indian": 0.83203125,
+        "American": 0.0235595703125,
+        "Italian": 0.0036163330078125
+      }
+    },
+    {
+      "example_id": "1_00034",
+      "field": "serves_alcohol",
+      "target": "False",
+      "top": "ambiguous",
+      "top_prob": 0.64453125,
+      "correct": false,
+      "probs": {
+        "True": 0.01177978515625,
+        "False": 0.34375,
+        "ambiguous": 0.64453125
+      }
+    },
+    {
+      "example_id": "1_00034",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.5497207641601562e-06,
+        "False": 4.00543212890625e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00034",
+      "field": "party_size",
+      "target": "4",
+      "top": "4",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 7.338821887969971e-07,
+        "2": 8.307397365570068e-07,
+        "3": 1.4722347259521484e-05,
+        "4": 1.0,
+        "5": 1.55717134475708e-06,
+        "6": 3.9301812648773193e-07
+      }
+    },
+    {
+      "example_id": "1_00034",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.98046875,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.0179443359375,
+        "moderate": 0.98046875,
+        "expensive": 2.9685907065868378e-08,
+        "very expensive": 7.508788257837296e-09
+      }
+    },
+    {
+      "example_id": "1_00034",
+      "field": "cuisine",
+      "target": "Chinese",
+      "top": "Chinese",
+      "top_prob": 0.94921875,
+      "correct": true,
+      "probs": {
+        "Mexican": 0.00011730194091796875,
+        "Chinese": 0.94921875,
+        "Indian": 0.0011138916015625,
+        "American": 0.000339508056640625,
+        "Italian": 0.04736328125
+      }
+    },
+    {
+      "example_id": "1_00001",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 4.172325134277344e-07,
+        "False": 1.2993812561035156e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00001",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 7.338821887969971e-07,
+        "False": 5.0961971282958984e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00001",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.64453125,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.01177978515625,
+        "moderate": 0.64453125,
+        "expensive": 0.34375,
+        "very expensive": 0.000179290771484375
+      }
+    },
+    {
+      "example_id": "1_00001",
+      "field": "cuisine",
+      "target": "Indian",
+      "top": "Indian",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Mexican": 0.0003795623779296875,
+        "Chinese": 0.0006256103515625,
+        "Indian": 1.0,
+        "American": 0.0003566741943359375,
+        "Italian": 0.0001087188720703125
+      }
+    },
+    {
+      "example_id": "1_00060",
+      "field": "serves_alcohol",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.0002613067626953125,
+        "ambiguous": 5.587935447692871e-09
+      }
+    },
+    {
+      "example_id": "1_00060",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.5017728805541992e-06,
+        "False": 4.00543212890625e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00060",
+      "field": "party_size",
+      "target": "2",
+      "top": "2",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 2.1047890186309814e-07,
+        "2": 1.0,
+        "3": 5.029141902923584e-07,
+        "4": 1.7229467630386353e-08,
+        "5": 1.0331859812140465e-09,
+        "6": 1.5061232261359692e-09
+      }
+    },
+    {
+      "example_id": "1_00060",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.76171875,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.21875,
+        "moderate": 0.76171875,
+        "expensive": 0.0179443359375,
+        "very expensive": 3.2186508178710938e-06
+      }
+    },
+    {
+      "example_id": "1_00060",
+      "field": "cuisine",
+      "target": "Chinese",
+      "top": "Chinese",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Mexican": 6.891787052154541e-07,
+        "Chinese": 1.0,
+        "Indian": 3.5017728805541992e-06,
+        "American": 8.404254913330078e-06,
+        "Italian": 3.725290298461914e-06
+      }
+    },
+    {
+      "example_id": "1_00096",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0654330253601074e-06,
+        "False": 2.586841583251953e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00096",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 5.699694156646729e-07,
+        "False": 4.798173904418945e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00096",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.80859375,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.09619140625,
+        "moderate": 0.80859375,
+        "expensive": 0.09619140625,
+        "very expensive": 8.249282836914062e-05
+      }
+    },
+    {
+      "example_id": "1_00096",
+      "field": "cuisine",
+      "target": "Russian",
+      "top": "Indian",
+      "top_prob": 0.58203125,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.2138671875,
+        "Chinese": 0.11474609375,
+        "Indian": 0.58203125,
+        "American": 0.01068115234375,
+        "Italian": 0.07861328125
+      }
+    },
+    {
+      "example_id": "1_00048",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.9744038581848145e-07,
+        "False": 5.424022674560547e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00048",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.9301812648773193e-07,
+        "False": 2.115964889526367e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00048",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.578125,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.2734375,
+        "moderate": 0.578125,
+        "expensive": 0.146484375,
+        "very expensive": 0.000362396240234375
+      }
+    },
+    {
+      "example_id": "1_00048",
+      "field": "cuisine",
+      "target": "Italian",
+      "top": "Italian",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Mexican": 0.0001583099365234375,
+        "Chinese": 0.00014019012451171875,
+        "Indian": 5.4836273193359375e-05,
+        "American": 0.0002956390380859375,
+        "Italian": 1.0
+      }
+    },
+    {
+      "example_id": "1_00089",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.6391277313232422e-07,
+        "False": 3.5017728805541992e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00089",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.868473529815674e-07,
+        "False": 1.7583370208740234e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00089",
+      "field": "party_size",
+      "target": "2",
+      "top": "2",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 8.307397365570068e-07,
+        "2": 1.0,
+        "3": 2.2649765014648438e-06,
+        "4": 6.845220923423767e-08,
+        "5": 9.255018085241318e-09,
+        "6": 1.1874362826347351e-08
+      }
+    },
+    {
+      "example_id": "1_00089",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "inexpensive": 3.725290298461914e-06,
+        "moderate": 1.0,
+        "expensive": 2.1047890186309814e-07,
+        "very expensive": 1.3445969671010971e-08
+      }
+    },
+    {
+      "example_id": "1_00089",
+      "field": "cuisine",
+      "target": "Italian",
+      "top": "Italian",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Mexican": 0.00020313262939453125,
+        "Chinese": 0.0003795623779296875,
+        "Indian": 2.1457672119140625e-05,
+        "American": 0.00019073486328125,
+        "Italian": 1.0
+      }
+    },
+    {
+      "example_id": "1_00121",
+      "field": "serves_alcohol",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.0002613067626953125,
+        "ambiguous": 2.648448571562767e-09
+      }
+    },
+    {
+      "example_id": "1_00121",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.55717134475708e-06,
+        "False": 5.424022674560547e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00121",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.87890625,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.119140625,
+        "moderate": 0.87890625,
+        "expensive": 0.00070953369140625,
+        "very expensive": 1.5616416931152344e-05
+      }
+    },
+    {
+      "example_id": "1_00121",
+      "field": "cuisine",
+      "target": "Take-out",
+      "top": "American",
+      "top_prob": 0.4765625,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.002838134765625,
+        "Chinese": 0.006378173828125,
+        "Indian": 0.036865234375,
+        "American": 0.4765625,
+        "Italian": 0.4765625
+      }
+    },
+    {
+      "example_id": "1_00043",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.4603137969970703e-06,
+        "False": 9.5367431640625e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00043",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 8.866190910339355e-07,
+        "False": 4.5299530029296875e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00043",
+      "field": "party_size",
+      "target": "2",
+      "top": "2",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 5.424022674560547e-06,
+        "2": 1.0,
+        "3": 7.867813110351562e-06,
+        "4": 1.3709068298339844e-06,
+        "5": 1.4722347259521484e-05,
+        "6": 9.424984455108643e-07
+      }
+    },
+    {
+      "example_id": "1_00043",
+      "field": "price_range",
+      "target": "inexpensive",
+      "top": "inexpensive",
+      "top_prob": 0.984375,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.984375,
+        "moderate": 0.0140380859375,
+        "expensive": 0.00010728836059570312,
+        "very expensive": 3.8743019104003906e-07
+      }
+    },
+    {
+      "example_id": "1_00043",
+      "field": "cuisine",
+      "target": "Indian",
+      "top": "Indian",
+      "top_prob": 0.97265625,
+      "correct": true,
+      "probs": {
+        "Mexican": 0.02587890625,
+        "Chinese": 0.000690460205078125,
+        "Indian": 0.97265625,
+        "American": 0.001007080078125,
+        "Italian": 0.00019741058349609375
+      }
+    },
+    {
+      "example_id": "1_00005",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.6540288925170898e-06,
+        "False": 1.2218952178955078e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00005",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 6.07222318649292e-07,
+        "False": 4.500150680541992e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00005",
+      "field": "price_range",
+      "target": "inexpensive",
+      "top": "moderate",
+      "top_prob": 0.83203125,
+      "correct": false,
+      "probs": {
+        "inexpensive": 0.11279296875,
+        "moderate": 0.83203125,
+        "expensive": 0.05322265625,
+        "very expensive": 4.291534423828125e-05
+      }
+    },
+    {
+      "example_id": "1_00005",
+      "field": "cuisine",
+      "target": "Filipino",
+      "top": "Mexican",
+      "top_prob": 0.46484375,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.46484375,
+        "Chinese": 0.30078125,
+        "Indian": 0.06298828125,
+        "American": 0.046142578125,
+        "Italian": 0.125
+      }
+    },
+    {
+      "example_id": "1_00107",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 6.48200511932373e-07,
+        "False": 7.867813110351562e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00107",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.4435499906539917e-07,
+        "False": 8.307397365570068e-07,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00107",
+      "field": "price_range",
+      "target": "inexpensive",
+      "top": "moderate",
+      "top_prob": 0.64453125,
+      "correct": false,
+      "probs": {
+        "inexpensive": 0.345703125,
+        "moderate": 0.64453125,
+        "expensive": 0.01043701171875,
+        "very expensive": 1.8835067749023438e-05
+      }
+    },
+    {
+      "example_id": "1_00107",
+      "field": "cuisine",
+      "target": "Chinese",
+      "top": "Chinese",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Mexican": 1.4603137969970703e-06,
+        "Chinese": 1.0,
+        "Indian": 3.528594970703125e-05,
+        "American": 0.0002307891845703125,
+        "Italian": 5.817413330078125e-05
+      }
+    },
+    {
+      "example_id": "1_00051",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.5331974029541016e-07,
+        "False": 1.150369644165039e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00051",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.2649765014648438e-06,
+        "False": 3.314018249511719e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00051",
+      "field": "party_size",
+      "target": "1",
+      "top": "1",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.0,
+        "2": 0.000179290771484375,
+        "3": 4.4517219066619873e-07,
+        "4": 6.007030606269836e-08,
+        "5": 1.1117663234472275e-08,
+        "6": 3.026798367500305e-08
+      }
+    },
+    {
+      "example_id": "1_00051",
+      "field": "price_range",
+      "target": "expensive",
+      "top": "moderate",
+      "top_prob": 0.92578125,
+      "correct": false,
+      "probs": {
+        "inexpensive": 0.046142578125,
+        "moderate": 0.92578125,
+        "expensive": 0.0279541015625,
+        "very expensive": 1.990795135498047e-05
+      }
+    },
+    {
+      "example_id": "1_00051",
+      "field": "cuisine",
+      "target": "American",
+      "top": "American",
+      "top_prob": 0.98828125,
+      "correct": true,
+      "probs": {
+        "Mexican": 0.00335693359375,
+        "Chinese": 0.00084686279296875,
+        "Indian": 0.0020294189453125,
+        "American": 0.98828125,
+        "Italian": 0.00457763671875
+      }
+    },
+    {
+      "example_id": "1_00047",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.150369644165039e-05,
+        "False": 0.000335693359375,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00047",
+      "field": "has_live_music",
+      "target": "False",
+      "top": "False",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 0.00070953369140625,
+        "False": 1.0,
+        "ambiguous": 4.00543212890625e-05
+      }
+    },
+    {
+      "example_id": "1_00047",
+      "field": "party_size",
+      "target": "2",
+      "top": "2",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 2.1047890186309814e-07,
+        "2": 1.0,
+        "3": 2.2649765014648438e-06,
+        "4": 4.98257577419281e-08,
+        "5": 1.5061232261359692e-09,
+        "6": 2.648448571562767e-09
+      }
+    },
+    {
+      "example_id": "1_00047",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "inexpensive": 1.4722347259521484e-05,
+        "moderate": 1.0,
+        "expensive": 1.0654330253601074e-06,
+        "very expensive": 1.7229467630386353e-08
+      }
+    },
+    {
+      "example_id": "1_00047",
+      "field": "cuisine",
+      "target": "Japanese",
+      "top": "Chinese",
+      "top_prob": 0.6015625,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.0159912109375,
+        "Chinese": 0.6015625,
+        "Indian": 0.0206298828125,
+        "American": 0.1259765625,
+        "Italian": 0.2353515625
+      }
+    },
+    {
+      "example_id": "1_00020",
+      "field": "serves_alcohol",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.000179290771484375,
+        "ambiguous": 9.424984455108643e-07
+      }
+    },
+    {
+      "example_id": "1_00020",
+      "field": "has_live_music",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.98828125,
+      "correct": true,
+      "probs": {
+        "True": 0.012451171875,
+        "False": 0.98828125,
+        "ambiguous": 0.000701904296875
+      }
+    },
+    {
+      "example_id": "1_00020",
+      "field": "party_size",
+      "target": "2",
+      "top": "2",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 4.4517219066619873e-07,
+        "2": 1.0,
+        "3": 6.48200511932373e-07,
+        "4": 3.026798367500305e-08,
+        "5": 6.293703336268663e-10,
+        "6": 2.4883775040507317e-09
+      }
+    },
+    {
+      "example_id": "1_00020",
+      "field": "price_range",
+      "target": "inexpensive",
+      "top": "inexpensive",
+      "top_prob": 0.9375,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.9375,
+        "moderate": 0.052978515625,
+        "expensive": 0.009765625,
+        "very expensive": 7.963180541992188e-05
+      }
+    },
+    {
+      "example_id": "1_00020",
+      "field": "cuisine",
+      "target": "Take-out",
+      "top": "Chinese",
+      "top_prob": 0.49609375,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.20703125,
+        "Chinese": 0.49609375,
+        "Indian": 0.142578125,
+        "American": 0.08642578125,
+        "Italian": 0.0673828125
+      }
+    },
+    {
+      "example_id": "1_00006",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 6.891787052154541e-07,
+        "False": 1.895427703857422e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00006",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.688037395477295e-07,
+        "False": 3.084540367126465e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00006",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.5859375,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.2451171875,
+        "moderate": 0.5859375,
+        "expensive": 0.16796875,
+        "very expensive": 9.918212890625e-05
+      }
+    },
+    {
+      "example_id": "1_00006",
+      "field": "cuisine",
+      "target": "Seafood",
+      "top": "American",
+      "top_prob": 0.353515625,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.0478515625,
+        "Chinese": 0.3125,
+        "Indian": 0.1298828125,
+        "American": 0.353515625,
+        "Italian": 0.1572265625
+      }
+    },
+    {
+      "example_id": "1_00006",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 9.424984455108643e-07,
+        "False": 3.528594970703125e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00006",
+      "field": "has_live_music",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.004058837890625,
+        "False": 0.99609375,
+        "ambiguous": 1.1444091796875e-05
+      }
+    },
+    {
+      "example_id": "1_00006",
+      "field": "party_size",
+      "target": "2",
+      "top": "2",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 7.867813110351562e-06,
+        "2": 1.0,
+        "3": 0.0001392364501953125,
+        "4": 9.584426879882812e-05,
+        "5": 4.76837158203125e-06,
+        "6": 0.00170135498046875
+      }
+    },
+    {
+      "example_id": "1_00006",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.94921875,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.041748046875,
+        "moderate": 0.94921875,
+        "expensive": 0.00726318359375,
+        "very expensive": 4.857778549194336e-06
+      }
+    },
+    {
+      "example_id": "1_00006",
+      "field": "cuisine",
+      "target": "Seafood",
+      "top": "Chinese",
+      "top_prob": 0.4921875,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.05517578125,
+        "Chinese": 0.4921875,
+        "Indian": 0.09130859375,
+        "American": 0.263671875,
+        "Italian": 0.09716796875
+      }
+    },
+    {
+      "example_id": "1_00090",
+      "field": "serves_alcohol",
+      "target": "True",
+      "top": "True",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.0,
+        "False": 0.0002613067626953125,
+        "ambiguous": 1.4435499906539917e-07
+      }
+    },
+    {
+      "example_id": "1_00090",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.5017728805541992e-06,
+        "False": 3.314018249511719e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00090",
+      "field": "party_size",
+      "target": "2",
+      "top": "2",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 6.973743438720703e-06,
+        "2": 1.0,
+        "3": 4.798173904418945e-06,
+        "4": 8.242204785346985e-08,
+        "5": 1.1117663234472275e-08,
+        "6": 1.7229467630386353e-08
+      }
+    },
+    {
+      "example_id": "1_00090",
+      "field": "price_range",
+      "target": "very expensive",
+      "top": "moderate",
+      "top_prob": 0.60546875,
+      "correct": false,
+      "probs": {
+        "inexpensive": 0.10546875,
+        "moderate": 0.60546875,
+        "expensive": 0.287109375,
+        "very expensive": 0.00016880035400390625
+      }
+    },
+    {
+      "example_id": "1_00090",
+      "field": "cuisine",
+      "target": "Steakhouse",
+      "top": "American",
+      "top_prob": 0.78515625,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.004669189453125,
+        "Chinese": 0.004974365234375,
+        "Indian": 0.00872802734375,
+        "American": 0.78515625,
+        "Italian": 0.1982421875
+      }
+    },
+    {
+      "example_id": "1_00019",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 4.4517219066619873e-07,
+        "False": 1.2993812561035156e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00019",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.2069940567016602e-06,
+        "False": 7.867813110351562e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00019",
+      "field": "party_size",
+      "target": "3",
+      "top": "3",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 5.029141902923584e-07,
+        "2": 1.6391277313232422e-07,
+        "3": 1.0,
+        "4": 9.918585419654846e-08,
+        "5": 8.149072527885437e-09,
+        "6": 6.344635039567947e-09
+      }
+    },
+    {
+      "example_id": "1_00019",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.8515625,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.130859375,
+        "moderate": 0.8515625,
+        "expensive": 0.0177001953125,
+        "very expensive": 2.473592758178711e-06
+      }
+    },
+    {
+      "example_id": "1_00019",
+      "field": "cuisine",
+      "target": "Japanese",
+      "top": "Chinese",
+      "top_prob": 0.9453125,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.03662109375,
+        "Chinese": 0.9453125,
+        "Indian": 0.00250244140625,
+        "American": 0.00103759765625,
+        "Italian": 0.01348876953125
+      }
+    },
+    {
+      "example_id": "1_00115",
+      "field": "serves_alcohol",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.9296875,
+      "correct": true,
+      "probs": {
+        "True": 0.019287109375,
+        "False": 0.9296875,
+        "ambiguous": 0.052490234375
+      }
+    },
+    {
+      "example_id": "1_00115",
+      "field": "has_live_music",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.98046875,
+      "correct": true,
+      "probs": {
+        "True": 0.0179443359375,
+        "False": 0.98046875,
+        "ambiguous": 0.0024261474609375
+      }
+    },
+    {
+      "example_id": "1_00115",
+      "field": "party_size",
+      "target": "3",
+      "top": "3",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 4.1443854570388794e-08,
+        "2": 1.2759119272232056e-07,
+        "3": 1.0,
+        "4": 6.48200511932373e-07,
+        "5": 1.955777406692505e-08,
+        "6": 9.255018085241318e-09
+      }
+    },
+    {
+      "example_id": "1_00115",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.92578125,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.07568359375,
+        "moderate": 0.92578125,
+        "expensive": 0.000308990478515625,
+        "very expensive": 6.370246410369873e-07
+      }
+    },
+    {
+      "example_id": "1_00115",
+      "field": "cuisine",
+      "target": "Japanese",
+      "top": "Chinese",
+      "top_prob": 0.98046875,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.000308990478515625,
+        "Chinese": 0.98046875,
+        "Indian": 0.000579833984375,
+        "American": 0.003326416015625,
+        "Italian": 0.01397705078125
+      }
+    },
+    {
+      "example_id": "1_00023",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.5331974029541016e-07,
+        "False": 5.424022674560547e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00023",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.7008354663848877e-07,
+        "False": 8.307397365570068e-07,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00023",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.87890625,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.119140625,
+        "moderate": 0.87890625,
+        "expensive": 0.001922607421875,
+        "very expensive": 7.867813110351562e-06
+      }
+    },
+    {
+      "example_id": "1_00023",
+      "field": "cuisine",
+      "target": "Thai",
+      "top": "American",
+      "top_prob": 0.431640625,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.054931640625,
+        "Chinese": 0.40625,
+        "Indian": 0.027587890625,
+        "American": 0.431640625,
+        "Italian": 0.080078125
+      }
+    },
+    {
+      "example_id": "1_00030",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 3.259629011154175e-07,
+        "False": 6.973743438720703e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00030",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 5.699694156646729e-07,
+        "False": 2.726912498474121e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00030",
+      "field": "price_range",
+      "target": "expensive",
+      "top": "expensive",
+      "top_prob": 0.6171875,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.01129150390625,
+        "moderate": 0.373046875,
+        "expensive": 0.6171875,
+        "very expensive": 0.000110626220703125
+      }
+    },
+    {
+      "example_id": "1_00030",
+      "field": "cuisine",
+      "target": "Italian",
+      "top": "Italian",
+      "top_prob": 0.984375,
+      "correct": true,
+      "probs": {
+        "Mexican": 0.0014801025390625,
+        "Chinese": 0.0010833740234375,
+        "Indian": 0.00017642974853515625,
+        "American": 0.01239013671875,
+        "Italian": 0.984375
+      }
+    },
+    {
+      "example_id": "1_00049",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 7.338821887969971e-07,
+        "False": 1.4722347259521484e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00049",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.2889504432678223e-06,
+        "False": 1.5735626220703125e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00049",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.84375,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.0693359375,
+        "moderate": 0.84375,
+        "expensive": 0.0888671875,
+        "very expensive": 6.29425048828125e-05
+      }
+    },
+    {
+      "example_id": "1_00049",
+      "field": "cuisine",
+      "target": "Indian",
+      "top": "Indian",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "Mexican": 0.000278472900390625,
+        "Chinese": 0.00102996826171875,
+        "Indian": 1.0,
+        "American": 0.00021648406982421875,
+        "Italian": 7.963180541992188e-05
+      }
+    },
+    {
+      "example_id": "1_00054",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.868473529815674e-07,
+        "False": 5.424022674560547e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00054",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.115964889526367e-06,
+        "False": 1.0788440704345703e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00054",
+      "field": "price_range",
+      "target": "expensive",
+      "top": "expensive",
+      "top_prob": 0.8671875,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.0002899169921875,
+        "moderate": 0.1328125,
+        "expensive": 0.8671875,
+        "very expensive": 0.00037384033203125
+      }
+    },
+    {
+      "example_id": "1_00054",
+      "field": "cuisine",
+      "target": "French",
+      "top": "Italian",
+      "top_prob": 0.345703125,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.2373046875,
+        "Chinese": 0.173828125,
+        "Indian": 0.14453125,
+        "American": 0.09912109375,
+        "Italian": 0.345703125
+      }
+    },
+    {
+      "example_id": "1_00059",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.8533319234848022e-07,
+        "False": 4.798173904418945e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00059",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 1.6540288925170898e-06,
+        "False": 1.0788440704345703e-05,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00059",
+      "field": "party_size",
+      "target": "2",
+      "top": "2",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 1.55717134475708e-06,
+        "2": 1.0,
+        "3": 1.3709068298339844e-06,
+        "4": 6.007030606269836e-08,
+        "5": 8.149072527885437e-09,
+        "6": 1.0477378964424133e-08
+      }
+    },
+    {
+      "example_id": "1_00059",
+      "field": "price_range",
+      "target": "moderate",
+      "top": "moderate",
+      "top_prob": 0.57421875,
+      "correct": true,
+      "probs": {
+        "inexpensive": 0.396484375,
+        "moderate": 0.57421875,
+        "expensive": 0.0286865234375,
+        "very expensive": 2.0384788513183594e-05
+      }
+    },
+    {
+      "example_id": "1_00059",
+      "field": "cuisine",
+      "target": "Japanese",
+      "top": "Italian",
+      "top_prob": 0.62109375,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.0089111328125,
+        "Chinese": 0.2294921875,
+        "Indian": 0.0166015625,
+        "American": 0.12255859375,
+        "Italian": 0.62109375
+      }
+    },
+    {
+      "example_id": "1_00004",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 0.9765625,
+      "correct": true,
+      "probs": {
+        "True": 0.002410888671875,
+        "False": 0.02294921875,
+        "ambiguous": 0.9765625
+      }
+    },
+    {
+      "example_id": "1_00004",
+      "field": "has_live_music",
+      "target": "False",
+      "top": "False",
+      "top_prob": 0.99609375,
+      "correct": true,
+      "probs": {
+        "True": 0.001922607421875,
+        "False": 0.99609375,
+        "ambiguous": 0.0002613067626953125
+      }
+    },
+    {
+      "example_id": "1_00004",
+      "field": "party_size",
+      "target": "2",
+      "top": "2",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "1": 9.424984455108643e-07,
+        "2": 1.0,
+        "3": 1.996755599975586e-06,
+        "4": 1.2014061212539673e-07,
+        "5": 5.966285243630409e-09,
+        "6": 1.3445969671010971e-08
+      }
+    },
+    {
+      "example_id": "1_00004",
+      "field": "price_range",
+      "target": "inexpensive",
+      "top": "moderate",
+      "top_prob": 0.9296875,
+      "correct": false,
+      "probs": {
+        "inexpensive": 0.0673828125,
+        "moderate": 0.9296875,
+        "expensive": 0.0037994384765625,
+        "very expensive": 1.990795135498047e-05
+      }
+    },
+    {
+      "example_id": "1_00004",
+      "field": "cuisine",
+      "target": "Seafood",
+      "top": "Italian",
+      "top_prob": 0.337890625,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.0458984375,
+        "Chinese": 0.232421875,
+        "Indian": 0.150390625,
+        "American": 0.232421875,
+        "Italian": 0.337890625
+      }
+    },
+    {
+      "example_id": "1_00025",
+      "field": "serves_alcohol",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.5331974029541016e-07,
+        "False": 3.725290298461914e-06,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00025",
+      "field": "has_live_music",
+      "target": "ambiguous",
+      "top": "ambiguous",
+      "top_prob": 1.0,
+      "correct": true,
+      "probs": {
+        "True": 2.1047890186309814e-07,
+        "False": 8.307397365570068e-07,
+        "ambiguous": 1.0
+      }
+    },
+    {
+      "example_id": "1_00025",
+      "field": "price_range",
+      "target": "expensive",
+      "top": "moderate",
+      "top_prob": 0.90234375,
+      "correct": false,
+      "probs": {
+        "inexpensive": 0.051025390625,
+        "moderate": 0.90234375,
+        "expensive": 0.044921875,
+        "very expensive": 4.887580871582031e-06
+      }
+    },
+    {
+      "example_id": "1_00025",
+      "field": "cuisine",
+      "target": "Japanese",
+      "top": "American",
+      "top_prob": 0.51171875,
+      "correct": false,
+      "probs": {
+        "Mexican": 0.0093994140625,
+        "Chinese": 0.42578125,
+        "Indian": 0.005706787109375,
+        "American": 0.51171875,
+        "Italian": 0.047607421875
+      }
+    }
+  ]
+}

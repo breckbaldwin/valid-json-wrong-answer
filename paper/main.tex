@@ -32,19 +32,19 @@
 \maketitle
 
 \begin{abstract}
-Generating reliable structured output from large language models,e.g., JSON of the form \texttt{"apply\_brake":"True"}, schema-conformant tool calls, or database queries, remains difficult in production. One possible fix pairs grammar-constrained decoding ('strict-json' mode to address syntax) with LoRA fine-tuning (to improve semantics), evaluated by aggregate loss. We observe \emph{counter-current fields}: per-grammar-role components whose loss \emph{rises} under fine-tuning even as aggregate loss falls. They are invisible to aggregate evaluation by construction --- the same token-weighted average that masks them is what makes aggregate loss look stable.
+Generating reliable structured output from large language models, e.g., JSON of the form \texttt{"apply\_brake":"True"}, schema-conformant tool calls, or database queries, remains difficult in production. One possible fix pairs grammar-constrained decoding ('strict-json' mode to address syntax) with LoRA fine-tuning (to improve semantics), evaluated by aggregate loss. We observe \emph{counter-current fields}: per-grammar-role components whose loss \emph{rises} under fine-tuning even as aggregate loss falls. 
 
-Across Qwen~2.5 Instruct at three scales (0.5B, 7B, 32B) on Schema-Guided Dialogue (SGD) and the Contract Understanding Atticus Dataset (CUAD), counter-current fields show three signatures for \textbf{counter-current fields}:
+Across Qwen~2.5 Instruct at three scales (0.5B, 7B, 32B) on Schema-Guided Dialogue (SGD) and the Contract Understanding Atticus Dataset (CUAD), we reproduce three signatures for \textbf{counter-current fields}:
 
 \begin{itemize}
-\item Aggregate loss falls 44--81\% under fine-tuning, while boolean and enum-value roles simultaneously regress on individual schemas (boolean on Flights, enum-value on CUAD).
+\item Aggregate loss falls 44--81\% under fine-tuning, while boolean and enum-value roles increase loss on individual schemas (boolean on Flights, enum-value on CUAD).
 \item The effect is scale-dependent --- on the boolean \texttt{refundable} field of a flight-booking schema, fine-tuning's gain shrinks from $-$55\% at 0.5B to $-$3\% at 7B and crosses into a $+$12\% regression at 32B.
-\item It is most pronounced on fields that violate a \emph{uniqueness presupposition}: training assumes each field's value is uniquely determined by the input, but in practice many examples lack the supporting evidence, and fine-tuning's gradient pulls the model toward the marginal distribution regardless of input.
+\item Counter-currency tracks closely with what we call a \emph{uniqueness presupposition}: training assumes each field's value is uniquely determined by the input, but in practice many examples lack the supporting evidence, and fine-tuning's gradient pulls the model toward the marginal distribution regardless of input.
 \end{itemize}
 
 We propose two mitigations rooted in this presupposition view:
 \begin{itemize}
-\item \textbf{Margin gating}, an inference-time technique that emits an \texttt{abstain} value when the model's top two predictions differ by less than a threshold $\theta$. Uses pretrained calibration directly; no retraining required.
+\item \textbf{Margin gating}, an inference-time technique that emits an \texttt{abstain} value when the model's top two predictions differ by less than a threshold $\theta$. Improves precision for both baseline and fine tuned models with varied impact on recall. 
 \item \textbf{Presupposition labeling}, a training-time technique that extends the schema with an \texttt{ambiguous} value and relabels training examples that lack supporting evidence. Reduces constrained-content loss by 21--58\% across scales and eliminates the boolean regression at 7B and 32B.
 \end{itemize}
 
@@ -57,7 +57,7 @@ Getting consistent, high-quality JSON output from an LM has frustrated many a de
 
 ``I've been experimenting with using LLMs to generate structured outputs for downstream systems (JSON schemas, workflow configs, routing logic, etc.), and the biggest challenge isn't getting a `good' answer; it's getting something consistently reliable enough for production.''\footnote{\url{https://www.reddit.com/r/LLMDevs/comments/1szuqv7/how_are_people_making_llm_outputs_reliable_enough/}}
 
-Grammar-constrained decoding \cite{guidance2024,willard2023outlines,zheng2024sglang,xgrammar2024} solves the syntactic half (every generated token is schema-valid). Semantics is the hard half: a model can produce \texttt{\{"refundable":"True"\}} when the gold is \texttt{"False"} and remain schema-valid. The standard remedy is LoRA fine-tuning \cite{hu2021lora} evaluated by aggregate loss; we show that aggregate loss mixes easily-correct decisions (structural tokens, whitespace) with substantively-uncertain decisions (enums, booleans), and that the latter can regress while the former carries the average. Practitioners who pair grammar-constrained decoding with light fine-tuning to capture domain-specific field semantics --- a standard secondary optimization once syntax is solved --- are the audience for our finding.
+Grammar-constrained decoding \cite{guidance2024,willard2023outlines,zheng2024sglang,xgrammar2024} solves the syntactic half (every generated token is schema-valid). Semantics is the hard half: a model can produce \texttt{\{"refundable":"True"\}} when the gold is \texttt{"False"} and remain schema-valid. The standard remedy is LoRA fine-tuning \cite{hu2021lora} evaluated by aggregate loss; we show that aggregate loss mixes easily-correct decisions (structural tokens, whitespace) with substantively-uncertain decisions (enums, booleans), and that the latter can regress while the former carries the average. Practitioners who seek to improve JSON output beyond grammar-constrained decoding, perhaps with light fine-tuning to capture domain-specific field semantics, are the audience for our findings.
 
 We fine-tune Qwen~2.5 Instruct at three scales (0.5B/7B/32B) on Schema-Guided Dialogue (SGD) \cite{rastogi2020sgd} and the Contract Understanding Atticus Dataset (CUAD) \cite{hendrycks2021cuad}, and decompose per-token loss by JSON grammar role. We find:
 
@@ -77,7 +77,7 @@ We build on grammar-constrained decoding \cite{guidance2024,willard2023outlines,
 \begin{itemize}
 \item \textbf{Per-grammar-role decomposition for JSON} (\S\ref{sec:method-decomposition}): a formal treatment of an existing ad-hoc technique as post-hoc decomposition of teacher-forced loss by grammar role, applied systematically across three model scales and three schemas.
 \item \textbf{Counter-current fields} (\S\ref{sec:scaling}): per-field loss \emph{rises} under fine-tuning even as aggregate loss falls, and the regression is scale-dependent. We are aware of no prior published work documenting this for structured output.
-\item \textbf{Uniqueness presupposition} as the diagnostic frame (\S\ref{sec:pcl}): a singular reference presupposes a unique referent; many training examples violate the presupposition silently. First application of presupposition theory to structured-output labels, to our knowledge.
+\item \textbf{Uniqueness presupposition} as the diagnostic frame (\S\ref{sec:pcl}): a singular reference presupposes a unique referent; many training examples silently lack the evidence the presupposition assumes. First application of presupposition theory to structured-output labels, to our knowledge.
 \item \textbf{Margin gating} (\S\ref{sec:gating}): commit when the top-two probability margin exceeds $\theta$, else emit \texttt{abstain}. A natural extension of selective prediction; we contribute the named recipe, threshold sweep, and demonstration that pretrained calibration alone is sufficient.
 \item \textbf{Presupposition labeling} (\S\ref{sec:pcl}): the paper's central contribution. A training-time relabel of evidentially-underdetermined examples to \texttt{ambiguous}, distinct from label smoothing (uniform softening) and learn-to-abstain (learned abstention): it targets specifically those examples where input-evidence theory predicts the original label is artifactual. Eliminates the regression at 7B and 32B with no architectural change.
 \end{itemize}
@@ -180,7 +180,7 @@ TOTAL   & 0.73 & 0.14 & 0.64 & 0.15 & 0.55 & 0.15 \\
 
 The Flights schema has one boolean field: \texttt{refundable} (\texttt{True}/\texttt{False}). At 32B, the pretrained model predicts this field reasonably well (0.457 loss). Fine-tuning disrupts this: the model most likely overfits to the majority boolean value in the training data, producing worse predictions than the untrained baseline.
 
-\subsection{The Regression Is Scale-Dependent}\label{sec:scaling}
+\subsection{The Regression can be Scale-Dependent}\label{sec:scaling}
 
 Table~\ref{tab:scaling} shows boolean prediction change across model scales on the Flights schema:
 
@@ -206,7 +206,7 @@ In more detail, training data contains 76\% False, 24\% True for the refundable 
 
 The pattern is intuitive: larger pretrained models have stronger existing competencies. Fine-tuning on a small dataset (250 examples) can override these competencies with memorized patterns. The better the base model already is, the more fine-tuning has to disrupt.
 
-The same scale-dependence appears on CUAD, but with a different shape. For \texttt{has\_anti\_assignment} (78\% True gold, opposite to the base model's False default) baseline accuracy is 27\% at 0.5B, regresses to 22\% at 7B with mean margin 0.99 -- the model becomes \emph{confidently more wrong} -- and only partially recovers to 35\% at 32B. Aggregate accuracy on CUAD rises monotonically with scale, hiding the per-field non-monotonic regression entirely. A developer using aggregate metrics would conclude 7B is sufficient; per-field analysis says otherwise.
+%The same scale-dependence appears on CUAD (Table~\ref{tab:cuad_per_field_scale}), but with a different shape. For \texttt{has\_anti\_assignment} (78\% True gold, opposite to the base model's False default) baseline accuracy is 27\% at 0.5B, regresses to 22\% at 7B with mean margin 0.99 -- the model becomes \emph{confidently more wrong} -- and only partially recovers to 35\% at 32B. Aggregate accuracy on CUAD rises monotonically with scale, hiding the per-field non-monotonic regression entirely. A developer using aggregate metrics would conclude 7B is sufficient; per-field analysis says otherwise.
 
 \subsection{Enumeration Values Regress Across Scale on CUAD}
 
@@ -276,7 +276,7 @@ Whether a field regresses depends on the schema, the training distribution, and 
 \texttt{expiration\_type} (3-way)    & 49\% (0.26) & 67\% (0.68) & 63\% (0.76) \\
 \bottomrule
 \end{tabular}
-\caption{CUAD baseline accuracy (mean margin) across scales for selected fields. Regressions in red. Fields whose majority gold class aligns with the base model's default (top three rows) are stable across scale; fields whose majority gold class is the opposite (\texttt{has\_anti\_assignment}, 78\% True) show non-monotonic regression. \texttt{renewal\_term} shows scale-dependent acquisition of the \texttt{not\_specified} sentinel between 0.5B and 7B.}
+\caption{CUAD baseline accuracy (mean top prob $-$ 2nd prob) across scales for selected fields. Regressions in red. Fields whose majority gold class aligns with the base model's default (top three rows) are stable across scale; fields whose majority gold class is the opposite (\texttt{has\_anti\_assignment}, 78\% True) show non-monotonic regression, e.g., drop to 22\% at high confidence 99\% at 7B. \texttt{renewal\_term} shows scale-dependent acquisition of the \texttt{not\_specified} sentinel between 0.5B and 7B.}
 \label{tab:cuad_per_field_scale}
 \end{table}
 
@@ -313,7 +313,7 @@ Speculatively, the cool reception of fine-tuning in some JSON-generation playboo
 
 \subsection{Presupposition Labeling: A Mitigation}\label{sec:pcl}
 
-The lexical analysis suggests a mitigation: if the input does not provide evidence for a field's value, the training label should reflect this rather than forcing a commitment. We draw on the \emph{uniqueness presupposition} from pronoun resolution \cite{baldwin1997cogniac}: a singular pronoun presupposes exactly one valid referent; when multiple referents are equally valid, the system should abstain rather than guess.
+The lexical analysis suggests a mitigation: if the input does not provide evidence for a field's value, the training label should reflect this rather than forcing a commitment. We draw on the \emph{uniqueness presupposition} from pronoun resolution \cite{baldwin1997cogniac}: a singular pronoun presupposes exactly one valid referent; when multiple referents are equally valid, the system should abstain rather than guess as a useful quality of inference. 
 
 Applied to structured output: for each constrained field, we ask whether the input provides sufficient evidence to determine the value. If not, we relabel the training target as \texttt{ambiguous} --- a third option alongside the original values. For the \texttt{refundable} field, the 57 examples where refundability is discussed retain their True/False labels; the 193 examples where it is not discussed are relabeled to \texttt{ambiguous}. The schema is updated accordingly: \texttt{refundable: ["True", "False", "ambiguous"]}.
 
@@ -322,20 +322,24 @@ We call this \textbf{presupposition labeling}: expanding the label set based on 
 \begin{table}[h]
 \centering
 \small
-\begin{tabular}{lccc}
+\begin{tabular}{lcccc}
 \toprule
-\textbf{Scale} & \textbf{2-way Std LoRA} & \textbf{3-way Std LoRA (PCL)} & \textbf{Change} \\
+\textbf{Scale} & \textbf{2-way Std LoRA} & \textbf{Random-ambig} & \textbf{PCL} & \textbf{Change} \\
+ & & \textbf{(3-way, random)} & \textbf{(3-way, cue-driven)} & \textbf{PCL vs 2-way} \\
 \midrule
-0.5B & 0.217 & \improve{0.171} & $-$21\% \\
-7B   & 0.382 & \improve{0.162} & $-$58\% \\
-32B  & 0.266 & \improve{0.146} & $-$45\% \\
+0.5B & 0.217 & 0.338 & \improve{0.171} & $-$21\% \\
+7B   & 0.382 & 0.287 & \improve{0.162} & $-$58\% \\
+32B  & 0.266 & 0.276 & \improve{0.146} & $-$45\% \\
 \bottomrule
 \end{tabular}
-\caption{Constrained-content loss (BOOLEAN+ENUM combined, token-weighted) on Flights with and without presupposition labeling. The combined bucket is necessary because PCL relabels \texttt{refundable} as a 3-way enum, moving its tokens from the BOOLEAN to the ENUM\_VALUE role; the same 360 constrained-content tokens are scored under both schemas. PCL produces a substantial improvement at every scale, largest where the std-LoRA boolean was stalling or regressing (7B, 32B). No architectural changes --- only the training labels are modified.}
+\caption{Constrained-content loss (BOOLEAN+ENUM combined, token-weighted) on Flights under three training regimes. The combined bucket is necessary because both 3-way conditions relabel \texttt{refundable} as a 3-value enum, moving its tokens from the BOOLEAN to the ENUM\_VALUE role; the same 360 constrained-content tokens are scored under all three schemas. \textbf{Random-ambig} is a control that relabels 193/250 = 77.2\% of training examples to \texttt{ambiguous} uniformly at random --- the same overall rate as cue-driven PCL .}
+%--- to isolate whether PCL's gain comes from the cue specifically or from any introduction of an abstain class. Random relabeling is \emph{worse} than 2-way std LoRA at 0.5B and 32B; PCL beats both at every scale. No architectural changes --- only the training labels are modified.}
 \label{tab:pcl}
 \end{table}
 
-Table~\ref{tab:pcl} reports a 21--58\% reduction in constrained-content loss across scales, including 45\% at 32B where std-LoRA had pushed the boolean role into regression. Only the training labels change; no architectural modifications. The mechanism is schema-mediated rather than human-mediated: the schema defines what values are \emph{structurally} valid; a presupposition check determines whether the input \emph{evidentially licenses} a commitment. In our experiments the check is a lexical cue (``refund'' for \texttt{refundable}); more sophisticated checks could derive automatically from input--field mutual information. The principle generalizes to CogNIAC's uniqueness presupposition for pronoun resolution \cite{baldwin1997cogniac}: when no input evidence distinguishes the allowed values, the training signal should encode abstention rather than force commitment.
+Table~\ref{tab:pcl} reports a 21--58\% reduction in constrained-content loss across scales, including 45\% at 32B where std-LoRA had pushed the boolean role into regression. Only the training labels change; no architectural modifications. The mechanism is schema-mediated rather than human-mediated: the schema defines what values are \emph{structurally} valid; a presupposition check determines whether the input \emph{evidentially licenses} a commitment. In our experiments the check is a lexical cue (``refund'' for \texttt{refundable}); more sophisticated checks could derive automatically from input--field mutual information. 
+
+A natural concern is whether PCL's improvement reflects the cue-driven relabeling specifically, or whether any introduction of an abstain class at the same rate would suffice. The \textbf{random-ambig} column of Table~\ref{tab:pcl} answers this: relabeling the same 77.2\% of training examples to \texttt{ambiguous} uniformly at random --- discarding the cue --- is \emph{worse} than 2-way std LoRA at 0.5B (0.338 vs.\ 0.217) and at 32B (0.276 vs.\ 0.266), and only modestly helpful at 7B (0.287 vs.\ 0.382) where std-LoRA was already heavily regressed. PCL beats random-ambig by 41--49\% at every scale. Adding an abstain class without a principled cue can actively confuse the model; the gain is contingent on relabeling the right examples, not merely on relabeling at the right rate.
 
 \textbf{CUAD: field-specific variance.} On CUAD's 11 fields, PCL-FT's benefit concentrates on fields whose pretrained prior conflicts with the task (\texttt{has\_anti\_assignment} 35$\rightarrow$61\%, \texttt{governing\_law} 25$\rightarrow$39\% at 32B); fields whose prior was already correct see neutral effect; and three fields \emph{regress} (e.g.\ \texttt{expiration\_type} 57$\rightarrow$39\% at 32B). The regressing fields share a property: their diagnostic clauses sit deeper in the contract than the 8000-character training-time truncation we use. Re-evaluating the same 32B PCL-FT checkpoint on full-context test contracts lifts aggregate accuracy 71$\rightarrow$85\% and recovers the regressions (\texttt{expiration\_type} 39$\rightarrow$53\%). PCL-FT is not a uniform win; per-field evaluation remains necessary, and training-time truncation choices determine which fields it can rescue.
 
@@ -349,25 +353,21 @@ Presupposition labeling fixes the regression at training time. A complementary q
 \begin{tabular}{lccc}
 \toprule
  & \textbf{Gold = True/False} & \textbf{Gold = ambiguous} & \\
-\textbf{Group} & mean margin & mean margin & baseline acc \\
+\textbf{Group} & top prob $-$ 2nd & top prob $-$ 2nd & baseline acc \\
 \midrule
 Discussed (Flights, $n=17$) & 0.36 & --- & 35\% \\
 Undiscussed (Flights, $n=33$) & --- & 0.22 & 0\% (forced commit) \\
 \bottomrule
 \end{tabular}
-\caption{Base Qwen 2.5 0.5B, Flights \texttt{refundable}. Margin doubles when the input contains lexical evidence; it stays flat when the field is underspecified. The signal for evidential gating is present in the base model.}
+\caption{Base Qwen 2.5 0.5B, Flights \texttt{refundable}. The top-vs-2nd probability gap nearly doubles when the input contains lexical evidence and stays flat when the field is underspecified --- the signal for evidential gating is present in the base model.}
 \label{tab:gating_flights}
 \end{table}
 
-On Flights, the margin discriminates discussed from undiscussed examples cleanly (Table~\ref{tab:gating_flights}). At $\theta = 0.35$ the base model abstains on 100\% of undiscussed golds while retaining 71\% committed accuracy on the discussed subset (up from 43\% under forced commitment). On CUAD's \texttt{expiration\_type} the same operating point reaches 76\% abstention on \texttt{not\_specified} golds and 82\% committed accuracy on the rest.
+On Flights, the margin discriminates discussed from undiscussed examples cleanly (Table~\ref{tab:gating_flights}). At pos-hoc $\theta = 0.35$ the base model abstains on 100\% of undiscussed golds while retaining 71\% committed accuracy on the discussed subset (up from 43\% under forced commitment). On CUAD's \texttt{expiration\_type} the same operating point reaches 76\% abstention on \texttt{not\_specified} golds and 82\% committed accuracy on the rest.
 
 Not every field cooperates: on CUAD's \texttt{renewal\_term} the base model's 0.5B distribution places near-zero probability on the \texttt{not\_specified} token (0\% abstention, 2\% accuracy); the model learns the sentinel between 0.5B and 7B (53\%/55\% accuracy at 7B/32B) but never closes the gap to the 66\% gold rate. Schema-level sentinels are scale-sensitive; PCL at training time is the remaining lever.
 
-\textbf{Margin calibration recovers at 32B.} Across most constrained fields, 7B produces the \emph{highest} mean margins (often $>0.95$) while 32B settles to $0.7$--$0.9$. High 7B margins reflect over-commitment --- the boolean role of \texttt{has\_anti\_assignment} on CUAD has 7B margin 0.99 at 22\% accuracy, vs.\ 32B margin 0.93 at 35\% accuracy. At 32B the distribution is less saturated, preserving the evidential calibration that margin gating reads; 32B is more useful for inference-time gating than 7B despite near-identical aggregate accuracy. Margin gating reads existing calibration; PCL aligns the training signal with it. The two combine: gating works best where calibration is preserved (32B+), PCL rescues smaller models and sharpens larger ones.
-
 \subsection{Head-to-Head: Training-Time and Inference-Time Interventions}\label{sec:head_to_head}
-
- The value of \theta has remained fixed throughout. 
 
 \begin{table}[t]
 \centering
@@ -395,19 +395,29 @@ CUAD        & 32B  & 66\% & 68\% @91\% & 76\% & \textbf{80\%} @90\% \\
 \label{tab:head_to_head}
 \end{table}
 
-PCL-FT helps in every row (+19/+19 on Flights, +38/+30 on Restaurants, +6/+10 on CUAD where truncation cuts off cue evidence). Gating adds 0--7\,pp on top of PCL-FT for 1--21\,pp of coverage; the two are non-redundant. The largest gating-only lifts are 0.5B and 32B Flights (58$\rightarrow$74\%@68\%, 72$\rightarrow$84\%@82\%) --- small models where fine-tuning is impractical, large models where calibration is preserved. Field-isolated: PCL-FT lifts Flights \texttt{refundable} from 12/26/26\%$\rightarrow$98/98/96\% argmax at 0.5B/7B/32B (gating adds nothing); on CUAD enums combined, 22$\rightarrow$43\% at 0.5B and 48$\rightarrow$56\% at 32B (neutral at 7B). The recall price is real: under abstain-as-failure scoring, effective accuracy is bounded by $\text{committed} \times \text{coverage}$, and PCL-FT argmax matches or beats PCL-FT + gate in every row. Use gating when abstention has a downstream path; use PCL-FT argmax when commit-or-fail is required.
+Overall results are what no developer wants to hear--it's complicated. PCL-FT helps in every row (+19/+19 on Flights, +38/+30 on Restaurants, +6/+10 on CUAD where truncation cuts off cue evidence). Gating adds 0--7\,pp on top of PCL-FT for 1--21\,pp of coverage; the two are non-redundant. The largest gating-only lifts are 0.5B and 32B Flights (58$\rightarrow$74\%@68\%, 72$\rightarrow$84\%@82\%) --- small models where fine-tuning is impractical, large models where calibration is preserved. Field-isolated: PCL-FT lifts Flights \texttt{refundable} from 12/26/26\%$\rightarrow$98/98/96\% argmax at 0.5B/7B/32B (gating adds nothing); on CUAD enums combined, 22$\rightarrow$43\% at 0.5B and 48$\rightarrow$56\% at 32B (neutral at 7B). The recall price is real: under abstain-as-failure scoring, effective accuracy is bounded by $\text{committed} \times \text{coverage}$, and PCL-FT argmax matches or beats PCL-FT + gate in every row. Use gating when abstention has a downstream path; use PCL-FT argmax when commit-or-fail is required.
 
 \subsection{Open Directions and Deployment Implications}
 
 Presupposition labeling addresses regressions caused by underspecified inputs; other sources --- gradient domination by trivial tokens, enum overfitting --- may need different interventions (per-role learning rate schedules, per-role early stopping, training-time structural awareness). Any structured-output task that mixes trivially-correct with substantively-uncertain decisions inherits the counter-current vulnerability; per-grammar-role thresholds (e.g., deploy when STRUCTURAL\,$<0.01$, flag when ENUM\,$>0.3$, require human review when BOOLEAN\,$>0.5$) are more informative than aggregate thresholds and cost one additional forward pass per evaluation example.
 
-\section{Related Work}
+%\section{Related Work}
 
-\textbf{LLM evaluation methodology} addresses contamination \cite{jacovi2023contamination}, metric gaming, and aggregate-vs-capability gaps; we contribute the structured-output instance --- aggregate loss hides per-grammar-role regressions. \textbf{Per-class analysis} (confusion matrices, per-class F1) is standard in classification; we apply the principle to structured generation, where ``classes'' are grammar roles. \textbf{LLM calibration} \cite{kadavath2022calibration} examines whether confidence matches accuracy; per-grammar-role decomposition is related but finer-grained --- it identifies which roles' predictions are reliable.
+%\textbf{LLM evaluation methodology} addresses contamination \cite{jacovi2023contamination}, metric gaming, and aggregate-vs-capability gaps; we contribute the structured-output instance --- aggregate loss hides per-grammar-role regressions. \textbf{Per-class analysis} (confusion matrices, per-class F1) is standard in classification; we apply the principle to structured generation, where ``classes'' are grammar roles. \textbf{LLM calibration} \cite{kadavath2022calibration} examines whether confidence matches accuracy; per-grammar-role decomposition is related but finer-grained --- it identifies which roles' predictions are reliable.
 
 \section{Conclusion}
 
-Aggregate loss hides counter-current fields whose loss \emph{rises} under fine-tuning while aggregate loss falls 44--81\%. The regressions are scale-dependent and traceable to a uniqueness-presupposition violation in training labels. \emph{Presupposition labeling} fixes it at training time; \emph{margin gating} catches residual under-confident commitments at inference; neither requires architectural change.
+Aggregate loss hides counter-current fields whose loss \emph{rises} under fine-tuning. The regressions are scale-dependent and traceable to what can be analyzed as a uniqueness-presupposition violation in training labels but that is far from proven. \emph{Presupposition labeling} fixes it at training time; \emph{margin gating} catches residual under-confident commitments at inference; neither requires architectural change so some progress can be made with existing tooling and infrastructure but we could use more progress in the direction of reliable structured generation as LLM assume greater significance in our infrastructure. 
+
+%\section*{Limitations}
+
+%\textbf{Three datasets.} Our findings rest on Flights, Restaurants, and CUAD --- the first three publicly available structured-output datasets we considered as proxies for the proprietary work that motivated this paper. We did not select for confirming behavior. The phenomenon is plausibly schema-idiosyncratic, but the fact that two of the three exhibit counter-current regression is suggestive of generality rather than evidence of it.
+
+%\textbf{One model family, modest scales.} We evaluate Qwen~2.5 at 0.5B, 7B, and 32B. The 7B and 32B variants are production-typical for fine-tuned structured extraction; we have observed qualitatively similar patterns in earlier proprietary work with Llama and Gemma, not reported here. Scaling to substantially larger foundation models was outside our compute budget.
+
+%\section*{Broader Impacts}
+
+%Structured-output extraction is increasingly deployed in pipelines where individual field predictions carry real consequences (booking, contracting, eligibility). Aggregate metrics readily mask per-field regressions in such systems. The diagnostic offered here makes that failure mode visible at evaluation time; presupposition labeling and margin gating are training- and inference-time mitigations that trade some recall for calibration --- a desirable trade when the cost of a confident-wrong commitment is high. We see no specific dual-use risk; the methods make existing pipelines more reliable rather than enabling new capabilities.
 
 \section*{Acknowledgments}
 
