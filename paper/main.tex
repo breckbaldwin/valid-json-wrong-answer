@@ -1,6 +1,6 @@
 \documentclass{article}
 
-\usepackage{neurips_2026}
+\usepackage[preprint]{neurips_2026}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -22,10 +22,9 @@
 \title{Valid JSON, Wrong Answer:\\Per-Role Regression Detection and\\Linguistic Presupposition Labeling for Structured Output}
 
 \author{%
-  Anonymous Author(s) \\
-  Affiliation \\
-  Address \\
-  \texttt{email}
+  Breck Baldwin \\
+  validjson.com \\
+  \texttt{breck@validjson.com}
 }
 
 \begin{document}
@@ -68,7 +67,7 @@ We fine-tune Qwen~2.5 Instruct at three scales (0.5B/7B/32B) on Schema-Guided Di
 \item A second SGD schema (restaurant booking) shows no regression --- the phenomenon is schema- and data-dependent.
 \end{itemize}
 
-A bit of linguistic theory motivates the mitigations detailed below: the enums and booleans carry a \emph{uniqueness presupposition} that can be exploited both at training time (presupposition labeling) and at inference time (margin gating). Code and data are released as supplementary material.\footnote{Anonymized repository; URL provided upon acceptance.}
+A bit of linguistic theory motivates the mitigations detailed below: the enums and booleans carry a \emph{uniqueness presupposition} that can be exploited both at training time (presupposition labeling) and at inference time (margin gating). Code and data are released at \url{https://github.com/validjson/valid-json-wrong-answer}.
 
 \section{Contributions and Relation to Prior Work}
 
